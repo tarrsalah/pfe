@@ -16,7 +16,7 @@
     \newpage
     
 \section{Les services web : Notions de base et technologies associées} 
-    Les Web services constituent une approche pour mettre en œuvre le paradigme de service, et peut être vue comme
+    Les services Web constituent une approche pour mettre en œuvre le paradigme de service, et peut être vue comme
     une instance de l'architecture orienté service.
 
     Dans cette section va parler aussi d'un socle technologique très sollicité, On va aussi Détailler l'architecture de base 
@@ -50,9 +50,26 @@
 	Brièvement, un service Web est une entité logiciel modulaire, auto-descriptive et autonome accessible 
 	via Internet.
 
-	% pourquoi les services web ?
-	% les avantages de l'utilisation des services web
-    
+	L'approche de service Web vise essentiellement quatre objectifs fondamentaux expliquant son grand succès:\\
+	\begin{description}
+	    \item[L'interopérabilité] : L'interopérabilité permet des applications écrites dans des langages 
+		de programmation différents et s’exécutant sur des plateformes différentes de communiquer entre elles. 
+		En manipulant différents standards que ce soit XML ou les protocoles d’Internet, les services Web garantissent
+		un haut niveau d’interopérabilité des applications et ceci indépendamment des plateformes sur lesquelles 
+		elles sont déployées et des langages de programmation dans lesquels elles sont écrites. Ainsi,
+		en s’appuyant sur un format d’échange de messages standard et sur l'ubiquité de l'infrastructure d’Internet,
+		l'interopérabilité est donc une caractéristique intrinsèque aux services Web.
+
+	    \item[Le couplage faible] : Le couplage est une métrique indiquant le niveau d’interaction entre deux ou plusieurs
+		composants logiciels. Deux composants sont dits couplés s’ils échangent de l'information. Nous parlons 
+		de couplage fort si les composants échangent beaucoup d’information et de couplage faible dans le cas contraire. 
+		Vu que la communication avec les services Web est réalisée via des messages décrits par le standard XML 
+		caractérisé par sa généricité et son haut niveau d’abstraction, les services Web permettent la coopération 
+		d’applications tout en garantissant un faible taux de couplage.  Par conséquent, il est possible de modifier
+		un service sans briser sa compatibilité avec les autres services composant l'application.
+	\end{description}
+
+
     \subsection{l'évolution des styles des services web}
     % Les architecture communes des services web
 	% SOAP vs REST
@@ -75,6 +92,7 @@
 	 \subsubsection{UDDI : l’annuaire de services Web }
 	     Link to next next section
 
+	     \newpage
 \section{Description des services web} 
     % introduction %TODO
     La description d’un service consiste à définir une interface exposant les opérations accomplies par le service et 
