@@ -4,7 +4,8 @@
 \usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm, bottom=3cm, bindingoffset=2cm]{geometry}
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx}
+% \usepackage{graphicx}
+\usepackage[demo]{graphicx}
 \usepackage{verbatim}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -14,7 +15,7 @@
 \usepackage{titlesec}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
-\linespread{1.5}
+\linespread{1.2}
 
 
 \author{TAOURIRIT Salah Eddine}
@@ -26,7 +27,9 @@
 \tableofcontents
 \selectlanguage{french}  
 \pagenumbering{arabic}
+\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textsf{#1}}
 % \part{Problématique et étude bibliographique}
+
     \chapter{Introduction}
     \input{content/introduction}
     \chapter{Concepts de base du paradigme service Web} 
