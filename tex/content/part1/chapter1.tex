@@ -1,56 +1,52 @@
 %!TEX root = ../../main.tex
-
 % < 20 pages
 
 % \chapter{Concepts de base du paradigme service Web}
-% Une introduction implicite du chapite %TODO
-    % Dans ce chapite on va faire une vue générale sur les technologies des services web sémantiques, Pour bien 
-    % introduire le chapite prochain sur la composition des services web.
+% Une introduction implicite du chapitre %TODO
+    % Dans ce chapitre on va faire une vue générale sur les technologies des services web sémantiques, Pour bien 
+    % introduire le chapitre prochain sur la composition des services web.
 
-    Ce chapite établit une étude du fondement théorique de notre travail à savoir les concepts de base du paradigme
+    Ce chapitre établit une étude du fondement théorique de notre travail à savoir les concepts de base du paradigme
     service Web.  Nous commençons d'abord par présenter un tour d'horizon définissant l'infrastructure et
     l'architecture de référence de ce paradigme ainsi que quelque définitions proposées par la littérature. Ensuite
-    nous nous intéressons à montrer les limitation de l'approche classique de la description des services web et l'apport
+    nous nous intéressons à montrer les limitation de l'approche syntaxique de la description des services web et l'apport
     de l'enrichissement sémantique de cette dernière aux processus de la découverte et la composition des services Web.\\
+    % TODO: complete the introduction
 
     \newpage
     
 \section{Les services web : Notions de base et technologies associées} 
-    % Introduction pour las sections TODO 
-    % Dans cette section on va introduire les notions de bases sur les services web et les services web sémantique
     Les Web services constituent une approche pour mettre en œuvre le paradigme de service, et peut être vue comme
     une instance de l'architecture orienté service.
 
     Dans cette section va parler aussi d'un socle technologique très sollicité, On va aussi Détailler l'architecture de base 
-    d'un service web , introduire l'architecture étendus.
+    d'un service web, ensuite nous introduisons l'architecture étendus.
 
     \subsection{Définitions et caractéristiques}
 	Les services Web sont la technologie la plus connue et la plus populaire dans le monde industriel et
 	académique pour la mise en place d’architectures à services. Les Web services ont été proposés initialement par
-	IBM et Microsoft, puis en partie standardisés par le consortium du World Wide Web : le W3C, définis par:
+	IBM et Microsoft, puis en partie standardisés par le consortium du World Wide Web (W3C) et définis
+       	\cite{w3c_ws_arch:2014:Misc} par:
 
-	``Un service Web est un système conçu pour permettre l'interopérabilité des applications à travers un réseau.
-	Il est caractérisé par un format de description compréhensible automatiquement par la machine (en particulier WSDL).
-       	D’autres systèmes peuvent interagir avec le service Web selon la manière prescrite dans sa description
-	et en utilisant des messages SOAP, généralement transmis via le protocole HTTP et sérialisés en XML et en d’autres 
-	tandards du Web''
+	\emph{``Un service web est un système conçu pour permettre d'interopérabilité des applications à travers un réseau. 
+	    Il est caractérisé par un format de description interprétable/compréhensible automatiquement par la machine,
+	    D'autres systèmes peuvent interagir avec le Service Web selon la manière prescrite dans sa description et en
+	    utilisant des messages SOAP, généralement transmis vie le protocole HTTP et sérialisés en XML et en d'autres 
+	    standards du Web ''}\\
+
+	Selon M. P. Papazoglou \cite{papazoglou2003service}: 
+
+	\emph{``Les services Web sont des éléments auto-descriptifs et indépendants des plateformes qui permettent 
+	    la composition faible coût d’applications distribuées.  Les services Web effectuent des fonctions allant 
+	    de simples requêtes des processus métiers complexes. Les services Web permettent aux organisations d’exposer 
+	    leurs programmes résultats sur Internet (ou sur un intranet) en utilisant des langages (basés sur XML)
+	    et des protocoles standardisés et de les mettre en œuvre via une interface auto-descriptive basée sur 
+	    des formats standardisés et ouverts''}\\
 
 	Un service Web est une application réseau capable d'interagir par le moyen des standards et des protocoles 
 	via des interfaces bien spécifiés, dans lequel est décris utilisant un langage de description fonctionnel
-	standardisé\cite{curbera2001web}.
+	standardisé \cite{curbera2001web}\\
 
-	Il ya plusieurs définitions:
-
-	Selon le W3C \cite{w3c_ws_arch:2014:Misc}:  ``Un service web est un système conçu pour permettre d'interopérabilité
-	des applications à travers un réseau. Il est caractérisé par un format de description 
-	interprétable/compréhensible automatiquement par la machine, D'autres systèmes peuvent interagir avec le
-	Service Web selon la manière prescrite dans sa description et en utilisant des messages SOAP, généralement
-	transmis vie le protocole HTTP et sérialisés en XML et en d'autres standards du Web ''
-   	% une défintion de  papazoglou 
-
-        Selon \cite{papazoglou2003service} et \cite{papazoglou2007service} :Les services Web etc..
-
-	% ma définition !!
 	Brièvement, un service Web est une entité logiciel modulaire, auto-descriptive et autonome accessible 
 	via Internet.
 
@@ -69,7 +65,7 @@
 	Les services Web sont construits autour de standards qui sont SOAP, WSDL et UDDI assurant respectivement leur
 	transport, leur description et leur découverte.\\
 	Il faut cites les technologies suivantes: \cite{w3c_ws_arch:2014:Misc}, \cite{soap_1.2_primer:2014:Misc}
-	\cite{wsdl1.1:2014:Misc}, \cite{wsdl20:2014:Misc}, \cite{bray1998extensible} \\
+	\cite{wsdl1.1:2014:Misc}, \cite{wsdl20:2014:Misc}, \cite{bray1998extensible} \\jk
 	%conclure cette subsection par la mention du problème de la découverte automatique des services Web et l'insuffisance
 
 	 \subsubsection{SOAP : les communications entre services Web } 
@@ -88,23 +84,23 @@
         \subsection{Ajout de la sémantique}
 	    % la description syntaxique est insuffisante.
 	    A Semantic Web service is defined as an extension of Web service description through the Semantic Web annotations,
-	    created in order to facilitate the automation of service interactions \cite{mcilraith2001semantic}. Therefore, from 
+	    created in order to facilitate the automation of service interactions . Therefore, from 
 	    he perspective of the functionality offered, Semantic Web services are still Web services. The only difference lays
 	    in their description and the consequent benefits that follow, namely the reduction of human involvement in 
-	    he performed interactions.\cite{vargas2009challenges}\\
+	    he performed interactions.\\
 
 	    - insuffisance de description syntaxique des services web :(WSDL)
-	    \cite{decker2000semantic}, \cite{sivashanmugam2003adding} What is semantic web? \\
+	     % What is semantic web? \\
 	     RDF? \cite{lassila1999resource}\\
 	    ``Ontologie is a representation of a shared conceptualisation of of a particular domain'' 
-	     \cite{decker2000semantic}\\
+	     % \cite{decker2000semantic}\\
 
 	\subsubsection{Annotations sémantiques};
 	  % WSDL-S
 	  % SAWSDL
 	\subsubsection{Ontologies de services} 
 	  % OWL-S
-	  \cite{ankolekar2002daml}, \cite{mcguinness2004owl} , \cite{mcilraith2003bringing}
+	  \cite{mcguinness2004owl} , \cite{mcilraith2003bringing}
 	  % WSMO
 
 \section{Découverte des services web}

@@ -1,6 +1,7 @@
 %!TEX root = main.tex;
 
-\documentclass[a4paper, 11pt]{report}
+\documentclass[a4paper, oneside, 12pt]{report}
+\usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm, bottom=3cm, bindingoffset=2cm]{geometry}
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -8,7 +9,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{hyperref}
-\usepackage{bibentry}
+\usepackage{blindtext}
 \usepackage{url}
 \usepackage{titlesec}
 \usepackage{lmodern}
@@ -24,7 +25,6 @@
 \maketitle 
 \tableofcontents
 \selectlanguage{french}  
-
 \pagenumbering{arabic}
 \part{Problématique et étude bibliographique}
     \chapter{Introduction}
@@ -36,6 +36,6 @@
 \part{Approche proposée: conception et implémentation}  %50
     % étude mathématique de problématique
 \part{conclusion et perspectives}
-\bibliographystyle{plain}
-\bibliography{references};
+\bibliographystyle{ieeetr}
+\bibliography{references}
 \end{document}
