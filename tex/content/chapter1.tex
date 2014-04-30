@@ -28,8 +28,8 @@
 	% ARE PROGRAMMABLE COMPONENTS which use the World-
 	% Wide-Web as a medium for describing the functionality of real world ser-
 	% vices in a computer manipulable way (Kuropka and Nern, 2006)
-	Les Web services ont été proposés initialement par IBM et Microsoft, puis en partie standardisés par le 
-	consortium du World Wide Web (\emph{W3C}) et définis \cite{w3c_ws_arch:2014:Misc} par:
+	Les Web services ont été proposés initialement par IBM \cite{kreger2001web} et Microsoft, puis en partie standardisés par le 
+	consortium du World Wide Web (\emph{W3C}) et définis \cite{WSA} par:
 
 	\emph{``Un service web est un système conçu pour permettre d'interopérabilité des applications à travers un réseau. 
 	    Il est caractérisé par un format de description interprétable/compréhensible automatiquement par la machine,
@@ -37,24 +37,22 @@
 	    utilisant des messages SOAP, généralement transmis vie le protocole HTTP et sérialisés en XML et en d'autres 
 	    standards du Web ''}.\\
 
-	From the definition, Web services are the following attributes:
-	% REF [ENTERPRISE SERVICES] entrepriseServices.pdf
+	Cette définition surligne les caractéristiques clés de services Web \cite{fremantle2002enterprise}:
 
-	% TODO to translate
-	\begin{description} % Les caractéristiques des services web
-	    \item[Web-based protocols] : 
-		Web services based on SOAP-over-HTTP are designed to work over the public Internet. 
-		The use of HTTP for transport means these protocols can traverse firewalls, and can work 
-		in a heterogenous environment.
+	\begin{description} % Les caractéristiques des services web Selon la définition de W3C
+	    \item[Basés sur des protocoles Internet] : 
+		L'utilisation de \textsc{HTTP} pour le transport des informations permet de traverser les contrôles
+		d'accès dans un environnement hétérogène.
 
-	    \item[Interoperability] : 
-		SOAP defines a common standard that allows differing systems to interoperate. For example, the tooling 
-		allows Visual Basic clients to access Java server components and vice versa.
+	    \item[Interopérables] : 
+		Le standard \textsc{SOAP} \cite{box2000simple} définit comme étant un protocole destiné à l'échange 
+		de messages structurés véhiculé généralement sur \textsc{HTTP} et sérialisé en \textsc{XML}, 
+		permettant le support pour l'interopérabilité.
 
-	    \item[XML-based] : 
-		The Extensible Markup Language is a standard framework for creating machine-read- able documents. 
-		Managed by the World Wide Web Consortium (www.w3.org), XML is an open Web standard for creating 
-		interoperable standard documents.
+	    \item[Basés sur XML] : 
+		Le méta-langage de balisage \textsc{XML} \textit{eXtensible Markup Language} est un standard Web ouvert 
+		par \textsc{W3C} \cite{bray1998extensible} offre un cadre standard pour la définition de documents 
+		Interprétable par des machines.
 	\end{description}
 	\newpage
 	M. P. Papazoglou \cite{papazoglou2003service} apporte une autre définition de services web:\\
@@ -67,41 +65,54 @@
 	    des formats standardisés et ouverts''}\\
 	% TODO make a comment on this def and introduce the web services composition idea !
 
-	L'approche de service Web vise essentiellement quatre objectifs fondamentaux expliquant son grand succès:\\
-	\begin{description} % Les Objectives des services web
-	    \item[L'interopérabilité] : L'interopérabilité permet des applications écrites dans des langages 
-		de programmation différents et s’exécutant sur des plateformes différentes de communiquer entre elles. 
-		En manipulant différents standards que ce soit XML ou les protocoles d’Internet, les services Web garantissent
-		un haut niveau d’interopérabilité des applications et ceci indépendamment des plateformes sur lesquelles 
-		elles sont déployées et des langages de programmation dans lesquels elles sont écrites. Ainsi,
-		en s’appuyant sur un format d’échange de messages standard et sur l'ubiquité de l'infrastructure d’Internet,
-		l'interopérabilité est donc une caractéristique intrinsèque aux services Web.
+	 L'approche de service Web vise essentiellement quatre objectifs fondamentaux expliquant son 
+	 grand succès\cite{huhns2005service}:\\
 
-	    \item[Le couplage faible] : Le couplage est une métrique indiquant le niveau d’interaction entre deux ou plusieurs
-		composants logiciels. Deux composants sont dits couplés s’ils échangent de l'information. Nous parlons 
-		de couplage fort si les composants échangent beaucoup d’information et de couplage faible dans le cas contraire. 
-		Vu que la communication avec les services Web est réalisée via des messages décrits par le standard XML 
-		caractérisé par sa généricité et son haut niveau d’abstraction, les services Web permettent la coopération 
-		d’applications tout en garantissant un faible taux de couplage.  Par conséquent, il est possible de modifier
-		un service sans briser sa compatibilité avec les autres services composant l'application.
+	 L'approche de service Web permettre 
 
-	    \item[La réutilisation] : L'avantage de la réutilisation est qu'elle permet de réduire les coût de 
-		développement en réutilisant des composants déjà existants. Dans le cas de l'approche service Web, 
-		l'objectif de la séparation des opérations en services autonomes est en effet pour promouvoir leur 
-		réutilisation. Ainsi, lorsqu'un client définit ses exigences, il est généralement possible de réutiliser
-		des services déjà existants pour satisfaire une partie des exigences. Ceci facilite la maintenance de
-		l'application et permet un gain de temps considérable.
+	
+	% \begin{description} % Les Objectives des services web
+	%     \item[L'interopérabilité] : L'interopérabilité permet des applications écrites dans des langages 
+	% 	de programmation différents et s’exécutant sur des plateformes différentes de communiquer entre elles. 
+	% 	En manipulant différents standards que ce soit XML ou les protocoles d’Internet, les services Web garantissent
+	% 	un haut niveau d’interopérabilité des applications et ceci indépendamment des plateformes sur lesquelles 
+	% 	elles sont déployées et des langages de programmation dans lesquels elles sont écrites. Ainsi,
+	% 	en s’appuyant sur un format d’échange de messages standard et sur l'ubiquité de l'infrastructure d’Internet,
+	% 	l'interopérabilité est donc une caractéristique intrinsèque aux services Web.
 
-	    \item[La découverte et la composition automatiques] : 
-		La découverte et la composition sont des étapes importantes qui permettent la réutilisation des services. 
-		En effet, il faudra être en mesure de trouver et de composer un service afin de pouvoir en faire usage. 
-		En exploitant les technologies offertes par Internet et en utilisant un ensemble de standards pour la 
-		publication, la recherche et la composition, l'approche services Web tend ` diminuer autant que possible 
-		l'intervention humaine en vue de permettre une découverte et une composition automatiques des services
-		les plus complexes. En effet, pour réaliser son application, un développeur peut simplement interroger 
-		un moteur de recherche de services afin de trouver le service adéquat et à l'aide de langages de 
-		coordination appropriés il peut l'intégrer avec le reste des services de son application.
-	\end{description}
+	%     \item[Le couplage faible] : Le couplage est une métrique indiquant le niveau d’interaction entre deux ou plusieurs
+	% 	composants logiciels. Deux composants sont dits couplés s’ils échangent de l'information. Nous parlons 
+	% 	de couplage fort si les composants échangent beaucoup d’information et de couplage faible dans le cas contraire. 
+	% 	Vu que la communication avec les services Web est réalisée via des messages décrits par le standard XML 
+	% 	caractérisé par sa généricité et son haut niveau d’abstraction, les services Web permettent la coopération 
+	% 	d’applications tout en garantissant un faible taux de couplage.  Par conséquent, il est possible de modifier
+	% 	un service sans briser sa compatibilité avec les autres services composant l'application.
+
+	%     \item[La réutilisation] : L'avantage de la réutilisation est qu'elle permet de réduire les coût de 
+	% 	développement en réutilisant des composants déjà existants. Dans le cas de l'approche service Web, 
+	% 	l'objectif de la séparation des opérations en services autonomes est en effet pour promouvoir leur 
+	% 	réutilisation. Ainsi, lorsqu'un client définit ses exigences, il est généralement possible de réutiliser
+	% 	des services déjà existants pour satisfaire une partie des exigences. Ceci facilite la maintenance de
+	% 	l'application et permet un gain de temps considérable.
+
+	%     \item[La découverte et la composition automatiques] : 
+	% 	La découverte et la composition sont des étapes importantes qui permettent la réutilisation des services. 
+	% 	En effet, il faudra être en mesure de trouver et de composer un service afin de pouvoir en faire usage. 
+	% 	En exploitant les technologies offertes par Internet et en utilisant un ensemble de standards pour la 
+	% 	publication, la recherche et la composition, l'approche services Web tend ` diminuer autant que possible 
+	% 	l'intervention humaine en vue de permettre une découverte et une composition automatiques des services
+	% 	les plus complexes. En effet, pour réaliser son application, un développeur peut simplement interroger 
+	% 	un moteur de recherche de services afin de trouver le service adéquat et à l'aide de langages de 
+	% 	coordination appropriés il peut l'intégrer avec le reste des services de son application.
+	% \end{description}
+
+	% TODO orginze this mess
+	% * Permettre l'interopéabilité des applications, indépendamment des plates-formes et des langages
+
+	% * Permettre le couplage faible des applications (évolution indépendante) et leur coopération 
+	% via des interfaces de haut niveau d'abstraction (services globaux)
+
+	% * Permettre une coopération des applications avec un minimum d'intervention humaine
 
 	Un service Web est une application réseau capable d'interagir par le moyen des standards et des protocoles 
 	via des interfaces bien spécifiés, dans lequel est décris utilisant un langage de description fonctionnel
@@ -113,35 +124,59 @@
     \subsection{L'évolution des styles des services web}
     % Les architecture communes des services web
 	% SOAP vs REST
-	% pourquoi SOAP ?
 	% les limites de la'approche SOAP 
+	% pourquoi SOAP ?
 	``the next section provides a short history of web services, with emphasis on the kinds of software challenges
 	that web services are meant to address.''
 
     \subsection{L'architecture de référence et technlogies associées}
+    \cite{curbera2002unraveling} \cite{gottschalk2002introduction} \cite{WSA}
+    % The basic SOAP/WSDL/UDDI standards are a particular implementation of the concept of a service-
+    % oriented architecture.
+
     %TODO the main arch goes here !
-	Les services Web sont construits autour de standards qui sont SOAP, WSDL et UDDI assurant respectivement leur
+	Les services Web sont construits autour de standards qui sont \textsc{SOAP}, \textsc{WSDL} et \textsc{UDDI} assurant respectivement leur
 	communication, leur description et leur découverte .
 
-	\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbf{#1}}
-	\begin{description}
-	    \item[SOAP] : 
-		\textit{Simple Object Access Protocol} est un protocole simple et léger basé sur \textsc{XML} spécifié 
-		par le \textsc{W3C} \cite{soap_1.2_primer:2014:Misc}. Il assure la communication entre clients et services 
-		par échange de messages au travers du Web.  Il utilise principalement le protocole \textsc{HTTP(S)} 
+	% \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbf{#1}}
+	% \begin{description} % SOAP + WSDL + UDDI
+	\subsubsection{SOAP}
+		\textit{Simple Object Access Protocol} initialement défini par Microsoft et IBM \cite{box2000simple}
+	       	est un protocole simple et léger basé sur \textsc{XML}, spécifié et standardisé par le \textsc{W3C}  
+		\cite{mitra2003soap}. Il assure la communication entre clients et services par échange de messages au 
+		travers du Web.  Il utilise principalement le protocole \textsc{HTTP} 
 		(\textit{HyperText Tranfer Protocol}) pour le transport de messages.\\
 
-		Un message SOAP est composé de:
+		Un message \textsc{SOAP} est un document XML constitué d'une enveloppe \textsc{SOAP} obligatoire, 
+		d'un en-tête \textsc{SOAP} facultatif et d'un corps \textsc{SOAP} obligatoire. 
+
 		\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textsf{#1}}
 		\begin{description} 
-		    \item[En-tête]: 
+		    \item[Envelope]:  
+			est le premier élément du document XML représentant le message,
+			il englobe l'en-tête et le corps.
+
+		    \item[En-tête]:
+		       	est un mécanisme générique permettant d'ajouter des fonctions à un message
+			\textsc{SOAP} de façon décentralisée sans accord préalable entre les parties en communication. 
+			\textsc{SOAP} définit quelques attributs qui peuvent être utilisés pour indiquer qui doit gérer 
+			cette fonctionnalité et si cette fonctionnalité est facultative ou obligatoire. 
+
 		    \item[Corps]: 
+			contient les informations obligatoires destinées à l'ultime destinataire du message.
+			\textbf{SOAP} définit un élément pour le corps, qui est l'élément \texttt{Fault} (Erreur) 
+			utilisé pour rapporter les erreurs.
 		\end{description}
-	    \item[WSDL] : Le WSDL composé de plusieurs 
-	    \item[UDDI] : UDDI est un annuire des services
-	\end{description}
+
+	%     \item[WSDL] : 
+	% 	Le WSDL \textit{The Web Services Description Language} \cite{chinnici2007web} composé de plusieurs 
+	% 	% talk about the WSDL 2.0
+	%     \item[UDDI] : 
+	% 	Le UDDI \textit{Universal Description, Discovery and Integration} \cite{clement2004uddi} est un annuire des services
+	% \end{description}
 
      %conclure cette subsection par la mention du problème de la découverte automatique des services Web et l'insuffisance
+     % de la description syntaxique.
      \newpage
 
 \section{Description des services web} 
@@ -174,7 +209,6 @@
 
 \section{Découverte des services web}
    % parler de l' UDDI,le matching sémantique !!
-
 
 \section{Conclusion}
     % faire un petit récapitulatif sur les technologies des services web 
