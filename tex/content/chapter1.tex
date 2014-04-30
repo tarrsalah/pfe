@@ -140,18 +140,28 @@
 
 	% \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbf{#1}}
 	% \begin{description} % SOAP + WSDL + UDDI
+	\newpage
 	\subsubsection{SOAP}
-		\textit{Simple Object Access Protocol} initialement défini par Microsoft et IBM \cite{box2000simple}
+		\textsc{SOAP} initialement défini par Microsoft et IBM \cite{box2000simple}
 	       	est un protocole simple et léger basé sur \textsc{XML}, spécifié et standardisé par le \textsc{W3C}  
 		\cite{mitra2003soap}. Il assure la communication entre clients et services par échange de messages au 
-		travers du Web.  Il utilise principalement le protocole \textsc{HTTP} 
-		(\textit{HyperText Tranfer Protocol}) pour le transport de messages.\\
+		travers du Web.  Il utilise principalement le protocole \textsc{HTTP} pour le transport de messages.\\
 
 		Un message \textsc{SOAP} est un document XML constitué d'une enveloppe \textsc{SOAP} obligatoire, 
-		d'un en-tête \textsc{SOAP} facultatif et d'un corps \textsc{SOAP} obligatoire. 
+		d'un en-tête \textsc{SOAP} facultatif et d'un corps \textsc{SOAP} obligatoire, un example d'un 
+		document \textsc{SOAP} est représenté dans la figure \ref{fig:soap-message-example}.
 
+		\input{figures/soap_message_example.tex}
+
+		% random graph example
+		\begin{figure}
+		    \centering
+		    \input{figures/soa_arch.tex}
+		\end{figure}
+
+		
 		\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textsf{#1}}
-		\begin{description} 
+		\begin{description} % SOAP components
 		    \item[Envelope]:  
 			est le premier élément du document XML représentant le message,
 			il englobe l'en-tête et le corps.
@@ -175,7 +185,7 @@
 	% 	Le UDDI \textit{Universal Description, Discovery and Integration} \cite{clement2004uddi} est un annuire des services
 	% \end{description}
 
-     %conclure cette subsection par la mention du problème de la découverte automatique des services Web et l'insuffisance
+     % conclure cette subsection par la mention du problème de la découverte automatique des services Web et l'insuffisance
      % de la description syntaxique.
      \newpage
 
