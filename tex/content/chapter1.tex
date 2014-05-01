@@ -13,8 +13,6 @@
     de l'enrichissement sémantique de cette dernière aux processus de la découverte et la composition des services Web.\\
     % TODO: complete the introduction
 
-    \newpage
-    
 \section{Les services web : Notions de base et technologies associées} 
     Les services Web constituent une approche pour mettre en œuvre le paradigme de service, et peut être vue comme
     une instance de l'architecture orienté service.
@@ -28,8 +26,8 @@
 	% ARE PROGRAMMABLE COMPONENTS which use the World-
 	% Wide-Web as a medium for describing the functionality of real world ser-
 	% vices in a computer manipulable way (Kuropka and Nern, 2006)
-	Les Web services ont été proposés initialement par IBM \cite{kreger2001web} et Microsoft, puis en partie standardisés par le 
-	consortium du World Wide Web (\emph{W3C}) et définis \cite{WSA} par:
+	Les Web services ont été proposés initialement par IBM \cite{kreger2001web} et Microsoft, puis en partie 
+	standardisés par le \acrshort{w3c} \footnote{\url{http://www.w3.org/}} et définis \cite{WSA} par:\\
 
 	\emph{``Un service web est un système conçu pour permettre d'interopérabilité des applications à travers un réseau. 
 	    Il est caractérisé par un format de description interprétable/compréhensible automatiquement par la machine,
@@ -39,6 +37,7 @@
 
 	Cette définition surligne les caractéristiques clés de services Web \cite{fremantle2002enterprise}:
 
+	\SpecialItem
 	\begin{description} % Les caractéristiques des services web Selon la définition de W3C
 	    \item[Basés sur des protocoles Internet] : 
 		L'utilisation de \textsc{HTTP} pour le transport des informations permet de traverser les contrôles
@@ -54,7 +53,7 @@
 		par \textsc{W3C} \cite{bray1998extensible} offre un cadre standard pour la définition de documents 
 		Interprétable par des machines.
 	\end{description}
-	\newpage
+
 	M. P. Papazoglou \cite{papazoglou2003service} apporte une autre définition de services web:\\
 
 	\emph{``Les services Web sont des éléments auto-descriptifs et indépendants des plateformes qui permettent 
@@ -65,58 +64,19 @@
 	    des formats standardisés et ouverts''}\\
 	% TODO make a comment on this def and introduce the web services composition idea !
 
-	 L'approche de service Web vise essentiellement quatre objectifs fondamentaux expliquant son 
-	 grand succès\cite{huhns2005service}:\\
-
-	 L'approche de service Web permettre 
-
-	
-	% \begin{description} % Les Objectives des services web
-	%     \item[L'interopérabilité] : L'interopérabilité permet des applications écrites dans des langages 
-	% 	de programmation différents et s’exécutant sur des plateformes différentes de communiquer entre elles. 
-	% 	En manipulant différents standards que ce soit XML ou les protocoles d’Internet, les services Web garantissent
-	% 	un haut niveau d’interopérabilité des applications et ceci indépendamment des plateformes sur lesquelles 
-	% 	elles sont déployées et des langages de programmation dans lesquels elles sont écrites. Ainsi,
-	% 	en s’appuyant sur un format d’échange de messages standard et sur l'ubiquité de l'infrastructure d’Internet,
-	% 	l'interopérabilité est donc une caractéristique intrinsèque aux services Web.
-
-	%     \item[Le couplage faible] : Le couplage est une métrique indiquant le niveau d’interaction entre deux ou plusieurs
-	% 	composants logiciels. Deux composants sont dits couplés s’ils échangent de l'information. Nous parlons 
-	% 	de couplage fort si les composants échangent beaucoup d’information et de couplage faible dans le cas contraire. 
-	% 	Vu que la communication avec les services Web est réalisée via des messages décrits par le standard XML 
-	% 	caractérisé par sa généricité et son haut niveau d’abstraction, les services Web permettent la coopération 
-	% 	d’applications tout en garantissant un faible taux de couplage.  Par conséquent, il est possible de modifier
-	% 	un service sans briser sa compatibilité avec les autres services composant l'application.
-
-	%     \item[La réutilisation] : L'avantage de la réutilisation est qu'elle permet de réduire les coût de 
-	% 	développement en réutilisant des composants déjà existants. Dans le cas de l'approche service Web, 
-	% 	l'objectif de la séparation des opérations en services autonomes est en effet pour promouvoir leur 
-	% 	réutilisation. Ainsi, lorsqu'un client définit ses exigences, il est généralement possible de réutiliser
-	% 	des services déjà existants pour satisfaire une partie des exigences. Ceci facilite la maintenance de
-	% 	l'application et permet un gain de temps considérable.
-
-	%     \item[La découverte et la composition automatiques] : 
-	% 	La découverte et la composition sont des étapes importantes qui permettent la réutilisation des services. 
-	% 	En effet, il faudra être en mesure de trouver et de composer un service afin de pouvoir en faire usage. 
-	% 	En exploitant les technologies offertes par Internet et en utilisant un ensemble de standards pour la 
-	% 	publication, la recherche et la composition, l'approche services Web tend ` diminuer autant que possible 
-	% 	l'intervention humaine en vue de permettre une découverte et une composition automatiques des services
-	% 	les plus complexes. En effet, pour réaliser son application, un développeur peut simplement interroger 
-	% 	un moteur de recherche de services afin de trouver le service adéquat et à l'aide de langages de 
-	% 	coordination appropriés il peut l'intégrer avec le reste des services de son application.
-	% \end{description}
-
-	% TODO orginze this mess
+	 
+	% TODO organize this mess
 	% * Permettre l'interopéabilité des applications, indépendamment des plates-formes et des langages
 
 	% * Permettre le couplage faible des applications (évolution indépendante) et leur coopération 
 	% via des interfaces de haut niveau d'abstraction (services globaux)
 
 	% * Permettre une coopération des applications avec un minimum d'intervention humaine
+	Curbera et al. \cite{curbera2001web} de ça part propose la définition suivante :\\
 
-	Un service Web est une application réseau capable d'interagir par le moyen des standards et des protocoles 
+	\emph{``Un service Web est une application réseau capable d'interagir par le moyen des standards et des protocoles 
 	via des interfaces bien spécifiés, dans lequel est décris utilisant un langage de description fonctionnel
-	standardisé \cite{curbera2001web}.\\
+	standardisé''} .\\
 
 	% Brièvement, un service Web est une entité logiciel modulaire, auto-descriptive et autonome accessible 
 	% via Internet.
@@ -133,66 +93,120 @@
     \cite{curbera2002unraveling} \cite{gottschalk2002introduction} \cite{WSA}
     % The basic SOAP/WSDL/UDDI standards are a particular implementation of the concept of a service-
     % oriented architecture.
+    % cette sous-section va détaillé SOAP et pas de WSDL et UDDI
 
     %TODO the main arch goes here !
-	Les services Web sont construits autour de standards qui sont \textsc{SOAP}, \textsc{WSDL} et \textsc{UDDI} assurant respectivement leur
-	communication, leur description et leur découverte .
+	Les services Web sont construits autour de standards qui sont \acrshort{soap}, \acrshort{wsdl} et \acrshort{uddi} 
+	assurant respectivement leur communication, leur description et leur découverte .
 
 	% \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbf{#1}}
 	% \begin{description} % SOAP + WSDL + UDDI
-	\newpage
-	\subsubsection{SOAP}
-		\textsc{SOAP} initialement défini par Microsoft et IBM \cite{box2000simple}
-	       	est un protocole simple et léger basé sur \textsc{XML}, spécifié et standardisé par le \textsc{W3C}  
-		\cite{mitra2003soap}. Il assure la communication entre clients et services par échange de messages au 
-		travers du Web.  Il utilise principalement le protocole \textsc{HTTP} pour le transport de messages.\\
+	\subsubsection{Communication: SOAP}
+		\textsc{SOAP}, développé par IBM\footnote{\url{http://www.ibm.com}} et
+		Microsoft\footnote{\url{http://www.microsoft.com}} \cite{box2000simple}, est une recommandation \textsc{W3C} 
+		qui le définit comme étant un protocole destiné à l'échange de messages structurés, permettant 
+		d'invoquer des applications sur des réseaux distribués \cite{mitra2003soap}.
 
-		Un message \textsc{SOAP} est un document XML constitué d'une enveloppe \textsc{SOAP} obligatoire, 
-		d'un en-tête \textsc{SOAP} facultatif et d'un corps \textsc{SOAP} obligatoire, un example d'un 
-		document \textsc{SOAP} est représenté dans la figure \ref{fig:soap-message-example}.
+		Ce protocole \textsc{SOAP} est basé sur \textsc{XML} pour mettre en place un mécanisme valable
+		d'échange des données indépendant du modèle de programmation de l'application et du système
+		d’exploitation.
 
-		\input{figures/soap_message_example.tex}
+	      	Un message \textsc{SOAP} est un document XML constitué d'une enveloppe \textsc{SOAP} obligatoire, 
+		d'un en-tête \textsc{SOAP} facultatif et d'un corps \textsc{SOAP} obligatoire:
 
-		% random graph example
-		\begin{figure}
-		    \centering
-		    \input{figures/soa_arch.tex}
-		\end{figure}
+		% TODO pick something real from the app.
+		% \input{figures/soap_message_example.tex}
 
-		
-		\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textsf{#1}}
+		% TODO SOAP message structure
+		% \begin{figure}
+		%     \centering
+		% \end{figure}
+
+		\SpecialItem
 		\begin{description} % SOAP components
-		    \item[Envelope]:  
-			est le premier élément du document XML représentant le message,
-			il englobe l'en-tête et le corps.
+		    \item[Enveloppe]:  
+			L'élément racine du message \textsc{SOAP} , définissant le contexte du message, son
+		       destinataire et son contenu, il englobe l'en-tête et le corps.
 
-		    \item[En-tête]:
-		       	est un mécanisme générique permettant d'ajouter des fonctions à un message
-			\textsc{SOAP} de façon décentralisée sans accord préalable entre les parties en communication. 
-			\textsc{SOAP} définit quelques attributs qui peuvent être utilisés pour indiquer qui doit gérer 
-			cette fonctionnalité et si cette fonctionnalité est facultative ou obligatoire. 
+		    \item[En-tête \texttt{<Header>}]:
+		       	Un mécanisme générique permettant d'ajouter des fonctions à un message
+			\textsc{SOAP} d'une manière modulaire sans accord préalable entre les parties en communication. 
+			Des exemples d'extension qui peuvent être implémentées comme des en-têtes sont des 
+			authentifications, des transactions, des paiements
 
-		    \item[Corps]: 
-			contient les informations obligatoires destinées à l'ultime destinataire du message.
-			\textbf{SOAP} définit un élément pour le corps, qui est l'élément \texttt{Fault} (Erreur) 
+		    \item[Corps \texttt{<Body>}]: 
+			Contient les informations obligatoires destinées à l'ultime destinataire du message, il sert 
+			comme un container pour les informations mandataires à l'intention du récepteur du message.
+			\textsc{SOAP} définit un élément pour le corps, qui est l'élément \texttt{<Fault>} (Erreur) 
 			utilisé pour rapporter les erreurs.
 		\end{description}
 
-	%     \item[WSDL] : 
-	% 	Le WSDL \textit{The Web Services Description Language} \cite{chinnici2007web} composé de plusieurs 
-	% 	% talk about the WSDL 2.0
-	%     \item[UDDI] : 
-	% 	Le UDDI \textit{Universal Description, Discovery and Integration} \cite{clement2004uddi} est un annuire des services
-	% \end{description}
+	\subsubsection{Description: WSDL}
+	Le langage de description des services Web \acrshort{wsdl} \cite{chinnici2007web} est une recommandation du
+	\acrshort{w3c}, maintenant dans sa deuxième version.  \textsc{WSDL} est basé sur \textsc{XML}
+	pour décrire les fonctions opérationnelles de services Web. la description des\textsc{WSDL} sont 
+	composées d'un interface et des implementation. L'interface est une définition abstraite et 
+	réutilisable service qui peut être référencée par plusieurs implémentations. 	
+	% TODO WSDL 2.0
 
-     % conclure cette subsection par la mention du problème de la découverte automatique des services Web et l'insuffisance
+	Le WSDL sert à décrire :
+	% TODO
+	\renewcommand{\labelitemi}{$\bullet$}
+	\begin{itemize} % ce que WSDL offrire
+	    \item le protocole de communication (SOAP RPC ou SOAP orienté message)
+	    \item le format de messages requis pour communiquer avec ce service
+	    \item les méthodes que le client peut invoquer
+	    \item la localisation du service.
+	\end{itemize}
+        % TODO reference the section
+	\subsubsection{Découverte: UDDI}
+	\acrshort{uddi} \cite{clement2004uddi} est une standardisation pour la publication et la découverte 
+	des services Web initialement conçue et spécifiée par le Consortium de standards OASIS\footnote{\url{https://www.oasis-open.org}},
+	et il est le résultat d'un accord d'un ensemble d’industriels Ariba\footnote{\url{http://www.ariba.com/}}, 
+	IBM, Microsoft, etc en vue de devenir le registre standard de la technologie des services Web.
+
+	\textsc{UDDI} complète les technologies basiques de services Web en permettant de créer un \textbf{annuaire} 
+	permettant de localiser sur le réseau le services web recherchés, les services référencés dans \textsc{UDDI} 
+	sont accessibles par l'intermédiaire du protocole de communication \textsc{SOAP}, et la publication des 
+	informations concernant les fournisseurs et les services doit être spécifiée en \textsc{XML} afin que la 
+	recherche et l'utilisation soient faites de manière \textbf{dynamique} et \textbf{automatique}.
+
+	Un \textsc{UDDI} peut appartenir à un domaine public comme internet ou tout autre réseau accessible à un nombre
+       	non limité d’utilisateurs, comme il peut appartenir à un domaine restreint comme l'intranet d’une entreprise 
+	ou d'un groupe d'entreprise.
+	%TODO UDDI discovery and binding example
+
+	Les données stockés dans l'UDDI sont structurées (en \textsc{XML}) et organisées en trois parties 
+	connues:
+
+	% TODO
+	\begin{description} % les pages d'UDDI
+	    \item[Pages blanches]:
+		fournissent des descriptions générales sur les fournisseurs de services à savoir le nom de 
+		l'entreprise qui fournit le service, son identificateur commercial, ses adresses, etc.
+
+	    \item[Pages jaunes]:
+		comportent des descriptions détaillées sur les fournisseurs de services catalogués dans les pages 
+		blanches d'une de façon taxonomique (selon secteurs d'activités par exemple).
+
+	    \item[Pages vertes]:
+		fournissent des informations techniques sur les services Web catalogués. Ces informations incluent 
+		la description du service, les adresses \textsc{URL}, du processus de son utilisation 
+		et des protocoles utilisés pour son invocation.
+
+	\end{description}
+	% TODO talks about OWL-S and why UDDI approach is semantically poor
+
+     % TODO Conclure cette subsection par la mention du problème de la découverte automatique des services Web et l'insuffisance
      % de la description syntaxique.
-     \newpage
 
 \section{Description des services web} 
     % introduction %TODO
     La description d’un service consiste à définir une interface exposant les opérations accomplies par le service et 
     lier chaque opération à sa réalisation. Dans cette section nous présentons les modèles de description des services
+
+    %TODO page 66 medjahed.pdf
+    \cite{medjahed2004thesis}
     	\subsection{Description syntaxique de services}
 	% WSDL 1.1 , WSDL 2.0
         \subsection{Ajout de la sémantique}

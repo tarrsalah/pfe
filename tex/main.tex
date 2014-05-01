@@ -1,18 +1,24 @@
 %!TEX root = main.tex;
 
 \documentclass[a4paper, oneside, 12pt]{report}
+% \documentclass[12pt, a4paper, oneside]{memoir}
 \usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm, bottom=3cm, bindingoffset=2cm]{geometry}
+
 \usepackage[french]{babel}
+% \usepackage[francais]{babel}
+% \usepackage{natbib}
+
+% \usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-% \usepackage[demo]{graphicx}
+\usepackage{grffile}
 \usepackage{verbatim}
 \usepackage{verbatimbox}
 \usepackage{float}
 \usepackage{color}
-\usepackage{standalone}
-\usepackage{tikz}
-\usetikzlibrary{arrows}
+% \usepackage{standalone}
+% \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{hyperref}
@@ -20,9 +26,11 @@
 \usepackage{url}
 \usepackage{titlesec}
 \usepackage{lmodern}
-\usepackage[T1]{fontenc}
 \setcounter{secnumdepth}{5} 
-\linespread{1.2}
+\linespread{1.5}
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
 
 
 \author{TAOURIRIT Salah Eddine}
@@ -30,22 +38,32 @@
 
 \date{\today\\version 0.1}
 \begin{document}
+
+%description style
+\let\Item\item
+\newcommand\SpecialItem{\renewcommand\item[1][]{\Item[\textbullet~\sffamily ##1]}}
+\renewcommand\enddescription{\endlist\global\let\item\Item}
+\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textsf{#1}} 
+
 \maketitle 
+% \frontmatter
 \tableofcontents
 \selectlanguage{french}  
 \pagenumbering{arabic}
-\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textsf{#1}}
+\input{acronyms.tex}
 % \part{Problématique et étude bibliographique}
 
-    \chapter{Introduction}
-    \input{content/introduction}
-    \chapter{Concepts de base du paradigme service Web} 
-    \input{content/chapter1}
-    \chapter{La composition des services web}
-    \chapter{Les bases de données graphs}
-% \part{Approche proposée: conception et implémentation}  %50
-    % étude mathématique de problématique
-% \part{conclusion et perspectives}
-\bibliographystyle{ieeetr}
+\chapter{Introduction}
+\input{content/introduction}
+\chapter{Concepts de base du paradigme service Web} 
+\input{content/chapter1}
+\chapter{La composition des services web}
+\chapter{Les bases de données graphs}
+
+\bibliographystyle{plain-fr}
+
 \bibliography{references}
+% TODO style glossaries
+% Acronyms
+\printglossaries
 \end{document}
