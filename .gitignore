@@ -1,6 +1,7 @@
 *
 !*/
 !.gitignore
+!tex/makefile
 !*.tex
 !*.md
 !*.bib
