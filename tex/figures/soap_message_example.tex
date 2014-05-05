@@ -1,25 +1,15 @@
-% plain verbatim SOAP message example
-\begin{verbbox}
-    <?xml version="1.0" encoding="utf-8"?>
-    <soapenv:Envelope
-    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <soapenv:Body>
-    <symbol xmlns="http://stock.samples">XXX</symbol>
-    </soapenv:Body>
-    </soapenv:Envelope>
-\end{verbbox}
-
 \begin{figure}[h]
-    \centering
-    \setlength{\fboxrule}{0.00001pt}
-    \setlength{\fboxsep}{5pt}
-
-    \fbox{
-	\theverbbox
-    }
+    \begin{Verbatim}[frame=single, fontsize=\scriptsize]
+	<?xml version="1.0" encoding="utf-8"?>
+	<soapenv:Envelope
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<soapenv:Body>
+	<symbol xmlns="http://stock.samples">XXX</symbol>
+	</soapenv:Body>
+	</soapenv:Envelope>
+    \end{Verbatim}
     \caption{Exemple de message SOAP}
     \label{fig:soap-message-example}
 \end{figure}
-
