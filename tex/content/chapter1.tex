@@ -208,6 +208,29 @@
     %TODO page 66 medjahed.pdf
     \cite{medjahed2004thesis}
     	\subsection{Description syntaxique de services}
+	 \cite{baryannis2010}
+	 Le langage de description de services Web \acrshort{wsdl} \cite{chinnici2007web} fournit un modèle et un
+	 langage basé sur \textsc{XML} de description de services Web.  Un fichier \textsc{WSDL} comprend une 
+	 description des fonctionnalités d'un service, mais il ne se préoccupe pas de l'implantation de celles-ci. 
+	 Il contient aussi des informations concernant la localisation du service, ainsi que les données et les 
+	 protocoles à utiliser pour l'invoquer. En pratique, le document \textsc{WSDL}
+	 \footnote{\url{http://www.w3.org/TR/wsdl20/}} est un document \textsc{XML} qui se divise en 
+	 deux parties \cite{elie2010}:
+
+	\SpecialItem 
+	\begin{itemize}  % WSDL two main parts
+	    \item La définition \textbf{abstraite} de l'interface du service avec les opérations supportées par
+		le service Web, ainsi que leurs paramètres et les types des données.
+
+	    \item La définition \textbf{concrète} de l'accès au service avec la localisation, par une adresse
+		réseau du fournisseur de service \footnote{Service Endpoint}, et les protocoles spécifiques d'accès.
+	\end{itemize}
+	\newpage
+	Un document \textsc{WSDL} constitué de quatre éléments principaux \cite{chinnici2007web}: 
+	\texttt{<Types>}, \texttt{<Interface>}, \texttt{<Binding>}, \texttt{<Service>}.
+
+	\renewcommand{\descriptionlabel}[1]{\hspace{1.5cm}\texttt{#1}} 
+	\begin{description} % WSDL20 elements
 	% WSDL 1.1 , WSDL 2.0
         \subsection{Ajout de la sémantique}
 	    % la description syntaxique est insuffisante.
