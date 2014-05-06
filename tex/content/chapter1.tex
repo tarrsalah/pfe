@@ -200,32 +200,44 @@
      % TODO Conclure cette subsection par la mention du problème de la découverte automatique des services Web et l'insuffisance
      % de la description syntaxique.
 
-\section{Description des services web} 
-    % introduction %TODO
-    La description d’un service consiste à définir une interface exposant les opérations accomplies par le service et 
-    lier chaque opération à sa réalisation. Dans cette section nous présentons les modèles de description des services
 
-    %TODO page 66 medjahed.pdf
-    \cite{medjahed2004thesis}
+\section{Description des services web} 
+    % \cite{sivashanmugam2003adding}
+    % \cite{mcilraith2003bringing}
+    % \cite{vargas2009challenges}
+    % \cite{mcilraith2001semantic}
+    % \cite{medjahed2004thesis}
+
+    % TODO Refactore and eliminate some repetition 
+    % TODO  get more from \¢ite{lopez2008selection}
+    Une description du service Web est un document par lequel le fournisseur de services communique au client 
+    les spécifications pour invoquer le service Web, Dans cette section nous présentons les modèles de description
+    des services web. Nous détaillons dans la première sous-section le modèle de description syntaxique \acrshort{wsdl}
+    \cite{chinnici2007web} développé et standardisé par le \acrshort{w3c} qui est devenu un élément essentiel 
+    dans des technologies services web. Ensuite en mettant l'accent sur les limitations majeurs de cette
+    approche dans un environnement hétérogène qui nécessite une certaine degré de dynamisité et d'automatisation.
+    Finalement, Nous présentons les divers approches sémantiques visant à préciser la description d'un
+    service en insistant sur les approches d'annotation sémantique et sur les ontologies de services.
+	\newpage
     	\subsection{Description syntaxique de services}
-	 \cite{baryannis2010}
+	% TODO exoend this introduction and give some examples form a real senario
 	 Le langage de description de services Web \acrshort{wsdl} \cite{chinnici2007web} fournit un modèle ainsi
-	 qu' un langage basé sur \textsc{XML} de description de services Web.  Un fichier \textsc{WSDL} comprend une 
+	 qu'un langage basé sur \textsc{XML} de description de services Web.  Un fichier \textsc{WSDL} comprend une 
 	 description des fonctionnalités d'un service, mais il ne se préoccupe pas de l'implantation de celles-ci. 
 	 Il contient aussi des informations concernant la localisation du service, ainsi que les données et les 
 	 protocoles à utiliser pour l'invoquer. En pratique, le document \textsc{WSDL}
 	 \footnote{\url{http://www.w3.org/TR/wsdl20/}} est un document \textsc{XML} qui se divise en 
 	 deux parties \cite{elie2010}:
 
-	\SpecialItem 
-	\begin{itemize}  % WSDL two main parts
+
+       	 \SpecialItem 
+	 \begin{itemize}  % WSDL two main parts
 	    \item La définition \textbf{abstraite} de l'interface du service avec les opérations supportées par
 		le service Web, ainsi que leurs paramètres et les types des données.
 
 	    \item La définition \textbf{concrète} de l'accès au service avec la localisation, par une adresse
 		réseau du fournisseur de service \footnote{Service Endpoint}, et les protocoles spécifiques d'accès.
-	\end{itemize}
-	\newpage
+	 \end{itemize}
 	% TODO exemple pratique d'un document WSDL associé avec le document SOAP de la section précédente
 	Un document \textsc{WSDL} constitué de quatre éléments principaux \cite{chinnici2007web}: 
 	\texttt{<Types>}, \texttt{<Interface>}, \texttt{<Binding>}, \texttt{<Service>}.
