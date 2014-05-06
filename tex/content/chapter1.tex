@@ -226,12 +226,71 @@
 		réseau du fournisseur de service \footnote{Service Endpoint}, et les protocoles spécifiques d'accès.
 	\end{itemize}
 	\newpage
+	% TODO exemple pratique d'un document WSDL associé avec le document SOAP de la section précédente
 	Un document \textsc{WSDL} constitué de quatre éléments principaux \cite{chinnici2007web}: 
 	\texttt{<Types>}, \texttt{<Interface>}, \texttt{<Binding>}, \texttt{<Service>}.
 
+	 \cite{baryannis2010}
+	 \cite{elie2010}
+	 \cite{lopez2008selection}
 	\renewcommand{\descriptionlabel}[1]{\hspace{1.5cm}\texttt{#1}} 
 	\begin{description} % WSDL20 elements
-	% WSDL 1.1 , WSDL 2.0
+
+	    \item[<Types>]: 
+		L'élément \texttt{Types} sert à un conteneur définissant les données figurant dans les messages 
+		échangés par le service. \textsc{WSDL} supporte des types élémentaires prédéfinis (tels que les entiers,
+	       	les chaînes de caractères et les dates). Si les données échangées possèdent une structure particulière, 
+		il est possible de les décrire à travers un schéma XML \cite{part20012}.
+		
+	    \item[<Interface>]:
+		Les interfaces\textsc{WDSL} offrent une manière abstraite de décrire la fonctionnalité du service,
+		Contrairement à la représentation concrète offerte par les éléments de \texttt{<Bindings>} et 
+		de \texttt{<Services>} qui sera décrit plus tard. 
+		Une interface \texttt{WSDL} est constitué d'un ensemble d'opérations, chacun d'entre eux décrivant 
+		d'une simple interaction entre le service et le client. Une opération décrit un séquence des messages
+		d'entrées/sorties ou un modèle d'échange de message \footnote{message exchange pattern} suivie lorsque
+		l'opération est invoqué. Pour chaque message contenu dans le motif \footnote{pattern},
+	       	un type de message est spécifié à l'aide des types qui ont été définis précédemment dans le document. 
+		\textsc{WSDL} contient huit modèles de messages prédéfinis, mais on peut facilement définir de nouveaux.
+	    %TODO refactor this part
+	    \item[<Binding>]: \cite{elie2010} \cite{baryannis2010}
+		L'élément \texttt{Binding} reprend les opérations de l'élément \texttt{<Interface>} et leurs associe 
+		un protocole de transfert et des spécifications des formats de données de message.  
+		La définition des protocoles de communication utilisés pour l'invocation du service Web permet 
+		d'établir le lien, d'une part, entre le document et les messages \textsc{SOAP} et d'autre part,
+	       	entre les messages \textsc{SOAP} et les opérations invoquées.  
+
+		% A WSDL binding specifies concrete message format and transmission protocol details
+		% for an interface. Each operation in a WSDL description must be associated with a
+		% binding. Several typical binding extensions are defined in WSDL 2.0 such as SOAP
+		% binding or HTML binding, but the service provider is free to use others provided that
+		% they are supported by the client and the service toolkits. The syntax for bindings
+		% parallels the syntax of interfaces, since each interface construct has a binding counter-
+		% part. A binding can either be reusable, meaning that it is applicable to any interface,
+		% or not.
+
+	    \item[<Service>]:
+		Cet élément définit la localisation du service Web décrit. Pour chaque
+		interface décrite, un élément service lui est associé. Le sous-élément \texttt{<endpoint>} définit un
+		port d’accès en référençant l’élément \texttt{<binding>} associé et en déclarant l'\textsc{URL} 
+		localisant le service (avec l’attribut \texttt{<address>}). 	    	
+
+		% A WSDL service element specifies a single interface that the service will support, and
+		% a list of endpoint locations where that service can be accessed. Each endpoint must
+		% also reference a previously defined binding to indicate what protocols and transmis-
+		% sion formats are to be used at that endpoint. A service is only permitted to have
+		% one interface but there are workarounds for a service to be able to expose multiple
+
+		% précise l’adresse ou les adresses aux-quelles se trouve le service. Un <service> est un ensemble 
+		% de <port>. Un <port> spécifie une adresse pour un <binding> donné. Par exemple
+
+		% Cet élément définit la localisation du service Web décrit. Pour chaque
+		% interface décrite, un élément service lui est associé. Le sous-élément endpoint définit un
+		% port d’accès en référençant l’élément binding associé et en déclarant l’URL localisant le
+		% service (avec l’attribut address). Ceci permet qu’une interface d’un service possède plus d’une
+		% localisation (i.e. plus d’un élément endpoint) pour répondre aux problèmes d’indisponibilité.
+	\end{description}
+
         \subsection{Ajout de la sémantique}
 	    % la description syntaxique est insuffisante.
 	    A Semantic Web service is defined as an extension of Web service description through the Semantic Web annotations,
