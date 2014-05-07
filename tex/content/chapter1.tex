@@ -20,7 +20,7 @@
     Dans cette section va parler aussi d'un socle technologique très sollicité, On va aussi Détailler l'architecture de base 
     d'un service web, ensuite nous introduisons l'architecture étendus.
 
-    \subsection{Définitions et caractéristiques}
+    \subsection{Définitions et caractéristiques } 
 	Les services Web sont la technologie la plus connue et la plus populaire dans le monde industriel et
 	académique pour la mise en place d’architectures à services. 
 	% ARE PROGRAMMABLE COMPONENTS which use the World-
@@ -72,7 +72,7 @@
 	% via des interfaces de haut niveau d'abstraction (services globaux)
 
 	% * Permettre une coopération des applications avec un minimum d'intervention humaine
-	Curbera et al. \cite{curbera2001web} de ça part propose la définition suivante :\\
+	Curbera et al. \cite{curbera2001web} de ça part proposent la définition suivante :\\
 
 	\emph{``Un service Web est une application réseau capable d'interagir par le moyen des standards et des protocoles 
 	via des interfaces bien spécifiés, dans lequel est décris utilisant un langage de description fonctionnel
@@ -90,17 +90,65 @@
 	that web services are meant to address.''
 
     \subsection{L'architecture de référence et technlogies associées}
-    \cite{curbera2002unraveling} \cite{gottschalk2002introduction} \cite{WSA}
-    % The basic SOAP/WSDL/UDDI standards are a particular implementation of the concept of a service-
-    % oriented architecture.
-    % cette sous-section va détaillé SOAP et pas de WSDL et UDDI
+	\cite{curbera2002unraveling} \cite{gottschalk2002introduction} \cite{kreger2001web} \cite{WSA}
+	% The basic SOAP/WSDL/UDDI standards are a particular implementation of the concept of a service-
+	% oriented architecture.
+	% cette sous-section va détaillé SOAP et pas de WSDL et UDDI
+	Cette architecture a été proposée afin de promouvoir l’interopérabilité et l’extensibilité des services Web
 
-    %TODO the main arch goes here !
+	Dans l'ensemble, une architecture complète de services Web est constitué d'un fournisseur de servicee
+	\footnote{Providers}, un annuaire de services \footnote{Service Registry}, et un client 
+	\footnote{Service Requester} de service.  La figure x montre comment ces trois rôles interagissent.\\
+
+	\SpecialItem
+	\begin{description} % TODO tranlate: Les Rôles dans une architecture WSA
+	    \item[Le fournisseur]
+		A service provider provides the interface for the Web service and the implementation of the
+		application. The service provider is also responsible for creating the definition of the service and
+		publishing that definition to meet the Universal Description, Discovery, and Integration (UDDI)
+		specification.
+
+	    \item[L'annuaire]
+		A service registry is a way in which Web services are formally published. The service registry is based
+		on the UDDI specification and reflects information about services provided by the service provider. The
+		service registry provides a service requester with a Web Services Description Language (WSDL) service
+		description and a Uniform Resource Locator (URL) that points to the service itself.
+
+	    \item[Le client]
+		A service requester is the consumer of a Web service and uses the service registry to gain information
+		about, and access to, a Web service.
+
+	\end{description}
+
+	For an application to take advantage of Web Services, three behaviors must take place:
+	publication of service descriptions, lookup or finding of service descriptions, and binding or
+	invoking of services based on the service description. These behaviors can occur singly or
+	iteratively. In detail, these operations are:
+	\SpecialItem 
+	\begin{description}% TODO tranlate: WS actions
+	    \item[Publish]
+		To be accessible, a service description needs to be published so that the
+		service requestor can find it. Where it is published can vary depending upon the
+		requirements of the application (see “Service Publication” for more details).
+
+	    \item[Find]
+		In the find operation, the service requestor retrieves a service description directly
+		or queries the service registry for the type of service required (see “Service Discovery”
+		for more details). The find operation can be involved in two different lifecycle phases for
+		the service requestor: at design time to retrieve the service’s interface description for
+		program development, and at runtime to retrieve the service’s binding and location
+		description for invocation.
+
+	    \item[Bind]
+		Eventually, a service needs to be invoked. In the bind operation the service requestor invokes 
+		or initiates an interaction with the service at runtime using the binding details in the service 
+		description to locate, contact and invoke the service.  
+	\end{description}
+
+	% \begin{description} % SOAP + WSDL + UDDI
 	Les services Web sont construits autour de standards qui sont \acrshort{soap}, \acrshort{wsdl} et \acrshort{uddi} 
 	assurant respectivement leur communication, leur description et leur découverte .
 
-	% \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbf{#1}}
-	% \begin{description} % SOAP + WSDL + UDDI
 	\subsubsection{Communication: SOAP}
 		\textsc{SOAP}, développé par IBM\footnote{\url{http://www.ibm.com}} et
 		Microsoft\footnote{\url{http://www.microsoft.com}} \cite{box2000simple}, est une recommandation \textsc{W3C} 
@@ -115,7 +163,8 @@
 		d'un en-tête \textsc{SOAP} facultatif et d'un corps \textsc{SOAP} obligatoire:
 
 		% TODO pick something real from the app.
-		\input{figures/soap_message_example.tex}
+		% go to the annexes part
+		% \input{figures/soap_message_example.tex}
 
 		% TODO SOAP message structure
 		% \begin{figure}
@@ -141,11 +190,11 @@
 			utilisé pour rapporter les erreurs.
 		\end{description}
 
-	\subsubsection{Description: WSDL}
+	\subsubsection{Description: WSDL} %TODO rewrite
 	Le langage de description des services Web \acrshort{wsdl} \cite{chinnici2007web} est une recommandation du
 	\acrshort{w3c}, maintenant dans sa deuxième version.  \textsc{WSDL} est basé sur \textsc{XML}
-	pour décrire les fonctions opérationnelles de services Web. la description des\textsc{WSDL} sont 
-	composées d'un interface et des implementation. L'interface est une définition abstraite et 
+	pour décrire les fonctions opérationnelles de services Web. La description des\textsc{WSDL} sont 
+	composées d'un interface et des implémentations. L'interface est une définition abstraite et 
 	réutilisable service qui peut être référencée par plusieurs implémentations. 	
 	% TODO WSDL 2.0
 
@@ -218,7 +267,7 @@
     approche dans un environnement hétérogène qui nécessite une certaine degré de dynamisité et d'automatisation.
     Finalement, Nous présentons les divers approches sémantiques visant à préciser la description d'un
     service en insistant sur les approches d'annotation sémantique et sur les ontologies de services.
-	\newpage
+
     	\subsection{Description syntaxique de services}
 	% TODO exoend this introduction and give some examples form a real senario
 	 Le langage de description de services Web \acrshort{wsdl} \cite{chinnici2007web} fournit un modèle ainsi
@@ -238,6 +287,7 @@
 	    \item La définition \textbf{concrète} de l'accès au service avec la localisation, par une adresse
 		réseau du fournisseur de service \footnote{Service Endpoint}, et les protocoles spécifiques d'accès.
 	 \end{itemize}
+
 	% TODO exemple pratique d'un document WSDL associé avec le document SOAP de la section précédente
 	Un document \textsc{WSDL} constitué de quatre éléments principaux \cite{chinnici2007web}: 
 	\texttt{<Types>}, \texttt{<Interface>}, \texttt{<Binding>}, \texttt{<Service>}.
@@ -304,39 +354,152 @@
 	\end{description}
 
         \subsection{Ajout de la sémantique}
+	    % Pour pallier le manque de sémantique de
+	    % WSDL, plusieurs approches proposent de rajouter une couche au dessus de WSDL
+	    % complétant la description syntaxique par des précisions sémantiques.
+	    % \cite{lopez2008selection}
 	    Malgré les améliorations apportées au standard \textsc{WSDL} dans son deuxième version
 	    \cite{chinnici2007web}, la description du service reste uniquement au niveau fonctionnel, 
 	    c'est-à-dire qu'elle contient la manière dont on peut utiliser le service et non ce
 	    que fait le service, le standard \textsc{WSDL} est limité à l'énumération des opérations et 
 	    à la description des types des paramètres d'entrée et de sortie associés, elle ne caractérise 
 	    pas la sémantique de la fonctionnalité accomplie par le service. Par conséquent, la description
-	    \textsc{WSDL} reste insuffisante lors du processus de sélection, découverte et de composition. 
+	    \textsc{WSDL} reste insuffisante lors du processus de sélection. 
 	    Pour pallier cette Difficulté, plusieurs approches proposent de rajouter 
 	    une couche au dessus sémantique de \textsc{WSDL} complétant la description syntaxique par 
 	    des précisions sémantiques.\\
+	    % explain the problem in the context if web services composition  using ...
+	    % \cite{bartalos2011effective}
 
-	    Dans un premier temps, présente tout d'abord la définition des services Web sémantiques, puis étudie les
-	    langages émergeants qui permettent de décrire ce type de services Web.
+	    Dans un premier temps, on va essayer de clarifier la notion d'un services Web sémantique,
+	    puis étudie les langages émergeants qui permettent de décrire ce type de services Web.
+	    
+	    \subsubsection{Définition des services Web sémantiques} 
+	    % TODO the semantic web stack in the appendix 
+
 	    % la description syntaxique est insuffisante.
-	    A Semantic Web service is defined as an extension of Web service description through the Semantic Web annotations,
-	    created in order to facilitate the automation of service interactions . Therefore, from 
-	    he perspective of the functionality offered, Semantic Web services are still Web services. The only difference lays
-	    in their description and the consequent benefits that follow, namely the reduction of human involvement in 
-	    he performed interactions.\\
+	    % A Semantic Web service is defined as an extension of Web service description through the Semantic Web annotations,
+	    % created in order to facilitate the automation of service interactions . Therefore, from 
+	    % he perspective of the functionality offered, Semantic Web services are still Web services. The only difference lays
+	    % in their description and the consequent benefits that follow, namely the reduction of human involvement in 
+	    % he performed interactions.\\
 
-	    - insuffisance de description syntaxique des services web :(WSDL)
-	     % What is semantic web? \\
-	     RDF? \cite{lassila1999resource}\\
-	    ``Ontologie is a representation of a shared conceptualisation of of a particular domain'' 
-	     % \cite{decker2000semantic}\\
+	    % What is semantic web? 
+	    
+	    % Le Web tel que nous le connaissons aujourd'hui est encore conforme à la vision initial 
 
-	\subsubsection{Annotations sémantiques};
-	  % WSDL-S
-	  % SAWSDL
-	\subsubsection{Ontologies de services} 
-	  % OWL-S
-	  \cite{mcguinness2004owl} , \cite{mcilraith2003bringing}
-	  % WSMO
+	    % Le Web a été conçu principalement pour une utilisation par les humains. Néanmoins, il existe un effort
+	    % visant à automatiser son utilisation et pour apporter le Web plus accessible pour les machines
+
+	    % \cite{bartalos2011effective}
+	    % The Web was primarily designed for use by humans. Nevertheless, there is an ef-
+	    % fort to automate its use and bring the Web more accessible for machines. This has
+	    % brought forward the need for machine processable representations of semantically
+	    % rich information. This has brought forward the need for machine processable representations
+	    % of semantically rich information: a vision at the heart of the Semantic Web
+
+	    L'objectif premier du Web sémantique est de définir et lier les ressources du Web afin de simplifier
+	    leur utilisation, leur découverte, leur intégration et leur réutilisation dans le plus grand nombre
+	    d'applications \cite{berners2001semantic}. Le Web sémantique doit fournir l'accès à ces ressources par
+	    l'intermédiaire de descriptions sémantiques exploitables et compréhensibles par des machines. En effet,
+	    Les technologies du Web sémantique complètent le Web actuel avec des outils sémantiques. Il ne s'agit donc
+	    pas de créer un nouveau Web ou un Web séparé de l'existant : ce Web de données repose entièrement sur
+	    les technologies et concepts qui ont fait le succès du Web tel que nous le connaissons aujourd'hui
+	    \cite{bertails2010web}.
+
+	    La réalisation du Web sémantique trouve ces racines dans le développement des langages de balisage inspiré
+	    par des travaux issue de la communié AI \cite{mcilraith2001semantic}, tels que 
+	    \textsc{OIL} \cite{fensel2001oil}, \textsc{DAML+OIL} \cite{horrocks2002daml+oil} et \textsc{DAML+OTN} 
+	    \cite{mcguinness2003daml} (ces deux derniers langages sont parties de la famille \acrshort{daml}).
+
+	    Ces langaes ont une sémantique bien définies et permettent le balisage et la manipulation des taxonomique
+	    complexe et Des relations logiques entre les entités sur le Web.
+
+	    % \cite{lopez2008selection}
+	    Cette description repose sur des ontologies. Selon [Gruber, 1993], une ontologie est une spécification
+	    explicite d'une conceptualisation. Une conceptualisation est un modèle abstrait qui représente la
+	    manière dont les personnes conçoivent les choses réelles dans le monde et une spécification explicite
+	    signifie que les concepts et les relations d'un modèle abstrait reçoivent des noms et des définitions
+	    explicites [Gruber, 1993]. Le Web sémantique est devenu un domaine à part entière, preuve en est la
+	    création en 2001 du groupe de travail sur ce sujet par le \textsc{W3C}.
+
+	    %  % Semantic web services
+	    % \cite{fensel2001oil}
+
+	    % What I need here ?
+	    % the base 
+	    % \cite{lopez2008selection}
+
+	    % \cite{berners2001semantic} % semantic web
+	    % \cite{bray1998extensible} % XML
+	    % \cite{part20012} % XML schema
+	    % \cite{lassila1999resource} %RDF
+	    % \cite{brickley2000resource} % RDFS
+	    % \cite{mcguinness2004owl} % OWL
+	    % \cite{decker2000semantic} % The semantic web: The roles of XML and RDF
+	    % \cite{gruber1993translation} % get ontologies def
+	    % \cite{uschold1996ontologies}
+	    % \cite{fensel2002web}  % service semantic web between semantic web and the web services
+	    % \cite{mcilraith2003bringing}  % Bringing semantics to web services
+	    % \cite{sivashanmugam2003adding} % Adding Semantics to Web Services Standards.
+
+	    %TODO define the nedeed for the semantic
+	    % an example here will be nice !
+	    % - insuffisance de description syntaxique des services web :(WSDL)
+	    \subsubsection{Annotations sémantiques}
+	    L'annotation sémantique consiste à enrichir et à compléter la description d'un service\cite{elie2010}. 
+	    Elle établit des correspondances entre des éléments de la description et des concepts d'un ensemble 
+	    d'ontologies de référence. Une ontologie de référence permet de représenter un domaine par des structures 
+	    interprétables par une machine. Deux modèles principaux suivent l'approche d'annotation sémantique, 
+	    à savoir \textsc{WSDL-S}\cite{akkiraju2005web}, \acrshort{sawsdl} \cite{kopecky2007sawsdl}:
+	    % et \textsc{METEOR-S} \cite{patil2004meteor}.
+
+	    \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbf{#1}} 
+	    \begin{description}
+		\item[WSDL-S]: 
+		    C'est le résultat d'un travail collaboratif entre IBM et au laboratoire LSDSI. La spécification 
+		    a devenue une recommandation \textsc{W3C} depuis 2005. Son objectif principal est de fournir un
+		    processus d'annotation sémantique compatible avec les technologies existantes. Pratiquement, Le
+		    méta-modèle \textsc{WSDL-S} repose sur les capabilités du modèle \textsc{WSDL} 
+		    en rajoutant trois éléments majeurs \texttt{<category>}, \texttt{<effect>} et deux deux attributs
+		    \texttt{modelReference} et \texttt{schemaMapping}. Les éléments introduits permettent de 
+		    rajouter des informations qui n'étaient pas prises en compte dans \texttt{WSDL} comme 
+		    \emph{les préconditions} et \emph{les effets} d'une opération. Tandis que les attributs permettent 
+		    de référencer des concepts dans des ontologies de référence, ces préconditions et effets ensemble
+		    avec les annotations sémantiques des éléments \texttt{<inputs>} et \texttt{<outputs>} permet de
+		    l'automatisation du processus de découvert de services.
+
+		    % TODO example of wsdl-s documeent \cite{elie2010}
+
+		    % The WSDL [WSDL] document forms the anchor point for Web services description. Building on the
+		    % descriptive capability of WSDL, we provide a mechanism to annotate the capabilities and
+		    % requirements of Web services with semantic concepts referenced from a semantic model. To do this,
+		    % we provide mechanisms to annotate the service and its inputs, outputs and operations. Additionally,
+		    % we provide mechanisms to specify and annotate preconditions and effects of Web Services. These
+		    % preconditions and effects together with the semantic annotations of inputs and outputs can enable
+		    % automation of the process of service discovery.
+		   % TODO complete this list wit a real uses case with a sample wsdl-s document
+		    \begin{itemize}
+			\item L'élément \texttt{<category>}
+			\item \texttt{<precondition>}
+			\item \texttt{<effect>}
+			\item L'attribut \texttt{modelReference}
+			\item \texttt{schemaMapping}
+		    \end{itemize}
+		\item[SAWSDL]:
+	    \end{description}
+	    \subsubsection{Ontologies de services} 
+	    Une ontologie de services saisit les différents aspects liés à la description des services et leur 
+	    utilisation à travers un ensemble de concepts, de propriétés et de relations entre eux. Tois modèles
+	    d'ontologies de services sont décrits ci-après \textsc{OWL-S} \cite{martin2004owl}, \acrshort{wsmo} 
+	    \cite{de2006web} et \acrshort{swsf} \cite{battle2005semantic}:
+
+	    \begin{description}
+		\item[OWL-S]
+		    \cite{mcilraith2003bringing}
+		\item[WSMO ]
+		\item[SWSF ]
+	    \end{description}
 
 \section{Découverte des services web}
    % parler de l' UDDI,le matching sémantique !!

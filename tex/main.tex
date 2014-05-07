@@ -5,7 +5,6 @@
 \usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm, bottom=3cm, bindingoffset=2cm]{geometry}
 
 \usepackage[french]{babel}
-% \usepackage[francais]{babel}
 % \usepackage{natbib}
 
 % \usepackage[latin1]{inputenc}
@@ -14,7 +13,6 @@
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{verbatim}
-\usepackage{verbatimbox}
 \usepackage{float}
 \usepackage{color}
 % \usepackage{standalone}
@@ -27,6 +25,10 @@
 \usepackage{titlesec}
 \usepackage{lmodern}
 \usepackage{fancyvrb}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
 \setcounter{secnumdepth}{5} 
 \linespread{1.5}
 
@@ -37,17 +39,20 @@
 \author{TAOURIRIT Salah Eddine}
 \title{composition des services web}
 
-\date{\today\\version 0.1}
+\date{\today\\version 0.2}
 \begin{document}
 
 %description style
 \let\Item\item
 \newcommand\SpecialItem{\renewcommand\item[1][]{\Item[\textbullet~\sffamily ##1]}}
 \renewcommand\enddescription{\endlist\global\let\item\Item}
+
 \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textsf{#1}} 
 
 \maketitle 
 % \frontmatter
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
 \tableofcontents
 \selectlanguage{french}  
 \pagenumbering{arabic}
@@ -67,4 +72,6 @@
 % TODO style glossaries
 % Acronyms
 \printglossaries
+\listoffigures
+\listoftables
 \end{document}
