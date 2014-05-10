@@ -33,6 +33,8 @@
 \linespread{1.5}
 
 \usepackage[acronym]{glossaries}
+
+\usepackage[outdir=./]{epstopdf}
 \makeglossaries
 
 
@@ -59,15 +61,12 @@
 \input{acronyms.tex}
 % \part{Problématique et étude bibliographique}
 
-\chapter{Introduction}
 \input{content/introduction}
-\chapter{Concepts de base du paradigme service Web} 
 \input{content/chapter1}
-\chapter{La composition des services web}
-\chapter{Les bases de données graphs}
-
-\bibliographystyle{plain-fr}
-
+% \chapter{La composition des services web}
+% \chapter{Les bases de données graphs}
+%
+\bibliographystyle{unsrt-fr}
 \bibliography{references}
 % TODO style glossaries
 % Acronyms

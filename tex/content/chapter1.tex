@@ -6,12 +6,15 @@
     % Dans ce chapitre on va faire une vue générale sur les technologies des services web sémantiques, Pour bien 
     % introduire le chapitre prochain sur la composition des services web.
 
+\chapter{Concepts de base du paradigme service Web} 
+
     Ce chapitre établit une étude du fondement théorique de notre travail à savoir les concepts de base du paradigme
     service Web.  Nous commençons d'abord par présenter un tour d'horizon définissant l'infrastructure et
     l'architecture de référence de ce paradigme ainsi que quelque définitions proposées par la littérature. Ensuite
     nous nous intéressons à montrer les limitation de l'approche syntaxique de la description des services web et l'apport
     de l'enrichissement sémantique de cette dernière aux processus de la découverte et la composition des services Web.\\
     % TODO: complete the introduction
+    \newpage
 
 \section{Les services web : Notions de base et technologies associées} 
     Les services Web constituent une approche pour mettre en œuvre le paradigme de service, et peut être vue comme
@@ -164,7 +167,7 @@
 
 		% TODO pick something real from the app.
 		% go to the annexes part
-		% \input{figures/soap_message_example.tex}
+		% \input{figs/soap_message_example.tex}
 
 		% TODO SOAP message structure
 		% \begin{figure}
@@ -258,13 +261,13 @@
     % \cite{medjahed2004thesis}
 
     % TODO Refactore and eliminate some repetition 
-    % TODO  get more from \¢ite{lopez2008selection}
+    % TODO  get more from \cite{lopez2008selection}
     Une description du service Web est un document par lequel le fournisseur de services communique au client 
     les spécifications pour invoquer le service Web, Dans cette section nous présentons les modèles de description
     des services web. Nous détaillons dans la première sous-section le modèle de description syntaxique \acrshort{wsdl}
     \cite{chinnici2007web} développé et standardisé par le \acrshort{w3c} qui est devenu un élément essentiel 
     dans des technologies services web. Ensuite en mettant l'accent sur les limitations majeurs de cette
-    approche dans un environnement hétérogène qui nécessite une certaine degré de dynamisité et d'automatisation.
+    approche dans un environnement hétérogène qui nécessite un certain degré de dynamisité et d'automatisation.
     Finalement, Nous présentons les divers approches sémantiques visant à préciser la description d'un
     service en insistant sur les approches d'annotation sémantique et sur les ontologies de services.
 
@@ -411,9 +414,13 @@
 	    par des travaux issue de la communié AI \cite{mcilraith2001semantic}, tels que 
 	    \textsc{OIL} \cite{fensel2001oil}, \textsc{DAML+OIL} \cite{horrocks2002daml+oil} et \textsc{DAML+OTN} 
 	    \cite{mcguinness2003daml} (ces deux derniers langages sont parties de la famille \acrshort{daml}).
-
+	
+	    % TODO refactor
 	    Ces langaes ont une sémantique bien définies et permettent le balisage et la manipulation des taxonomique
-	    complexe et Des relations logiques entre les entités sur le Web.
+	    complexe et Des relations logiques entre les entités sur le Web. \cite{fensel2000creating}
+	    
+	    
+	    \input{figs/3w_to_sws.tex}
 
 	    % \cite{lopez2008selection}
 	    Cette description repose sur des ontologies. Selon [Gruber, 1993], une ontologie est une spécification
@@ -422,6 +429,7 @@
 	    signifie que les concepts et les relations d'un modèle abstrait reçoivent des noms et des définitions
 	    explicites [Gruber, 1993]. Le Web sémantique est devenu un domaine à part entière, preuve en est la
 	    création en 2001 du groupe de travail sur ce sujet par le \textsc{W3C}.
+
 
 	    %  % Semantic web services
 	    % \cite{fensel2001oil}
@@ -446,28 +454,29 @@
 	    %TODO define the nedeed for the semantic
 	    % an example here will be nice !
 	    % - insuffisance de description syntaxique des services web :(WSDL)
-	    \subsubsection{Annotations sémantiques}
-	    L'annotation sémantique consiste à enrichir et à compléter la description d'un service\cite{elie2010}. 
-	    Elle établit des correspondances entre des éléments de la description et des concepts d'un ensemble 
-	    d'ontologies de référence. Une ontologie de référence permet de représenter un domaine par des structures 
-	    interprétables par une machine. Deux modèles principaux suivent l'approche d'annotation sémantique, 
-	    à savoir \textsc{WSDL-S}\cite{akkiraju2005web}, \acrshort{sawsdl} \cite{kopecky2007sawsdl}:
-	    % et \textsc{METEOR-S} \cite{patil2004meteor}.
 
-	    \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbf{#1}} 
-	    \begin{description}
-		\item[WSDL-S]: 
-		    C'est le résultat d'un travail collaboratif entre IBM et au laboratoire LSDSI. La spécification 
-		    a devenue une recommandation \textsc{W3C} depuis 2005. Son objectif principal est de fournir un
-		    processus d'annotation sémantique compatible avec les technologies existantes. Pratiquement, Le
-		    méta-modèle \textsc{WSDL-S} repose sur les capabilités du modèle \textsc{WSDL} 
-		    en rajoutant trois éléments majeurs \texttt{<category>}, \texttt{<effect>} et deux deux attributs
-		    \texttt{modelReference} et \texttt{schemaMapping}. Les éléments introduits permettent de 
-		    rajouter des informations qui n'étaient pas prises en compte dans \texttt{WSDL} comme 
-		    \emph{les préconditions} et \emph{les effets} d'une opération. Tandis que les attributs permettent 
-		    de référencer des concepts dans des ontologies de référence, ces préconditions et effets ensemble
-		    avec les annotations sémantiques des éléments \texttt{<inputs>} et \texttt{<outputs>} permet de
-		    l'automatisation du processus de découvert de services.
+	    % \subsubsection{Annotations sémantiques}
+	    % L'annotation sémantique consiste à enrichir et à compléter la description d'un service\cite{elie2010}. 
+	    % Elle établit des correspondances entre des éléments de la description et des concepts d'un ensemble 
+	    % d'ontologies de référence. Une ontologie de référence permet de représenter un domaine par des structures 
+	    % interprétables par une machine. Deux modèles principaux suivent l'approche d'annotation sémantique, 
+	    % à savoir \textsc{WSDL-S}\cite{akkiraju2005web}, \acrshort{sawsdl} \cite{kopecky2007sawsdl}:
+	    % % et \textsc{METEOR-S} \cite{patil2004meteor}.
+
+	    % \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbf{#1}} 
+	    % \begin{description}
+		% \item[WSDL-S]: 
+		%     C'est le résultat d'un travail collaboratif entre IBM et au laboratoire LSDSI. La spécification 
+		%     a devenue une recommandation \textsc{W3C} depuis 2005. Son objectif principal est de fournir un
+		%     processus d'annotation sémantique compatible avec les technologies existantes. Pratiquement, Le
+		%     méta-modèle \textsc{WSDL-S} repose sur les capabilités du modèle \textsc{WSDL} 
+		%     en rajoutant trois éléments majeurs \texttt{<category>}, \texttt{<effect>} et deux deux attributs
+		%     \texttt{modelReference} et \texttt{schemaMapping}. Les éléments introduits permettent de 
+		%     rajouter des informations qui n'étaient pas prises en compte dans \texttt{WSDL} comme 
+		%     \emph{les préconditions} et \emph{les effets} d'une opération. Tandis que les attributs permettent 
+		%     de référencer des concepts dans des ontologies de référence, ces préconditions et effets ensemble
+		%     avec les annotations sémantiques des éléments \texttt{<inputs>} et \texttt{<outputs>} permet de
+		%     l'automatisation du processus de découvert de services.
 
 		    % TODO example of wsdl-s documeent \cite{elie2010}
 
@@ -479,28 +488,108 @@
 		    % preconditions and effects together with the semantic annotations of inputs and outputs can enable
 		    % automation of the process of service discovery.
 		   % TODO complete this list wit a real uses case with a sample wsdl-s document
-		    \begin{itemize}
-			\item L'élément \texttt{<category>}
-			\item \texttt{<precondition>}
-			\item \texttt{<effect>}
-			\item L'attribut \texttt{modelReference}
-			\item \texttt{schemaMapping}
-		    \end{itemize}
-		\item[SAWSDL]:
-	    \end{description}
-	    \subsubsection{Ontologies de services} 
-	    Une ontologie de services saisit les différents aspects liés à la description des services et leur 
-	    utilisation à travers un ensemble de concepts, de propriétés et de relations entre eux. Tois modèles
-	    d'ontologies de services sont décrits ci-après \textsc{OWL-S} \cite{martin2004owl}, \acrshort{wsmo} 
-	    \cite{de2006web} et \acrshort{swsf} \cite{battle2005semantic}:
+		    % \begin{itemize}
+			% \item L'élément \texttt{<category>}
+			% \item \texttt{<precondition>}
+			% \item \texttt{<effect>}
+			% \item L'attribut \texttt{modelReference}
+			% \item \texttt{schemaMapping}
+		    % \end{itemize}
+		% \item[SAWSDL]:
+	    % \end{description}
+	    % \subsubsection{Ontologies de services} 
+	    % Une ontologie de services saisit les différents aspects liés à la description des services et leur 
+	    % utilisation à travers un ensemble de concepts, de propriétés et de relations entre eux. Tois modèles
+	    % d'ontologies de services sont décrits ci-après \textsc{OWL-S} \cite{martin2004owl}, \acrshort{wsmo} 
+	    % \cite{de2006web} et \acrshort{swsf} \cite{battle2005semantic}:
+	    
 
-	    \begin{description}
-		\item[OWL-S]
-		    \cite{mcilraith2003bringing}
-		\item[WSMO ]
-		\item[SWSF ]
-	    \end{description}
+	    % \begin{description}
+		% \item[OWL-S]
+		%     \cite{mcilraith2003bringing}
+		% \item[WSMO ]
+		% \item[SWSF ]
+	    % \end{description}
+	    \subsubsection{WSDL-S}
 
+	    \textsc{WSDL-S} \cite{akkiraju2005web} est le résultat d'un travail collaboratif entre IBM, 
+	    laboratoire LSDSI et l'iniversité de Geogia \footnote{\url{http://www.uga.edu/}}. 
+	    La spécification a devenue une recommandation \textsc{W3C} 
+	    depuis 2005. Son objectif principal est de fournir un processus d'annotation sémantique compatible avec 
+	    les technologies existantes. Pratiquement, Le méta-modèle \textsc{WSDL-S} repose sur les capabilités 
+	    du modèle \textsc{WSDL} en rajoutant trois éléments majeurs \texttt{<category>}, \texttt{<effect>} 
+	    et deux attributs \texttt{modelReference} et \texttt{schemaMapping}. Les éléments introduits 
+	    permettent de rajouter des informations qui n'étaient pas prises en compte dans \texttt{WSDL} comme 
+	    \emph{les préconditions} et \emph{les effets} d'une opération. Tandis que les attributs permettent 
+	    de référencer des concepts dans des ontologies de référence, ces préconditions et effets ensemble
+	    avec les annotations sémantiques des éléments \texttt{<inputs>} et \texttt{<outputs>} permet de
+	    l'automatisation du processus de découvert de services.
+
+
+	    % TODO example of wsdl-s documeent \cite{elie2010}
+	    % TODO complete this list wit a real uses case with a sample wsdl-s document
+	    \begin{itemize} % WSDL-S elements and attributs
+		\item L'élément \texttt{<category>}
+		\item \texttt{<precondition>}
+		\item \texttt{<effect>}
+		\item L'attribut \texttt{modelReference}
+		\item \texttt{schemaMapping}
+	    \end{itemize}
+
+	    \subsubsection{SAWSDL}	    
+
+	    La spécification \acrshort{sawsdl} \cite{kopecky2007sawsdl} est la suite de \textsc{WSDL-S} et il partage 
+	    les mêmes principes de ce dernier. issue d'initiative du groupe de travail d'annotations sémantiques pour 
+	    \textsc{WSDL} \footnote{Semantic Annotations for WSDL and XML Schema} et soumise au \textsc{W3C}
+	    en 2007, \textsc{SAWSDL} définit un mécanisme d'annoter sémantiquement les interfaces et les opérations 
+	    \textsc{WSDL}, ainsi que les types \textsc{XML schema} en les reliant à des concepts dans une ontologie.
+	    Cette annotation repose sur la définition d'attributs étendant le standard de description. 
+	    Les annotations sémantiques référencent des ontologies pré-existantes. Le mécanisme d'annotation 
+	    de \textsc{SAWSDL} est indépendant de tout langage de représentation \cite{lopez2008selection} 
+	    d'ontologies.
+
+	    \textsc{SAWSDL} propose deux sortes d'annotations sémantiques: une pour identifier le
+	    concept sémantique (représentée par l'attribut \texttt{modelReference}) et une autre pour faire
+	    le lien entre le concept et le document \textsc{WSDL} (représentée par les attributs 
+	    \texttt{liftingSchemaMapping} et \texttt{loweringSchemaMapping}).
+	    % TODO add more about the sawsdl attributs from \cite{baryannis2010} end \cite{elie2010}
+
+
+	    \subsubsection{OWL-S}
+	    % \cite{baryannis2010}
+	    % \cite{elie2010}
+	    % \cite{lopez2008selection}
+
+	    % \cite{mcilraith2003bringing} % Bringing
+	    % \cite{martin2004owl} %OWL-S
+	    % \cite{ankolekar2002daml} % daml-s
+	    % \cite{mcguinness2004owl} % OWL
+	    % \cite{paolucci2002semantic} %Semantic matching of web services capabilities
+	    \textsc{OWL-S} \cite{martin2004owl} désigné par \textsc{DAML-S} dans les versions antérieures
+	    \cite{ankolekar2002daml}, est un langage issue des travaux de la \acrshort{darba}
+	    \footnote{\url{http://www.darpa.mil/}} et son programme \acrshort{daml}
+	    \footnote{\url{http://www.daml.org/services/}} en collaboration avec des chercheurs de plusieurs 
+	    universités et organisations (l'Université de Toronto, Yale, Nokia, etc.). Il a été intégré au consortium 
+	    \textsc{W3C} en 2004, au sein du groupe d'intérêt sur les services Web sémantiques, lors de la 
+	    recommandation du langage \textsc{OWL} \cite{horrocks2002daml+oil} \cite{mcguinness2004owl}. 
+	    Ankolekar \emph{et al.} \cite{ankolekar2002daml} présentent une ontologie pour les services web dans 
+	    le but d'automatiser la \emph{découverte}, \emph{l'invocation}, la \emph{composition} et la
+	    \emph{surveillance} de l'exécution des services \cite{mcilraith2003bringing}, les auteurs reprennent 
+	    la notion de classes d'\textsc{OWL} et proposent l'ontologie \textsc{OWL-S}.
+
+	     \input{figs/owls.tex} %TODO go for Tikz ✓
+
+	    L'objectif principal de ces recherches est d'établir une plateforme dans laquelle les descriptions des
+	    services Web sont partagés en utilisant une ontologie standard, constituée d'un ensembles de classes de
+	    base et des propriétés pour résoudre les ambigüités et de rendre la description d'un service 
+	    compréhensible par une machine.
+
+	    la figure \ref{fig:owl-s} décrit la structure tripartie d'une ontologie \textsc{OWL-S}. Elle est composé 
+	    de trois sous-ontologie: un \emph{service profile}, d'un \emph{service grounding} 
+	    et d'un \emph{process model}.
+	    % TODO explain the fig:owl-s and add details about owls sub-ontologies
+	    \subsubsection{WSMO}
+	    \cite{baryannis2010}
 \section{Découverte des services web}
    % parler de l' UDDI,le matching sémantique !!
 
