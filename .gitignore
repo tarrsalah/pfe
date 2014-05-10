@@ -4,4 +4,5 @@
 !tex/makefile
 !*.tex
 !*.md
-!*.bib
+! *.bib
+! *.eps
