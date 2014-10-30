@@ -1,0 +1,7 @@
+* Introduction générale
+* étude Bibliographique (60) 
+** TODO Concepts de base du paradigme service Web (20)
+** TODO La Composition dynamique des services web sémantiques (20)
+** TODO Les bases de données graph (20)
+* L'approche proposée (50)
+* Conclusion

@@ -6,4 +6,7 @@
 !*.md
 !*.bib
 !*.eps
+!*.org
 
+/tex/content/_region_.tex
+/tex/figs/_region_.tex
