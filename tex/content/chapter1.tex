@@ -6,18 +6,18 @@
 % des services web sémantiques, Pour bien introduire le chapitre
 % prochain sur la composition des services web.
 
-\chapter{Concepts de base du paradigme service Web}
+\chapter{Les services web: Vue d'ensemble}
 
 Ce chapitre établit une étude du fondement théorique de notre travail à savoir les concepts de base 
-du paradigme service Web.  Nous commençons d'abord par présenter un tour d'horizon définissant et l'architecture
-de référence de ce paradigme ainsi que quelque définitions proposées par la littérature. Ensuite nous nous 
+du paradigme service Web.  Nous commençons d'abord par présenter un tour d'horizon définissant l'architecture
+de référence de ce paradigme ainsi que quelque définitions proposées par la littérature. Ensuite nous nous
 intéressons à montrer les limitation de l'approche syntaxique de la description des services web et 
 l'apport de l'enrichissement sémantique de cette dernière aux processus de la découverte et la composition 
 des services Web.\\
   % TODO: complete the introduction
 \newpage
 
-  \section{Les services web : Notions de base et \\technologies associées} 
+  \section{Notions de base et technologies associées} 
 
   Les services Web constituent une approche pour mettre en œuvre le paradigme de service,
   et peut être vue comme une instance de l'architecture orienté service.
@@ -25,9 +25,11 @@ des services Web.\\
   Dans cette section va parler aussi d'un socle technologique très sollicité, On va aussi Détailler 
   l'architecture de base d'un service web, ensuite nous introduisons l'architecture étendus.
 
+
     \subsection{Définitions et caractéristiques }
     Les services Web sont la technologie la plus connue et la plus populaire dans le monde 
     industriel et académique pour la mise en place d’architectures à services.
+
     % ARE PROGRAMMABLE COMPONENTS which use the World- Wide-Web as a
     % medium for describing the functionality of real world ser- vices in
     % a computer manipulable way (Kuropka and Nern, 2006)
@@ -42,7 +44,7 @@ des services Web.\\
       D'autres systèmes peuvent interagir avec le Service Web selon la
       manière prescrite dans sa description et en utilisant des messages
       SOAP, généralement transmis via
-      le protocole HTTP et sérialisés enXML et en d'autres standards du Web ''}.\\
+      le protocole HTTP et sérialisés en XML et en d'autres standards du Web ''}.\\
 
     Cette définition surligne les caractéristiques clés de services Web
     \cite{fremantle2002enterprise}:
@@ -100,7 +102,7 @@ des services Web.\\
     
     \subsection{L'évolution des styles des services web}
     % Les architecture communes des services web SOAP vs REST les limites
-    % de la'approche SOAP pourquoi SOAP ?
+    % de la'approche SOAP pourquoi SOAP pour notre problème?
     ``the next section provides a short history of web services, with
     emphasis on the kinds of software challenges that web services are
     meant to address.''
@@ -172,16 +174,17 @@ des services Web.\\
     respectivement leur communication, leur description et leur découverte.
 
       \subsubsection{Communication: SOAP}
-      \textsc{SOAP}, développé par IBM\footnote{\url{http://www.ibm.com}} et
+      Développé par IBM\footnote{\url{http://www.ibm.com}} et
       Microsoft\footnote{\url{http://www.microsoft.com}}
-      \cite{box2000simple}, est une recommandation \textsc{W3C} qui le
+      \cite{box2000simple}, L'approche \textsc{SOAP} est une recommandation \textsc{W3C} qui le
       définit comme étant un protocole destiné à l'échange de messages
       structurés, permettant d'invoquer des applications sur des réseaux
-      distribués \cite{mitra2003soap}.  \input{figs/soap_all.tex} Ce
-      protocole \textsc{SOAP} est basé sur \textsc{XML} pour mettre en place
+      distribués \cite{mitra2003soap}.\\   
+      \input{figs/soap_all.tex} %% La structure d’un message SOAP
+      Ce protocole \textsc{SOAP} est basé sur \textsc{XML} pour mettre en place
       un mécanisme valable d'échange des données indépendant du modèle de
       programmation de l'application et du système d’exploitation.
-
+      
       Un message \textsc{SOAP} est un document XML constitué d'une enveloppe
       \textsc{SOAP} obligatoire, d'un en-tête \textsc{SOAP} facultatif et
       d'un corps \textsc{SOAP} obligatoire:
@@ -281,7 +284,8 @@ des services Web.\\
         et des protocoles utilisés pour son invocation.
         
       \end{description}
-      % TODO talks about OWL-S and why UDDI approach is semantically poor
+      % TODO talks about:
+          % OWL-S and why UDDI approach is semantically poor
 
       % TODO Conclure cette subsection par la mention du problème de la
       % découverte automatique des services Web et l'insuffisance de la
@@ -703,8 +707,13 @@ des services Web.\\
       \subsubsection{WSMO}
       \cite{baryannis2010}
   \section{Découverte des services web}
-  % parler de l' UDDI,le matching sémantique !!
+ % Description syntactique (UDDI) vs description sémantique
 
+  % TOTANSLATE
+  WS discovery is related to getting appropriate service for a request. It is one of the
+  critical steps in the process of developing applications based on SOA. It can be done
+  using syntactic matching or semantic matching\cite{Omer2011}.\\
+  
   \section{Conclusion}
   % faire un petit récapitulatif sur les technologies des services web
   % rappeler de notre problème principale : composition des services web
