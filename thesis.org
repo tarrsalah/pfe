@@ -17,12 +17,21 @@
 **** OWL-S
 **** WSMO
 ** Découverte des services web
+   Talk about WS matchmacking (To the annex)
 ** conclusion
-* La Composition des services web (30) 
-** Définitions
-** Types de composition des services web
-** Critères de comparaison des différentes approches de composition
+* La Composition des services web (20) 
+** Définition et Types de composition (5)
+*** définitions
+*** Procédés de coordination
+*** Types de composition
+** Langages de composition (3)
+*** BPEL4WS
+*** WS-CDL
+*** OWL-S
+** Composition dynamique des services web
+** conclusion  
 * Les bases de données graph (10)   
-* L'Approche proposée 
-* L'implémentation
+* L'Approche proposée (30)
+* L'implémentation (10)
+
 * Conclusion

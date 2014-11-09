@@ -7,6 +7,6 @@ compile:
 
 clean:
 	latexmk -C
-	
+
 pdf: 
 	evince main.pdf
