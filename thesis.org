@@ -20,11 +20,13 @@
    Talk about WS matchmacking (To the annex)
 ** conclusion
 * La Composition des services web (20) 
-** Définition et Types de composition (5)
+** Définition et Types de composition 
 *** définitions
 *** Procédés de coordination
+**** Orchestration 
+**** Chorégraphie
 *** Types de composition
-** Langages de composition (3)
+** Langages de composition
 *** BPEL4WS
 *** WS-CDL
 *** OWL-S
@@ -33,5 +35,5 @@
 * Les bases de données graph (10)   
 * L'Approche proposée (30)
 * L'implémentation (10)
-
 * Conclusion
+  
