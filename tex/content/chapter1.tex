@@ -7,34 +7,42 @@
 % prochain sur la composition des services web.
 
 \chapter{Les services web: Vue d'ensemble}
+Ce chapitre établit une étude du fondement théorique de notre travail
+à savoir les concepts de base du paradigme service Web.  Nous
+commençons d'abord par présenter un tour d'horizon définissant
+l'architecture de référence de ce paradigme ainsi que quelque
+définitions proposées dans la littérature. Ensuite nous nous
+intéressons à montrer les limitation de l'approche syntaxique de la
+description des services web et l'apport de l'enrichissement
+sémantique de cette dernière aux processus de la découverte et la
+composition des services Web.\\
 
-Ce chapitre établit une étude du fondement théorique de notre travail à savoir les concepts de base 
-du paradigme service Web.  Nous commençons d'abord par présenter un tour d'horizon définissant l'architecture
-de référence de ce paradigme ainsi que quelque définitions proposées dans la littérature. Ensuite nous nous
-intéressons à montrer les limitation de l'approche syntaxique de la description des services web et 
-l'apport de l'enrichissement sémantique de cette dernière aux processus de la découverte et la composition 
-des services Web.\\
   % TODO: complete the introduction
 \newpage
 
   \section{Notions de base et technologies associées} 
 
-  Les services Web constituent une approche pour mettre en œuvre le paradigme de service,
-  et peut être vue comme une instance de l'architecture orienté service.
-
-  Dans cette section va parler aussi d'un socle technologique très sollicité, On va aussi Détailler 
-  l'architecture de base d'un service web, ensuite nous introduisons l'architecture étendus.
+  Les services Web constituent une approche pour mettre en œuvre le
+  paradigme de service, et peut être vue comme une instance de
+  l'architecture orienté service.
+  
+  Dans cette section va parler aussi d'un socle technologique très
+  sollicité, On va aussi Détailler l'architecture de base d'un service
+  web, ensuite nous introduisons l'architecture étendus.
 
 
     \subsection{Définition et caractéristiques }
-    Les services Web sont la technologie la plus connue et la plus populaire dans le monde 
-    industriel et académique pour la mise en place d’architectures à services.
+    Les services Web sont la technologie la plus connue et la plus
+    populaire dans le monde industriel et académique pour la mise en place
+    d’architectures à services.
 
     % ARE PROGRAMMABLE COMPONENTS which use the World- Wide-Web as a
     % medium for describing the functionality of real world ser- vices in
     % a computer manipulable way (Kuropka and Nern, 2006)
-    Les Web services ont été proposés initialement par IBM \cite{kreger2001web} et Microsoft, puis en
-    standardisés par le \acrshort{w3c} \footnote{\url{http://www.w3.org/}} et définis \cite{WSA} par :\\
+    Les Web services ont été proposés initialement par IBM
+    \cite{kreger2001web} et Microsoft, puis en standardisés par le
+    \acrshort{w3c} \footnote{\url{http://www.w3.org/}} et définis
+    \cite{WSA} par :\\
 
 
     \emph{``Un service web est un système conçu pour permettre
@@ -66,16 +74,18 @@ des services Web.\\
       la définition de documents Interprétable par des machines.
     \end{description}
     
-    M. P. Papazoglou \cite{papazoglou2003service} apporte une autre définition de services web:\\
+    M. P. Papazoglou \cite{papazoglou2003service} apporte une autre
+    définition de services web:\\
     \emph{``Les services Web sont des éléments auto-descriptifs et
-      indépendants des plateformes permettent la composition faible coût
-      d’applications distribuées. Les services Web effectuent des
+      indépendants des plateformes permettent la composition faible
+      coût d’applications distribuées. Les services Web effectuent des
       fonctions allant de simples requêtes des processus métiers
-      complexes. Les services Web permettent aux organisations d’exposer
-      leurs programmes résultats sur Internet (ou sur un intranet) en
-      utilisant des langages (basés sur XML) et des protocoles
-      standardisés et de les mettre en œuvre via une interface
-      auto-descriptive basée sur des formats standardisés et ouverts''}
+      complexes. Les services Web permettent aux organisations
+      d’exposer leurs programmes résultats sur Internet (ou sur un
+      intranet) en utilisant des langages (basés sur XML) et des
+      protocoles standardisés et de les mettre en œuvre via une
+      interface auto-descriptive basée sur des formats standardisés et
+      ouverts''}
     % TODO make a comment on this def and introduce the web services
     % composition idea !
     
@@ -115,10 +125,11 @@ des services Web.\\
     % sous-section va détaillé SOAP et pas de WSDL et UDDI
     Cette architecture a été proposée afin de promouvoir
     l’interopérabilité et l’extensibilité des services Web Dans
-    l'ensemble, une architecture complète de services Web est constitué
-    d'un fournisseur de servicee \footnote{Providers}, un annuaire de
-    services \footnote{Service Registry}, et un client
-    \footnote{Service Requester} de service.  La figure x montre comment ces trois rôles interagissent.\\
+    l'ensemble, une architecture complète de services Web est
+    constitué d'un fournisseur de servicee \footnote{Providers}, un
+    annuaire de services \footnote{Service Registry}, et un client
+    \footnote{Service Requester} de service.  La figure x montre comment 
+    ces trois rôles interagissent.\\
 
     \SpecialItem
     \begin{description} % TODO tranlate: Les Rôles dans une architecture WSA
@@ -176,8 +187,9 @@ des services Web.\\
       \subsubsection{Communication: SOAP}
       Développé par IBM\footnote{\url{http://www.ibm.com}} et
       Microsoft\footnote{\url{http://www.microsoft.com}}
-      \cite{box2000simple}, L'approche \textsc{SOAP} est une recommandation \textsc{W3C} qui le
-      définit comme étant un protocole destiné à l'échange de messages
+      \cite{box2000simple}, L'approche \textsc{SOAP} est une recommandation
+      \textsc{W3C} qui le définit comme étant un protocole destiné
+      à l'échange de messages
       structurés, permettant d'invoquer des applications sur des réseaux
       distribués \cite{mitra2003soap}.\\   
       \input{figs/soap_all.tex} %% La structure d’un message SOAP
@@ -710,9 +722,10 @@ des services Web.\\
  % Description syntactique (UDDI) vs description sémantique
 
   % TOTANSLATE
-  WS discovery is related to getting appropriate service for a request. It is one of the
-  critical steps in the process of developing applications based on SOA. It can be done
-  using syntactic matching or semantic matching\cite{Omer2011}.\\
+  WS discovery is related to getting appropriate service for a
+  request. It is one of the critical steps in the process of developing
+  applications based on SOA. It can be done using syntactic matching or
+  semantic matching\cite{Omer2011}.\\
   
   \section{Conclusion}
   % faire un petit récapitulatif sur les technologies des services web
