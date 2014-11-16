@@ -35,49 +35,122 @@
   \section{Définition et types de composition}
   \label{sec:defin-et-caract}
 
-  Cette section a pour but d'exposer, d'une part, quelques définitions et objectifs de la composition
-  des services web proposées par la communié, et d'autre part, les différents types et mécanismes 
-  de composition selon différents points de vue rencontrés dans la littérature.
+  Cette section a pour but d'exposer, d'une part, quelques définitions
+  et objectifs de la composition des services Web proposées par la
+  communauté, et d'autre part, les différents types et mécanismes de
+  composition selon différents points de vue rencontrés dans la
+  littérature.
   
-    \subsection{Définitions}
+  \subsection{Définitions}
     \label{sec:definitions}
 
-    McIlraith \emph{et al.} \cite{mcilraith2003bringing} définissent la composition comme étant 
-    \emph{``le processus de sélection, de combinaison et d'exécution de services en vue
+    Martin \emph{et al.} \cite{martin2004owl} définissent
+    la composition comme étant \emph{``le processus de sélection, de
+      combinaison et d'exécution de services en vue
       d'accomplir un objectif donné''}.\\
   
-    Selon S. Dustdar et W. Schreiner \cite{dustdar2005survey} : \emph{`` L'infrastructure de 
-      base des services Web suffit pour la mise en œuvre d'interactions simples entre un 
-      client et un service Web. Si la mise en œuvre d'une application métier implique l'invocation 
-      d'autres services web, il est nécessaire donc de combiner les fonctionnalités de plusieurs 
-      services web. Dans ce cas, nous parlons d'une composition de services Web''}.\\
-
-    En d'autre terme, La composition de services Web désigne une opération qui consiste 
-    à construire de nouvelles applications ou services appelés services composites ou agrégats par 
-    l'assemblage ou l'aggrégation de services existants nommés services atomiques ou élémentaires.
-
-    Un service web est dit composé (composite, agrégat) lorsque son exécution implique des
-    interactions avec d'autres services web afin de faire appel à leurs fonctionnalités.
-
-    La composition spécifie quels services doivent être invoqués, dans quel ordre et sous
-    quelles pré-conditions. Les services atomiques peuvent être soient des services atomiques
-    soient des services composites.
+    Selon S. Dustdar et W. Schreiner \cite{dustdar2005survey} :
+    \emph{`` L'infrastructure de base des services Web suffit pour la
+      mise en œuvre d'interactions simples entre un client et un
+      service Web. Si la mise en œuvre d'une application métier
+      implique l'invocation d'autres services web, il est nécessaire
+      donc de combiner les fonctionnalités de plusieurs services
+      web. Dans ce cas, nous parlons d'une composition de services
+      Web''}.\\
     
+    En d'autre terme, La composition de services Web désigne une
+    opération qui consiste à construire de nouvelles applications ou
+    services appelés \textbf{services composites} ou agrégats par
+    l'assemblage ou l'agrégation de services existants nommés
+    \textbf{services atomiques} ou
+    élémentaires.\\
+
+    Il existent différentes techniques de composition de services web
+    développées par la littérature. ces techniques sont également
+    classés en fonction de différents critères.
+
+    Selon les travaux, les définitions des types de composition
+    diffèrent d'une communauté de l'autre.
+
+    Barros \emph{et al.} \cite{barros2006standards} classent la
+    composition des services Web en trois catégories: orchestration,
+    chorégraphie et comportementale.
+
+    \cite{peltz2003web} de ça part distingue deux ...
     %% commment classifies la compositions ?
-      % \cite{fluegge2006challenges} Static vs dynamique     
-      
+    %% \cite{fluegge2006challenges} Static vs dynamique.
+
+    %% Les Procédés de coordination comme une vision d'une composition
+    %% des services Web.
+
       \subsection{Procédés de coordination}
-      \label{sec:proc-de-coord}      
+      \label{sec:proc-de-coord}
+
+      %% Introduire la notion d'un procédé de coordination
+      D'après Peltz \cite{peltz2003web}, nous distinguons deux
+      catégories de procédés de coordination utilisés pour décrire la
+      composition de services dans un flot de processus métier. des
+      procédés implémentant l'\emph{orchestration} de services et des
+      procédés implémentant la \emph{chorégraphie} des services, ces
+      termes (\textit{orchestration} et \textit{chorégraphie}) décrivent
+      deux aspects de création des processus métiers à partir des
+      services Web composites.
+
+      \textbf{Un procédé} est représenté par un graphe orienté
+      d'activités ou un flot de contrôle qui donne l'ordre d'exécution
+      des activités et la logique de coordination des services. Chaque
+      activité représente une fonctionnalité réalisée concrètement par
+      un service \cite{chollet2009orchestration}.
+
+      % It should be noted that these models are not used exclusively:
+      % one approach can implement more than one models at the same
+      % time.\cite{baryannis2010} %% TODO: translate
+
+        \subsubsection{Orchestration}
+        \label{sec:orchestration}
+        Selon Sanlaville \cite{jamal2005environnement} : \emph{``
+          L'orchestration des services Web permet de définir
+          l'arranegement et l'enchaînement de ces services selon un
+          canevas bien défini. Elle décrit la manière par laquelle les
+          services peuvent interagir ensemble tout en incluant l'ordre
+          d'exécution des différentes interactions''}.
+
+        L'orchestration offre \textbf{une vision centralisée}.
+
+        Le principe de l'orchestration est illustré par
+
+        \subsubsection{Chorégraphie}
+        \label{sec:choregraphie}
+        Selon Sanlaville \cite{jamal2005environnement} : \emph{`` La
+          chorégraphie permet de tracer la séquence de messages
+          échangés dans un contexte de composition de services
+          Web. Elle est typiquement liée à la description de
+          conversations existantes entre les services tout en
+          impliquant plusieurs parties, incluant les clients, les
+          fournisseurs et les partenaires''}.
+
+        L'orchestration offre \textbf{une vision décentralisée} et
+        globale.
+
+         Le principe de la chorégraphie est illustré par
 
       \subsection{Types de composition}
       \label{sec:types-de-composition}
 
-  \section{Languages de composition}
+  \section{Languages de composition des services web}
   \label{sec:lang-de-comp}
 
+    \subsection{BPEL4WS}
+    \label{sec:bpel4ws}
+
+    \subsection{WS-CDL}
+    \label{WS-CDL}
+
+    \subsection{OWL-S}
+    \label{sec:owl-s}
 
 
-  \section{Compostion dynamique}
+  \section{Compostion dynamique des services web}
   \label{sec:comp-dynam}
  
   \section{Conclusion}  
