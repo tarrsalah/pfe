@@ -20,7 +20,7 @@
    Talk about WS matchmacking (To the annex)
 ** conclusion
 * La Composition des services web (20) 
-** Définition et Types de composition 
+** Définition et Types de composition
 *** définitions
 *** Procédés de coordination
 **** Orchestration 

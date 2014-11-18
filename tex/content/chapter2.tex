@@ -80,27 +80,33 @@
     %% commment classifies la compositions ?
     %% \cite{fluegge2006challenges} Static vs dynamique.
 
-    %% Les Procédés de coordination comme une vision d'une composition
-    %% des services Web.
+    %% Les Procédés de coordination comme une vision (point de vue)
+    %% d'une composition des services Web.
 
       \subsection{Procédés de coordination}
       \label{sec:proc-de-coord}
 
       %% Introduire la notion d'un procédé de coordination
-      D'après Peltz \cite{peltz2003web}, nous distinguons deux
+      Selon Peltz \cite{peltz2003web}, Nous distinguons deux
       catégories de procédés de coordination utilisés pour décrire la
       composition de services dans un flot de processus métier. des
       procédés implémentant l'\emph{orchestration} de services et des
-      procédés implémentant la \emph{chorégraphie} des services, ces
-      termes (\textit{orchestration} et \textit{chorégraphie}) décrivent
-      deux aspects de création des processus métiers à partir des
-      services Web composites.
+      procédés implémentant la \emph{chorégraphie} des services.
+
+      % ces termes (\textit{orchestration} et \textit{chorégraphie})
+      % décrivent deux aspects de création des processus métiers à
+      % partir des services Web composites \cite{peltz2003web}.
+
+      \input{figs/orchestration-vs-choregraphie.tex}
 
       \textbf{Un procédé} est représenté par un graphe orienté
       d'activités ou un flot de contrôle qui donne l'ordre d'exécution
       des activités et la logique de coordination des services. Chaque
       activité représente une fonctionnalité réalisée concrètement par
-      un service \cite{chollet2009orchestration}.
+      un service \cite{chollet2009orchestration}. La figure
+      \ref{fig:orchestration-vs-choregraphie} illustre ces deux
+      approches en conjonction.
+      % a figure orchestration vs chorégraphie
 
       % It should be noted that these models are not used exclusively:
       % one approach can implement more than one models at the same
@@ -108,34 +114,76 @@
 
         \subsubsection{Orchestration}
         \label{sec:orchestration}
-        Selon Sanlaville \cite{jamal2005environnement} : \emph{``
-          L'orchestration des services Web permet de définir
-          l'arranegement et l'enchaînement de ces services selon un
-          canevas bien défini. Elle décrit la manière par laquelle les
-          services peuvent interagir ensemble tout en incluant l'ordre
-          d'exécution des différentes interactions''}.
+        % Selon Sanlaville \cite{jamal2005environnement} : \emph{``
+        %   L'orchestration des services Web permet de définir
+        %   l'arranegement et l'enchaînement de ces services selon un
+        %   canevas bien défini. Elle décrit la manière par laquelle les
+        %   services peuvent interagir ensemble tout en incluant l'ordre
+        %   d'exécution des différentes interactions''}.
+        Barros \emph{et al.} \cite{barros2006standards} définissent
+        l'orchestration comme un ensemble de processus exécutés dans
+        un ordre prédéfini afin de répondre à un but
+        \cite{lopez2008selection}. Ce type de composition se base sur
+        un procédé métier exécutable permettant de décrire
+        d'enchaînement et les interactions des différents services
+        basiques collaborant dans une composition.
 
-        L'orchestration offre \textbf{une vision centralisée}.
+        L'orchestration offre \textbf{une vision centralisée} de
+        contrôle, le procédé est toujours contrôlé par l'un des
+        partenaires métiers. Ce dernier joue le rôle d'un chef
+        d'orchestre qui se charge d'appeler les services de la
+        composition suivant l'ordre d'exécution déjà défini par le
+        processus métier.
 
-        Le principe de l'orchestration est illustré par
+        Le principe de l'orchestration est illustré
+        par La figure \ref{fig:orchestration}.
+
+        \input{figs/orchestration.tex}
 
         \subsubsection{Chorégraphie}
         \label{sec:choregraphie}
-        Selon Sanlaville \cite{jamal2005environnement} : \emph{`` La
-          chorégraphie permet de tracer la séquence de messages
-          échangés dans un contexte de composition de services
-          Web. Elle est typiquement liée à la description de
-          conversations existantes entre les services tout en
-          impliquant plusieurs parties, incluant les clients, les
-          fournisseurs et les partenaires''}.
+        % Selon Sanlaville \cite{jamal2005environnement} : \emph{`` La
+        %   chorégraphie permet de tracer la séquence de messages
+        %   échangés dans un contexte de composition de services
+        %   Web. Elle est typiquement liée à la description de
+        %   conversations existantes entre les services tout en
+        %   impliquant plusieurs parties, incluant les clients, les
+        %   fournisseurs et les partenaires''}.
 
-        L'orchestration offre \textbf{une vision décentralisée} et
-        globale.
+        D'après Barros \emph{et al.} \cite{barros2006standards}, la
+        chorégraphie permet de décrire la composition comme un moyen
+        d'atteindre un but commun en utilisant un ensemble de services
+        Web. La collaboration entre chaque service Web de la
+        collection (faisant partie de la composition) est décrite par
+        des flots de contrôle \cite{lopez2008selection}.
 
-         Le principe de la chorégraphie est illustré par
+        La chorégraphie exprime une vue d'ensemble des services
+        interagissant dans le cadre d'une composition de
+        services. Selon Peltz \cite{peltz2003web}, la chorégraphie
+        illustre les différants échanges de messages entre les
+        participants. la chorégraphie offre \textbf{une vision
+          décentralisée} et globale.
 
+        Le principe de la chorégraphie est illustré par la figure
+        \ref{fig:choregraphie}.
+
+        \input{figs/choregraphie.tex}
+
+        \newpage
       \subsection{Types de composition}
       \label{sec:types-de-composition}
+
+      La composition requiert la description et l'organisation de
+      l'interaction entre les services. Elle nécessite la gestion de
+      plusieurs aspects comme les échanges de données entre les
+      services, les pannes ou erreurs éventuelles, le contexte
+      d'interaction, le degré d'automatisation des tâches, etc. Dans
+      la littérature, une variété de spécifications, de langages et
+      d'approches formelles ont étudiés la composition.
+
+      Dans la suite nous présentons les deux approches principales
+      de description de la composition en section \ref{sec:lang-de-comp}...
+
 
   \section{Languages de composition des services web}
   \label{sec:lang-de-comp}
