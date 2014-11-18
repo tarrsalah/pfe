@@ -169,9 +169,10 @@
 
         \input{figs/choregraphie.tex}
 
-        \newpage
+
       \subsection{Types de composition}
       \label{sec:types-de-composition}
+      Selon \cite{fluegge2006challenges}.
 
       La composition requiert la description et l'organisation de
       l'interaction entre les services. Elle nécessite la gestion de
@@ -181,22 +182,52 @@
       la littérature, une variété de spécifications, de langages et
       d'approches formelles ont étudiés la composition.
 
-      Dans la suite nous présentons les deux approches principales
-      de description de la composition en section \ref{sec:lang-de-comp}...
-
+      Dans la suite nous présentons les deux approches principales de
+      description de la composition \emph{}n section
+      \ref{sec:lang-de-comp}...
+      \newpage
 
   \section{Languages de composition des services web}
   \label{sec:lang-de-comp}
+  %% TODO: an introduction to the section
+  Afin de supporter la composition de services, plusieurs langages de
+  composition de services ont été proposés comme ...
 
-    \subsection{BPEL4WS}
-    \label{sec:bpel4ws}
+  %% \cite{lopez2008selection}
+
+    \subsection{BPEL}
+    \label{sec:bpel}
+
+    \acrshort{bpel} est une spécification du consortium OASIS
+    \footnote{\url{https://www.oasis-open.org}}issue de la fusion des
+    spécifications \acrshort{xlang} Microsoft
+    \footnote{\url{http://www.microsoft.com}}et \acrshort{wsfl} d'IBM
+    \footnote{\url{http://www.ibm.com}}, il hérite les
+    caractéristiques d'un langage structuré en blocs de
+    \textsc{XLANG}, ainsi que les caractéristiques d'un graphe direct
+    de WSFL \cite{driss2011approche}.
+
+    \textsc{BPEL} \textit{(appelé aussi \acrshort{bpel4ws} ou
+      \acrshort{ws-bpel})} est le langauge d'orchestration le plus
+    utilisé dans l'industrie permettant la coordination des
+    interactions entre l'instance du service composite et ses
+    partenaires sous forme d'un schéma \acrshort{xml} \textit{(le
+      scriprt d'orchestration)}, il définit le processus,
+    l'enchaînement et l'ordonnancement des actions qui seront
+    exécutées par le moteur d'orchestration, agissant comme une
+    machine virtuelle capable d'exécuter \textbf{le procédé métier}
+    intéreptable de \textbf{coordination}
+    \cite{chollet2009orchestration}.
+
+    %% procédé abstraite vs exécutable
+    %% les actions simples et composées, selon \cite{chollet2009orchestration}
 
     \subsection{WS-CDL}
     \label{WS-CDL}
 
     \subsection{OWL-S}
     \label{sec:owl-s}
-
+    \cite{mcilraith2003bringing}
 
   \section{Compostion dynamique des services web}
   \label{sec:comp-dynam}

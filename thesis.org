@@ -29,14 +29,13 @@
 **** composition statique
 **** composition semi-dynamique
 **** composition dynamique (automatique)
-** TODO Langages de composition
-*** TODO BPEL4WS
+** TODO Langages de composition (4)
+*** TODO BPEL
 *** TODO WS-CDL
 *** TODO OWL-S
-** Composition dynamique des services web
-** conclusion  
+** Composition dynamique des services web (10)
+** conclusion
 * Les bases de données graph (10)   
 * L'Approche proposée (30)
 * L'implémentation (10)
 * Conclusion
-  
