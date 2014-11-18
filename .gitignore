@@ -7,6 +7,7 @@
 !*.bib
 !*.eps
 !*.org
+!tex/main.pdf
 
 /tex/content/_region_.tex
 /tex/figs/_region_.tex
