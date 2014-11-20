@@ -19,8 +19,8 @@
 ** Découverte des services web
    Talk about WS matchmacking (To the annex)
 ** conclusion
-* La Composition des services web (20) 
-** Définition et Types de composition (4)
+* La Composition des services web (15)g
+** Définition et Types de composition (5)
 *** définitions
 *** Procédés de coordination
 **** Orchestration 
@@ -29,13 +29,13 @@
 **** composition statique
 **** composition semi-dynamique
 **** composition dynamique (automatique)
-** TODO Langages de composition (4)
-*** TODO BPEL
-*** TODO WS-CDL
-*** TODO OWL-S
-** Composition dynamique des services web (10)
+** Langages de composition (5)
+*** BPEL
+*** WS-CDL
+*** OWL-S
+** Composition dynamique des services web (5)
 ** conclusion
-* Les bases de données graph (10)   
+* Les bases de données graph (15)
 * L'Approche proposée (30)
 * L'implémentation (10)
 * Conclusion
