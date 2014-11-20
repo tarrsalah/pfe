@@ -165,7 +165,7 @@
 
         Le principe de la chorégraphie est illustré par la figure
         \ref{fig:choregraphie}.
-
+        % TODO : redraw the fig
         \input{figs/choregraphie.tex}
 
 
@@ -191,10 +191,12 @@
   %% TODO: an introduction to the section
   Afin de supporter la composition de services, plusieurs langages de
   composition de services ont été proposés comme ...
+
+  Dan cette section on va détiller trois languages ...
   %% \cite{lopez2008selection}
 
-  \subsection{BPEL}
-  \label{sec:bpel}
+    \subsection{BPEL}
+    \label{sec:bpel}
 
     \acrshort{bpel} est une spécification du consortium OASIS
     \footnote{\url{https://www.oasis-open.org}}issue de la fusion des
@@ -206,8 +208,8 @@
     de WSFL \cite{driss2011approche}.
 
     \textsc{BPEL} \textit{(appelé aussi \acrshort{bpel4ws} ou
-      \acrshort{ws-bpel})} est le langauge d'orchestration le plus
-    utilisé dans l'industrie permettant la coordination des
+      \acrshort{ws-bpel})} est le langauge d'\textbf{orchestration}
+    le plus utilisé dans l'industrie permettant la coordination des
     interactions entre l'instance du service composite et ses
     partenaires sous forme d'un schéma \acrshort{xml} \textit{(le
       scriprt d'orchestration)}, il définit le processus,
@@ -216,7 +218,7 @@
     machine virtuelle capable d'exécuter \textbf{le procédé métier}
     intéreptable de \textbf{coordination}
     \cite{chollet2009orchestration}.
-
+    % TODO: BPEL permet de quoi ? et comment ?
 
     % Un procédé est composé d'activités qui s'enchaînent grâce à des
     % échanges de données. Les activités peuvent être de deux types:
@@ -230,48 +232,111 @@
     % une boucle... , \cite{chollet2009orchestration}.
 
 
-   %  BPEL4WS repose sur un modle constitué d'activités de coordination
-   %  qui peuvent être de deux types : de base ou structurées. Les
-   %  activités de base permettent :
-   %       – d'invoquer une opération d'un service Web (invoke)
-   %       – de recevoir une requête (receive)
-   %       – de générer une réponse a une requête (reply) ;
-   %       – de copier une donnée (assign) ;
-   %       – de marquer un temps d'attente (wait) ;
-   %       – de terminer une activité (terminate).
+    %  BPEL4WS repose sur un modle constitué d'activités de coordination
+    %  qui peuvent être de deux types : de base ou structurées. Les
+    %  activités de base permettent :
+    %  – d'invoquer une opération d'un service Web (invoke)
+    %  – de recevoir une requête (receive)
+    %  – de générer une réponse a une requête (reply) ;
+    %  – de copier une donnée (assign) ;
+    %  – de marquer un temps d'attente (wait) ;
+    %  – de terminer une activité (terminate).
 
-   % Chaque activité de base est réalisée par une opération d'un
-   % service et chaque service est associé à un
-   % PartnerLink. Celui-ci contient les informations sur le rôle
-   % et l'interface PortType du service qui réalise cette opération.
-   % Les activités structurées utilisent les activités de base pour
-   % décrire :
+    %  Chaque activité de base est réalisée par une opération d'un
+    %  service et chaque service est associé à un
+    %  PartnerLink. Celui-ci contient les informations sur le rôle
+    %  et l'interface PortType du service qui réalise cette opération.
+    %  Les activités structurées utilisent les activités de base pour
+    %  décrire :
 
-   %      – des séquences ordonnées (sequence) ;
-   %      – des exécutions en parallèle (flow) ;
-   %      – des branchements conditionnels (switch,if) ;
-   %      – des boucles (while) ; – des chemins alternatifs (pick );
-   %      – des regroupements d’activités (scope).
-   % \cite{driss2011approche}
+    %  – des séquences ordonnées (sequence) ;
+    %  – des exécutions en parallèle (flow) ;
+    %  – des branchements conditionnels (switch,if) ;
+    %  – des boucles (while) ; – des chemins alternatifs (pick );
+    %  – des regroupements d’activités (scope).
+    % \\cite{} ite{driss2011approche}
 
-   %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
-   % WS-BPEL est un langage de procédés basé sur la technologie XML,
-   % tout comme les autres standards des services Web. WS-BPEL permet
-   % de construire des procédés interprétables et exécutables par un
-   % moteur d'orchestration.
+    %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
+    % WS-BPEL est un langage de procédés basé sur la technologie XML,
+    % tout comme les autres standards des services Web. WS-BPEL permet
+    % de construire des procédés interprétables et exécutables par un
+    % moteur d'orchestration.
 
-   % Les procédés peuvent être modélisés de deux manières :
-   %     – abstraite : seuls les échanges de messages entre les
-   %     différents participants sont spécifiés. Mais le comportement
-   %     interne de ces participants n'est pas explicité.
-   %
-   %    – exécutable : les activités du procédé sont ordonnées; les
-   %    partenaires impliqués sont identifiés ainsi que les messages
-   %    qui sont échangés. A ceci s'ajoute le traitement des fautes
-   %    et des exceptions pour les cas d'erreurs.
+    % Les procédés peuvent être modélisés de deux manières :
+    % – abstraite : seuls les échanges de messages entre les
+    % différents participants sont spécifiés. Mais le comportement
+    % interne de ces participants n'est pas explicité.
+    % – exécutable : les activités du procédé sont ordonnées; les
+    % partenaires impliqués sont identifiés ainsi que les messages
+    % qui sont échangés. A ceci s'ajoute le traitement des fautes
+    % et des exceptions pour les cas d'erreurs.
+
+    % TODO: an example d'un shémas BPEL
+    % inclut la sémantique ?
+    % TODO: avantages et inconvénient
 
     \subsection{WS-CDL}
     \label{WS-CDL}
+    % make a reference to [TODO: Kavantzas et al., 2005] selon
+    % elie2010
+    \acrshort{ws-cdl} est un langage de composition de services de
+    type \textbf{chorégraphie} qui permet de décrire une vision
+    \textbf{globale} des collaborations entre les services Web
+    \cite{elie2010}, à l'instar des standards de services Web,
+    \textsc{WS-CDL} est basé sur \textsc{XML}, il complète la
+    description \acrshort{wsdl} des services Web afin de décrire les
+    interactions entre les participants (les services Web) de la
+    composition.
+
+    \textsc{WS-CDL} reprend et développe la spécification
+    \acrshort{wsci} décrivant les séquences ordonnées de messages
+    impliquant plusieurs entités (services Web) engagés dans une
+    composition visant à accomplir un objectif commun.
+
+    \textsc{WS-CDL} consiste à définir un fichier XML décrivant une
+    chorégraphie, il permet de \cite{elie2010}:
+    \begin{itemize} % WSDL-S elements and attributs
+    \item désigner les variables et les types de données échangées.
+    \item décrire les  activités impliquées.
+    \item décrire les structures illustrant les interactions entre
+      les activités.
+    \end{itemize}
+
+    %       En résumé WS-CDL permet de décrire les règles selon
+    %       lesquelles une collaboration doit avoir lieu. Il fournit une
+    %       structuration globale de l'interaction en fonction de
+    %       laquelle chaque participant décrit son processus métier et
+    %       par suite ses services.
+    %  \cite{elie2010}
+
+    %  WS-CDL (Web Service Choreography Description Language) est un
+    %  langage issu des efforts de standardisation
+    %  du groupe de travail du W3C portant sur la chorégraphie de
+    %  services Web (Web Services Choreography Working
+    %  Group52). L'objectif de ce langage est de décrire les relations
+    %  entre les services Web lors d'une composition de type
+    %  chorégraphie.
+
+    %  WS-CDL est un langage de composition de services de type
+    %  chorégraphie définissant des contrats multi-parties. L’avantage
+    %  de ce langage est que la description des interactions (l’élément
+    %  Choreography du Package) est réutilisable. Ceci permet de
+    %  diminuer la charge de travail des concepteurs. L’inconvénient de
+    %  WS-CDL est que même si l’élément Choreography est réutilisable,
+    %  sa description reste lourde. Un service doit posséder autant de
+    %  Package que de participations à des compositions. De plus, WS-CDL
+    %  n’inclut pas pour le moment de sémantique. Des travaux, tels que
+    %  [Kang et al., 2007a] et [Kang et al., 2007b], proposent d’étendre
+    %  WS-CDL afin d’y intégrer de nouveaux concepts (tels que la
+    %  gestion des erreurs et des exceptions ou la mise en œuvre d’un
+    %  minuteur d’exécution de la composition).
+
+     % \cite{lopez2008selection}
+
+    % TODO: shémas exemple d'un document WS-CDL.
+    % inclut la sémantique ?
+    % TODO: avantages et inconvénients.
+
 
     \subsection{OWL-S}
     \label{sec:owl-s}
