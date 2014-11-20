@@ -1,0 +1,2 @@
+* TODO complete the first chapter
+* TODO chapter 3: form docx -> latex
