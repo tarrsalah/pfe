@@ -25,7 +25,6 @@
 %   Dans ce chapitre, nous présentons dans un premier temps les
 % définitions et les types de composition de services Web présents dans
 % la littérature. Ensuite, nous étudions .....
-  
 %   Enfin, un ensemble de travaux proposent des approches de la
 % composition dynamiques des services web sémantiques.
   
@@ -192,11 +191,10 @@
   %% TODO: an introduction to the section
   Afin de supporter la composition de services, plusieurs langages de
   composition de services ont été proposés comme ...
-
   %% \cite{lopez2008selection}
 
-    \subsection{BPEL}
-    \label{sec:bpel}
+  \subsection{BPEL}
+  \label{sec:bpel}
 
     \acrshort{bpel} est une spécification du consortium OASIS
     \footnote{\url{https://www.oasis-open.org}}issue de la fusion des
@@ -219,8 +217,58 @@
     intéreptable de \textbf{coordination}
     \cite{chollet2009orchestration}.
 
-    %% procédé abstraite vs exécutable
-    %% les actions simples et composées, selon \cite{chollet2009orchestration}
+
+    % Un procédé est composé d'activités qui s'enchaînent grâce à des
+    % échanges de données. Les activités peuvent être de deux types:
+    % basiques ou complexes. Les activités basiques sont des types de
+    % base comme invoke pour appeler un service Web, receive pour
+    % attendre une invocation, reply pour une réponse... A partir de ces
+    % types de base, il est possible de créer des activités composites
+    % avec des structures de construction du contrôle du flot de données
+    % : flow pour une ou plusieurs activités concurrentes, sequence pour
+    % une séquence d’activités, switch pour des conditions, while pour
+    % une boucle... , \cite{chollet2009orchestration}.
+
+
+   %  BPEL4WS repose sur un modle constitué d'activités de coordination
+   %  qui peuvent être de deux types : de base ou structurées. Les
+   %  activités de base permettent :
+   %       – d'invoquer une opération d'un service Web (invoke)
+   %       – de recevoir une requête (receive)
+   %       – de générer une réponse a une requête (reply) ;
+   %       – de copier une donnée (assign) ;
+   %       – de marquer un temps d'attente (wait) ;
+   %       – de terminer une activité (terminate).
+
+   % Chaque activité de base est réalisée par une opération d'un
+   % service et chaque service est associé à un
+   % PartnerLink. Celui-ci contient les informations sur le rôle
+   % et l'interface PortType du service qui réalise cette opération.
+   % Les activités structurées utilisent les activités de base pour
+   % décrire :
+
+   %      – des séquences ordonnées (sequence) ;
+   %      – des exécutions en parallèle (flow) ;
+   %      – des branchements conditionnels (switch,if) ;
+   %      – des boucles (while) ; – des chemins alternatifs (pick );
+   %      – des regroupements d’activités (scope).
+   % \cite{driss2011approche}
+
+   %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
+   % WS-BPEL est un langage de procédés basé sur la technologie XML,
+   % tout comme les autres standards des services Web. WS-BPEL permet
+   % de construire des procédés interprétables et exécutables par un
+   % moteur d'orchestration.
+
+   % Les procédés peuvent être modélisés de deux manières :
+   %     – abstraite : seuls les échanges de messages entre les
+   %     différents participants sont spécifiés. Mais le comportement
+   %     interne de ces participants n'est pas explicité.
+   %
+   %    – exécutable : les activités du procédé sont ordonnées; les
+   %    partenaires impliqués sont identifiés ainsi que les messages
+   %    qui sont échangés. A ceci s'ajoute le traitement des fautes
+   %    et des exceptions pour les cas d'erreurs.
 
     \subsection{WS-CDL}
     \label{WS-CDL}
