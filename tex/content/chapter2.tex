@@ -5,6 +5,8 @@
 % publication,  la découverte et la sélection de services Web
 % élémentaire. L'autre concept fondamentale % est la composition des
 % services web.
+
+
   
 %   % The other fundamental concept is web service composition which
 % sometimes overlaps or will merge with the process of WS
@@ -173,16 +175,23 @@
       \label{sec:types-de-composition}
       Selon \cite{fluegge2006challenges}.
 
-      La composition requiert la description et l'organisation de
-      l'interaction entre les services. Elle nécessite la gestion de
-      plusieurs aspects comme les échanges de données entre les
-      services, les pannes ou erreurs éventuelles, le contexte
-      d'interaction, le degré d'automatisation des tâches, etc. Dans
-      la littérature, une variété de spécifications, de langages et
-      d'approches formelles ont étudiés la composition.
 
-      Dans la suite nous présentons les deux approches principales de
-      description de la composition \emph{}n section
+        \subsubsection{Composition manual/automatique}
+        \label{sec:comp-manu}
+
+        \subsubsection{Composition statique/dynamique}
+        \label{sec:comp-stat}
+
+      % La composition requiert la description et l'organisation de
+      % l'interaction entre les services. Elle nécessite la gestion de
+      % plusieurs aspects comme les échanges de données entre les
+      % services, les pannes ou erreurs éventuelles, le contexte
+      % d'interaction, le degré d'automatisation des tâches, etc. Dans
+      % la littérature, une variété de spécifications, de langages et
+      % d'approches formelles ont étudiés la composition.
+
+      % Dans la suite nous présentons les deux approches principales de
+      % description de la composition en section
       \ref{sec:lang-de-comp}...
       \newpage
 
@@ -272,6 +281,44 @@
     % et des exceptions pour les cas d'erreurs.
 
     % TODO: an example d'un shémas BPEL
+    % draw the figure [ Internal view of Travel Service (BPEL4WS)]
+    % TODO: référencer ce example [Semantic web processes and their
+    % application - chapter 8 (in the ch2 folder)]
+
+  %   <sequence name="TravelSequence">
+  %     <receive partnerLink="client"
+  %       portType="tns:travelPT"
+  %       operation="trip"
+  %       variable="request"
+  %       createInstance="yes"/>
+  %     <invoke name="invokeAirplane"
+  %       partnerLink="airplane"
+  %       portType="sairplane:Airplane"
+  %       operation="bookAirplane"
+  %       inputVariable="request"
+  %       outputVariable="airplaneReturn">
+  %     </invoke>
+  %     <invoke name="invokeHotel"
+  %       partnerLink="hotel"
+  %       portType="shot:Hotel"
+  %       operation="bookHotel"
+  %       inputVariable="request"
+  %       outputVariable="hotelReturn">
+  %     </invoke>
+  %     <invoke name="invokeCar"
+  %       partnerLink="car"
+  %       portType="scar:Car"
+  %       operation="rentcar"
+  %       inputVariable="request"
+  %       outputVariable="totalReturn">
+  %     </invoke>
+  %     <reply partnerLink="client"
+  %       portType="tns:travelPT"
+  %       operation="trip"
+  %       variable="carReturn"/>
+  % </sequence>
+
+
     % inclut la sémantique ?
     % TODO: avantages et inconvénient
 
@@ -341,14 +388,15 @@
     \subsection{OWL-S}
     \label{sec:owl-s}
     \cite{mcilraith2003bringing}
+    % see the BPEL reference for a complete schema and example
 
   \section{Compostion dynamique des services web}
   \label{sec:comp-dynam}
-  
+
   % conclusion
   Introduire la composition dynamique basé sur le modle graphe qui se
   sera détaillé dans le prochain chapitre.
-  \section{Conclusion}  
+  \section{Conclusion}
   \label{sec:conclusion}
  
 
