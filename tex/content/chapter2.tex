@@ -178,12 +178,63 @@
       \label{sec:types-de-composition}
       Selon \cite{fluegge2006challenges}.
 
+      % La composition des services Web peut être soit une composition
+      % statique soit une e composition dynamique:
+
+      % – La composition statique : est appelée aussi composition
+      % off-line, précompilée ou encore proactive. C'est une composition
+      % qui utilise des services basiques qui sont au préalablement
+      % définis d' une façon figée et qui ne peuvent pas changer en
+      % fonction du contexte du client. Ce type de composition engendre
+      % des applications peu flexibles, parfois inappropriées avec les
+      % exigences des clients.
+
+      % – La composition dynamique : appelée aussi composition on-line,
+      % postcompilée ou encore réactive. Elle se réfère à la sélection
+      % des services basiques à la volée. Autrement dit, la sélection
+      % des services basiques ne peut pas être prédéfinie à l'avance
+      % mais elle sera faite au moment de l'exécution en fonction des
+      % contraintes e imposées par le client. Ceci permet d' élaborer
+      % différents scénario de composition qui offrent les mêmes
+      % fonctionnalités et qui tiennent compte de la dynamique de la
+      % situation du client.
+
+
+      % Microsoft Biztalk et Bea WebLogic sont deux exemples de moteurs
+      % de composition statiques de services Web. Pour la composition
+      % dynamique, nous trouvons les plate-formes e-flow de HP et Sword
+      % de Stanford.
+
+      % Dans le cadre d'une composition statique de services, si les
+      % fournisseurs proposent d'autres services ou changent les anciens
+      % services, des incohérences peuvent être causées. Ceci qui
+      % demande un changement de l'architecture du logiciel, voire de la
+      % définition de l'application et crée l'obligation de faire une
+      % nouvelle conception de l'application. C'est pourquoi, la
+      % composition statique des services web est considérée rigide et
+      % trop ee restrictive [86 S. Sanlaville, Environnement de proc ́d ́
+      % extensible pour l'orchestration : Application aux services e e
+      % web, Ph.D. Thesis, 2005 ]
+      % \cite{driss2011approche}
 
         \subsubsection{Composition manual/automatique}
         \label{sec:comp-manu}
 
         \subsubsection{Composition statique/dynamique}
         \label{sec:comp-stat}
+
+        % La composition automatique (dynamique par le terme de
+        % \cite{fluegge2006challenges} permet un développement plus
+        % rapide des applications à base de services. Elle consiste à
+        % préciser la requête d'un utilisateur sous forme d'objectifs à
+        % satisfaire. Un moteur de composition \textit{``intelligent''}
+        % choisit la comabinaison de services répondant à l'objectif
+        % décrit. Il génère la composition de service adéquate de
+        % manière transparente à l'utilisateur. Ce principe a interpellé
+        % plusieurs communautés de recherche travaillant dans le domaine
+        % de l'Intelligence Artificielle.
+        % \cite{elie2010}
+
 
       % La composition requiert la description et l'organisation de
       % l'interaction entre les services. Elle nécessite la gestion de
@@ -395,6 +446,10 @@
 
   \section{Compostion dynamique des services web}
   \label{sec:comp-dynam}
+
+    \subsection{Techniques de planification}
+    \cite{bartalos2011effective}
+    \label{sec:techn-de-plan}
 
   % conclusion
   Introduire la composition dynamique basé sur le modle graphe qui se

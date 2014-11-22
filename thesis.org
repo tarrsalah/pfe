@@ -19,7 +19,7 @@
 ** Découverte des services web
    Talk about WS matchmacking (To the annex)
 ** conclusion
-* La Composition des services web (15)g
+* La Composition des services web (15)
 ** Définition et Types de composition (5)
 *** définitions
 *** Procédés de coordination
@@ -35,7 +35,7 @@
 *** OWL-S
 ** Composition dynamique des services web (5)
 ** conclusion
-* Les bases de données graph (15)
+* Les bases de données graph (20)
 * L'Approche proposée (30)
 * L'implémentation (10)
 * Conclusion
