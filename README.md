@@ -20,15 +20,18 @@ Sommaire:
      2.3 Découverte des services web
      2.4 Conclusion
    3 La Composition des services web
-     3.1 Définition et motivations
+     3.1 Définition et types de composition
        3.1.1 Définitions
-       3.1.2 Types de composition
-         3.1.2.1 Composition statique/dynamique
-         3.1.2.2 Composition manuel/automatique
-       3.1.3 Procédés de coordination
-         3.1.3.1 Orchestration
-         3.1.3.2 Chorégraphie
-     3.2 Langages de composition des services web et technologies associées
+       3.1.2 Motivations et objectifs
+       3.1.3 Cycle de vie d'une composition
+       3.1.4 Types de composition
+         3.1.4.1 Composition horizontale/verticale
+         3.1.4.2 Composition statique/dynamique
+         3.1.4.3 Composition manuel/automatique
+       3.1.5 Procédés de coordination
+         3.1.5.1 Orchestration
+         3.1.5.2 Chorégraphie
+     3.2 Langages pour la composition
        3.2.1 BPEL
        3.2.2 WS-CDL
        3.2.3 OWL-S
