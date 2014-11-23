@@ -42,7 +42,7 @@
   composition selon différents points de vue rencontrés dans la
   littérature.
   
-  \subsection{Définitions}
+    \subsection{Définitions}
     \label{sec:definitions}
 
     Martin \emph{et al.} \cite{martin2004owl} définissent
@@ -86,6 +86,83 @@
 
     % TODO: vertical vs horiontal composition selon
     % medjahed.\cite{medjahed2004thesis}
+
+    % TODO: les procédés de coordination selon [fluegge2006challenges]
+    \subsection{Types de composition}
+    \label{sec:types-de-composition}
+    Selon \cite{fluegge2006challenges}.
+  
+    % La composition des services Web peut être soit une composition
+    % statique soit une e composition dynamique:
+    
+    % – La composition statique : est appelée aussi composition
+    % off-line, précompilée ou encore proactive. C'est une composition
+    % qui utilise des services basiques qui sont au préalablement
+    % définis d' une façon figée et qui ne peuvent pas changer en
+    % fonction du contexte du client. Ce type de composition engendre
+    % des applications peu flexibles, parfois inappropriées avec les
+    % exigences des clients.
+
+    % – La composition dynamique : appelée aussi composition on-line,
+    % postcompilée ou encore réactive. Elle se réfère à la sélection
+    % des services basiques à la volée. Autrement dit, la sélection
+    % des services basiques ne peut pas être prédéfinie à l'avance
+    % mais elle sera faite au moment de l'exécution en fonction des
+    % contraintes e imposées par le client. Ceci permet d' élaborer
+    % différents scénario de composition qui offrent les mêmes
+    % fonctionnalités et qui tiennent compte de la dynamique de la
+    % situation du client.
+    
+
+    % Microsoft Biztalk et Bea WebLogic sont deux exemples de moteurs
+    % de composition statiques de services Web. Pour la composition
+    % dynamique, nous trouvons les plate-formes e-flow de HP et Sword
+    % de Stanford.
+
+    % Dans le cadre d'une composition statique de services, si les
+    % fournisseurs proposent d'autres services ou changent les anciens
+    % services, des incohérences peuvent être causées. Ceci qui
+    % demande un changement de l'architecture du logiciel, voire de la
+    % définition de l'application et crée l'obligation de faire une
+    % nouvelle conception de l'application. C'est pourquoi, la
+    % composition statique des services web est considérée rigide et
+    % trop ee restrictive [86 S. Sanlaville, Environnement de proc ́d ́
+    % extensible pour l'orchestration : Application aux services e e
+    % web, Ph.D. Thesis, 2005 ]
+    % \cite{driss2011approche}
+  
+      \subsubsection{Composition manuel/automatique}
+      \label{sec:comp-manu}
+        
+      \subsubsection{Composition statique/dynamique}
+      \label{sec:comp-stat}
+
+    % La composition automatique (dynamique par le terme de
+    % \cite{fluegge2006challenges} permet un développement plus
+    % rapide des applications à base de services. Elle consiste à
+    % préciser la requête d'un utilisateur sous forme d'objectifs à
+    % satisfaire. Un moteur de composition \textit{``intelligent''}
+    % choisit la comabinaison de services répondant à l'objectif
+    % décrit. Il génère la composition de service adéquate de
+    % manière transparente à l'utilisateur. Ce principe a interpellé
+    % plusieurs communautés de recherche travaillant dans le domaine
+    % de l'Intelligence Artificielle.
+    % \cite{elie2010}
+
+
+    % La composition requiert la description et l'organisation de
+    % l'interaction entre les services. Elle nécessite la gestion de
+    % plusieurs aspects comme les échanges de données entre les
+    % services, les pannes ou erreurs éventuelles, le contexte
+    % d'interaction, le degré d'automatisation des tâches, etc. Dans
+    % la littérature, une variété de spécifications, de langages et
+    % d'approches formelles ont étudiés la composition.
+
+    % Dans la suite nous présentons les deux approches principales de
+    % description de la composition en section
+    \ref{sec:lang-de-comp}...
+    \newpage
+
 
       \subsection{Procédés de coordination}
       \label{sec:proc-de-coord}
@@ -173,90 +250,13 @@
         % TODO : redraw the fig
         \input{figs/choregraphie.tex}
 
-
-      \subsection{Types de composition}
-      \label{sec:types-de-composition}
-      Selon \cite{fluegge2006challenges}.
-
-      % La composition des services Web peut être soit une composition
-      % statique soit une e composition dynamique:
-
-      % – La composition statique : est appelée aussi composition
-      % off-line, précompilée ou encore proactive. C'est une composition
-      % qui utilise des services basiques qui sont au préalablement
-      % définis d' une façon figée et qui ne peuvent pas changer en
-      % fonction du contexte du client. Ce type de composition engendre
-      % des applications peu flexibles, parfois inappropriées avec les
-      % exigences des clients.
-
-      % – La composition dynamique : appelée aussi composition on-line,
-      % postcompilée ou encore réactive. Elle se réfère à la sélection
-      % des services basiques à la volée. Autrement dit, la sélection
-      % des services basiques ne peut pas être prédéfinie à l'avance
-      % mais elle sera faite au moment de l'exécution en fonction des
-      % contraintes e imposées par le client. Ceci permet d' élaborer
-      % différents scénario de composition qui offrent les mêmes
-      % fonctionnalités et qui tiennent compte de la dynamique de la
-      % situation du client.
-
-
-      % Microsoft Biztalk et Bea WebLogic sont deux exemples de moteurs
-      % de composition statiques de services Web. Pour la composition
-      % dynamique, nous trouvons les plate-formes e-flow de HP et Sword
-      % de Stanford.
-
-      % Dans le cadre d'une composition statique de services, si les
-      % fournisseurs proposent d'autres services ou changent les anciens
-      % services, des incohérences peuvent être causées. Ceci qui
-      % demande un changement de l'architecture du logiciel, voire de la
-      % définition de l'application et crée l'obligation de faire une
-      % nouvelle conception de l'application. C'est pourquoi, la
-      % composition statique des services web est considérée rigide et
-      % trop ee restrictive [86 S. Sanlaville, Environnement de proc ́d ́
-      % extensible pour l'orchestration : Application aux services e e
-      % web, Ph.D. Thesis, 2005 ]
-      % \cite{driss2011approche}
-
-        \subsubsection{Composition manuel/automatique}
-        \label{sec:comp-manu}
-
-        \subsubsection{Composition statique/dynamique}
-        \label{sec:comp-stat}
-
-        % La composition automatique (dynamique par le terme de
-        % \cite{fluegge2006challenges} permet un développement plus
-        % rapide des applications à base de services. Elle consiste à
-        % préciser la requête d'un utilisateur sous forme d'objectifs à
-        % satisfaire. Un moteur de composition \textit{``intelligent''}
-        % choisit la comabinaison de services répondant à l'objectif
-        % décrit. Il génère la composition de service adéquate de
-        % manière transparente à l'utilisateur. Ce principe a interpellé
-        % plusieurs communautés de recherche travaillant dans le domaine
-        % de l'Intelligence Artificielle.
-        % \cite{elie2010}
-
-
-      % La composition requiert la description et l'organisation de
-      % l'interaction entre les services. Elle nécessite la gestion de
-      % plusieurs aspects comme les échanges de données entre les
-      % services, les pannes ou erreurs éventuelles, le contexte
-      % d'interaction, le degré d'automatisation des tâches, etc. Dans
-      % la littérature, une variété de spécifications, de langages et
-      % d'approches formelles ont étudiés la composition.
-
-      % Dans la suite nous présentons les deux approches principales de
-      % description de la composition en section
-      \ref{sec:lang-de-comp}...
-      \newpage
-
   \section{Langages de composition des services web}
   \label{sec:lang-de-comp}
-  %% TODO: an introduction to the section
+  % TODO: an introduction to the section
+  % TODO: re-draw figs an unify them
   Afin de supporter la composition de services, plusieurs langages de
   composition de services ont été proposés comme ...
-
-  Dan cette section on va détailler trois langages ...
-  %% \cite{lopez2008selection}
+  Dan cette section on va détailler trois langages ... \cite{lopez2008selection}
 
     \subsection{BPEL}
     \label{sec:bpel}
@@ -271,7 +271,6 @@
     de WSFL \cite{driss2011approche}.
 
     \input{figs/bpel-travel-example-shema.tex}
-    \input{figs/bpel_travel_example_document.tex}
 
     \textsc{BPEL} \textit{(appelé aussi \acrshort{bpel4ws} ou
       \acrshort{ws-bpel})} est le langage d'\textbf{orchestration}
@@ -282,45 +281,21 @@
     l'enchaînement et l'ordonnancement des actions qui seront
     exécutées par le moteur d'orchestration, agissant comme une
     machine virtuelle capable d'exécuter \textbf{le procédé métier}
-    intéreptable de \textbf{coordination}
-    \cite{chollet2009orchestration}.
-    % TODO: BPEL permet de quoi ? et comment ?
+    intéreptable de \textbf{coordination} \cite{chollet2009orchestration}.
 
-    % Un procédé est composé d'activités qui s'enchaînent grâce à des
-    % échanges de données. Les activités peuvent être de deux types:
-    % basiques ou complexes. Les activités basiques sont des types de
-    % base comme invoke pour appeler un service Web, receive pour
-    % attendre une invocation, reply pour une réponse... A partir de ces
-    % types de base, il est possible de créer des activités composites
-    % avec des structures de construction du contrôle du flot de données
-    % : flow pour une ou plusieurs activités concurrentes, sequence pour
-    % une séquence d’activités, switch pour des conditions, while pour
-    % une boucle... , \cite{chollet2009orchestration}.
+    \textsc{BPEL} repose sur un modèle constitué d'activités de
+    coordination qui peuvent être de deux types, les activités de base
+    ou élémentaires comme l'invocation (invoke) d'un service,
+    l'attente d'une réponse et la génération d'une réponse (reply), et
+    les activités composites permettant du contrôle du flot de données
+    comme les séquences (sequence), les exécutions en parallèle (flow)
+    et les branchements (switch, if). La figure
+    \ref{fig:bpel_travel_example_document} représente une opération de
+    type ``séquence'' illustrée dans le shémas
+    \ref{fig:bpel-travel-example-schema}.
 
-
-    %  BPEL4WS repose sur un modle constitué d'activités de coordination
-    %  qui peuvent être de deux types : de base ou structurées. Les
-    %  activités de base permettent :
-    %  – d'invoquer une opération d'un service Web (invoke)
-    %  – de recevoir une requête (receive)
-    %  – de générer une réponse a une requête (reply) ;
-    %  – de copier une donnée (assign) ;
-    %  – de marquer un temps d'attente (wait) ;
-    %  – de terminer une activité (terminate).
-
-    %  Chaque activité de base est réalisée par une opération d'un
-    %  service et chaque service est associé à un
-    %  PartnerLink. Celui-ci contient les informations sur le rôle
-    %  et l'interface PortType du service qui réalise cette opération.
-    %  Les activités structurées utilisent les activités de base pour
-    %  décrire :
-
-    %  – des séquences ordonnées (sequence) ;
-    %  – des exécutions en parallèle (flow) ;
-    %  – des branchements conditionnels (switch,if) ;
-    %  – des boucles (while) ; – des chemins alternatifs (pick );
-    %  – des regroupements d’activités (scope).
-    % \\cite{} ite{driss2011approche}
+    \input{figs/bpel_travel_example_document.tex}
+    \newpage
 
     %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
     % WS-BPEL est un langage de procédés basé sur la technologie XML,
@@ -336,45 +311,6 @@
     % partenaires impliqués sont identifiés ainsi que les messages
     % qui sont échangés. A ceci s'ajoute le traitement des fautes
     % et des exceptions pour les cas d'erreurs.
-
-    % TODO: an example d'un shémas BPEL
-    % draw the figure [ Internal view of Travel Service (BPEL4WS)]
-    % TODO: référencer ce example [Semantic web processes and their
-    % application - chapter 8 (in the ch2 folder)]
-
-  %   <sequence name="TravelSequence">
-  %     <receive partnerLink="client"
-  %       portType="tns:travelPT"
-  %       operation="trip"
-  %       variable="request"
-  %       createInstance="yes"/>
-  %     <invoke name="invokeAirplane"
-  %       partnerLink="airplane"
-  %       portType="sairplane:Airplane"
-  %       operation="bookAirplane"
-  %       inputVariable="request"
-  %       outputVariable="airplaneReturn">
-  %     </invoke>
-  %     <invoke name="invokeHotel"
-  %       partnerLink="hotel"
-  %       portType="shot:Hotel"
-  %       operation="bookHotel"
-  %       inputVariable="request"
-  %       outputVariable="hotelReturn">
-  %     </invoke>
-  %     <invoke name="invokeCar"
-  %       partnerLink="car"
-  %       portType="scar:Car"
-  %       operation="rentcar"
-  %       inputVariable="request"
-  %       outputVariable="totalReturn">
-  %     </invoke>
-  %     <reply partnerLink="client"
-  %       portType="tns:travelPT"
-  %       operation="trip"
-  %       variable="carReturn"/>
-  % </sequence>
-
 
     % inclut la sémantique ?
     % TODO: avantages et inconvénient
@@ -440,13 +376,16 @@
     % TODO: shémas exemple d'un document WS-CDL.
     % inclut la sémantique ?
     % TODO: avantages et inconvénients.
-
-
+    \newpage
     \subsection{OWL-S}
     \label{sec:owl-s}
     \cite{mcilraith2003bringing}
     \input{figs/owls_travel_example_schema.tex}
+    \input{figs/owls_travel_example_document.tex}
     % see the BPEL reference for a complete schema and example
+
+    \newpage
+    \newpage
 
   \section{Composition dynamique des services web}
   \label{sec:comp-dynam}
@@ -460,6 +399,8 @@
   sera détaillé dans le prochain chapitre.
   \section{Conclusion}
   \label{sec:conclusion}
+  % TODO rapeller du problème initiale en contexte de ce chapitre en une
+  % page
  
 
 %%% Local Variables: 
