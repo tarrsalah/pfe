@@ -23,7 +23,8 @@
 * La Composition des services web (20)
 ** introduction (1)
 ** Définition et motivations (6)
-*** définitions (2)
+*** définitions1(1)
+*** motivations (1)
 *** Types de composition (2)
 **** composition statique
 **** composition semi-dynamique

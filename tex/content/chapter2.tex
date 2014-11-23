@@ -49,7 +49,8 @@
     la composition comme étant \emph{``le processus de sélection, de
       combinaison et d'exécution de services en vue
       d'accomplir un objectif donné''}.\\
-  
+    % TODO discussion de la définition.
+
     Selon S. Dustdar et W. Schreiner \cite{dustdar2005survey} :
     \emph{`` L'infrastructure de base des services Web suffit pour la
       mise en œuvre d'interactions simples entre un client et un
@@ -58,13 +59,51 @@
       donc de combiner les fonctionnalités de plusieurs services
       web. Dans ce cas, nous parlons d'une composition de services
       Web''}.\\
-    
+
+    % TODO discussion.
     En d'autre terme, La composition de services Web désigne une
     opération qui consiste à construire de nouvelles applications ou
     services appelés \textbf{services composites} ou agrégats par
     l'assemblage ou l'agrégation de services existants nommés
-    \textbf{services atomiques} ou
-    élémentaires.\\
+    \textbf{services atomiques} ou élémentaires.
+
+    % TODO: A composite service is defined as a conglomeration of outsourced
+    % Web services (called participant services) working in tandem to
+    % offer a value-added service. \cite{medjahed2004thesis}
+    Medjahed \cite{medjahed2004thesis} a défini un service Web
+    \emph{``composite''} commme une...\\% TODO
+
+    % TODO: les avantages de la composition (motivations)
+    % From a business perspective, Web service composition offers
+    % several advantages [122]. First, composite services allow
+    % organizations to minimize the amount of work required to develop
+    % applications, ensuring a rapid time-to-market. Second, applica-
+    % tion development based on Web services reduces business risks
+    % since reusing existing services avoids the introduction of new
+    % errors. Third, composing Web services en- ables the reduction of
+    % skills and effort requirements for developing applications.
+    % Finally, the possibility of outsourcing the
+    % “best-in-their-class” services allows com- panies to increase
+    % their revenu \cite{medjahed2004thesis}
+   
+    % le processus générale de composition
+
+
+    La composition de services Web vise essentiellement quatre
+    objectifs \cite{driss2011approche}:
+    \begin{itemize}
+
+      \item Créer de nouvelles fonctionnalités en combinant des services
+        déjà existants.
+
+      \item Résoudre des problèmes complexes auxquels aucune solution
+        n'a été trouvée.
+
+      \item collaborer plusieurs entreprises ensemble.
+
+      \item Optimiser et améliorer une fonctionnalité existante.
+
+    \end{itemize}
 
     Il existent différentes techniques de composition de services web
     développées par la littérature. ces techniques sont également
@@ -84,13 +123,29 @@
     %% Les Procédés de coordination comme une vision (point de vue)
     %% d'une composition des services Web.
 
-    % TODO: vertical vs horiontal composition selon
-    % medjahed.\cite{medjahed2004thesis}
+    % TODO: vertical vs horiontal composition
+    % selon medjahed.\cite{medjahed2004thesis}
+    % The composition mode refers to the way participants are
+    % combined. We define three composition types: horizontal,
+    % vertical,
+    % and hybrid. Horizontal compo- sition refers to a “supply
+    % chain”-like combination of Web services.  Vertical composition
+    % refers to the “outsourcing” of a Web service by a sub-request or
+    % another Web service.
+
+    % Horizontal composition implies the combina- tion of several Web
+    % services. It is hence used with one-to-many cardinality. Vertical
+    % composition refers to the outsourcing of one Web service. It is
+    % hence combined with one-to-one cardinality. Hybrid composition
+    % refers to the most general mode.  It may be used with both
+    % horizontal and vertical compositions
 
     % TODO: les procédés de coordination selon [fluegge2006challenges]
     \subsection{Types de composition}
     \label{sec:types-de-composition}
-    Selon \cite{fluegge2006challenges}.
+    % TODO
+    % Dans la suite, les types de composition des
+    % services Web désigne types classés par\cite{fluegge2006challenges}.
   
     % La composition des services Web peut être soit une composition
     % statique soit une e composition dynamique:
@@ -130,12 +185,25 @@
     % extensible pour l'orchestration : Application aux services e e
     % web, Ph.D. Thesis, 2005 ]
     % \cite{driss2011approche}
-  
-      \subsubsection{Composition manuel/automatique}
-      \label{sec:comp-manu}
-        
+
       \subsubsection{Composition statique/dynamique}
       \label{sec:comp-stat}
+      Un des problèmes fondamentaux dans la composition des services
+      web est comment trouver les services appropriés correspondants à
+      une fonctionnalité donnée et surtout s'il s'agit de les combiner
+      afin de satisfaire une fonctionnalité complexe. Certaines
+      approches de composition se basent sur des schémas prédéfinis de
+      composition (sous forme de scenario prédéfinis) pour répondre à
+      des besoins connus des utilisateurs dans un domaine donné, par
+      exemple : achat de véhicule, planification de voyage. Par
+      contre, les utilisateurs ont des besoins parfois imprévisibles,
+      mais peuvent être satisfaits grâce à la combinaison de services
+      disponibles de manière dynamique. Sur ce point de vue, on
+      distingue entre la composition statique et la composition
+      dynamique des services web.
+
+      \subsubsection{Composition manuel/automatique}
+      \label{sec:comp-manu}
 
     % La composition automatique (dynamique par le terme de
     % \cite{fluegge2006challenges} permet un développement plus
@@ -386,21 +454,76 @@
     \input{figs/owls_travel_example_document.tex}
     % see the BPEL reference for a complete schema and example
 
-    \newpage
-    \newpage
-
   \section{Composition dynamique des services web}
   \label{sec:comp-dynam}
 
-    \subsection{Techniques de planification}
-    \cite{bartalos2011effective}
-    \label{sec:techn-de-plan}
 
-  % conclusion
-  Introduire la composition dynamique basé sur le modèle graphe qui se
-  sera détaillé dans le prochain chapitre.
+  % les motivation de la composition dynamiques [\cite{bartalos2011effective}]
+  % The motivation for service orchestration as just mentioned is more about solving
+  % technical problems related to the software integration. Unfortunately, the overall
+  % principles of SOA are not fully adapted and used in practice. During the last years
+  % there has been a vision that Web services could be automatically arranged to
+  % supply a complex functionality. A lot of research effort has been made to develop
+  % approaches able to find and arrange relevant services in a meaningful, optimal
+  % manner to satisfy the goal defined by the requestor. This idea moves toward the
+  % exploitation of single services. However, the complexity of single services is not
+  % limited, it is not effective, or it is even impossible to develop services satisfying all
+  % possible (expected) requests. Thus, other methods must be investigated to be able
+  % to supply variable functionality. A more feasible approach is to arrange several
+  % simpler services on the fly (dynamically) based on the given request. This is called
+  % also explorative service composition (Yang and Papazoglou, 2004).
+
+
+
+  % There are several principal differences between the situation when the Web
+  % services are used to realize some activities prescribed by a business process and the
+  % situation when they are automatically arranged on the fly to supply the need of the
+  % requestor. In the situation when the arrangement of services, i.e. orchestration,
+  % is done based on the given business process, it is made manually by a software
+  % developer. The resulting arrangement is realizing a defined task for a long period
+  % of time, for multiple users. In the second situation, the arrangement is done
+  % automatically, based on the descriptions of the available services and the given
+  % user goal. In this case we will call it service composition. This approach suits well
+  % also in the case when the user goal is varying and the situation requires flexible
+  % arrangement of services.
+
+  % Service composition is also possible in the case when the number of potential
+  % services is very high. The manual composition is not effective, or is even impossible
+  % in this case. On the other side, the service orchestration does not require additional
+  % description of services, since the developers can use the documentation of the used
+  % services. Service composition relies on additional metadata about services, to make
+  % them distinguishable and understand what functionality they realize. These must
+  % be provided in a standardly defined form.
+
+  % The automatic dynamic Web service composition introduces new possibilities
+  % in the area of Web services (Dustdar and Papazoglou, 2008; Dustdar and Schreiner,
+  % 2005). Its aim is not to solve existing problems with the manual composition, or
+  % automate this process. The manual composition still has its place in the software
+  % development process of on-demand software solutions based on the given require-
+  % ments. The automatic dynamic composition provides the opportunity to exploit
+  % the available services to supply a wide range of varying user goals.
+
+  La classification est d'aprés \cite{baryannis2010}.
+
+    \subsection{Les approches basées sur les workflow}
+    \label{sec:les-approches-basees}
+
+    \subsection{Les approches guidées par les modèles}
+    \label{sec:les-appr-guid}
+
+    \subsection{Les apprcohes mathématiques}
+    \label{sec:les-apprc-math}
+   
+    \subsection{Techniques de planification}    
+    \label{sec:techn-de-plan}
+    Selon \\cite{baryannis2010} et\cite{bartalos2011effective}.
+
+
   \section{Conclusion}
   \label{sec:conclusion}
+    % conclusion
+  Introduire la composition dynamique basé sur le modèle graphe qui se
+  sera détaillé dans le prochain chapitre.
   % TODO rapeller du problème initiale en contexte de ce chapitre en une
   % page
  
