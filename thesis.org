@@ -1,14 +1,14 @@
 * Introduction
 * Les services web: Vue d'ensemble (20)
 ** introduction (1)
-** Notions de base et technologies associées
+** Notions de base et technologies associées (6)
 *** Définitions et caractéristiques
 *** L'évolution des styles des services web
 *** L'architecture de référence et technlogies associées
 **** SOAP
 **** WSDL
 **** UDDI
-** Description des services web
+** Description des services web (6)
 *** Description syntaxique de services
     Détails sur WSDL 1 et 2
 *** Ajout de la sémantique
@@ -17,12 +17,12 @@
 **** SAWSDL
 **** OWL-S
 **** WSMO
-** Découverte des services web
+** Découverte des services web (6)
    Talk about WS matchmacking (To the annex)
-** conclusion
+** conclusion (1)
 * La Composition des services web (20)
 ** introduction (1)
-** Définition et Types de composition (6)
+** Définition et motivations (6)
 *** définitions (2)
 *** Types de composition (2)
 **** composition statique
@@ -31,7 +31,7 @@
 *** Procédés de coordination (2)
 **** Orchestration 
 **** Chorégraphie
-** Langages de composition (6)
+** Langages de composition et technologies associées(6)
 *** BPEL (2)
 *** WS-CDL (2)
 *** OWL-S (2)
