@@ -41,7 +41,7 @@
 \author{TAOURIRIT Salah Eddine}
 \title{composition des services web}
 
-\date{\today\\version 0.2}
+\date{\today\\version 0.2.1}
 \begin{document}
 
 %description style
@@ -52,21 +52,27 @@
 \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textsf{#1}} 
 
 \maketitle 
-% \frontmatter
+
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
+% \frontmatte
+\pagenumbering{roman}
 \tableofcontents
 \selectlanguage{french}  
-\pagenumbering{arabic}
+% \pagenumbering{arabic}
 \input{acronyms.tex}
 \printglossaries
 \listoffigures
 \listoftables
 % \part{Problématique et étude bibliographique}
-
+% \mainmatter
+\pagenumbering{arabic}
 \input{content/introduction}
+\part{Étude bibliographique}
 \input{content/chapter1}
 \input{content/chapter2}
+\input{content/chapter3}
+\part{L'approche proposée}
 % \chapter{La composition des services web}
 % \chapter{Les bases de données graphs}
 %
