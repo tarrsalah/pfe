@@ -1,4 +1,0 @@
-* TODO [#A] complete BPEL/WC-DL and OWLS
-* TODO [#A] make a travel composition service examaple
-* TODO [#C] complete the first chapter
-* TODO [#B] chapter 3: form docx -> latex
