@@ -1,4 +1,5 @@
-# Sommaire:
+Sommaire:
+<pre>
    1 Introduction
    2 Les services web: Vue d'ensemble
      2.1 Notions de base et technologies associées
@@ -34,3 +35,4 @@
      3.3 Composition dynamique des services web
        3.3.1 Techniques de planification
      3.4 Conclusion
+<\pre>
