@@ -38,4 +38,3 @@ Sommaire:
        3.3.3 Les apprcohes mathématiques
        3.3.4 Techniques de planification
      3.4 Conclusion
-<\pre>
