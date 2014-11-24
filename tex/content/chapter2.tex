@@ -1,7 +1,7 @@
 \chapter{La Composition des services web}
 %% TODO Introduire la notion de la composition et le plan du chapitre
 
-%   % Dans le chapitres précédent, nous avons étudiés la description, la
+% Dans le chapitres précédent, nous avons étudiés la description, la
 % publication,  la découverte et la sélection de services Web
 % élémentaire. L'autre concept fondamentale % est la composition des
 % services web.
@@ -224,8 +224,8 @@
       %TODO: les avantages et les inconvénients.
 
     \subsection{Stratégies de composition}
-
     \label{sec:types-de-composition}
+    %TODO: re-write
     Un modèle de composition de service peut être relativement
     complexe. Il requiert la description et l'organisation de
     l'interaction entre les services et nécessite la gestion de
@@ -239,7 +239,7 @@
     différents dimensions, et selon les travaux effectués dans le
     champ des services web, les définitions des types de composition
     diffèrent d'une communauté de l'autre.
-
+ 
     Barros \emph{et al.} \cite{barros2006standards} classent la
     composition des services Web en trois catégories : la composition
     comportementale, l'orchestration et la chorégraphie, à l'instar de
@@ -247,14 +247,10 @@
     procédés de coordination \ref{sec:proc-de-coord} et distingue
     seulement les deux dernières \textit{(orchestration,
       chorégraphie)}.
-  
-    %% commment classifies la compositions ?
-    %% \cite{fluegge2006challenges} Static vs dynamique.
 
-    %% Les Procédés de coordination comme une vision (point de vue)
-    %% d'une composition des services Web.
-
-    % TODO: vertical vs horiontal composition
+    \input{figs/static-vs-dynamic-composition.tex}
+    \newpage
+   % TODO: vertical vs horiontal composition
     Medjahed.\cite{medjahed2004thesis} de ça part définit trois types
     de composition selon...
     % the composition mode refers to the way participants are
@@ -267,11 +263,18 @@
     % cardinality. Vertical composition refers to the outsourcing of one
     % Web service. It is hence combined with one-to-one
     % cardinality. Hybrid composition refers to the most general mode.
-    % It may be used with both horizontal and vertical compositions
+    % It may be used with both horizontal and vertical compositions.
 
-    % TODO: les procédés de coordination selon [fluegge2006challenges]
-    % TODO
+    %% Les Procédés de coordination comme une vision (point de vue)
+    %% d'une composition des services Web.
 
+    %% commment classifies la compositions ?
+    %% \cite{fluegge2006challenges} Static vs dynamique.
+    %% TODO: les procédés de coordination selon [fluegge2006challenges]    
+    % When composing Web Services, two different execution models are
+    % usually applied: Orchestration and Choreogra- phy. There is not a
+    % common sense regarding these two definitions,
+    
     % Microsoft Biztalk et Bea WebLogic sont deux exemples de moteurs
     % de composition statiques de services Web. Pour la composition
     % dynamique, nous trouvons les plate-formes e-flow de HP et Sword
@@ -288,12 +291,6 @@
     % extensible pour l'orchestration : Application aux services e e
     % web, Ph.D. Thesis, 2005 ]
     % \cite{driss2011approche}
-
-      % \subsubsection{Composition horizontale/verticale}
-      % \label{sec:comp-horiz}
-      % D'autres travaux s'intressent à ... comme
-      % \cite{medjahed2004thesis}.
-
     
       \subsubsection{Composition statique/dynamique}
       \label{sec:comp-stat}
@@ -356,13 +353,12 @@
         % découverte des « bons » services à composer selon les besoins
         % et la disponibilité des services.  - La dynamicité et la
         % flexibilité dans la composition de services Web. \cite{ch3}
-      \end{description}
+      \end{description}            
 
       \subsubsection{Composition manuel/automatique}
       \label{sec:comp-manu}
       Classification basée sur le degré d'automatisation.
 
-      \SpecialItem
       \begin{description}
       \item[Composition manuel] :
       \item[Composition semi-automatique] :
@@ -379,60 +375,59 @@
         % plusieurs communautés de recherche travaillant dans le domaine
         % de l'Intelligence Artificielle.  \cite{elie2010}
       \end{description}
-
+      D'une autre façon, Fluegge \emph{et
+        al.}\cite{fluegge2006challenges} dans une analyse de l'état de
+      l'art considèrent l'orchestration et la chorégraphie comme des
+      modèles d'exécution appliqués dans le contexte d'une composition.    
+      \SpecialItem
+      
       % TODO introduire la classification \cite{fluegge2006challenges}
       % TODO introduire les procédés de coordination par
       % \cite{peltz2003web}
       % \ref{sec:lang-de-comp}...
       % Dans la suite, les types de composition des
-      % services Web désigne types classés par\cite{fluegge2006challenges}.        
+      % services Web désigne types classés
+      % par\cite{fluegge2006challenges}.
+      \newpage
   \section{Langages pour la composition}
   \label{sec:lang-de-comp}
   % TODO: an introduction to the section
   % TODO: re-draw figs an unify them
-  % Afin de supporter la composition de services, plusieurs langages de
-  % composition de services ont été proposés comme ...  Dan cette
-  % section on va détailler trois langages ... \cite{lopez2008selection}
+  Afin de supporter la composition de services Web, plusieurs langages de
+  composition de services ont été proposés pour description de la
+  composition. Dans cette section on va faire un vue d'ensemble
+  de qulques langages principaux rencontrés dans la littérature.
   % % TODO change the font of commands in BPEL et al....
+    \subsection{BPEL}
+    \label{sec:bpel}
 
-  %   \subsection{BPEL}
-  %   \label{sec:bpel}
+    \acrshort{bpel} est une spécification du consortium OASIS
+    \footnote{\url{https://www.oasis-open.org}}issue de la fusion des
+    spécifications \acrshort{xlang} Microsoft
+    \footnote{\url{http://www.microsoft.com}}et \acrshort{wsfl} d'IBM
+    \footnote{\url{http://www.ibm.com}}, il hérite les
+    caractéristiques d'un langage structuré en blocs de
+    \textsc{XLANG}, ainsi que les caractéristiques d'un graphe direct
+    de WSFL \cite{driss2011approche}.
 
-  %   \acrshort{bpel} est une spécification du consortium OASIS
-  %   \footnote{\url{https://www.oasis-open.org}}issue de la fusion des
-  %   spécifications \acrshort{xlang} Microsoft
-  %   \footnote{\url{http://www.microsoft.com}}et \acrshort{wsfl} d'IBM
-  %   \footnote{\url{http://www.ibm.com}}, il hérite les
-  %   caractéristiques d'un langage structuré en blocs de
-  %   \textsc{XLANG}, ainsi que les caractéristiques d'un graphe direct
-  %   de WSFL \cite{driss2011approche}.
+    \textsc{BPEL} \textit{(appelé aussi \acrshort{bpel4ws} ou
+      \acrshort{ws-bpel})} est le langage d'\textbf{orchestration}
+    le plus utilisé dans l'industrie permettant la coordination des
+    interactions entre l'instance du service composite et ses
+    partenaires sous forme d'un schéma \acrshort{xml} \textit{(le
+      script d'orchestration)}, il définit le processus,
+    l'enchaînement et l'ordonnancement des actions qui seront
+    exécutées par le moteur d'orchestration, agissant comme une
+    machine virtuelle capable d'exécuter \textbf{le procédé métier}
+    intéreptable de \textbf{coordination} \cite{chollet2009orchestration}.
 
-  %   \input{figs/bpel-travel-example-shema.tex}
-
-  %   \textsc{BPEL} \textit{(appelé aussi \acrshort{bpel4ws} ou
-  %     \acrshort{ws-bpel})} est le langage d'\textbf{orchestration}
-  %   le plus utilisé dans l'industrie permettant la coordination des
-  %   interactions entre l'instance du service composite et ses
-  %   partenaires sous forme d'un schéma \acrshort{xml} \textit{(le
-  %     script d'orchestration)}, il définit le processus,
-  %   l'enchaînement et l'ordonnancement des actions qui seront
-  %   exécutées par le moteur d'orchestration, agissant comme une
-  %   machine virtuelle capable d'exécuter \textbf{le procédé métier}
-  %   intéreptable de \textbf{coordination} \cite{chollet2009orchestration}.
-
-  %   \textsc{BPEL} repose sur un modèle constitué d'activités de
-  %   coordination qui peuvent être de deux types, les activités de base
-  %   ou élémentaires comme l'invocation (invoke) d'un service,
-  %   l'attente d'une réponse et la génération d'une réponse (reply), et
-  %   les activités composites permettant du contrôle du flot de données
-  %   comme les séquences (sequence), les exécutions en parallèle (flow)
-  %   et les branchements (switch, if). La figure
-  %   \ref{fig:bpel_travel_example_document} représente une opération de
-  %   type ``séquence'' illustrée dans le shémas
-  %   \ref{fig:bpel-travel-example-schema}.
-
-  %   \input{figs/bpel_travel_example_document.tex}
-
+    \textsc{BPEL} repose sur un modèle constitué d'activités de
+    coordination qui peuvent être de deux types, les activités de base
+    ou élémentaires comme l'invocation (invoke) d'un service,
+    l'attente d'une réponse et la génération d'une réponse (reply), et
+    les activités composites permettant du contrôle du flot de données
+    comme les séquences (sequence), les exécutions en parallèle (flow)
+    et les branchements (switch, if).
 
   %   %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
   %   % WS-BPEL est un langage de procédés basé sur la technologie XML,
@@ -449,42 +444,38 @@
   %   % qui sont échangés. A ceci s'ajoute le traitement des fautes
   %   % et des exceptions pour les cas d'erreurs.
 
-  %   % inclut la sémantique ?
-  %   % TODO: avantages et inconvénient
-
-  %   \subsection{WS-CDL}
-  %   \label{WS-CDL}
+    \subsection{WS-CDL}
+    \label{WS-CDL}
   %   % make a reference to [TODO: Kavantzas et al., 2005] selon
   %   % elie2010
-  %   \acrshort{ws-cdl} est un langage de composition de services de
-  %   type \textbf{chorégraphie} qui permet de décrire une vision
-  %   \textbf{globale} des collaborations entre les services Web
-  %   \cite{elie2010}, à l'instar des standards de services Web,
-  %   \textsc{WS-CDL} est basé sur \textsc{XML}, il complète la
-  %   description \acrshort{wsdl} des services Web afin de décrire les
-  %   interactions entre les participants (les services Web) de la
-  %   composition.
+    \acrshort{ws-cdl} est un langage de composition de services de
+    type \textbf{chorégraphie} qui permet de décrire une vision
+    \textbf{globale} des collaborations entre les services Web
+    \cite{elie2010}, à l'instar des standards de services Web,
+    \textsc{WS-CDL} est basé sur \textsc{XML}, il complète la
+    description \acrshort{wsdl} des services Web afin de décrire les
+    interactions entre les participants (les services Web) de la
+    composition.
 
-  %   \textsc{WS-CDL} reprend et développe la spécification
-  %   \acrshort{wsci} décrivant les séquences ordonnées de messages
-  %   impliquant plusieurs entités (services Web) engagés dans une
-  %   composition visant à accomplir un objectif commun.
+    \textsc{WS-CDL} reprend et développe la spécification
+    \acrshort{wsci} décrivant les séquences ordonnées de messages
+    impliquant plusieurs entités (services Web) engagés dans une
+    composition visant à accomplir un objectif commun.
 
-  %   \textsc{WS-CDL} consiste à définir un fichier XML décrivant une
-  %   chorégraphie, il permet de \cite{elie2010}:
-  %   \begin{itemize} % WSDL-S elements and attributs
-  %   \item désigner les variables et les types de données échangées.
-  %   \item décrire les  activités impliquées.
-  %   \item décrire les structures illustrant les interactions entre
-  %     les activités.
-  %   \end{itemize}
+    \textsc{WS-CDL} consiste à définir un fichier XML décrivant une
+    chorégraphie, il permet de \cite{elie2010}:
+    \begin{itemize} % WSDL-S elements and attributs
+      \item désigner les variables et les types de données échangées.
+      \item décrire les  activités impliquées.
+      \item décrire les structures illustrant les interactions entre
+      les activités.
+    \end{itemize}
 
-    %       En résumé WS-CDL permet de décrire les règles selon
-    %       lesquelles une collaboration doit avoir lieu. Il fournit une
-    %       structuration globale de l'interaction en fonction de
-    %       laquelle chaque participant décrit son processus métier et
-    %       par suite ses services.
-    %  \cite{elie2010}
+    % En résumé WS-CDL permet de décrire les règles selon
+    % lesquelles une collaboration doit avoir lieu. Il fournit une
+    % structuration globale de l'interaction en fonction de
+    % laquelle chaque participant décrit son processus métier et
+    % par suite ses services. \cite{elie2010}
 
     %  WS-CDL (Web Service Choreography Description Language) est un
     %  langage issu des efforts de standardisation
@@ -507,23 +498,21 @@
     %  WS-CDL afin d’y intégrer de nouveaux concepts (tels que la
     %  gestion des erreurs et des exceptions ou la mise en œuvre d’un
     %  minuteur d’exécution de la composition).
+    %  \cite{lopez2008selection}
 
-     % \cite{lopez2008selection}
+    \subsection{OWL-S}
+    \label{sec:owl-s}
+    \cite{mcilraith2003bringing}
 
-    % TODO: shémas exemple d'un document WS-CDL.
-    % inclut la sémantique ?
-    % TODO: avantages et inconvénients.
+    \subsection{WSMF}
+    \label{sec:wsmf}    
 
-    % \subsection{OWL-S}
-    % \label{sec:owl-s}
-    % \cite{mcilraith2003bringing}
-    % \input{figs/owls_travel_example_schema.tex}
-    % \input{figs/owls_travel_example_document.tex}
-    % % see the BPEL reference for a complete schema and example
-
+    \subsection{Comparaison}
+    \label{sec:langs-comparaison}   
+    % les critères de comparaison
+    % table de comparaison
   \section{Composition dynamique des services web}
   \label{sec:comp-dynam}
-
 
   % les motivation de la composition dynamiques [\cite{bartalos2011effective}]
   % The motivation for service orchestration as just mentioned is more about solving
@@ -569,7 +558,6 @@
   % development process of on-demand software solutions based on the given require-
   % ments. The automatic dynamic composition provides the opportunity to exploit
   % the available services to supply a wide range of varying user goals.
-
   La classification est d'aprés \cite{baryannis2010}.
 
     \subsection{Les approches basées sur les workflow}
