@@ -33,7 +33,7 @@
 
 \newpage
 
-  \section{Définition et motivations}
+  \section{Définition et types de composition}
   \label{sec:defin-et-caract}
 
   Cette section a pour but d'exposer, d'une part, quelques définitions
@@ -70,9 +70,9 @@
     % TODO: A composite service is defined as a conglomeration of outsourced
     % Web services (called participant services) working in tandem to
     % offer a value-added service. \cite{medjahed2004thesis}
-    Medjahed \cite{medjahed2004thesis} a défini un service Web
-    \emph{``composite''} commme une...\\% TODO
-
+    Medjahed \cite{medjahed2004thesis}de ça part a défini un service
+    Web \emph{``composite''} commme une...\\% TODO
+    
     % TODO: les avantages de la composition (motivations)
     % From a business perspective, Web service composition offers
     % several advantages [122]. First, composite services allow
@@ -80,15 +80,37 @@
     % applications, ensuring a rapid time-to-market. Second, applica-
     % tion development based on Web services reduces business risks
     % since reusing existing services avoids the introduction of new
-    % errors. Third, composing Web services en- ables the reduction of
+    % errors. Third, composing Web services enables the reduction of
     % skills and effort requirements for developing applications.
     % Finally, the possibility of outsourcing the
     % “best-in-their-class” services allows com- panies to increase
-    % their revenu \cite{medjahed2004thesis}
-   
-    % le processus générale de composition
+    % their revenu.
 
+    \subsection{Motivations et objectifs}
+    \label{sec:objectifs}
+    
+    D'une point de vue stratégique, la composition des services Web
+    offre plusieurs avantages. Premirement, il permet de minimiser les
+    efforts du développement des nouvelles applications et la
+    simplification du cycle de développement des logiciels et
+    permettre l'interopérabilité entre les systèmes distribués et
+    hétérogènes par le combinaison des solutions disponibles assurant
+    l'exploiatation des nouvelles opportunités économiques et la
+    pénétration des nouveaux marchés.
 
+    Deuxièmement, le développement d'applications à base services
+    réduire le risque d'échec car la réutilisation des services déjà
+    déployés et testés évite l'introduction des nouvelles problèmes
+    techniques surtout dans dans le contexte des systèmes distribués,
+    mal adaptées à l'interopérabilité.
+
+    Troisièmement, .... 
+    
+    Quatrièmement, Il ouvre la possibilité de ``outsoursing'' ou la
+    sous-traitance et de bénificier d'applications professionnelles
+    \cite{medjahed2004thesis}
+
+    % les objectifs de la composition    
     La composition de services Web vise essentiellement quatre
     objectifs \cite{driss2011approche}:
     \begin{itemize}
@@ -102,21 +124,121 @@
       \item collaborer plusieurs entreprises ensemble.
 
       \item Optimiser et améliorer une fonctionnalité existante.
-
     \end{itemize}
+
+    % le processus générale de composition
+    \subsection{Cycle de vie d'une composition}
+    \label{sec:cycle-de-vie}
+    \newpage
+
+    \subsection{Procédés de coordination}
+    \label{sec:proc-de-coord}
+    
+    % The standard set of Web service technologies (XML, SOAP and
+    % WSDL) provides the means to describe, locate, and invoke a Web
+    % service as an entity in its own right. Although a Web service
+    % may expose many operations, each WSDL file describes fairly
+    % atomic, low-level functions. What the basic technologies do not
+    % give us is the rich behavioral detail that describes the role
+    % the service plays as part of a larger, more complex
+    % collaboration \cite{servey2014}
+
+    % L'ensembles des standards et technologies des services Web
+    % (\textsc{SOAP}, \textsc{WSDL}, \textsc{UDDI}) discutés
+
+    % It should be noted that these models are not used exclusively:
+    % one approach can implement more than one models at the same
+    % time.\cite{baryannis2010} %% TODO: translate   
+
+    Nous distinguons deux méthodes utilisés pour décrire la
+    composition de services dans un flot de processus métier:
+    l'\emph{orchestration} de services et la \emph{chorégraphie} des
+    services. Ces deux procédés de coordination décrivent deux aspects
+    de création des processus métiers à partir des services Web
+    composites \cite{peltz2003web}.
+    
+    %% Introduire la notion d'un procédé de coordination
+    \textbf{Un procédé} est représenté par un graphe orienté
+    d'activités ou un flot de contrôle qui donne l'ordre d'exécution
+    des activités et la logique de coordination des services. Chaque
+    activité représente une fonctionnalité réalisée concrètement par
+    un service \cite{chollet2009orchestration}. La figure
+    \ref{fig:orchestration-vs-choregraphie} illustre ces deux
+    approches en conjonction.    
+    % orchestration vs chorégraphie
+    \input{figs/orchestration-vs-choregraphie.tex}       
+
+      \subsubsection{Orchestration}
+      \label{sec:orchestration-sec}
+      Barros \emph{et al.} \cite{barros2006standards} définissent
+      l'orchestration comme un ensemble de processus exécutés dans un
+      ordre prédéfini afin de répondre à un but
+      \cite{lopez2008selection}. Ce type de composition se base sur un
+      procédé métier exécutable permettant de décrire d'enchaînement
+      et les interactions des différents services basiques collaborant
+      dans une composition.
+      
+      L'orchestration offre \textbf{une vision centralisée} de
+      contrôle, le procédé est toujours contrôlé par l'un des
+      partenaires métiers. Ce dernier joue le rôle d'un chef
+      d'orchestre qui se charge d'appeler les services de la
+      composition suivant l'ordre d'exécution déjà défini par le
+      processus métier.
+      
+      Le principe de l'orchestration est illustré par La figure
+      \ref{fig:orchestration}.    
+
+      \subsubsection{Chorégraphie}
+      \label{sec:choregraphie-sec}
+      % Selon Sanlaville \cite{jamal2005environnement} : \emph{`` La
+      % chorégraphie permet de tracer la séquence de messages
+      % échangés dans un contexte de composition de services
+      % Web. Elle est typiquement liée à la description de
+      % conversations existantes entre les services tout en
+      % impliquant plusieurs parties, incluant les clients, les
+      % fournisseurs et les partenaires''}.
+
+      D'après Barros \emph{et al.} \cite{barros2006standards}, la
+      chorégraphie permet de décrire la composition comme un moyen
+      d'atteindre un but commun en utilisant un ensemble de services
+      Web. La collaboration entre chaque service Web de la collection
+      (faisant partie de la composition) est décrite par des flots de
+      contrôle \cite{lopez2008selection}.
+
+      La chorégraphie chorégraphie offre \textbf{une vision
+        décentralisée} et \textbf{globale} du système et exprime une
+      vue d'ensemble des services interagissant dans le cadre d'une
+      composition de services. Selon Peltz \cite{peltz2003web}, la
+      chorégraphie illustre les différants échanges de messages entre
+      les participants.
+
+      Le principe de la chorégraphie est illustré par la figure
+      \ref{fig:choregraphie}.      
+
+     
+    \subsection{Types de composition}
+    \label{sec:types-de-composition}
+    % Un modèle de composition de service peut être relativement
+    % complexe. En général, les différentes dimensions d'un modèle de
+    % composition des service Web peuvent être groupées en différants
+    % catégories.
 
     Il existent différentes techniques de composition de services web
     développées par la littérature. ces techniques sont également
-    classés en fonction de différents critères.
-
-    Selon les travaux, les définitions des types de composition
-    diffèrent d'une communauté de l'autre.
+    classés en fonction de différents critères, selon les travaux, les
+    définitions des types de composition diffèrent d'une communauté de
+    l'autre.
 
     Barros \emph{et al.} \cite{barros2006standards} classent la
-    composition des services Web en trois catégories: orchestration,
-    chorégraphie et comportementale.
+    composition des services Web en trois catégories: la composition
+    comportementale, l'orchestration et la chorégraphie, à l'instar de
+    Barros \emph{et al.}, \cite{peltz2003web} et plusieurs
+    autreschercheurs issue surtout de l'industrie considére seulement
+    les deux dernières classes \textit{(orchestration, chorégraphie)}.
 
-    \cite{peltz2003web} de ça part distingue deux ...
+  
+
+    Plusieurs
     %% commment classifies la compositions ?
     %% \cite{fluegge2006challenges} Static vs dynamique.
 
@@ -141,8 +263,7 @@
     % horizontal and vertical compositions
 
     % TODO: les procédés de coordination selon [fluegge2006challenges]
-    \subsection{Types de composition}
-    \label{sec:types-de-composition}
+
     % TODO
     % Dans la suite, les types de composition des
     % services Web désigne types classés par\cite{fluegge2006challenges}.
@@ -186,231 +307,157 @@
     % web, Ph.D. Thesis, 2005 ]
     % \cite{driss2011approche}
 
+      % \subsubsection{Composition horizontale/verticale}
+      % \label{sec:comp-horiz}
+      % D'autres travaux s'intressent à ... comme
+      % \cite{medjahed2004thesis}.
+
+    
       \subsubsection{Composition statique/dynamique}
       \label{sec:comp-stat}
-      Un des problèmes fondamentaux dans la composition des services
-      web est comment trouver les services appropriés correspondants à
-      une fonctionnalité donnée et surtout s'il s'agit de les combiner
-      afin de satisfaire une fonctionnalité complexe. Certaines
-      approches de composition se basent sur des schémas prédéfinis de
-      composition (sous forme de scenario prédéfinis) pour répondre à
-      des besoins connus des utilisateurs dans un domaine donné, par
-      exemple : achat de véhicule, planification de voyage. Par
-      contre, les utilisateurs ont des besoins parfois imprévisibles,
-      mais peuvent être satisfaits grâce à la combinaison de services
-      disponibles de manière dynamique. Sur ce point de vue, on
-      distingue entre la composition statique et la composition
-      dynamique des services web.
+      Classification basée sur la disponibilité des services composites.
+      % Un des problèmes fondamentaux dans la composition des services
+      % web est comment trouver les services appropriés correspondants à
+      % une fonctionnalité donnée et surtout s'il s'agit de les combiner
+      % afin de satisfaire une fonctionnalité complexe. Certaines
+      % approches de composition se basent sur des schémas prédéfinis de
+      % composition (sous forme de scenario prédéfinis) pour répondre à
+      % des besoins connus des utilisateurs dans un domaine donné, par
+      % exemple : achat de véhicule, planification de voyage. Par
+      % contre, les utilisateurs ont des besoins parfois imprévisibles,
+      % mais peuvent être satisfaits grâce à la combinaison de services
+      % disponibles de manière dynamique. Sur ce point de vue, on
+      % distingue entre la composition statique et la composition
+      % dynamique des services web.
 
       \subsubsection{Composition manuel/automatique}
       \label{sec:comp-manu}
+      Classification basée sur le degré d’automatisation.
 
-    % La composition automatique (dynamique par le terme de
-    % \cite{fluegge2006challenges} permet un développement plus
-    % rapide des applications à base de services. Elle consiste à
-    % préciser la requête d'un utilisateur sous forme d'objectifs à
-    % satisfaire. Un moteur de composition \textit{``intelligent''}
-    % choisit la comabinaison de services répondant à l'objectif
-    % décrit. Il génère la composition de service adéquate de
-    % manière transparente à l'utilisateur. Ce principe a interpellé
-    % plusieurs communautés de recherche travaillant dans le domaine
-    % de l'Intelligence Artificielle.
-    % \cite{elie2010}
+      % La composition automatique (dynamique par le terme de
+      % \cite{fluegge2006challenges} permet un développement plus
+      % rapide des applications à base de services. Elle consiste à
+      % préciser la requête d'un utilisateur sous forme d'objectifs à
+      % satisfaire. Un moteur de composition \textit{``intelligent''}
+      % choisit la comabinaison de services répondant à l'objectif
+      % décrit. Il génère la composition de service adéquate de
+      % manière transparente à l'utilisateur. Ce principe a interpellé
+      % plusieurs communautés de recherche travaillant dans le domaine
+      % de l'Intelligence Artificielle.
+      % \cite{elie2010}
+      
+      
+      % La composition requiert la description et l'organisation de
+      % l'interaction entre les services. Elle nécessite la gestion de
+      % plusieurs aspects comme les échanges de données entre les
+      % services, les pannes ou erreurs éventuelles, le contexte
+      % d'interaction, le degré d'automatisation des tâches, etc. Dans
+      % la littérature, une variété de spécifications, de langages et
+      % d'approches formelles ont étudiés la composition.
+      
+      % Dans la suite nous présentons les deux approches principales de
+      % description de la composition en section
+
+      % TODO introduire la classification \cite{fluegge2006challenges}
+      % TODO introduire les procédés de coordination par
+      % \cite{peltz2003web}
+      \ref{sec:lang-de-comp}...
+
+      
 
 
-    % La composition requiert la description et l'organisation de
-    % l'interaction entre les services. Elle nécessite la gestion de
-    % plusieurs aspects comme les échanges de données entre les
-    % services, les pannes ou erreurs éventuelles, le contexte
-    % d'interaction, le degré d'automatisation des tâches, etc. Dans
-    % la littérature, une variété de spécifications, de langages et
-    % d'approches formelles ont étudiés la composition.
-
-    % Dans la suite nous présentons les deux approches principales de
-    % description de la composition en section
-    \ref{sec:lang-de-comp}...
-    \newpage
-
-
-      \subsection{Procédés de coordination}
-      \label{sec:proc-de-coord}
-
-      %% Introduire la notion d'un procédé de coordination
-      Selon Peltz \cite{peltz2003web}, Nous distinguons deux
-      catégories de procédés de coordination utilisés pour décrire la
-      composition de services dans un flot de processus métier. des
-      procédés implémentant l'\emph{orchestration} de services et des
-      procédés implémentant la \emph{chorégraphie} des services.
-
-      % ces termes (\textit{orchestration} et \textit{chorégraphie})
-      % décrivent deux aspects de création des processus métiers à
-      % partir des services Web composites \cite{peltz2003web}.
-
-      \input{figs/orchestration-vs-choregraphie.tex}
-
-      \textbf{Un procédé} est représenté par un graphe orienté
-      d'activités ou un flot de contrôle qui donne l'ordre d'exécution
-      des activités et la logique de coordination des services. Chaque
-      activité représente une fonctionnalité réalisée concrètement par
-      un service \cite{chollet2009orchestration}. La figure
-      \ref{fig:orchestration-vs-choregraphie} illustre ces deux
-      approches en conjonction.
-      % a figure orchestration vs chorégraphie
-
-      % It should be noted that these models are not used exclusively:
-      % one approach can implement more than one models at the same
-      % time.\cite{baryannis2010} %% TODO: translate
-
-        \subsubsection{Orchestration}
-        \label{sec:orchestration}
-        % Selon Sanlaville \cite{jamal2005environnement} : \emph{``
-        %   L'orchestration des services Web permet de définir
-        %   l'arranegement et l'enchaînement de ces services selon un
-        %   canevas bien défini. Elle décrit la manière par laquelle les
-        %   services peuvent interagir ensemble tout en incluant l'ordre
-        %   d'exécution des différentes interactions''}.
-        Barros \emph{et al.} \cite{barros2006standards} définissent
-        l'orchestration comme un ensemble de processus exécutés dans
-        un ordre prédéfini afin de répondre à un but
-        \cite{lopez2008selection}. Ce type de composition se base sur
-        un procédé métier exécutable permettant de décrire
-        d'enchaînement et les interactions des différents services
-        basiques collaborant dans une composition.
-
-        L'orchestration offre \textbf{une vision centralisée} de
-        contrôle, le procédé est toujours contrôlé par l'un des
-        partenaires métiers. Ce dernier joue le rôle d'un chef
-        d'orchestre qui se charge d'appeler les services de la
-        composition suivant l'ordre d'exécution déjà défini par le
-        processus métier.
-
-        Le principe de l'orchestration est illustré
-        par La figure \ref{fig:orchestration}.
-
-        \input{figs/orchestration.tex}
-
-        \subsubsection{Chorégraphie}
-        \label{sec:choregraphie}
-        % Selon Sanlaville \cite{jamal2005environnement} : \emph{`` La
-        %   chorégraphie permet de tracer la séquence de messages
-        %   échangés dans un contexte de composition de services
-        %   Web. Elle est typiquement liée à la description de
-        %   conversations existantes entre les services tout en
-        %   impliquant plusieurs parties, incluant les clients, les
-        %   fournisseurs et les partenaires''}.
-
-        D'après Barros \emph{et al.} \cite{barros2006standards}, la
-        chorégraphie permet de décrire la composition comme un moyen
-        d'atteindre un but commun en utilisant un ensemble de services
-        Web. La collaboration entre chaque service Web de la
-        collection (faisant partie de la composition) est décrite par
-        des flots de contrôle \cite{lopez2008selection}.
-
-        La chorégraphie exprime une vue d'ensemble des services
-        interagissant dans le cadre d'une composition de
-        services. Selon Peltz \cite{peltz2003web}, la chorégraphie
-        illustre les différants échanges de messages entre les
-        participants. la chorégraphie offre \textbf{une vision
-          décentralisée} et globale.
-
-        Le principe de la chorégraphie est illustré par la figure
-        \ref{fig:choregraphie}.
-        % TODO : redraw the fig
-        \input{figs/choregraphie.tex}
-
-  \section{Langages de composition des services web et
-    technologies associées}
+  \section{Langages pour la composition}
   \label{sec:lang-de-comp}
   % TODO: an introduction to the section
   % TODO: re-draw figs an unify them
-  Afin de supporter la composition de services, plusieurs langages de
-  composition de services ont été proposés comme ...  Dan cette
-  section on va détailler trois langages ... \cite{lopez2008selection}
-  % TODO change the font of commands in BPEL et al....
+  % Afin de supporter la composition de services, plusieurs langages de
+  % composition de services ont été proposés comme ...  Dan cette
+  % section on va détailler trois langages ... \cite{lopez2008selection}
+  % % TODO change the font of commands in BPEL et al....
 
-    \subsection{BPEL}
-    \label{sec:bpel}
+  %   \subsection{BPEL}
+  %   \label{sec:bpel}
 
-    \acrshort{bpel} est une spécification du consortium OASIS
-    \footnote{\url{https://www.oasis-open.org}}issue de la fusion des
-    spécifications \acrshort{xlang} Microsoft
-    \footnote{\url{http://www.microsoft.com}}et \acrshort{wsfl} d'IBM
-    \footnote{\url{http://www.ibm.com}}, il hérite les
-    caractéristiques d'un langage structuré en blocs de
-    \textsc{XLANG}, ainsi que les caractéristiques d'un graphe direct
-    de WSFL \cite{driss2011approche}.
+  %   \acrshort{bpel} est une spécification du consortium OASIS
+  %   \footnote{\url{https://www.oasis-open.org}}issue de la fusion des
+  %   spécifications \acrshort{xlang} Microsoft
+  %   \footnote{\url{http://www.microsoft.com}}et \acrshort{wsfl} d'IBM
+  %   \footnote{\url{http://www.ibm.com}}, il hérite les
+  %   caractéristiques d'un langage structuré en blocs de
+  %   \textsc{XLANG}, ainsi que les caractéristiques d'un graphe direct
+  %   de WSFL \cite{driss2011approche}.
 
-    \input{figs/bpel-travel-example-shema.tex}
+  %   \input{figs/bpel-travel-example-shema.tex}
 
-    \textsc{BPEL} \textit{(appelé aussi \acrshort{bpel4ws} ou
-      \acrshort{ws-bpel})} est le langage d'\textbf{orchestration}
-    le plus utilisé dans l'industrie permettant la coordination des
-    interactions entre l'instance du service composite et ses
-    partenaires sous forme d'un schéma \acrshort{xml} \textit{(le
-      script d'orchestration)}, il définit le processus,
-    l'enchaînement et l'ordonnancement des actions qui seront
-    exécutées par le moteur d'orchestration, agissant comme une
-    machine virtuelle capable d'exécuter \textbf{le procédé métier}
-    intéreptable de \textbf{coordination} \cite{chollet2009orchestration}.
+  %   \textsc{BPEL} \textit{(appelé aussi \acrshort{bpel4ws} ou
+  %     \acrshort{ws-bpel})} est le langage d'\textbf{orchestration}
+  %   le plus utilisé dans l'industrie permettant la coordination des
+  %   interactions entre l'instance du service composite et ses
+  %   partenaires sous forme d'un schéma \acrshort{xml} \textit{(le
+  %     script d'orchestration)}, il définit le processus,
+  %   l'enchaînement et l'ordonnancement des actions qui seront
+  %   exécutées par le moteur d'orchestration, agissant comme une
+  %   machine virtuelle capable d'exécuter \textbf{le procédé métier}
+  %   intéreptable de \textbf{coordination} \cite{chollet2009orchestration}.
 
-    \textsc{BPEL} repose sur un modèle constitué d'activités de
-    coordination qui peuvent être de deux types, les activités de base
-    ou élémentaires comme l'invocation (invoke) d'un service,
-    l'attente d'une réponse et la génération d'une réponse (reply), et
-    les activités composites permettant du contrôle du flot de données
-    comme les séquences (sequence), les exécutions en parallèle (flow)
-    et les branchements (switch, if). La figure
-    \ref{fig:bpel_travel_example_document} représente une opération de
-    type ``séquence'' illustrée dans le shémas
-    \ref{fig:bpel-travel-example-schema}.
+  %   \textsc{BPEL} repose sur un modèle constitué d'activités de
+  %   coordination qui peuvent être de deux types, les activités de base
+  %   ou élémentaires comme l'invocation (invoke) d'un service,
+  %   l'attente d'une réponse et la génération d'une réponse (reply), et
+  %   les activités composites permettant du contrôle du flot de données
+  %   comme les séquences (sequence), les exécutions en parallèle (flow)
+  %   et les branchements (switch, if). La figure
+  %   \ref{fig:bpel_travel_example_document} représente une opération de
+  %   type ``séquence'' illustrée dans le shémas
+  %   \ref{fig:bpel-travel-example-schema}.
 
-    \input{figs/bpel_travel_example_document.tex}
-    \newpage
+  %   \input{figs/bpel_travel_example_document.tex}
 
-    %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
-    % WS-BPEL est un langage de procédés basé sur la technologie XML,
-    % tout comme les autres standards des services Web. WS-BPEL permet
-    % de construire des procédés interprétables et exécutables par un
-    % moteur d'orchestration.
 
-    % Les procédés peuvent être modélisés de deux manières :
-    % – abstraite : seuls les échanges de messages entre les
-    % différents participants sont spécifiés. Mais le comportement
-    % interne de ces participants n'est pas explicité.
-    % – exécutable : les activités du procédé sont ordonnées; les
-    % partenaires impliqués sont identifiés ainsi que les messages
-    % qui sont échangés. A ceci s'ajoute le traitement des fautes
-    % et des exceptions pour les cas d'erreurs.
+  %   %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
+  %   % WS-BPEL est un langage de procédés basé sur la technologie XML,
+  %   % tout comme les autres standards des services Web. WS-BPEL permet
+  %   % de construire des procédés interprétables et exécutables par un
+  %   % moteur d'orchestration.
 
-    % inclut la sémantique ?
-    % TODO: avantages et inconvénient
+  %   % Les procédés peuvent être modélisés de deux manières :
+  %   % – abstraite : seuls les échanges de messages entre les
+  %   % différents participants sont spécifiés. Mais le comportement
+  %   % interne de ces participants n'est pas explicité.
+  %   % – exécutable : les activités du procédé sont ordonnées; les
+  %   % partenaires impliqués sont identifiés ainsi que les messages
+  %   % qui sont échangés. A ceci s'ajoute le traitement des fautes
+  %   % et des exceptions pour les cas d'erreurs.
 
-    \subsection{WS-CDL}
-    \label{WS-CDL}
-    % make a reference to [TODO: Kavantzas et al., 2005] selon
-    % elie2010
-    \acrshort{ws-cdl} est un langage de composition de services de
-    type \textbf{chorégraphie} qui permet de décrire une vision
-    \textbf{globale} des collaborations entre les services Web
-    \cite{elie2010}, à l'instar des standards de services Web,
-    \textsc{WS-CDL} est basé sur \textsc{XML}, il complète la
-    description \acrshort{wsdl} des services Web afin de décrire les
-    interactions entre les participants (les services Web) de la
-    composition.
+  %   % inclut la sémantique ?
+  %   % TODO: avantages et inconvénient
 
-    \textsc{WS-CDL} reprend et développe la spécification
-    \acrshort{wsci} décrivant les séquences ordonnées de messages
-    impliquant plusieurs entités (services Web) engagés dans une
-    composition visant à accomplir un objectif commun.
+  %   \subsection{WS-CDL}
+  %   \label{WS-CDL}
+  %   % make a reference to [TODO: Kavantzas et al., 2005] selon
+  %   % elie2010
+  %   \acrshort{ws-cdl} est un langage de composition de services de
+  %   type \textbf{chorégraphie} qui permet de décrire une vision
+  %   \textbf{globale} des collaborations entre les services Web
+  %   \cite{elie2010}, à l'instar des standards de services Web,
+  %   \textsc{WS-CDL} est basé sur \textsc{XML}, il complète la
+  %   description \acrshort{wsdl} des services Web afin de décrire les
+  %   interactions entre les participants (les services Web) de la
+  %   composition.
 
-    \textsc{WS-CDL} consiste à définir un fichier XML décrivant une
-    chorégraphie, il permet de \cite{elie2010}:
-    \begin{itemize} % WSDL-S elements and attributs
-    \item désigner les variables et les types de données échangées.
-    \item décrire les  activités impliquées.
-    \item décrire les structures illustrant les interactions entre
-      les activités.
-    \end{itemize}
+  %   \textsc{WS-CDL} reprend et développe la spécification
+  %   \acrshort{wsci} décrivant les séquences ordonnées de messages
+  %   impliquant plusieurs entités (services Web) engagés dans une
+  %   composition visant à accomplir un objectif commun.
+
+  %   \textsc{WS-CDL} consiste à définir un fichier XML décrivant une
+  %   chorégraphie, il permet de \cite{elie2010}:
+  %   \begin{itemize} % WSDL-S elements and attributs
+  %   \item désigner les variables et les types de données échangées.
+  %   \item décrire les  activités impliquées.
+  %   \item décrire les structures illustrant les interactions entre
+  %     les activités.
+  %   \end{itemize}
 
     %       En résumé WS-CDL permet de décrire les règles selon
     %       lesquelles une collaboration doit avoir lieu. Il fournit une
@@ -446,13 +493,13 @@
     % TODO: shémas exemple d'un document WS-CDL.
     % inclut la sémantique ?
     % TODO: avantages et inconvénients.
-    \newpage
-    \subsection{OWL-S}
-    \label{sec:owl-s}
-    \cite{mcilraith2003bringing}
-    \input{figs/owls_travel_example_schema.tex}
-    \input{figs/owls_travel_example_document.tex}
-    % see the BPEL reference for a complete schema and example
+
+    % \subsection{OWL-S}
+    % \label{sec:owl-s}
+    % \cite{mcilraith2003bringing}
+    % \input{figs/owls_travel_example_schema.tex}
+    % \input{figs/owls_travel_example_document.tex}
+    % % see the BPEL reference for a complete schema and example
 
   \section{Composition dynamique des services web}
   \label{sec:comp-dynam}
