@@ -171,7 +171,7 @@
 
       \subsubsection{Orchestration}
       \label{sec:orchestration-sec}
-      Selon Jamel \emph{et al.} \cite{jamal2005environnement}:
+      Selon Sonia \emph{et al.} \cite{jamal2005environnement}:
       \emph{``L'orchestration des services Web permet de définir
         l'arranegement et l'enchaînement de ces services selon un
         canevas bien défini. Elle décrit la manière par laquelle les
@@ -191,14 +191,14 @@
       partenaires métiers. Ce dernier joue le rôle d'un chef
       d'orchestre qui se charge d'appeler les services de la
       composition suivant l'ordre d'exécution déjà défini par le
-      processus métier.
-      
-      Le principe de l'orchestration est illustré par La figure
-      \ref{fig:orchestration}.    
+      processus métier. Le principe de l'orchestration est illustré
+      par La figure \ref{fig:orchestration}.
+      %TODO: citer qulques languages d'orchestration
+      %TODO: les avantages et les inconvénients
 
       \subsubsection{Chorégraphie}
       \label{sec:choregraphie-sec}
-      Selon Jamlel \emph{et al.} \cite{jamal2005environnement} :
+      Selon Sonia \emph{et al.} \cite{jamal2005environnement} :
       \emph{`` La chorégraphie permet de tracer la séquence de
         messages échangés dans un contexte de composition de services
         Web. Elle est typiquement liée à la description de
@@ -218,35 +218,36 @@
       services interagissant dans le cadre d'une composition de
       services. Selon Peltz \cite{peltz2003web}, la chorégraphie
       illustre les différants échanges de messages entre les
-      participants.
+      participants. Le principe de la chorégraphie est illustré par la
+      figure \ref{fig:choregraphie}.
+      %TODO: citer qulques languages de chorégraphie.
+      %TODO: les avantages et les inconvénients.
 
-      Le principe de la chorégraphie est illustré par la figure
-      \ref{fig:choregraphie}.
-
-     
     \subsection{Types de composition}
-    \label{sec:types-de-composition}
-    % Un modèle de composition de service peut être relativement
-    % complexe. En général, les différentes dimensions d'un modèle de
-    % composition des service Web peuvent être groupées en différants
-    % catégories.
 
-    Il existent différentes techniques de composition de services web
-    développées par la littérature. ces techniques sont également
-    classés en fonction de différents critères, selon les travaux, les
-    définitions des types de composition diffèrent d'une communauté de
-    l'autre.
+    \label{sec:types-de-composition}
+    Un modèle de composition de service peut être relativement
+    complexe. Il requiert la description et l'organisation de
+    l'interaction entre les services et nécessite la gestion de
+    plusieurs aspects comme les échanges de données entre les
+    services, les pannes ou erreurs éventuelles, le contexte
+    d'interaction, le degré d'automatisation des tâches, etc.
+    
+    Il existent une variété de spécifications, de langages et
+    d'approches formelles développées par la littérature concernant la
+    composition. Ces techniques sont également classés en fonction de
+    différents dimensions, et selon les travaux effectués dans le
+    champ des services web, les définitions des types de composition
+    diffèrent d'une communauté de l'autre.
 
     Barros \emph{et al.} \cite{barros2006standards} classent la
-    composition des services Web en trois catégories: la composition
+    composition des services Web en trois catégories : la composition
     comportementale, l'orchestration et la chorégraphie, à l'instar de
-    Barros \emph{et al.}, \cite{peltz2003web} et plusieurs
-    autreschercheurs issue surtout de l'industrie considére seulement
-    les deux dernières classes \textit{(orchestration, chorégraphie)}.
-
+    Barros \emph{et al.}, Peltz \cite{peltz2003web} considère les
+    procédés de coordination \ref{sec:proc-de-coord} et distingue
+    seulement les deux dernières \textit{(orchestration,
+      chorégraphie)}.
   
-
-    Plusieurs
     %% commment classifies la compositions ?
     %% \cite{fluegge2006challenges} Static vs dynamique.
 
@@ -254,49 +255,22 @@
     %% d'une composition des services Web.
 
     % TODO: vertical vs horiontal composition
-    % selon medjahed.\cite{medjahed2004thesis}
-    % The composition mode refers to the way participants are
-    % combined. We define three composition types: horizontal,
-    % vertical,
+    Medjahed.\cite{medjahed2004thesis} de ça part définit trois types
+    de composition selon...
+    % the composition mode refers to the way participants are
+    % combined. We define three composition types: horizontal, vertical,
     % and hybrid. Horizontal compo- sition refers to a “supply
     % chain”-like combination of Web services.  Vertical composition
     % refers to the “outsourcing” of a Web service by a sub-request or
-    % another Web service.
-
-    % Horizontal composition implies the combina- tion of several Web
-    % services. It is hence used with one-to-many cardinality. Vertical
-    % composition refers to the outsourcing of one Web service. It is
-    % hence combined with one-to-one cardinality. Hybrid composition
-    % refers to the most general mode.  It may be used with both
-    % horizontal and vertical compositions
+    % another Web service. Horizontal composition implies the combina-
+    % tion of several Web services. It is hence used with one-to-many
+    % cardinality. Vertical composition refers to the outsourcing of one
+    % Web service. It is hence combined with one-to-one
+    % cardinality. Hybrid composition refers to the most general mode.
+    % It may be used with both horizontal and vertical compositions
 
     % TODO: les procédés de coordination selon [fluegge2006challenges]
-
     % TODO
-    % Dans la suite, les types de composition des
-    % services Web désigne types classés par\cite{fluegge2006challenges}.
-  
-    % La composition des services Web peut être soit une composition
-    % statique soit une e composition dynamique:
-    
-    % – La composition statique : est appelée aussi composition
-    % off-line, précompilée ou encore proactive. C'est une composition
-    % qui utilise des services basiques qui sont au préalablement
-    % définis d' une façon figée et qui ne peuvent pas changer en
-    % fonction du contexte du client. Ce type de composition engendre
-    % des applications peu flexibles, parfois inappropriées avec les
-    % exigences des clients.
-
-    % – La composition dynamique : appelée aussi composition on-line,
-    % postcompilée ou encore réactive. Elle se réfère à la sélection
-    % des services basiques à la volée. Autrement dit, la sélection
-    % des services basiques ne peut pas être prédéfinie à l'avance
-    % mais elle sera faite au moment de l'exécution en fonction des
-    % contraintes e imposées par le client. Ceci permet d' élaborer
-    % différents scénario de composition qui offrent les mêmes
-    % fonctionnalités et qui tiennent compte de la dynamique de la
-    % situation du client.
-    
 
     % Microsoft Biztalk et Bea WebLogic sont deux exemples de moteurs
     % de composition statiques de services Web. Pour la composition
@@ -323,57 +297,95 @@
     
       \subsubsection{Composition statique/dynamique}
       \label{sec:comp-stat}
-      Classification basée sur la disponibilité des services composites.
-      % Un des problèmes fondamentaux dans la composition des services
-      % web est comment trouver les services appropriés correspondants à
-      % une fonctionnalité donnée et surtout s'il s'agit de les combiner
-      % afin de satisfaire une fonctionnalité complexe. Certaines
-      % approches de composition se basent sur des schémas prédéfinis de
-      % composition (sous forme de scenario prédéfinis) pour répondre à
-      % des besoins connus des utilisateurs dans un domaine donné, par
-      % exemple : achat de véhicule, planification de voyage. Par
-      % contre, les utilisateurs ont des besoins parfois imprévisibles,
-      % mais peuvent être satisfaits grâce à la combinaison de services
-      % disponibles de manière dynamique. Sur ce point de vue, on
-      % distingue entre la composition statique et la composition
-      % dynamique des services web.
+      Selon la disponibilité des services composites, La composition
+      des services Web peut être soit une composition statique soit
+      une composition dynamique
+
+      \SpecialItem
+      \begin{description}
+      \item[Composition statique] :
+
+        % est appelé aussi composition off-line, précompil ou encore
+        % proactive. C'est une composition qui utilise des services
+        % basiques qui sont au préalablement d éfinis d'une façon figée
+        % et qui ne peuvent pas changer en fonction du contexte du
+        % client. Ce type de composition engendre des applications peu
+        % flexibles, parfois inappropriées avec les exigences des
+        % clients.  \cite{driss2011approche}
+
+        % Permet de créer de nouveaux services composites à partir des
+        % services déjà existants dans des environnements « stables » où
+        % les services Web participants sont toujours disponibles et où
+        % le comportement du service composite est le même pour tous les
+        % clients. La composition des services web prend place durant la
+        % période de conception. Les composants sont choisis, reliés
+        % entre eux et enfin compilés et déployés. Le service composite
+        % ainsi obtenu fonctionnera bien tant que son environnement et
+        % les services qui le composent ne changent pas ou ne changent
+        % que rarement. Microsoft BizTalk est un exemple de moteurs de
+        % composition statique. Ce type de composition est utile pour
+        % mettre en place des services composites qui implémente des
+        % services métiers connus et très souvent sollicités dans un
+        % domaine donné (donc communs à plusieurs utilisateurs), par
+        % exemple : achat d’un véhicule, planification d’un voyage...etc
+        % . C'est d'ailleurs la raison pour laquelle ces approches se
+        % limitent à un schéma d'orchestration (ou de chorégraphie)
+        % prédéfini pour décrire les besoins préalablement connus de
+        % l'utilisateur. \cite{ch3}
+
+      \item[Composition dynamique] :
+
+        % appelée aussi composition on-line, postcompilée ou encore
+        % réactive. Elle se réfère à la sélection des services basiques
+        % àla volée. Autrement dit, la sélection des services basiques
+        % ne peut pas être pr définie à l'avance mais elle sera faite au
+        % moment de l'exécution en fonction des contraintes imposées par
+        % le client. Ceci permet d' élaborer différents scénarii de
+        % composition qui offrent les mêmes fonctionnalités et qui
+        % tiennent compte de la dynamique de la situation du client.
+        % \cite{driss2011approche}
+
+        % Dans ce type, les services Web à composer sont déterminés lors
+        % de l’exécution de la requête d’un client. Ils peuvent être
+        % déterminés selon les contraintes de chaque client, la
+        % disponibilité des services Web, ...etc. La composition
+        % dynamique apparaît la plus intéressante d’une part,elle promet
+        % d'être capable de faire face à un environnement très dynamique
+        % dans lequel des services apparaissent et disparaissent
+        % rapidement. La composition des services web implique : - La
+        % découverte des « bons » services à composer selon les besoins
+        % et la disponibilité des services.  - La dynamicité et la
+        % flexibilité dans la composition de services Web. \cite{ch3}
+      \end{description}
 
       \subsubsection{Composition manuel/automatique}
       \label{sec:comp-manu}
-      Classification basée sur le degré d’automatisation.
+      Classification basée sur le degré d'automatisation.
 
-      % La composition automatique (dynamique par le terme de
-      % \cite{fluegge2006challenges} permet un développement plus
-      % rapide des applications à base de services. Elle consiste à
-      % préciser la requête d'un utilisateur sous forme d'objectifs à
-      % satisfaire. Un moteur de composition \textit{``intelligent''}
-      % choisit la comabinaison de services répondant à l'objectif
-      % décrit. Il génère la composition de service adéquate de
-      % manière transparente à l'utilisateur. Ce principe a interpellé
-      % plusieurs communautés de recherche travaillant dans le domaine
-      % de l'Intelligence Artificielle.
-      % \cite{elie2010}
-      
-      
-      % La composition requiert la description et l'organisation de
-      % l'interaction entre les services. Elle nécessite la gestion de
-      % plusieurs aspects comme les échanges de données entre les
-      % services, les pannes ou erreurs éventuelles, le contexte
-      % d'interaction, le degré d'automatisation des tâches, etc. Dans
-      % la littérature, une variété de spécifications, de langages et
-      % d'approches formelles ont étudiés la composition.
-      
-      % Dans la suite nous présentons les deux approches principales de
-      % description de la composition en section
+      \SpecialItem
+      \begin{description}
+      \item[Composition manuel] :
+      \item[Composition semi-automatique] :
+      \item[Composition automatique] :
+
+        % La composition automatique (dynamique par le terme de
+        % \cite{fluegge2006challenges} permet un développement plus
+        % rapide des applications à base de services. Elle consiste à
+        % préciser la requête d'un utilisateur sous forme d'objectifs à
+        % satisfaire. Un moteur de composition \textit{``intelligent''}
+        % choisit la comabinaison de services répondant à l'objectif
+        % décrit. Il génère la composition de service adéquate de
+        % manière transparente à l'utilisateur. Ce principe a interpellé
+        % plusieurs communautés de recherche travaillant dans le domaine
+        % de l'Intelligence Artificielle.  \cite{elie2010}
+      \end{description}
 
       % TODO introduire la classification \cite{fluegge2006challenges}
       % TODO introduire les procédés de coordination par
       % \cite{peltz2003web}
-      \ref{sec:lang-de-comp}...
-
-      
-
-
+      % \ref{sec:lang-de-comp}...
+      % Dans la suite, les types de composition des
+      % services Web désigne types classés par\cite{fluegge2006challenges}.        
   \section{Langages pour la composition}
   \label{sec:lang-de-comp}
   % TODO: an introduction to the section
