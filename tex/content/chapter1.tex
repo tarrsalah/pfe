@@ -116,10 +116,7 @@ composition des services Web.\\
     \input{content/evolution.tex}
     % Les architecture communes des services web SOAP vs REST les limites
     % de la'approche SOAP pourquoi SOAP pour notre problème?
-    ``the next section provides a short history of web services, with
-    emphasis on the kinds of software challenges that web services are
-    meant to address.''
-    
+
     \subsection{L'architecture de référence et technlogies associées}
     \cite{curbera2002unraveling} \cite{gottschalk2002introduction}
     \cite{kreger2001web} \cite{WSA}
@@ -136,50 +133,100 @@ composition des services Web.\\
 
     \SpecialItem
     \begin{description} % TODO tranlate: Les Rôles dans une architecture WSA
-    \item[Le fournisseur] A service provider provides the interface for
-      the Web service and the implementation of the application. The
-      service provider is also responsible for creating the definition of
-      the service and publishing that definition to meet the Universal
-      Description, Discovery, and Integration (UDDI) specification.
+    \item[Le fournisseur] Un prestataire de services fournit
+      l'interface pour le service Web et l'implémentation de
+      l'application. Le fournisseur de service est également
+      responsable de la création de la définition du service et de
+      publier cette définition pour répondre à la spécification
+      \acrshort{uddi}
+
+      % the Web service and the implementation of the application. The
+      % service provider is also responsible for creating the definition of
+      % the service and publishing that definition to meet the Universal
+      % Description, Discovery, and Integration (UDDI) specification.
+
+
   
-    \item[L'annuaire] A service registry is a way in which Web services
-      are formally published. The service registry is based on the UDDI
-      specification and reflects information about services provided by
-      the service provider. The service registry provides a service
-      requester with a Web Services Description Language (WSDL) service
-      description and a Uniform Resource Locator (URL) that points to the
-      service itself.
+    \item[L'annuaire] Un registre de service est une façon dont les
+      services Web sont officiellement publiés. Le registre de service
+      est basée sur la spécification \textsc{UDDI} et reflète des
+      informations sur les services fournis par le fournisseur de
+      services. Le registre de service fournit un demandeur de
+      services avec une description de service \acrshort{wsdl} et un
+      \textsc{URL} qui pointe vers le service lui-même.
+
+      % A service registry is a way in which Web services
+      % are formally published. The service registry is based on the UDDI
+      % specification and reflects information about services provided by
+      % the service provider. The service registry provides a service
+      % requester with a Web Services Description Language (WSDL) service
+      % description and a Uniform Resource Locator (URL) that points to the
+      % service itself.
+
   
-    \item[Le client] A service requester is the consumer of a Web service
-      and uses the service registry to gain information about, and access
-      to, a Web service.
+    \item[Le client] Un client de services est le consommateur d'un
+      service Web, il utilise le registre de service pour obtenir des
+      informations et pour pouvoir accèder à un service Web.
+      % A service requester is the consumer of a Web service
+      % and uses the service registry to gain information about, and access
+      % to, a Web service.
       
     \end{description}
 
-    For an application to take advantage of Web Services, three behaviors
-    must take place: publication of service descriptions, lookup or
-    finding of service descriptions, and binding or invoking of services
-    based on the service description. These behaviors can occur singly or
-    iteratively. In detail, these operations are: \SpecialItem
+    Pour qu'une application profite des services Web, trois
+    comportements doivent avoir lieu: la publication des descriptions
+    du service, correspondances des descriptions du service et la
+    liaison ou l'invocation des services basés sur la description du
+    service. Ces comportements peuvent se produire d'une manière
+    singulière ou demanière itérative. En détail, ces opérations sont
+    les suivantes:
+    % For an application to take advantage of Web Services, three behaviors
+    % must take place: publication of service descriptions, lookup or
+    % finding of service descriptions, and binding or invoking of services
+    % based on the service description. These behaviors can occur singly or
+    % iteratively. In detail, these operations are:
+
+    \SpecialItem
     \begin{description}% TODO tranlate: WS actions
-    \item[Publish] To be accessible, a service description needs to be
-      published so that the service requestor can find it. Where it is
-      published can vary depending upon the requirements of the
-      application (see “Service Publication” for more details).
+    \item[Publish] Pour être accessible, une description de service
+      doit être publiée afin que le demandeur de service puisse la
+      trouver. l'emplacement où elle est publiée peut varier selon les
+      exigences de l'application.
+
+      % To be accessible, a service description needs to be
+      % published so that the service requestor can find it. Where it is
+      % published can vary depending upon the requirements of the
+      % application (see “Service Publication” for more details).
   
-    \item[Find] In the find operation, the service requestor retrieves a
-      service description directly or queries the service registry for the
-      type of service required (see “Service Discovery” for more
-      details). The find operation can be involved in two different
-      lifecycle phases for the service requestor: at design time to
-      retrieve the service’s interface description for program
-      development, and at runtime to retrieve the service’s binding and
-      location description for invocation.
+    \item[Découvrir]
+      Dans l'opération de recherche, le demandeur de service récupère
+      une description du service directement ou interroge le registre
+      de service pour le type de service requis. Cette opération peut
+      être impliquée dans deux différentes phases du cycle de vie pour
+      le demandeur de service: au moment du design pour récupérer la
+      description d'interface de service pour le développement du
+      programme et à l'exécution pour récupérer la liaison du service
+      et l'emplacement de la description pour l'invocation.
+
+      % In the find operation, the service requestor retrieves a service
+      % description directly or queries the service registry for the
+      % type of service required (see “Service Discovery” for more
+      % details). The find operation can be involved in two different
+      % lifecycle phases for the service requestor: at design time to
+      % retrieve the service’s interface description for program
+      % development, and at runtime to retrieve the service’s binding
+      % and location description for invocation.
+
+    \item[lier (bind)] Finalement, un service doit être invoqué. Dans
+      l'opération de liaison, le client de service invoque ou initie
+      une interaction avec le service à l'exécution en utilisant les
+      détails de liaison dans la description du service pour
+      localiser, contacter et appeler le service.
       
-    \item[Bind] Eventually, a service needs to be invoked. In the bind
-      operation the service requestor invokes or initiates an interaction
-      with the service at runtime using the binding details in the service
-      description to locate, contact and invoke the service.
+      % Eventually, a service needs to be invoked. In the bind operation
+      % the service requestor invokes or initiates an interaction with
+      % the service at runtime using the binding details in the service
+      % description to locate, contact and invoke the service.
     \end{description}
 
     % \begin{description} % SOAP + WSDL + UDDI
