@@ -89,25 +89,25 @@
     \subsection{Motivations et objectifs}
     \label{sec:objectifs}
     
-    D'une point de vue stratégique, la composition des services Web
-    offre plusieurs avantages. Premirement, il permet de minimiser les
-    efforts du développement des nouvelles applications et la
-    simplification du cycle de développement des logiciels et
-    permettre l'interopérabilité entre les systèmes distribués et
-    hétérogènes par le combinaison des solutions disponibles assurant
-    l'exploiatation des nouvelles opportunités économiques et la
-    pénétration des nouveaux marchés.
+    % D'une point de vue stratégique, la composition des services Web
+    % offre plusieurs avantages. Premirement, il permet de minimiser les
+    % efforts du développement des nouvelles applications et la
+    % simplification du cycle de développement des logiciels et
+    % permettre l'interopérabilité entre les systèmes distribués et
+    % hétérogènes par le combinaison des solutions disponibles assurant
+    % l'exploiatation des nouvelles opportunités économiques et la
+    % pénétration des nouveaux marchés.
 
-    Deuxièmement, le développement d'applications à base services
-    réduire le risque d'échec car la réutilisation des services déjà
-    déployés et testés évite l'introduction des nouvelles problèmes
-    techniques surtout dans dans le contexte des systèmes distribués,
-    mal adaptées à l'interopérabilité.
+    % Deuxièmement, le développement d'applications à base services
+    % réduire le risque d'échec car la réutilisation des services déjà
+    % déployés et testés évite l'introduction des nouvelles problèmes
+    % techniques surtout dans dans le contexte des systèmes distribués,
+    % mal adaptées à l'interopérabilité.
 
-    Troisièmement, .... 
+    % Troisièmement, ....
     
-    Quatrièmement, Il ouvre la possibilité de ``outsoursing'' ou la
-    sous-traitance et de bénificier d'applications professionnelles
+    % Quatrièmement, Il ouvre la possibilité de ``outsoursing'' ou la
+    % sous-traitance et de bénificier d'applications professionnelles
     \cite{medjahed2004thesis}
 
     % les objectifs de la composition    
@@ -444,7 +444,7 @@
   %   % partenaires impliqués sont identifiés ainsi que les messages
   %   % qui sont échangés. A ceci s'ajoute le traitement des fautes
   %   % et des exceptions pour les cas d'erreurs.
-
+    \newpage
     \subsection{WS-CDL}
     \label{WS-CDL}
   %   % make a reference to [TODO: Kavantzas et al., 2005] selon
@@ -501,10 +501,6 @@
     %  minuteur d’exécution de la composition).
     %  \cite{lopez2008selection}
 
-    \subsection{OWL-S}
-    \label{sec:owl-s}
-    \cite{mcilraith2003bringing}
-
     \subsection{WSMF}
     \label{sec:wsmf}    
     \acrshort{wsmf} \cite{fensel2002web}est un initiative européen
@@ -543,60 +539,119 @@
     % framework, and a mediation framework for Web services, while WSMO
     % service ontology includes definitions for goals, mediators, and
     % Web services.
-
-
+    \newpage
+    \subsection{OWL-S}
+    \label{sec:owl-s}
+    \cite{mcilraith2003bringing}
+    \newpage
     \subsection{Comparaison}
     \label{sec:langs-comparaison}   
     % les critères de comparaison
+    % We compare the composition standards described above according to
+    % the following requirements:
+    Une composition des services Web nécessite la satisfaction de
+    plusieurs exigences techniques \cite{sheng2014web},
+    \cite{bucchiarone2006survey}, le tableau
+    \ref{comparaison-des-standards-et-langages-d-composition} montre
+    une comparaison entre les langages et standards étudiées dans
+    cette section selon les critères suivants:
+    \input{tables/comparison-des-langages-de-composition.tex}
+    \begin{itemize}
+      \item [La composabilité] indique la capacité
+        d'assembler des services participants dans un processus de
+        composition et de modéliser les interactions entre eux.
+
+      \item [La representation du rôle] indique La représentation de
+        rôle indique la capacité de refléter la le comportement que le
+        participant doit présenter afin d'interagir dans le processus
+        de composition.
+
+      \item [Le support des structures complexes] la capacité de
+        modéliser les structures complexes qui reflètent les règles
+        des actions réalisées dans le processus de composition logique
+        d'exécution et de commande.
+
+      \item [La gestion des exceptions] est la capacité de gérer les
+        exceptions de processus lors de l'exécution du processus de
+        composition
+
+      \item [le support du sémantique] est la capacité de représenter
+        la sémantique de services participants pour faciliter la
+        découverte des services et la composition dynamique.
+
+      \item [le support industriel] est la capacité de représenter
+        la sémantique de services participants pour faciliter la
+        découverte des services et la composition dynamique.
+    \end{itemize}
     % table de comparaison
+
+    % gives a detailed language capacity comparison of BPEL, WS-CDL,
+    % BPML, ebXML, OWL-S, and WSMF. From Table 1, we can see that all
+    % languages except WSMF support the modeling of message exchanging
+    % and complex structure. Only BPEL and WS-CDL have the comprehensive
+    % expressibility to define interacting roles, complex structures,
+    % exception handling and compensation management. BPML does not
+    % support role representation and ebXML does not provide a
+    % compensation mech- anism. We also can observe that only OWL-S and
+    % WSMF provide semantic support for services composition.
+
   \section{Composition dynamique des services web}
   \label{sec:comp-dynam}
 
-  % les motivation de la composition dynamiques [\cite{bartalos2011effective}]
-  % The motivation for service orchestration as just mentioned is more about solving
-  % technical problems related to the software integration. Unfortunately, the overall
-  % principles of SOA are not fully adapted and used in practice. During the last years
-  % there has been a vision that Web services could be automatically arranged to
-  % supply a complex functionality. A lot of research effort has been made to develop
-  % approaches able to find and arrange relevant services in a meaningful, optimal
-  % manner to satisfy the goal defined by the requestor. This idea moves toward the
-  % exploitation of single services. However, the complexity of single services is not
-  % limited, it is not effective, or it is even impossible to develop services satisfying all
-  % possible (expected) requests. Thus, other methods must be investigated to be able
-  % to supply variable functionality. A more feasible approach is to arrange several
-  % simpler services on the fly (dynamically) based on the given request. This is called
-  % also explorative service composition (Yang and Papazoglou, 2004).
+  % les motivation de la composition dynamiques
+  % [\cite{bartalos2011effective}] The motivation for service
+  % orchestration as just mentioned is more about solving technical
+  % problems related to the software integration. Unfortunately, the
+  % overall principles of SOA are not fully adapted and used in
+  % practice. During the last years there has been a vision that Web
+  % services could be automatically arranged to supply a complex
+  % functionality. A lot of research effort has been made to develop
+  % approaches able to find and arrange relevant services in a
+  % meaningful, optimal manner to satisfy the goal defined by the
+  % requestor. This idea moves toward the exploitation of single
+  % services. However, the complexity of single services is not limited,
+  % it is not effective, or it is even impossible to develop services
+  % satisfying all possible (expected) requests. Thus, other methods
+  % must be investigated to be able to supply variable functionality. A
+  % more feasible approach is to arrange several simpler services on the
+  % fly (dynamically) based on the given request. This is called also
+  % explorative service composition (Yang and Papazoglou, 2004).
 
 
 
-  % There are several principal differences between the situation when the Web
-  % services are used to realize some activities prescribed by a business process and the
-  % situation when they are automatically arranged on the fly to supply the need of the
-  % requestor. In the situation when the arrangement of services, i.e. orchestration,
-  % is done based on the given business process, it is made manually by a software
-  % developer. The resulting arrangement is realizing a defined task for a long period
-  % of time, for multiple users. In the second situation, the arrangement is done
-  % automatically, based on the descriptions of the available services and the given
-  % user goal. In this case we will call it service composition. This approach suits well
-  % also in the case when the user goal is varying and the situation requires flexible
-  % arrangement of services.
+  % There are several principal differences between the situation when
+  % the Web services are used to realize some activities prescribed by a
+  % business process and the situation when they are automatically
+  % arranged on the fly to supply the need of the requestor. In the
+  % situation when the arrangement of services, i.e. orchestration, is
+  % done based on the given business process, it is made manually by a
+  % software developer. The resulting arrangement is realizing a defined
+  % task for a long period of time, for multiple users. In the second
+  % situation, the arrangement is done automatically, based on the
+  % descriptions of the available services and the given user goal. In
+  % this case we will call it service composition. This approach suits
+  % well also in the case when the user goal is varying and the
+  % situation requires flexible arrangement of services.
 
-  % Service composition is also possible in the case when the number of potential
-  % services is very high. The manual composition is not effective, or is even impossible
-  % in this case. On the other side, the service orchestration does not require additional
-  % description of services, since the developers can use the documentation of the used
-  % services. Service composition relies on additional metadata about services, to make
-  % them distinguishable and understand what functionality they realize. These must
-  % be provided in a standardly defined form.
+  % Service composition is also possible in the case when the number of
+  % potential services is very high. The manual composition is not
+  % effective, or is even impossible in this case. On the other side,
+  % the service orchestration does not require additional description of
+  % services, since the developers can use the documentation of the used
+  % services. Service composition relies on additional metadata about
+  % services, to make them distinguishable and understand what
+  % functionality they realize. These must be provided in a standardly
+  % defined form.
 
-  % The automatic dynamic Web service composition introduces new possibilities
-  % in the area of Web services (Dustdar and Papazoglou, 2008; Dustdar and Schreiner,
-  % 2005). Its aim is not to solve existing problems with the manual composition, or
-  % automate this process. The manual composition still has its place in the software
-  % development process of on-demand software solutions based on the given require-
-  % ments. The automatic dynamic composition provides the opportunity to exploit
-  % the available services to supply a wide range of varying user goals.
-  La classification est d'aprés \cite{baryannis2010}.
+  % The automatic dynamic Web service composition introduces new
+  % possibilities in the area of Web services (Dustdar and Papazoglou,
+  % 2008; Dustdar and Schreiner, 2005). Its aim is not to solve existing
+  % problems with the manual composition, or automate this process. The
+  % manual composition still has its place in the software development
+  % process of on-demand software solutions based on the given require-
+  % ments. The automatic dynamic composition provides the opportunity to
+  % exploit the available services to supply a wide range of varying
+  user goals.  La classification est d'aprés \cite{baryannis2010}.
 
     \subsection{Les approches basées sur les workflow}
     \label{sec:les-approches-basees}
