@@ -15,6 +15,8 @@
 \usepackage{verbatim}
 \usepackage{float}
 \usepackage{color}
+\usepackage{booktabs}
+\usepackage{array}
 % \usepackage{standalone}
 % \usepackage{tikz}
 \usepackage{amsmath}
@@ -45,6 +47,7 @@
 
 %description style
 \let\Item\item
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}}
 \newcommand\SpecialItem{\renewcommand\item[1][]{\Item[\textbullet~\sffamily ##1]}}
 \renewcommand\enddescription{\endlist\global\let\item\Item}
 
