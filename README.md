@@ -24,24 +24,40 @@ Sommaire:
      3.1 Définition et stratégies de composition
        3.1.1 Définitions
        3.1.2 Motivations et objectifs
-       3.1.3 Cycle de vie d'une composition
+       3.1.3 Cycle de vie d'une composition des services
        3.1.4 Procédés de coordination
          3.1.4.1 Orchestration
          3.1.4.2 Chorégraphie
        3.1.5 Stratégies de composition
          3.1.5.1 Composition statique/dynamique
          3.1.5.2 Composition manuel/automatique
-     3.2 Langages pour la composition
-       3.2.1 BPEL
-       3.2.2 WS-CDL
-       3.2.3 OWL-S
-       3.2.4 WSMF
-       3.2.5 Comparaison
-     3.3 Composition dynamique des services web
-       3.3.1 Les approches basées sur les workflow
-       3.3.2 Les approches guidées par les modèles
-       3.3.3 Les apprcohes mathématiques
-       3.3.4 Techniques de planification
-     3.4 Conclusion
+     3.2 Enrichissent sémantique des services dans le cadre d'une composition
+     3.3 Langages pour la composition
+       3.3.1 BPEL
+       3.3.2 WS-CDL
+       3.3.3 WSMF
+       3.3.4 OWL-S
+       3.3.5 Comparaison
+     3.4 Composition dynamique des services web
+       3.4.1 Les approches basées sur les workflow
+       3.4.2 Les approches guidées par les modèles
+       3.4.3 Les apprcohes mathématiques
+       3.4.4 Techniques de planification
+     3.5 Conclusion
    4 Les approches de composition dynamiques utilisant le modèle de graphe
  Part II L'approche proposée
+   5 Une méthode de composition dynamique des services Web sémantiques utilisant neo4j
+     5.1 Reformulation mathématique du problème
+       5.1.1 Définitions de base
+       5.1.2 Hypothèses du travail
+       5.1.3 Objectifs
+     5.2 Example d'illustration
+     5.3 Annotation sémantiques des services web
+     5.4 Architecture du système
+     5.5 Conclusion
+   6 L'Implémentation d'un prototype
+     6.1 Example d'illustration
+     6.2 Outil d'annotaion sémantiques des services
+     6.3 Publication des services web atomiques
+     6.4 Découvert d'un service web composites
+     6.5 Conclusion
