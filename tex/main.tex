@@ -15,6 +15,8 @@
 \usepackage{verbatim}
 \usepackage{float}
 \usepackage{color}
+\usepackage{titletoc}
+%% for tabs
 \usepackage{booktabs}
 \usepackage{array}
 % \usepackage{standalone}
@@ -50,7 +52,8 @@
 \newcommand{\head}[1]{\textnormal{\textbf{#1}}}
 \newcommand\SpecialItem{\renewcommand\item[1][]{\Item[\textbullet~\sffamily ##1]}}
 \renewcommand\enddescription{\endlist\global\let\item\Item}
-
+% enable it if you want an arabic numeration for subsubsubsection
+% \renewcommand{\thesubsubsection}{\arabic{subsection}.\alph{subsubsection})}
 \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textsf{#1}} 
 
 \maketitle 
