@@ -1,11 +1,13 @@
 \chapter{Les approches de composition dynamique des services Web sémantiques baseés sur le modèle graphe}
 %% Introduction to the chapter
 \newpage
-\section{Contexte}
+\section{Préliminaires}
 %% positionner l'approche par graphe dans les classification déjà
 %% abordées
-  \subsection{Définitions et terminologies}
-  \label{sec:defin-et-term}
+  \subsection{Matching des services Web}
+  \label{sec:match-des-serv}
+  ( \cite{lecue2006formal}, \cite{paolucci2002semantic},
+  \cite{li2004software})\\
   Le matching, l'alignement, le mapping...ect. Sont tous des termes
   utilisées pour référencer le concept de recherche de
   similarité. Voici quelques définitions de ces termes utilisés.
@@ -16,15 +18,48 @@
     travers un algorithme de matching.
   \end{mydef}
 
-  \subsection{Matching des services Web}
-  \label{sec:match-des-serv}
+  % Matchmaking is defined as a process that requires a repository host
+  % to take a query or an advertisement as input, and to return all the
+  % advertisements that may satisfy the requirements specified in the
+  % input query or advertisement.
 
-  \subsection{Mésure de similariré}
+  Dans le contexte d'une architecture à services, le
+  \textit{Matchmaking} (ou le \textit{Matching}) est définie comme un
+  processus qui nécessite un annuaire des services de prendre une
+  requête en entrée, et de revenir tous les services qui peuvent
+  satisfaire les exigences spécifiées dans la requête d'entrée
+  \cite{li2004software}. Formellement, Le processus de
+  \textit{Matchmacking} peut se spécifié comme de suit:\\
+
+  Soit $\Phi$ est l'ensemble de toutes les services référencés dans un
+  annuaire des services donné. Pour une requête \verb|R|.
+
+  \begin{mydef}[Alignement]
+    on parle souvent de l'alignement des ontologies. C'est un ensemble
+    de correspondances entre deux ou plusieurs
+    ontologies. L'alignement est la sortie d’un processus de matching
+  \end{mydef}
+
+  \begin{mydef}[Mapping]
+    chercher des correspondances pour établir des transformations
+    entre deux objets de même nature mais pas de même forme. Par
+    conséquent, le mapping utilise les résultats du matching pour
+    effectuer les transformations des objets.
+  \end{mydef}
+
+  Comme on le voit, tous ces termes prennent bien en compte la notion
+  de recherche de correspondance entre des concepts, dans certains
+  contextes ils sont utilisés indifféremment.  Pour les services web,
+  on parlera du matchnig ou matchmaking pour exprimer la mise en
+  correspondance entre deux entités, et du mapping pour exprimer la
+  transformation ou conversion des types de données.
+
+  \subsection{Mésures de similarité}
   \label{sec:mesure-de-similarire}
 
-  \subsection{Graphe de dépandence}
+  \subsection{Graphe de dépendance}
   \label{sec:graph-de-depandence}
-
+  \cite{Omer2011}
 \section{Travaux relatives}
 \label{sec:travaux-relatives}
 
