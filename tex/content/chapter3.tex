@@ -1,2 +1,97 @@
-\chapter{Les approches de composition dynamiques utilisant le
-modèle de graphe}
+\chapter{Les approches de composition dynamique des services Web sémantiques baseés sur le modèle graphe}
+%% Introduction to the chapter
+\newpage
+\section{Préliminaires}
+%% positionner l'approche par graphe dans les classification déjà
+%% abordées
+  \subsection{Matching des services Web}
+  \label{sec:match-des-serv}
+  ( \cite{lecue2006formal}, \cite{paolucci2002semantic},
+  \cite{li2004software})\\
+  Le matching, l'alignement, le mapping...ect. Sont tous des termes
+  utilisées pour référencer le concept de recherche de
+  similarité. Voici quelques définitions de ces termes utilisés.
+
+  \begin{mydef}[Matching]
+    c'est le processus de découverte des liaisons et des
+    correspondances entre les entités de différentes représentations à
+    travers un algorithme de matching.
+  \end{mydef}
+
+  % Matchmaking is defined as a process that requires a repository host
+  % to take a query or an advertisement as input, and to return all the
+  % advertisements that may satisfy the requirements specified in the
+  % input query or advertisement.
+
+  Dans le contexte d'une architecture à services, le
+  \textit{Matchmaking} (ou le \textit{Matching}) est définie comme un
+  processus qui nécessite un annuaire des services de prendre une
+  requête en entrée, et de revenir tous les services qui peuvent
+  satisfaire les exigences spécifiées dans la requête d'entrée
+  \cite{li2004software}. Formellement, Le processus de
+  \textit{Matchmacking} peut se spécifié comme de suit:\\
+
+  Soit $\Phi$ est l'ensemble de toutes les services référencés dans un
+  annuaire des services donné. Pour une requête \verb|R|.
+
+  \begin{mydef}[Alignement]
+    on parle souvent de l'alignement des ontologies. C'est un ensemble
+    de correspondances entre deux ou plusieurs
+    ontologies. L'alignement est la sortie d’un processus de matching
+  \end{mydef}
+
+  \begin{mydef}[Mapping]
+    chercher des correspondances pour établir des transformations
+    entre deux objets de même nature mais pas de même forme. Par
+    conséquent, le mapping utilise les résultats du matching pour
+    effectuer les transformations des objets.
+  \end{mydef}
+
+  Comme on le voit, tous ces termes prennent bien en compte la notion
+  de recherche de correspondance entre des concepts, dans certains
+  contextes ils sont utilisés indifféremment.  Pour les services web,
+  on parlera du matchnig ou matchmaking pour exprimer la mise en
+  correspondance entre deux entités, et du mapping pour exprimer la
+  transformation ou conversion des types de données.
+
+  \subsection{Mésures de similarité}
+  \label{sec:mesure-de-similarire}
+
+  \subsection{Graphe de dépendance}
+  \label{sec:graph-de-depandence}
+  \cite{Omer2011}
+\section{Travaux relatives}
+\label{sec:travaux-relatives}
+
+% La découverte d’un service composite à partir d’un graphe de
+% dépendance consiste à trouver le meilleur chemin dans le graphe qui
+% génère les sorties exprimées dans la requête. La recherche peut se
+% baser sur l’optimisation d’une fonction d’utilité qui tient compte du
+% degré de matching entre les services et aussi de la qualité de service
+% qui peut être fournie par les services concrets. A cet effet, les
+% méthodes de recherche du meilleur chemin de la théorie des graphes
+% peuvent être exploitées.  Les méthodes de composition utilisant le
+% modèle de graphe peuvent être classées en deux catégories selon que le
+% graphe de dépendance soit construit à priori (en phase de publication
+% des services) ou pendant le traitement de la requête de composition :
+
+  \subsection{Génération Online du graphe de dépendance}
+  \label{sec:generation-online-du}
+
+  \subsection{Génération Offline du graphe de dépendance}
+  \label{sec:gener-offl-du}
+
+  \subsection{Autres travaux basés sur le graphe matching}
+  \label{sec:autres-travaux}
+
+\section{Vers les bases de données graphe}
+\label{sec:vers-les-bases}
+
+\section{Conclusion}
+\label{sec:conclusion-2}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
