@@ -237,15 +237,16 @@ composition des services Web.\\
       \subsubsection{Communication: SOAP}
       Développé par IBM\footnote{\url{http://www.ibm.com}} et
       Microsoft\footnote{\url{http://www.microsoft.com}}
-      \cite{box2000simple}, L'approche \textsc{SOAP} est une recommandation
-      \textsc{W3C} qui le définit comme étant un protocole destiné
-      à l'échange de messages
-      structurés, permettant d'invoquer des applications sur des réseaux
-      distribués \cite{mitra2003soap}.\\   
+      \cite{box2000simple}, L'approche \textsc{SOAP} est une
+      recommandation \textsc{W3C} qui le définit comme étant un
+      protocole destiné à l'échange de messages structurés, permettant
+      d'invoquer des applications sur des réseaux
+      distribués \cite{mitra2003soap}.\\
       \input{figs/soap_all.tex} %% La structure d’un message SOAP
-      Ce protocole \textsc{SOAP} est basé sur \textsc{XML} pour mettre en place
-      un mécanisme valable d'échange des données indépendant du modèle de
-      programmation de l'application et du système d’exploitation.
+      Ce protocole \textsc{SOAP} est basé sur \textsc{XML} pour mettre
+      en place un mécanisme valable d'échange des données indépendant
+      du modèle de programmation de l'application et du système
+      d’exploitation.
       
       Un message \textsc{SOAP} est un document XML constitué d'une enveloppe
       \textsc{SOAP} obligatoire, d'un en-tête \textsc{SOAP} facultatif et
@@ -735,37 +736,7 @@ composition des services Web.\\
       % \cite{ankolekar2002daml} % daml-s
       % \cite{mcguinness2004owl} % OWL
       % \cite{paolucci2002semantic} %Semantic matching of web services capabilities
-      \textsc{OWL-S} \cite{martin2004owl} désigné par \textsc{DAML-S} dans
-      les versions antérieures \cite{ankolekar2002daml}, est un langage
-      issue des travaux de la \acrshort{darba}
-      \footnote{\url{http://www.darpa.mil/}} et son programme
-      \acrshort{daml} \footnote{\url{http://www.daml.org/services/}} en
-      collaboration avec des chercheurs de plusieurs universités et
-      organisations (l'Université de Toronto, Yale, Nokia, etc.). Il a été
-      intégré au consortium \textsc{W3C} en 2004, au sein du groupe
-      d'intérêt sur les services Web sémantiques, lors de la recommandation
-      du langage \textsc{OWL} \cite{horrocks2002daml+oil}
-      \cite{mcguinness2004owl}.  Ankolekar \emph{et al.}
-      \cite{ankolekar2002daml} présentent une ontologie pour les services
-      web dans le but d'automatiser la \emph{découverte},
-      \emph{l'invocation}, la \emph{composition} et la \emph{surveillance}
-      de l'exécution des services \cite{mcilraith2003bringing}, les auteurs
-      reprennent la notion de classes d'\textsc{OWL} et proposent
-      l'ontologie \textsc{OWL-S}.
 
-      \input{figs/owls.tex} %TODO go for Tikz ✓
-
-      L'objectif principal de ces recherches est d'établir une plateforme
-      dans laquelle les descriptions des services Web sont partagés en
-      utilisant une ontologie standard, constituée d'un ensembles de classes
-      de base et des propriétés pour résoudre les ambigüités et de rendre la
-      description d'un service compréhensible par une machine.
-
-      la figure \ref{fig:owl-s} décrit la structure tripartie d'une
-      ontologie \textsc{OWL-S}. Elle est composé de trois sous-ontologie: un
-      \emph{service profile}, d'un \emph{service grounding} et d'un
-      \emph{process model}.
-      % TODO explain the fig:owl-s and add details about owls sub-ontologies
       \subsubsection{WSMO}
       \cite{baryannis2010}
       \newpage
