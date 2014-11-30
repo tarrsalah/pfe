@@ -55,6 +55,7 @@
 \let\Item\item
 \newcommand{\head}[1]{\textnormal{\textbf{#1}}}
 \newcommand\SpecialItem{\renewcommand\item[1][]{\Item[\textbullet~\sffamily ##1]}}
+\newcommand\SpecialItemi{\renewcommand\item[1][]{\Item[\textendash~\sffamily ##1]}}
 \renewcommand\enddescription{\endlist\global\let\item\Item}
 % enable it if you want an arabic numeration for subsubsubsection
 % \renewcommand{\thesubsubsection}{\arabic{subsection}.\alph{subsubsection})}
