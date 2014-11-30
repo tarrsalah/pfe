@@ -115,9 +115,6 @@
     % Finally, the possibility of outsourcing the
     % “best-in-their-class” services allows com- panies to increase
     % their revenu.
-
-    \subsection{Motivations et objectifs}
-    \label{sec:objectifs}
     
     % D'une point de vue stratégique, la composition des services Web
     % offre plusieurs avantages. Premirement, il permet de minimiser les
@@ -134,34 +131,64 @@
     % techniques surtout dans dans le contexte des systèmes distribués,
     % mal adaptées à l'interopérabilité.
 
-    % Troisièmement, ....
-    
-    % Quatrièmement, Il ouvre la possibilité de ``outsoursing'' ou la
-    % sous-traitance et de bénificier d'applications professionnelles
-    % \cite{medjahed2004thesis}
-
-    % les objectifs de la composition    
-    La composition de services Web vise essentiellement quatre
-    objectifs \cite{driss2011approche}:
-    \begin{itemize}
-
-      \item Créer de nouvelles fonctionnalités en combinant des services
-        déjà existants.
-
-      \item Résoudre des problèmes complexes auxquels aucune solution
-        n'a été trouvée.
-
-      \item collaborer plusieurs entreprises ensemble.
-
-      \item Optimiser et améliorer une fonctionnalité existante.
-    \end{itemize}
-
     % le processus générale de composition
-    \subsection{Cycle de vie d'une composition des services}
-    \label{sec:cycle-de-vie}
-    \input{figs/composition-life-cycle.tex}
-    \newpage
+    \subsection{Cycle de vie d'une composition }
+    \label{sec:cycle-de-vie+exigences}
+    % Dans cette sous-section, nous discutons du cycle de vie de la
+    % composition de services Web, qui est divisé en quatre phases. Pour
+    % chaque phase, un ensemble d'exigences est identifié.
 
+    % Compte tenu de la nature très dynamique et distribué des
+    % environnements de services Web, certaines exigences doivent être
+    % respectées afin de parvenir à la composition de services Web
+    % avec succès. Dans cette sous-section, nous identifions plusieurs
+    % exigences pour chaque phase du cycle de vie d'un composition des
+    % services Web.
+
+    Comme l'illustre la figure, le cycle de vie de la composition de
+    services Web comprend quatre phases \cite{sheng2014web}: la phase
+    de \textit{définition}, La phase de \textit{sélection}, la phase
+    de \textit{déploiement} et la phase d'\textit{exécution}:.
+
+    \input{figs/composition-life-cycle.tex} \SpecialItem
+
+    \begin{description}
+    \item[La phase de définition] Pendant cette phase, le client de
+      service spécifie les exigence de composition des services en
+      termes des besoins et des préférences pour le service
+      composite. l'exigence est ensuite \textit{décomposé}, soit
+      semi-automatique ou automatique, dans un modèle de
+      \textbf{processus abstrait}(ce est à dire, le service composite
+      abstraite), qui spécifie un ensemble d'activités, le contrôle et
+      le flux de données entre eux, la qualité de service
+      \acrshort{qos} et la gestion des exceptions.
+
+      %% TODO: REWRITE
+    \item[La phase de séléction.] Dans cette phase, pour chaque
+      activité dans le service composite, les services Web appropriés
+      qui répondent aux exigences de l'activité sont situés en
+      cherchant sur le registre de service, sur la base des
+      informations contenues dans les documents de description de
+      service publiées. Il est probable que plus d'un service de
+      candidat de répondre aux exigences. Par conséquent, le meilleur
+      le service identifié doit être sélectionné. Après tous les
+      services Web requis sont identifiés et liés aux activités
+      correspondantes, le service composite construit est produite.\\
+
+    \item[La phase de déploiement.]Dans cette phase, le service
+      composite construit est déployé pour permettre son
+      instanciation et l'invocation par les utilisateurs finaux. Le
+      résultat de cette phase est le service composite exécutable.
+
+    \item[La phase d'exécution.] Dans cette phase, l'instance de
+      service composite est créé et exécuté par le moteur
+      d'exécution, qui est aussi responsable de l'invocation des
+      composants de service atomiques. Pendant l'exécution de
+      l'instance de service composite, les tâches de surveillance, y
+      compris le suivi d'exécution, mesure de la performance et la
+      gestion des exceptions, doivent être effectuées.
+    \end{description}
+    \newpage
     \subsection{Procédés de coordination}
     \label{sec:proc-de-coord}
     
@@ -169,6 +196,7 @@
     % WSDL) provides the means to describe, locate, and invoke a Web
     % service as an entity in its own right. Although a Web service
     % may expose many operations, each WSDL file describes fairly
+
     % atomic, low-level functions. What the basic technologies do not
     % give us is the rich behavioral detail that describes the role
     % the service plays as part of a larger, more complex
@@ -262,7 +290,7 @@
     l'interaction entre les services et nécessite la gestion de
     plusieurs aspects comme les échanges de données entre les
     services, les pannes ou erreurs éventuelles, le contexte
-    d'interaction, le degré d'automatisation des tâches, etc.
+    d'interaction, le degré d'automatisation des tâches, etc\dots
     
     Il existent une variété de spécifications, de langages et
     d'approches formelles développées par la littérature concernant la
