@@ -714,79 +714,41 @@
     % compensation mech- anism. We also can observe that only OWL-S and
     % WSMF provide semantic support for services composition.
 
-  \section{Les approches de composition des services web}
+    \section{Les approches de composition dynamiques des services web}
   \label{sec:comp-dynam}
-  {\color{red}
-    \SpecialItemi
-    \begin{itemize}
-    \item[thesis:] \cite{bartalos2011effective},
-      \cite{elie2010}. \cite{zahirathesis2008}.
-      \item[serveys:] \cite{baryannis2010}, \cite{rao2005survey},
-        \cite{dustdar2005survey}.
-    \end{itemize}
-    \SpecialItemi
-  }
 
-  % les motivation de la composition dynamiques
-  % [\cite{bartalos2011effective}] The motivation for service
-  % orchestration as just mentioned is more about solving technical
-  % problems related to the software integration. Unfortunately, the
-  % overall principles of SOA are not fully adapted and used in
-  % practice. During the last years there has been a vision that Web
-  % services could be automatically arranged to supply a complex
-  % functionality. A lot of research effort has been made to develop
-  % approaches able to find and arrange relevant services in a
-  % meaningful, optimal manner to satisfy the goal defined by the
-  % requestor. This idea moves toward the exploitation of single
-  % services. However, the complexity of single services is not limited,
-  % it is not effective, or it is even impossible to develop services
-  % satisfying all possible (expected) requests. Thus, other methods
-  % must be investigated to be able to supply variable functionality. A
-  % more feasible approach is to arrange several simpler services on the
-  % fly (dynamically) based on the given request. This is called also
-  % explorative service composition (Yang and Papazoglou, 2004).
+  % {\color{red}
+  %   \SpecialItemi
+  %   References :
+  %   \begin{itemize}
+  %   \item[thesis:] \cite{bartalos2011effective},
+  %     \cite{elie2010}. \cite{zahirathesis2008}, \cite{dumez2010approche}.
+  %     \item[serveys:] \cite{baryannis2010}, \cite{rao2005survey},
+  %       \cite{dustdar2005survey}.
+  %   \end{itemize}
+  %   \SpecialItemi }
 
+  La littérature quit traite la problématique decomposition des
+  services comporte une multitude d'approches visant à décrire
+  l'interaction entre les services afin construire de nouveaux
+  services composites répondant à un objectif donné. Selon l'approche
+  proposée, les interprétations différent de ce que devraient être
+  traitées dans une approche de composition, Ils diffèrent également
+  sur le degré d'automatisation impliqué dans le processus allant des
+  approches semi-automatisées à entièrement automatisés.
 
-
-  % There are several principal differences between the situation when
-  % the Web services are used to realize some activities prescribed by a
-  % business process and the situation when they are automatically
-  % arranged on the fly to supply the need of the requestor. In the
-  % situation when the arrangement of services, i.e. orchestration, is
-  % done based on the given business process, it is made manually by a
-  % software developer. The resulting arrangement is realizing a defined
-  % task for a long period of time, for multiple users. In the second
-  % situation, the arrangement is done automatically, based on the
-  % descriptions of the available services and the given user goal. In
-  % this case we will call it service composition. This approach suits
-  % well also in the case when the user goal is varying and the
-  % situation requires flexible arrangement of services.
-
-  % Service composition is also possible in the case when the number of
-  % potential services is very high. The manual composition is not
-  % effective, or is even impossible in this case. On the other side,
-  % the service orchestration does not require additional description of
-  % services, since the developers can use the documentation of the used
-  % services. Service composition relies on additional metadata about
-  % services, to make them distinguishable and understand what
-  % functionality they realize. These must be provided in a standardly
-  % defined form.
-
-  % The automatic dynamic Web service composition introduces new
-  % possibilities in the area of Web services (Dustdar and Papazoglou,
-  % 2008; Dustdar and Schreiner, 2005). Its aim is not to solve existing
-  % problems with the manual composition, or automate this process. The
-  % manual composition still has its place in the software development
-  % process of on-demand software solutions based on the given require-
-  % ments. The automatic dynamic composition provides the opportunity to
-  % exploit the available services to supply a wide range of varying
-  % user goals.  La classification est d'aprés \cite{baryannis2010}.
+  Dans cette section, nous allons décrire et classifier les approches
+  principales de composition proposées par différents auteurs issues
+  de plusieurs communautés de recherches. La classification présentée
+  par la suite est basée essentiellement sur l'état de l'art fait par
+  Baryannis \emph{et al.}\cite{baryannis2010}.
 
     \subsection{Les approches basées sur les workflow}
     \label{sec:les-approches-basees}
 
     \subsection{Les approches guidées par les modèles}
     \label{sec:les-appr-guid}
+    \cite{dumez2010approche}
 
     \subsection{Les apprcohes mathématiques}
     \label{sec:les-apprc-math}
