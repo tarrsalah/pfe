@@ -411,24 +411,24 @@
     exécutions en parallèle (\verb|flow|) et les branchements
     (\verb|switch|, \verb|if|).
 
-  %   %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
-  %   % WS-BPEL est un langage de procédés basé sur la technologie XML,
-  %   % tout comme les autres standards des services Web. WS-BPEL permet
-  %   % de construire des procédés interprétables et exécutables par un
-  %   % moteur d'orchestration.
+    %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
+    % WS-BPEL est un langage de procédés basé sur la technologie XML,
+    % tout comme les autres standards des services Web. WS-BPEL permet
+    % de construire des procédés interprétables et exécutables par un
+    % moteur d'orchestration.
 
-  %   % Les procédés peuvent être modélisés de deux manières :
-  %   % – abstraite : seuls les échanges de messages entre les
-  %   % différents participants sont spécifiés. Mais le comportement
-  %   % interne de ces participants n'est pas explicité.
-  %   % – exécutable : les activités du procédé sont ordonnées; les
-  %   % partenaires impliqués sont identifiés ainsi que les messages
-  %   % qui sont échangés. A ceci s'ajoute le traitement des fautes
-  %   % et des exceptions pour les cas d'erreurs.
+    % Les procédés peuvent être modélisés de deux manières :
+    % – abstraite : seuls les échanges de messages entre les
+    % différents participants sont spécifiés. Mais le comportement
+    % interne de ces participants n'est pas explicité.
+    % – exécutable : les activités du procédé sont ordonnées; les
+    % partenaires impliqués sont identifiés ainsi que les messages
+    % qui sont échangés. A ceci s'ajoute le traitement des fautes
+    % et des exceptions pour les cas d'erreurs.
     \subsection{WS-CDL}
     \label{WS-CDL}
-  %   % make a reference to [TODO: Kavantzas et al., 2005] selon
-  %   % elie2010
+    % make a reference to [TODO: Kavantzas et al., 2005] selon
+    % elie2010
     \acrshort{ws-cdl} est un langage de composition de services de
     type \textbf{chorégraphie} qui permet de décrire une vision
     \textbf{globale} des collaborations entre les services Web
@@ -701,7 +701,9 @@
       \item [le support industriel] indiqué par la qualité des outils
         et le support industriel de la technologie.
     \end{itemize}
-    % TODO expand the table here for more details
+    % TODO expand the table here for more details + conclude this
+    % subsection
+
     % gives a detailed language capacity comparison of BPEL, WS-CDL,
     % BPML, ebXML, OWL-S, and WSMF. From Table 1, we can see that all
     % languages except WSMF support the modeling of message exchanging
@@ -712,8 +714,18 @@
     % compensation mech- anism. We also can observe that only OWL-S and
     % WSMF provide semantic support for services composition.
 
-  \section{Composition dynamique des services web}
+  \section{Les approches de composition des services web}
   \label{sec:comp-dynam}
+  {\color{red}
+    \SpecialItemi
+    \begin{itemize}
+    \item[thesis:] \cite{bartalos2011effective},
+      \cite{elie2010}. \cite{zahirathesis2008}.
+      \item[serveys:] \cite{baryannis2010}, \cite{rao2005survey},
+        \cite{dustdar2005survey}.
+    \end{itemize}
+    \SpecialItemi
+  }
 
   % les motivation de la composition dynamiques
   % [\cite{bartalos2011effective}] The motivation for service
@@ -781,7 +793,8 @@
    
     \subsection{Techniques de planification}    
     \label{sec:techn-de-plan}
-    % Selon \cite{baryannis2010} et \cite{bartalos2011effective}.
+    Selon \cite{baryannis2010}, \cite{bartalos2011effective},
+    \cite{chan2007survey}, \cite{peer2005web}, \cite{rodriguez2011automatic}
 
   \section{Conclusion}
   \label{sec:conclusion}
