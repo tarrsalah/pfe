@@ -102,8 +102,9 @@
     de \textit{définition}, La phase de \textit{sélection}, la phase
     de \textit{déploiement} et la phase d'\textit{exécution}:.
 
-    \input{figs/composition-life-cycle.tex} \SpecialItem
+    \input{figs/composition-life-cycle.tex}
     % \newpage
+    \SpecialItem
     \begin{description}
     \item[La phase de définition] Pendant cette phase, le client de
       service spécifie les exigence de composition des services en
@@ -609,7 +610,6 @@
     \\
     {\color{red}
 
-      \SpecialItemi
       \begin{description}
       \item[Le processus atomique] directement invoqué par
         l’intermédiaire d’un Grounding
@@ -673,7 +673,6 @@
     une comparaison entre les langages et standards étudiées dans
     cette section selon les critères suivants:
     \input{tables/comparison-des-langages-de-composition.tex}
-
     \SpecialItem
     \begin{itemize}
       \item [La composabilité] indique la capacité
@@ -701,6 +700,7 @@
       \item [le support industriel] indiqué par la qualité des outils
         et le support industriel de la technologie.
     \end{itemize}
+
     % TODO expand the table here for more details + conclude this
     % subsection
 
@@ -714,19 +714,8 @@
     % compensation mech- anism. We also can observe that only OWL-S and
     % WSMF provide semantic support for services composition.
 
-    \section{Les approches de composition dynamiques des services web}
+  \section{Les approches de composition dynamiques des services web}
   \label{sec:comp-dynam}
-
-  % {\color{red}
-  %   \SpecialItemi
-  %   References :
-  %   \begin{itemize}
-  %   \item[thesis:] \cite{bartalos2011effective},
-  %     \cite{elie2010}. \cite{zahirathesis2008}, \cite{dumez2010approche}.
-  %     \item[serveys:] \cite{baryannis2010}, \cite{rao2005survey},
-  %       \cite{dustdar2005survey}.
-  %   \end{itemize}
-  %   \SpecialItemi }
 
   La littérature quit traite la problématique de composition des
   services comporte une multitude d'approches visant à décrire
@@ -741,31 +730,192 @@
   principales de composition proposées par différents auteurs issues
   de plusieurs communautés de recherches. La classification présentée
   par la suite est basée essentiellement sur l'état de l'art fait par
-  Baryannis \emph{et al.}\cite{baryannis2010}.
+  Baryannis \emph{et al.}\cite{baryannis2010}.Nous distinguons quatres
+  catégories de composition dynamique des services Web:
+  \SpecialItem
+  \begin{description}
+  \item[La composition  basée sur les workflows]: Ces approches
+    éxploitent les résultats des recherches dans le domaine des
+    \textit{workflows}.
 
-    \subsection{Les approches basées sur les workflow}
+  \item[La composition dirigée par les modèles]: Ces approches
+    utilisent les languages de modélisation (les réseux de Petri,
+    \textsc{UML}) pour décrire la composition des services.
+
+  \item[La composition algébrique et mathématique des services web]:
+    Ces approches utilisent des méthodes mathématiques (logique
+    mathématiques, algèbre).
+
+  \item[La composition basée sur les techniques de planification]: Ces
+    approches traitent le problème de composition comme un problème de
+    planification.
+  \end{description}
+  \newpage
+  \subsection{La composition  basée sur les workflows}
     \label{sec:les-approches-basees}
+    Appuyant principalement du fait qu'un service composite est
+    conceptuellement similaire à un \textit{workflow}, il est possible
+    d'exploiter les connaissances accumulées dans la communauté de
+    \textit{workflow} afin de faciliter la composition de services
+    Web. Un \textit{workflow} est un flux d'informations au sein d'une
+    organisation, tel que la transmission de documents entre les
+    personnes. Il modélise une séquence d'opérations, réalisées par
+    différentes entités au sein de l'organisation. techniquement, un
+    workflow est considéré comme la modélisation d'un ensemble de
+    tâches, accomplies par différents acteurs impliqués dans la
+    réalisation d'un processus métier. La modélisation de la
+    composition de services sous forme d(un processus métier est de
+    plus en plus populaire.
 
-    \subsection{Les approches guidées par les modèles}
+    Les approches de composition des services Web basées sur les
+    techniques de \textit{workflow} étaient l'une des prmières
+    solutions proposées pour la composition automatiques des services
+    Web. Initialement, la plupart des travaux ont porté sur la
+    composition statique et manuelle. Des travaux plus récents,
+    cependant, a tenté de réaliser la composition dynamiques des
+    services Web. En raison de la popularité de \textsc{BPEL} dans le
+    milieu industriel, la plupart des approches dans cette catégorie
+    emploient \textsc{BPEL} d'une manière ou d'une autre.
+    % TODO: need more here !
+    % Majithia \textit{et al.} \cite{majithia2004framework} \\
+
+    % \textit{Paws} \cite{ardagna2007paws} est une plate-forme de
+    % composition des services Web qui se concentre sur l'adaptabilité et
+    % la flexibilité d'une composition modélisé sous forme un processus
+    % métier.
+
+    % fujii et \textit{et al.} \cite{fujii2006semantics}
+    % \cite{fujii2009semantics} proposent une architecture \\
+
+    En générale, nous pouvsons conclure que même si les apprcohes de
+    composition à base de \textit{workflow} ont évolué afin de
+    supporter la composition automatique, les résultats sont limitées
+    à des schémas de composition simples tels que l'éxécution
+    séquentielle et parallèles. Cette lacune a été comblée en
+    combinant méthodes à base de \textit{workflow} avec des techniques
+    de planification issues du domaine d'intélégence artificielle. Ces
+    approches serons éxaminer dans la quatrième catégorie
+    \ref{sec:techn-de-plan}.
+    \newpage
+    \subsection{La composition dirigée par les modèles}
     \label{sec:les-appr-guid}
-    \cite{dumez2010approche}
 
-    \subsection{Les apprcohes mathématiques}
+    L'ingénierie dirigée par les modèles \acrshort{mdo} est une
+    méthodologie de développement logiciel où l'accent est mis sur la
+    création de modèles abstraits, indépendants de la plateforme et de
+    la technologie. Un paradigme de modélisation doit fournir des
+    modèles logiques du point de vue de l'utilisateur tout en restant
+    suffisamment précis pour servir de base à l'implémentation
+    \cite{dumez2010approche}. Les approches dans cette catégorie
+    utilisent des méthodes déjà explorées et des modèles bien établis
+    pour représenter un système de composition afin de pâlir la
+    complexité croissante de cette dernière utilisant une description
+    plus abstraite au dessus de la description traditionnelle de
+    services dans \textsc{WSDL}, \textsc{OWL-S} ou similaire.
+
+    \textsc{UML} est un langage de modélisation maintenu par
+    l'\textsc{OMG} qui s'est standardisé de par sa position dominante
+    dans l'industrie du logiciel. \textsc{UML} est un langage polyvalent
+    permettant de modéliser un système selon différents points de vue,
+    Le point de vue statique ou structurel du système et le point de
+    vue dynamique représente le comportement dynamique d'un système en
+    montrant les interactions entre les objets ou les changements
+    d'états au sein d'un objet. Skogan \textit{et al.}
+    \cite{skogan2004web} proposent une méthode qui utilise les
+    diagrammes d'activités \textsc{UML} pour modéliser la composition
+    des services. Ces diagrammes là sont utilisés pour générer un
+    processus exécutable d'orchestration \textsc{BPEL} utilisant des
+    transformations \textsc{XSLT}, ce tarvail se limite à la
+    description syntaxique de service Web utilisant les documents
+    \textsc{WSDL} comme des entrées de la transformation \textsc{UML}.
+
+    Les réseaux de Petri constituent une approche bien établie pour la
+    modélisation de processus. Un réseau de Petri est un graphe
+    dirigé, connecté et biparti qui représente les transitions entre
+    plusieurs états du système, ainsi que les ressources
+    disponibles. Hamadi et Benatallah dans \cite{hamadi2003petri}
+    proposent une méthode de modélisation de la composition des
+    services à l'aide des réseaux de Petri, chaque service composite
+    est modélisé par un réseau de Petri contenant un état d'entrée et
+    de sortir permettant de modéliser respectivement la réception et
+    l'émission d'informations par le service composite. Dans [OVVdA+
+    07] \cite{dumez2010approche} les auteurs présentent une traduction
+    complète de \textsc{BPEL} en réseaux de Petri permettant la
+    vérification automatique des processus \textsc{BPEL}.
+
+    \subsection{La composition algébrique et mathématique}
     \label{sec:les-apprc-math}
-   
-    \subsection{Techniques de planification}    
+    Cette catégorie d'approches inclues toutes les approches ont la
+    caractéristique commune à être fondée sur des bases mathématiques
+    tels que le logique temporelle et linéaire, calcule formel,
+    calcule algébrique des processus et autres méthodes
+    mathématiques. De nombreux langages, présentés comme des algèbres
+    de processus, ont été développés pour une compréhension formelle
+    et la spécification d'applications à services \textsc{SOA}. les
+    langages d'orchestration tels que \acrshort{xlang} et
+    \acrshort{bpel} ont fortement inspirés de la métaphore de
+    communication inspirée du $\pi$-calcule basé sur l'échange de
+    messages dans un contexte distribué.
+
+    Les algèbres de processus sont des formalismes de description
+    formelle pour la spécification de systèmes logiciels, en
+    particulier pour les systèmes concurrentiels. Elles fournissent
+    des outils pour la description de haut niveau des interactions et
+    des synchronisations entre les processus. Plusieurs algèbres de
+    processus ont été décrites. Parmi les plus anciennes on peut citer
+    CSP qui a été présenté par Hoare dans [Hoa78], CCS qui a été
+    proposé par Milner [Mil82, Mil89] et le $\pi$-calcule
+    [MPW92]. Milanovic \textit{et al.}  \cite{milanovic2004current}
+    montre que L'utilisation des langages algébriques de processus et
+    langages formels, comme le CCS \cite{milner1999communicating} et
+    le pi-calcule \textit{($\pi$-calculus)
+      \cite{milner1989communication}} a été préconisée pour la
+    composition de services Web, car les spécifications de processus
+    comprises dans les standards des services Web comme
+    \acrshort{wsmo} ou \acrshort{wsmf} sont formellement fondées sur
+    le algèbre des processus.
+
+    La composition algébrique permet modéliser les services comme des
+    processus mobiles pour assurer une vérification de certaines
+    propriétés tel que l'éxactitude, la sécurité, la vivacité
+    \textit{(liveness)}, et la gestion des ressources. La théorie des
+    processus mobiles est basée sur le $\pi$-calcule, dans laquelle
+    l'entité de base est un processus qui peut être un processus vide,
+    un choix (branchement) entre plusieurs opérations
+    d'\textit{Entrés/Sorties} et leurs continuations, une composition
+    parallèle, une définition récursive, ou une invocation récursive
+    \cite{zahirathesis2008}.
+
+    Dans [KB04], la sémantique du langage de chorégraphie
+    \textsc{WS-CDL} est décrite à l'aide de \textsc{CSP} pour
+    permettre la vérification automatiques de propriétés. Un travail
+    similaire est réalisé dans [LHZP07] où des règles sont présentées
+    pour traduire chaque construction syntactique de \textsc{WS-CDL}
+    en \textsc{CSP}.
+
+    Rao \textit{et al.} \cite{rao2004logic} proposent l'utilisation de
+    la logique linéaire pour la composition automatique des services
+    Web. La logique linéaire est une extension de la logique classique
+    de premier ordre pour modéliser la notion d'évolution d'états. les
+    auteurs proposent une méthode de traduction automatique de
+    descriptions \textsc{OWL-S} à des axiomes de la logique
+    linéaire. Ensuite, ils utilisent la démonstration automatique des
+    théorèmes pour produire des schémas abstraits de composition, qui
+    sont ensuite transformés à des modèles de \textit{workflows}
+    \textsc{BPEL} en utilisant un langage d'algèbre des processus
+    inspiré par le $\pi$-calcule.
+
+    \subsection{La composition basée sur les techniques de planification}
     \label{sec:techn-de-plan}
     Selon \cite{baryannis2010}, \cite{bartalos2011effective},
     \cite{chan2007survey}, \cite{peer2005web}, \cite{rodriguez2011automatic}
+    \newpage
 
   \section{Conclusion}
   \label{sec:conclusion}
-    % conclusion
   Introduire la composition dynamique basé sur le modèle graphe qui se
   sera détaillé dans le prochain chapitre.
-  % TODO rapeller du problème initiale en contexte de ce chapitre en une
-  % page
- 
+  % TODO rapeller du problème initiale en contexte de ce chapitre
 
 %%% Local Variables: 
 %%% mode: latex
