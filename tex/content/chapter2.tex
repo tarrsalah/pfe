@@ -661,7 +661,6 @@
       \end{itemize}
     }
 
-
     \subsection{Comparaison}
     \label{sec:langs-comparaison}   
     % TODO review
@@ -813,35 +812,41 @@
     plus abstraite au dessus de la description traditionnelle de
     services dans \textsc{WSDL}, \textsc{OWL-S} ou similaire.
 
-    \textsc{UML} est un langage de modélisation maintenu par
-    l'\textsc{OMG} qui s'est standardisé de par sa position dominante
-    dans l'industrie du logiciel. \textsc{UML} est un langage polyvalent
-    permettant de modéliser un système selon différents points de vue,
-    Le point de vue statique ou structurel du système et le point de
-    vue dynamique représente le comportement dynamique d'un système en
-    montrant les interactions entre les objets ou les changements
-    d'états au sein d'un objet. Skogan \textit{et al.}
-    \cite{skogan2004web} proposent une méthode qui utilise les
-    diagrammes d'activités \textsc{UML} pour modéliser la composition
-    des services. Ces diagrammes là sont utilisés pour générer un
-    processus exécutable d'orchestration \textsc{BPEL} utilisant des
-    transformations \textsc{XSLT}, ce tarvail se limite à la
-    description syntaxique de service Web utilisant les documents
+    \textsc{UML}\footnote{\url{http://www.omg.org/spec/UML/}}
+    \cite{rumbaugh2004unified} est un langage de modélisation maintenu
+    par l'\textsc{OMG}\footnote{\url{http://www.omg.org}} qui s'est
+    standardisé de par sa position dominante dans l'industrie du
+    logiciel. \textsc{UML} est un langage polyvalent permettant de
+    modéliser un système selon différents points de vue, Le point de
+    vue statique ou structurel du système et le point de vue dynamique
+    représente le comportement dynamique d'un système en montrant les
+    interactions entre les objets ou les changements d'états au sein
+    d'un objet.
+
+    Skogan \textit{et al.}  \cite{skogan2004web} proposent une méthode
+    qui utilise les diagrammes d'activités \textsc{UML} pour modéliser
+    la composition des services. Ces diagrammes là sont utilisés pour
+    générer un processus exécutable d'orchestration \textsc{BPEL}
+    utilisant des transformations \textsc{XSLT}, ce tarvail se limite
+    à la description syntaxique de service Web utilisant les documents
     \textsc{WSDL} comme des entrées de la transformation \textsc{UML}.
 
     Les réseaux de Petri constituent une approche bien établie pour la
     modélisation de processus. Un réseau de Petri est un graphe
     dirigé, connecté et biparti qui représente les transitions entre
-    plusieurs états du système, ainsi que les ressources
-    disponibles. Hamadi et Benatallah dans \cite{hamadi2003petri}
-    proposent une méthode de modélisation de la composition des
-    services à l'aide des réseaux de Petri, chaque service composite
-    est modélisé par un réseau de Petri contenant un état d'entrée et
-    de sortir permettant de modéliser respectivement la réception et
-    l'émission d'informations par le service composite. Dans [OVVdA+
-    07] \cite{dumez2010approche} les auteurs présentent une traduction
-    complète de \textsc{BPEL} en réseaux de Petri permettant la
-    vérification automatique des processus \textsc{BPEL}.
+    plusieurs états du système, ainsi que les ressources disponibles.
+
+    Hamadi et Benatallah dans \cite{hamadi2003petri} proposent une
+    méthode de modélisation de la composition des services à l'aide
+    des réseaux de Petri en assignant une transition à chaque appel
+    de service et une place à chaque état entre les appels, chaque
+    service composite est modélisé par un réseau de Petri contenant un
+    état d'entrée et de sortir permettant de modéliser respectivement
+    la réception et l'émission d'informations par le service
+    composite. Dans \cite{ouyang2007formal} les auteurs présentent une
+    traduction complète de \textsc{BPEL} en réseaux de Petri
+    permettant la vérification automatique des processus
+    \textsc{BPEL}.
 
     \subsection{La composition algébrique et mathématique}
     \label{sec:les-apprc-math}
