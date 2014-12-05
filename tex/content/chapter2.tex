@@ -797,7 +797,7 @@
     \ref{sec:techn-de-plan}.
     \newpage
     \subsection{La composition dirigée par les modèles}
-    \label{sec:les-appr-guid}
+    \label{sec:model-based-composition}
 
     L'ingénierie dirigée par les modèles \acrshort{mdo} est une
     méthodologie de développement logiciel où l'accent est mis sur la
@@ -829,7 +829,11 @@
     générer un processus exécutable d'orchestration \textsc{BPEL}
     utilisant des transformations \textsc{XSLT}, ce tarvail se limite
     à la description syntaxique de service Web utilisant les documents
-    \textsc{WSDL} comme des entrées de la transformation \textsc{UML}.
+    \textsc{WSDL} comme des entrées de la transformation
+    \textsc{UML}. Dans \cite{gronmo2005model} les auteurs essayent de
+    soulèver cette limitation en considérant également
+    l'enrichissement sémantique des services avec des ontologies
+    \textsc{OWLS} et des annotations \textsc{WSMO}.
 
     Les réseaux de Petri constituent une approche bien établie pour la
     modélisation de processus. Un réseau de Petri est un graphe
@@ -864,21 +868,23 @@
 
     Les algèbres de processus sont des formalismes de description
     formelle pour la spécification de systèmes logiciels, en
-    particulier pour les systèmes concurrentiels. Elles fournissent
-    des outils pour la description de haut niveau des interactions et
-    des synchronisations entre les processus. Plusieurs algèbres de
+    particulier pour les systèmes concurrentiels
+    \cite{dumez2010approche}. Elles fournissent des outils pour la
+    description de haut niveau des interactions et des
+    synchronisations entre les processus. Plusieurs algèbres de
     processus ont été décrites. Parmi les plus anciennes on peut citer
-    CSP qui a été présenté par Hoare dans [Hoa78], CCS qui a été
-    proposé par Milner [Mil82, Mil89] et le $\pi$-calcule
-    [MPW92]. Milanovic \textit{et al.}  \cite{milanovic2004current}
-    montre que L'utilisation des langages algébriques de processus et
-    langages formels, comme le CCS \cite{milner1999communicating} et
-    le pi-calcule \textit{($\pi$-calculus)
-      \cite{milner1989communication}} a été préconisée pour la
-    composition de services Web, car les spécifications de processus
-    comprises dans les standards des services Web comme
-    \acrshort{wsmo} ou \acrshort{wsmf} sont formellement fondées sur
-    le algèbre des processus.
+    \acrshort{csp} qui a été présenté par Hoare
+    \cite{hoare1978communicating}, \acrshort{ccs} qui a été proposé
+    par Milner \cite{milner1982finite}, \cite{milner1989communication}
+    et le $\pi$-calcule \cite{milner1992calculus}.
+
+    Milanovic \textit{et al.} \cite{milanovic2004current} montre que
+    L'utilisation des langages algébriques de processus et langages
+    formels, comme le \textsc{CCS} et le $\pi$-calculusa été
+    préconisée pour la composition de services Web, car les
+    spécifications de processus comprises dans les standards des
+    services Web comme \acrshort{wsmo} ou \acrshort{wsmf} sont
+    formellement fondées sur le algèbre des processus.
 
     La composition algébrique permet modéliser les services comme des
     processus mobiles pour assurer une vérification de certaines
@@ -891,12 +897,12 @@
     parallèle, une définition récursive, ou une invocation récursive
     \cite{zahirathesis2008}.
 
-    Dans [KB04], la sémantique du langage de chorégraphie
-    \textsc{WS-CDL} est décrite à l'aide de \textsc{CSP} pour
-    permettre la vérification automatiques de propriétés. Un travail
-    similaire est réalisé dans [LHZP07] où des règles sont présentées
-    pour traduire chaque construction syntactique de \textsc{WS-CDL}
-    en \textsc{CSP}.
+    Dans \cite{koshkina2004modelling}, la sémantique du langage de
+    chorégraphie \textsc{WS-CDL} est décrite à l'aide de \textsc{CSP}
+    pour permettre la vérification automatiques de propriétés. Un
+    travail similaire est réalisé dans \cite{li2007modeling} où des
+    règles sont présentées pour traduire chaque construction
+    syntaxique de \textsc{WS-CDL} en \textsc{CSP}.
 
     Rao \textit{et al.} \cite{rao2004logic} proposent l'utilisation de
     la logique linéaire pour la composition automatique des services
