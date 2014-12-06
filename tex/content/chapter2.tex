@@ -452,10 +452,10 @@
     lieu par le biais d'un fichier \textsc{XML} décrivant une
     chorégraphie.
 
-    { \color{red}
-      Dans \cite{fredlund2006implementing} l 'auteur décrire un ficher
-      WS-CDL.
-    }
+    % { \color{red}
+    %   Dans \cite{fredlund2006implementing} l 'auteur décrire un ficher
+    %   WS-CDL.
+    % }
 
     \subsection{WSMF}
     \label{sec:wsmf}    
@@ -466,15 +466,38 @@
     l'application de web sémantique aux services Web.
 
     Le standard \textsc{WSMF} est centré autour de deux principes
-    complémentaire:
+    complémentaire \cite{baryannis2010}:
     
-    % \begin{itemize}
-    % \item découplage fort de différents aspetcs des applications de
-    %   commerce électronique an e-Commerce application.
+    \begin{enumerate}
+    \item Découplage fort de différents aspetcs des applications de
+      commerce électronique.
 
-    % \item a strong mediation service enabling Web services to
-    %   communicate in a scalable manner.
-    % \end{itemize}
+    \item Des mécanismes de médiation permettant un dialogue
+      automatique entre les différents composants.
+    \end{enumerate}
+
+    WSFM comprend quatre éléments principaux \cite{baryannis2010}:
+    % \SpecialItemi
+    \begin{enumerate}
+      \item Des ontologies qui fournissent la terminologie utilisée par
+        les autres éléments.
+
+      \item Un répertoire d'objectifs qui définit les problèmes qui
+        doivent être résolus par les Web services.
+
+      \item Des descriptions des Web services qui définissent les
+        différents aspects liés aux Web services
+
+      \item Des médiateurs qui sont en charge des problèmes
+        d'interopérabilité.
+    \end{enumerate}
+
+    Il y a deux principaux projets en WSMF : \textsc{SWWS} et
+    \textsc{WSMO}, le standard \textsc{SWWS} fournit un cadre de
+    description, la découverte et la médiation pour les services Web,
+    tandis que l'ontologie de service \textsc{WSMO} inclut des
+    définitions pour les objectifs, les médiateurs et les services
+    Web.
 
     % WSMF. The Web Service Modeling Framework (WSMF) [23] is an
     % European initiative to provide a fully fledged modeling framework
@@ -496,7 +519,6 @@
     % service ontology includes definitions for goals, mediators, and
     % Web services.
 
-    \newpage
     \subsection{OWL-S}
     \label{sec:owl-s}
 
@@ -524,7 +546,7 @@
     partagés en utilisant une ontologie standard, constituée d'un
     ensembles de classes de base et des propriétés pour résoudre les
     ambiguïtés et de rendre la description d'un service compréhensible
-    par une machine.
+    par une machine.\newpage
 
     la figure \ref{fig:owl-s} décrit la structure tripartie d'une
     ontologie \textsc{OWL-S}. Elle est composé de trois
@@ -724,7 +746,7 @@
     approches traitent le problème de composition comme un problème de
     planification.
   \end{description}
-  \newpage
+
   \subsection{La composition  basée sur les workflows}
     \label{sec:les-approches-basees}
     Appuyant principalement du fait qu'un service composite est
@@ -901,7 +923,7 @@
     \label{sec:techn-de-plan}
     Selon \cite{baryannis2010}, \cite{bartalos2011effective},
     \cite{chan2007survey}, \cite{peer2005web}, \cite{rodriguez2011automatic}
-    \newpage
+    % \newpage
 
   \section{Conclusion}
   \label{sec:conclusion}
