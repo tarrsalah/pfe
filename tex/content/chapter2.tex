@@ -531,11 +531,11 @@
     organisations. Il a été intégré au consortium \textsc{W3C} en
     2004, au sein du groupe d'intérêt sur les services Web
     sémantiques, lors de la recommandation du langage \textsc{OWL}
-    \cite{horrocks2002daml+oil} \cite{mcguinness2004owl}.  Ankolekar
-    \emph{et al.}  \cite{ankolekar2002daml} présentent une ontologie
-    pour les services web dans le but d'automatiser la
-    \emph{découverte}, \emph{l'invocation}, la \emph{composition} et
-    la \emph{surveillance} de l'exécution des services
+    \cite{horrocks2002daml+oil, mcguinness2004owl}. Ankolekar \emph{et
+      al.}  \cite{ankolekar2002daml} présentent une ontologie pour les
+    services web dans le but d'automatiser la \emph{découverte},
+    \emph{l'invocation}, la \emph{composition} et la
+    \emph{surveillance} de l'exécution des services
     \cite{mcilraith2003bringing}, les auteurs reprennent la notion de
     classes d'\textsc{OWL} et proposent l'ontologie \textsc{OWL-S}.
     %% TODO redraw the picture
@@ -607,10 +607,11 @@
 
     \input{figs/owls-ProcessModel.tex} \newpage 
 
-    \textsc{OWL-S} définit une sous-classe de le \verb|ServiceModel|
-    appelé \verb|ProcessModel|. Il est utilisé pour décrire le service
-    comme un processus. Le modèle de processus identifie trois types
-    de processus illustrés dans la figure \ref{fig:owls-ProcessModel}:
+    \textsc{OWL-S} définit une sous-classe de \verb|ServiceModel|
+    appelée \verb|ProcessModel|. elle est utilisé pour décrire le
+    service comme un processus. Le modèle de processus identifie trois
+    types de processus illustrés dans la figure
+    \ref{fig:owls-ProcessModel}:
 
     \SpecialItem
     \begin{description}
@@ -627,45 +628,12 @@
       représentation simplifié d’un processus composé.
     \end{description}
 
-    %   Les composants principaux d’un modèle de processus sont
-    %   l’ontologie de processus (Process Ontology) et l’ontologie de
-    %   contrôle du processus (Process Control Ontology).  L’ontologie
-    %   de processus, décrit un service en termes d’IOPE. Cette
-    %   ontologie peut être utilisée afin de supporter l’invocation et
-    %   la composition automatique de services web.  L’ontologie de
-    %   contrôle de processus décrit chaque processus comme étant un
-    %   état en prenant en compte son activation, son exécution et sa
-    %   terminaison.
-
-    %   Nous pouvons constater que le langage OWL-S s'adapte bien au
-    %   besoin des méthodes de planification qui exigent une description
-    %   de l’état du monde avant et après l’exécution d’un service donné.
-
-    %   Any language is barely practical if its usage is not supported
-    %   by tools. Several tools are proposed to create, or manipulate
-    %   the OWL-S descriptions of services.  The most usable are OWL-S
-    %   API, WSRF2OWLS, JAX-SA (Bab  et al., 2006, ık 2007; Habala et
-    %   al., 2006). JAX-SA is an enhancement of WSRF2OWLS. The tool
-    %   provides an interface on the top of the OWL-S API to create
-    %   OWL-S service descriptions. The OWL-S generation process is
-    %   semi-automatic. It requires a man- ually created configuration
-    %   file depicting the mapping between the I/O parameters defined in
-    %   WSDL and the ontological classes defined in OWL. Based on this,
-    %   it automatically generates the semantic annotation. The
-    %   disadvantage of all the tools is a lack of support to describe
-    %   the pre-/post-conditions.\cite{bartalos2011effective}
-
-    %   nous montrons dans la section suivante qu’elle présente des
-    %   limitations pour en décrire les aspects non
-    %   fonctionnels.\cite{jean2012prise}
-
-    %   \begin{itemize}
-    %     \item les limitaion de OWLS \cite{jean2012prise}
-    %     \item d'augmentation de OWLS par QoS \cite{baryannis2010},
-    %       \cite{kritikos2009requirements}
-    %   \end{itemize}
-    % }
-    % \newpage
+    Dans \cite{martin2004owl}, les auteurs discute les avantages de la
+    description de service plus riche soutenue par \textsc{OWL-S}. il
+    décrit comment \textsc{OWL-S} est utilisé dans le contexte
+    d'autres standards, telles que \textsc{WSDL}, \textsc{UDDI} et
+    \textsc{BPEL}.
+    %% OWLS limitations and qOs
     \subsection{Comparaison}
     \label{sec:langs-comparaison}
 
@@ -704,18 +672,14 @@
         et le support industriel de la technologie.
     \end{itemize}
 
-    % TODO expand the table here for more details + conclude this
-    % subsection
-
-    % gives a detailed language capacity comparison of BPEL, WS-CDL,
-    % BPML, ebXML, OWL-S, and WSMF. From Table 1, we can see that all
-    % languages except WSMF support the modeling of message exchanging
-    % and complex structure. Only BPEL and WS-CDL have the comprehensive
-    % expressibility to define interacting roles, complex structures,
-    % exception handling and compensation management. BPML does not
-    % support role representation and ebXML does not provide a
-    % compensation mech- anism. We also can observe that only OWL-S and
-    % WSMF provide semantic support for services composition.
+    D'après le tableau
+    \ref{comparaison-des-standards-et-langages-d-composition} Nous
+    pouvons constater que tous les langages sauf \textsc{WSMF}
+    supportent la modélisation des structures complexes. seulement
+    \textsc{BPEL} et \textsc{WS-CDL} ont le support complet de la
+    définition des rôles et la compensation. On peut aussi remarquer
+    que seules le \textsc{OWL-S} et \textsc{WSMF} permettent de la
+    composition sémantique des services Web.
 
   \section{Les approches de composition dynamiques des services web}
   \label{sec:comp-dynam}
