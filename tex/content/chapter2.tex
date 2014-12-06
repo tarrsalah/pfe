@@ -427,60 +427,35 @@
     % qui sont échangés. A ceci s'ajoute le traitement des fautes
     % et des exceptions pour les cas d'erreurs.
     \subsection{WS-CDL}
-    \label{WS-CDL}
+    \label{sec:WS-CDL}
     % make a reference to [TODO: Kavantzas et al., 2005] selon
     % elie2010
-    \acrshort{ws-cdl} est un langage de composition de services de
-    type \textbf{chorégraphie} qui permet de décrire une vision
+    \acrshort{ws-cdl} \footnote{\url{http://www.w3.org/TR/ws-cdl-10/}}
+    \cite{kavantzas2005web} est un langage de composition de services
+    de type \textbf{chorégraphie} qui permet de décrire une vision
     \textbf{globale} des collaborations entre les services Web
     \cite{elie2010}, à l'instar des standards de services Web,
     \textsc{WS-CDL} est basé sur \textsc{XML}, il complète la
     description \acrshort{wsdl} des services Web afin de décrire les
-    interactions entre les participants (les services Web) de la
-    composition.
+    points d'interactions entre les services Web engagés dans une
+    composition. Contrairement à la spécification \textsc{BPEL}
+    \ref{sec:bpel}, Les interactions des services sont décrites d'une
+    manière \textit{peer-to-peer}, Il n'y a pas de notion de
+    coordination ou d'un service Web principal d'orchestration.
 
     \textsc{WS-CDL} reprend et développe la spécification
-    \acrshort{wsci} décrivant les séquences ordonnées de messages
+    \acrshort{wsci} \footnote{\url{http://www.w3.org/TR/wsci/}}
+    \cite{arkin2002web} décrivant les séquences ordonnées de messages
     impliquant plusieurs entités (services Web) engagés dans une
-    composition visant à accomplir un objectif commun.
+    composition visant à accomplir un objectif commun, il permet de
+    décrire les règles selon lesquelles une collaboration doit avoir
+    lieu par le biais d'un fichier \textsc{XML} décrivant une
+    chorégraphie.
 
-    \textsc{WS-CDL} consiste à définir un fichier XML décrivant une
-    chorégraphie, il permet de \cite{elie2010}:
-    \begin{itemize} % WSDL-S elements and attributs
-      \item désigner les variables et les types de données échangées.
-      \item décrire les  activités impliquées.
-      \item décrire les structures illustrant les interactions entre
-      les activités.
-    \end{itemize}
-
-    % En résumé WS-CDL permet de décrire les règles selon
-    % lesquelles une collaboration doit avoir lieu. Il fournit une
-    % structuration globale de l'interaction en fonction de
-    % laquelle chaque participant décrit son processus métier et
-    % par suite ses services. \cite{elie2010}
-
-    %  WS-CDL (Web Service Choreography Description Language) est un
-    %  langage issu des efforts de standardisation
-    %  du groupe de travail du W3C portant sur la chorégraphie de
-    %  services Web (Web Services Choreography Working
-    %  Group52). L'objectif de ce langage est de décrire les relations
-    %  entre les services Web lors d'une composition de type
-    %  chorégraphie.
-
-    %  WS-CDL est un langage de composition de services de type
-    %  chorégraphie définissant des contrats multi-parties. L’avantage
-    %  de ce langage est que la description des interactions (l’élément
-    %  Choreography du Package) est réutilisable. Ceci permet de
-    %  diminuer la charge de travail des concepteurs. L’inconvénient de
-    %  WS-CDL est que même si l’élément Choreography est réutilisable,
-    %  sa description reste lourde. Un service doit posséder autant de
-    %  Package que de participations à des compositions. De plus, WS-CDL
-    %  n’inclut pas pour le moment de sémantique. Des travaux, tels que
-    %  [Kang et al., 2007a] et [Kang et al., 2007b], proposent d’étendre
-    %  WS-CDL afin d’y intégrer de nouveaux concepts (tels que la
-    %  gestion des erreurs et des exceptions ou la mise en œuvre d’un
-    %  minuteur d’exécution de la composition).
-    %  \cite{lopez2008selection}
+    { \color{red}
+      Dans \cite{fredlund2006implementing} l 'auteur décrire un ficher
+      WS-CDL.
+    }
 
     \subsection{WSMF}
     \label{sec:wsmf}    
