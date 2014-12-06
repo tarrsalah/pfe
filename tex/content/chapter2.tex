@@ -141,7 +141,7 @@
       compris le suivi d'exécution, mesure de la performance et la
       gestion des exceptions, doivent être effectuées.
     \end{description}
-    \newpage
+    % \newpage
     \subsection{Procédés de coordination}
     \label{sec:proc-de-coord}
     % It should be noted that these models are not used exclusively:
@@ -546,7 +546,8 @@
     partagés en utilisant une ontologie standard, constituée d'un
     ensembles de classes de base et des propriétés pour résoudre les
     ambiguïtés et de rendre la description d'un service compréhensible
-    par une machine.\newpage
+    par une machine.
+    % \newpage
 
     la figure \ref{fig:owl-s} décrit la structure tripartie d'une
     ontologie \textsc{OWL-S}. Elle est composé de trois
@@ -605,8 +606,8 @@
     possible d'un service (\verb|serviceCategory|), et un paramètre
     générique \verb|serviceParameter|.
 
-    \input{figs/owls-ProcessModel.tex} \newpage 
-
+    \input{figs/owls-ProcessModel.tex}
+    % \newpage
     \textsc{OWL-S} définit une sous-classe de \verb|ServiceModel|
     appelée \verb|ProcessModel|. elle est utilisé pour décrire le
     service comme un processus. Le modèle de processus identifie trois
@@ -638,12 +639,14 @@
     \label{sec:langs-comparaison}
 
     Une composition des services Web nécessite la satisfaction de
-    plusieurs exigences techniques (\cite{sheng2014web}
-    \cite{bucchiarone2006survey}) , le tableau
+    plusieurs exigences techniques \cite{sheng2014web,
+      bucchiarone2006survey} , le tableau
     \ref{comparaison-des-standards-et-langages-d-composition} montre
     une comparaison entre les langages et standards étudiées dans
     cette section selon les critères suivants:
+
     \input{tables/comparison-des-langages-de-composition.tex}
+
     \SpecialItem
     \begin{itemize}
       \item [La composabilité] indique la capacité
@@ -849,8 +852,8 @@
     processus ont été décrites. Parmi les plus anciennes on peut citer
     \acrshort{csp} qui a été présenté par Hoare
     \cite{hoare1978communicating}, \acrshort{ccs} qui a été proposé
-    par Milner \cite{milner1982finite}, \cite{milner1989communication}
-    et le $\pi$-calcule \cite{milner1992calculus}.
+    par Milner \cite{milner1982finite, milner1989communication} et le
+    $\pi$-calcule \cite{milner1992calculus}.
 
     Milanovic \textit{et al.} \cite{milanovic2004current} montre que
     L'utilisation des langages algébriques de processus et langages
