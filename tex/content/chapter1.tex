@@ -176,7 +176,7 @@ web, ensuite nous introduisons l'architecture étendus.
       % development, and at runtime to retrieve the service’s binding
       % and location description for invocation.
 
-    \item[lier (bind)] Finalement, un service doit être invoqué. Dans
+    \item[Invoquer (bind)] Finalement, un service doit être invoqué. Dans
       l'opération de liaison, le client de service invoque ou initie
       une interaction avec le service à l'exécution en utilisant les
       détails de liaison dans la description du service pour
@@ -190,47 +190,48 @@ web, ensuite nous introduisons l'architecture étendus.
   Les services Web sont construits autour de standards qui sont
   \acrshort{soap}, \acrshort{wsdl} et \acrshort{uddi} assurant
   respectivement leur communication, leur description et leur découverte.
-  \newpage
+  % \newpage
 
     \subsubsection{Communication: SOAP}
     \label{sec:soap}
     Développé par IBM\footnote{\url{http://www.ibm.com}} et
     Microsoft\footnote{\url{http://www.microsoft.com}}
     \cite{box2000simple}, L'approche \textsc{SOAP} est une
-    recommandation \textsc{W3C} qui le définit comme étant un
-    protocole destiné à l'échange de messages structurés, permettant
-    d'invoquer des applications sur des réseaux
-    distribués \cite{mitra2003soap}.
+    recommandation \textsc{W3C} \cite{mitra2003soap} qui le définit
+    comme étant un protocole destiné à l'échange de messages
+    structurés, permettant d'invoquer des applications sur des réseaux
+    distribués.
+
+    \textsc{SOAP} est basé sur \textsc{XML} pour mettre en place un
+    mécanisme valable d'échange des données indépendant du modèle de
+    programmation de l'application et du système d'exploitation.
+
+    Un message \textsc{SOAP} est un document XML constitué d'une
+    enveloppe \textsc{SOAP} obligatoire, d'un en-tête \textsc{SOAP}
+    facultatif et d'un corps \textsc{SOAP} obligatoire (voir la figure
+    \ref{fig:soap-message-structure}):
 
     \input{figs/soap_all.tex}
 
-    Ce protocole \textsc{SOAP} est basé sur \textsc{XML} pour mettre
-    en place un mécanisme valable d'échange des données indépendant du
-    modèle de programmation de l'application et du système
-    d'exploitation.
-      
-    Un message \textsc{SOAP} est un document XML constitué d'une enveloppe
-    \textsc{SOAP} obligatoire, d'un en-tête \textsc{SOAP} facultatif et
-    d'un corps \textsc{SOAP} obligatoire:
-
     \SpecialItem
-    \begin{description} % SOAP components
-      \item[Enveloppe]: L'élément racine du message \textsc{SOAP} ,
-        définissant le contexte du message, son destinataire et son
-        contenu, il englobe l'en-tête et le corps.
+    \begin{description}
+      \item[Enveloppe \texttt{<Envelope>}]: L'élément racine du message
+        \textsc{SOAP}, définissant le contexte du message, son
+        destinataire et son contenu, il englobe l'en-tête et le corps.
         
-      \item[En-tête \texttt{<Header>}]: Un mécanisme générique permettant
-        d'ajouter des fonctions à un message \textsc{SOAP} d'une manière
-        modulaire sans accord préalable entre les parties en communication.
-        Des exemples d'extension qui peuvent être implémentées comme des
-        en-têtes sont des authentifications, des transactions, des paiements
+      \item[En-tête \texttt{<Header>}]: Un mécanisme générique
+        permettant d'ajouter des fonctions à un message \textsc{SOAP}
+        d'une manière modulaire sans accord préalable entre les
+        parties en communication.  Des exemples d'extension qui
+        peuvent être implémentées comme des en-têtes sont des
+        authentifications, des transactions, des paiements
         
-      \item[Corps \texttt{<Body>}]: Contient les informations obligatoires
-        destinées à l'ultime destinataire du message, il sert comme un
-        container pour les informations mandataires à l'intention du
-        récepteur du message.  \textsc{SOAP} définit un élément pour le
-        corps, qui est l'élément \texttt{<Fault>} (Erreur) utilisé pour
-        rapporter les erreurs.
+      \item[Corps \texttt{<Body>}]: Contient les informations
+        obligatoires destinées à l'ultime destinataire du message, il
+        sert comme un container pour les informations mandataires à
+        l'intention du récepteur du message.  \textsc{SOAP} définit un
+        élément pour le corps, qui est l'élément \texttt{<Fault>}
+        (Erreur) utilisé pour rapporter les erreurs.
     \end{description}
 
     \subsubsection{Description: WSDL} %TODO rewrite
@@ -542,7 +543,7 @@ web, ensuite nous introduisons l'architecture étendus.
     Web. \cite{fensel2000creating}
 
     \input{figs/3w_to_sws.tex}
-      % \cite{lopez2008selection}
+
     Cette description repose sur des ontologies. Selon Gruber
     \cite{gruber1993translation}, une ontologie est une spécification
     explicite d'une conceptualisation. Une conceptualisation est un
