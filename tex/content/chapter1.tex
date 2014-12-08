@@ -234,22 +234,22 @@ web, ensuite nous introduisons l'architecture étendus.
         (Erreur) utilisé pour rapporter les erreurs.
     \end{description}
 
-    \subsubsection{Description: WSDL} %TODO rewrite
+    \subsubsection{Description: WSDL}
     \label{sec:wsdl}
     Le langage de description des services Web \acrshort{wsdl}
-    \cite{chinnici2007web} est une recommandation du \acrshort{w3c},
-    maintenant dans sa deuxième version.  \textsc{WSDL} est basé sur
-    \textsc{XML} pour décrire les fonctions opérationnelles de
-    services Web. La description des\textsc{WSDL} sont composées d'un
-    interface et des implémentations. L'interface est une définition
-    abstraite et réutilisable service qui peut être référencée par
-    plusieurs implémentations.
-      % \input{figs/wsdl20_interfaces.tex} TODO WSDL 2.0
+    \cite{christensen2001web, chinnici2007web} est une recommandation
+    du \acrshort{w3c}, maintenant dans sa deuxième version.
+    \textsc{WSDL} est basé sur \textsc{XML} pour décrire les fonctions
+    opérationnelles de services Web. La description des\textsc{WSDL}
+    sont composées d'un interface et des implémentations. L'interface
+    est une définition abstraite et réutilisable service qui peut être
+    référencée par plusieurs implémentations.
+
+    \input{figs/wsdl-document-structure.tex}
 
     Le WSDL sert à décrire :
-    % \renewcommand{\labelitemi}{$\bullet$}
     \SpecialItem
-    \begin{itemize} % ce que WSDL offrire
+    \begin{itemize}
       \item le protocole de communication (SOAP RPC ou SOAP orienté
         message).
 
