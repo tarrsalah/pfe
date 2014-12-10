@@ -38,6 +38,10 @@
 
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixpagename}{Annexes}
+\renewcommand{\appendixtocname}{Annexes}
+
 
 \setcounter{secnumdepth}{5} 
 \linespread{1.5}
@@ -90,7 +94,11 @@
 \input{content/chapter5}
 \bibliographystyle{unsrt-fr}
 \bibliography{references}
-% TODO style glossaries
+\begin{appendices}
+\chapter{Le Web sémantiques}
+\input{content/semantic_web}
+\end{appendices}
+
 \end{document}
 
 %%% Local Variables: 
