@@ -1,6 +1,7 @@
 
 % !TEX root = ../main.tex < 20 pages
 \chapter{Les services web: Vue d'ensemble}
+\section{Introduction}
 Ce chapitre établit une étude du fondement théorique de notre travail
 à savoir les concepts de base du paradigme service Web.  Nous
 commençons d'abord par présenter un tour d'horizon définissant
@@ -9,7 +10,7 @@ définitions proposées dans la littérature. Ensuite nous nous
 intéressons à montrer les limitation de l'approche syntaxique de la
 description des services web et l'apport de l'enrichissement
 sémantique de cette dernière aux processus de la découverte et la
-composition des services Web.\\
+composition des services Web.
 
 \newpage
 \section{Définitions et caractéristiques}
@@ -88,9 +89,6 @@ particulier.
   % TODO: make a comment on this def and introduce the web services %
   % composition idea:
 
-  Brièvement, un service Web consiste à la définition d'une entité
-  logiciel modulaire, \textbf{auto-descriptive} et \textbf{autonome}
-  \textbf{accessible} via Internet.
 
   \subsection{L'évolution des styles des services web}
   \label{sec:levol-des-styl}
@@ -267,6 +265,7 @@ découverte.
   \end{description}
   % TODO: talk how WSDL description is limited, ref to the description
   % section
+  \newpage
   \subsection{Découverte: UDDI}
   \label{sec:uddi}
   \acrshort{uddi} \cite{clement2004uddi} est une standardisation pour
@@ -320,61 +319,75 @@ découverte.
   % TODO : Conclure cette subsection par la mention du problème de la
   % découverte automatique des services Web et l'insuffisance de la
   % description syntaxique.
-  \newpage
+  % \newpage
 
 \section{Description des services web}
 \label{sec:ws-description}
 
-% { \color{red}
-%   References
-%   \cite{sivashanmugam2003adding} \cite{mcilraith2003bringing}
-%   \cite{vargas2009challenges} \cite{mcilraith2001semantic}
-%   \cite{medjahed2004thesis}
-% }
+Un service Web consiste à la définition d'une entité logiciel
+modulaire, \textit{auto-descriptive} et \textit{autonome}
+\textit{accessible} via Internet \cite{curbera2001web}. Dans la
+section précédente, nous avons vu l'architecture de base des services
+Web et la pile protocolaire pour la mise en place d'une telle
+architecture.
+
+\input{figs/3w_to_sws.tex}
 
 Une description du service Web est un document par lequel le
 fournisseur de services communique au client les spécifications pour
-invoquer le service Web \cite{lopez2008selection}.
-
-Dans la section précédente, nous avons présenté l'architecture de base
-des services Web et la pile protocolaire et technlogies associées pour
-la mise en place d'une telle architecture.
-
-Dans cette section nous présentons les modèles de description des
-services web. Nous détaillons dans la première sous-section le modèle
-de description syntaxique \acrshort{wsdl} \cite{chinnici2007web}
-développé et standardisé par le \acrshort{w3c} qui est devenu un
-élément essentiel dans des technologies services web. Ensuite en
-mettant l'accent sur les limitations majeurs de cette approche dans un
-environnement hétérogène qui nécessite un certain degré de dynamisité
-et d'automatisation.  Finalement, Nous présentons les divers approches
-sémantiques visant à préciser la description d'un service en insistant
-sur les approches d'annotation sémantique et sur les ontologies de
-services.
-% \newpage
-% \subsection{Web sémantique}
-% \label{sec:sws}
-% Pour pallier le manque de sémantique de WSDL, plusieurs approches
-% proposent de rajouter une couche au dessus de WSDL complétant la
-% description syntaxique par des précisions sémantiques.
-% \cite{lopez2008selection}
-
-Malgré les améliorations apportées au standard \textsc{WSDL} dans son
-deuxième version \cite{chinnici2007web}, la description du service
-reste uniquement au niveau fonctionnel, c'est-à-dire qu'elle contient
-la manière dont on peut utiliser le service et non ce que fait le
+invoquer le service Web \cite{lopez2008selection}. Malgré les
+améliorations apportées au standard \textsc{WSDL} dans son deuxième
+version \cite{chinnici2007web}, la description du service reste
+uniquement au niveau fonctionnel, c'est-à-dire qu'elle contient la
+manière dont on peut utiliser le service et non ce que fait le
 service, le standard \textsc{WSDL} est limité à l'énumération des
 opérations et à la description des types des paramètres d'entrée et de
 sortie associés, elle ne caractérise pas la sémantique de la
 fonctionnalité accomplie par le service. Par conséquent, la
 description \textsc{WSDL} reste insuffisante lors du processus de
 sélection.  Pour pallier cette Difficulté, plusieurs approches
-proposent de rajouter une couche au dessus sémantique de \textsc{WSDL}
-complétant la description syntaxique par
-des précisions sémantiques.\\
+\cite{sivashanmugam2003adding,mcilraith2001semantic,
+  mcilraith2003bringing, fensel2002web} proposent de rajouter une
+couche au dessus sémantique de \textsc{WSDL} complétant la description
+syntaxique par des précisions sémantiques.
+
+Dans cette section nous allons présenter les divers approches
+sémantiques visant à préciser la description d'un service en insistant
+sur les approches d'annotation sémantique et sur les ontologies de
+services.
+
+Les services Web enrichis par des métadonnées supplémentaires
+exprimant leur la sémantique sont appelés \textit{les services Web
+  sémantiques}. Les services de Web sémantique sont le résultat de
+l'évolution Web dans deux directions: l'ajout des dynamique éléments
+sur le Web et l'amélioration de la description syntaxique services Web (voir la figure \ref{fig:3w_to_sws})
+
+% (Bussler et al., 2002; Cardoso et Sheth, 2006; Curbera
+% et al., 2003; McIlraith et al., 2001; Payne et Lassila, 2004; Studer
+% et al., 2007)
+
+% Dans cette section nous présentons les modèles de description des
+% services web. Nous détaillons dans la première sous-section le modèle
+% de description syntaxique \acrshort{wsdl} \cite{chinnici2007web}
+% développé et standardisé par le \acrshort{w3c} qui est devenu un
+% élément essentiel dans des technologies services web. Ensuite en
+% mettant l'accent sur les limitations majeurs de cette approche dans un
+% environnement hétérogène qui nécessite un certain degré de dynamisité
+% et d'automatisation.  Finalement, Nous présentons les divers approches
+% sémantiques visant à préciser la description d'un service en insistant
+% sur les approches d'annotation sémantique et sur les ontologies de
+% services.
+% \newpage
 
 
-\newpage
+% Web services enhanced by additional metadata expressing their
+% semantics are called Semantic Web services (Bussler et al., 2002;
+% Cardoso and Sheth, 2006; Curbera et al., 2003; McIlraith et al., 2001;
+% Payne and Lassila, 2004; Studer et al., 2007). Semantic Web services
+% are the result of the Web evolution in two directions: adding dynamic
+% elements to the Web and enhancement of the syntactic description of
+% Web services \cite{bartalos2011effective}.
+
   \subsection{Annotations sémantiques}
   \label{sec:semantic-annot}
 
