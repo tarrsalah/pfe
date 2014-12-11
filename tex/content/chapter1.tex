@@ -23,77 +23,66 @@ disponible par Internet, qui utilise un format standard (généralement
 pas lié à un système d'exploitation ou un langage de programmation
 particulier.
 
-% Les services Web constituent une approche pour mettre en œuvre le
-% paradigme de service, et peut être vue comme une instance de
-% l'architecture orienté service.
+\label{sec:ws-definition}
+Curbera et al. \cite{curbera2001web} a définissent un service web
+comme \emph{``une application réseau capable d'interagir par le moyen
+  des standards et des protocoles via des interfaces bien spécifiés,
+  dans lequel est décris utilisant un langage de description
+  fonctionnel standardisé''}.
 
-% Dans cette section va parler aussi d'un socle technologique très
-% sollicité, On va aussi Détailler l'architecture de base d'un service
-% web, ensuite nous introduisons l'architecture étendus.
+Les services Web ont été proposés initialement par IBM
+\cite{kreger2001web} et Microsoft, puis en standardisés par le
+\acrshort{w3c} \footnote{\url{http://www.w3.org/}} et définis
+\cite{WSA} par :
 
-  \subsection{Définition}
-  \label{sec:ws-definition}
-  Curbera et al. \cite{curbera2001web} a définissent un service web
-  comme \emph{``une application réseau capable d'interagir par le
-    moyen des standards et des protocoles via des interfaces bien
-    spécifiés, dans lequel est décris utilisant un langage de
-    description fonctionnel standardisé''}.
+\emph{``Un service web est un système conçu pour permettre
+  d'interopérabilité des applications à travers un réseau.  Il est
+  caractérisé par un format de description
+  interprétable/compréhensible automatiquement par la machine,
+  D'autres systèmes peuvent interagir avec le Service Web selon la
+  manière prescrite dans sa description et en utilisant des messages
+  SOAP, généralement transmis via le protocole HTTP et sérialisés en
+  XML et en d'autres standards du Web ''}.
 
-  Les services Web ont été proposés initialement par IBM
-  \cite{kreger2001web} et Microsoft, puis en standardisés par le
-  \acrshort{w3c} \footnote{\url{http://www.w3.org/}} et définis
-  \cite{WSA} par :
+Cette définition surligne les caractéristiques clés de services Web
+\cite{fremantle2002enterprise}:
 
-  \emph{``Un service web est un système conçu pour permettre
-    d'interopérabilité des applications à travers un réseau.  Il est
-    caractérisé par un format de description
-    interprétable/compréhensible automatiquement par la machine,
-    D'autres systèmes peuvent interagir avec le Service Web selon la
-    manière prescrite dans sa description et en utilisant des messages
-    SOAP, généralement transmis via le protocole
-    HTTP et sérialisés en XML et en d'autres standards du Web ''}.
-
-  Cette définition surligne les caractéristiques clés de services Web
-  \cite{fremantle2002enterprise}:
-
-  \SpecialItem
-  \begin{description}
-  \item[Basés sur des protocoles Internet] : L'utilisation de
-    \acrshort{http} pour le transport des informations permet de
-    traverser les contrôles d'accès dans un environnement hétérogène.
+\SpecialItem
+\begin{description}
+\item[Basés sur des protocoles Internet] : L'utilisation de
+  \acrshort{http} pour le transport des informations permet de
+  traverser les contrôles d'accès dans un environnement hétérogène.
   
-  \item[Interopérables] : Le standard \textsc{SOAP}
-    \cite{box2000simple} définit comme étant un protocole destiné à
-    l'échange de messages structurés véhiculé généralement sur
-    \textsc{HTTP} et sérialisé en \textsc{XML}, permettant le support
-    pour l'interopérabilité.
+\item[Interopérables] : Le standard \textsc{SOAP} \cite{box2000simple}
+  définit comme étant un protocole destiné à l'échange de messages
+  structurés véhiculé généralement sur \textsc{HTTP} et sérialisé en
+  \textsc{XML}, permettant le support pour l'interopérabilité.
       
-  \item[Basés sur XML] : Le méta-langage de balisage \textsc{XML}
-    \textit{eXtensible Markup Language} est un standard Web ouvert par
-    \textsc{W3C} \cite{bray1998extensible} offre un cadre standard
-    pour la définition de documents Interprétable par des machines.
-  \end{description}
+\item[Basés sur XML] : Le méta-langage de balisage \textsc{XML}
+  \textit{eXtensible Markup Language} est un standard Web ouvert par
+  \textsc{W3C} \cite{bray1998extensible} offre un cadre standard pour
+  la définition de documents Interprétable par des machines.
+\end{description}
     
-  % M. P. Papazoglou \cite{papazoglou2003service} de apporte une
-  % autre définition des services web:\\ \emph{``Les services Web sont
-  %   des éléments auto-descriptifs et indépendants des plateformes
-  %   permettent la composition faible coût d’applications
-  %   distribuées. Les services Web effectuent des fonctions allant de
-  %   simples requêtes des processus métiers complexes. Les services Web
-  %   permettent aux organisations d’exposer leurs programmes résultats
-  %   sur Internet (ou sur un intranet) en utilisant des langages (basés
-  %   sur XML) et des protocoles standardisés et de les mettre en œuvre
-  %   via une interface auto-descriptive basée sur des formats
-  %   standardisés et ouverts''} %
+% M. P. Papazoglou \cite{papazoglou2003service} de apporte une
+% autre définition des services web:\\ \emph{``Les services Web sont
+% des éléments auto-descriptifs et indépendants des plateformes
+% permettent la composition faible coût d’applications
+% distribuées. Les services Web effectuent des fonctions allant de
+% simples requêtes des processus métiers complexes. Les services Web
+% permettent aux organisations d’exposer leurs programmes résultats
+% sur Internet (ou sur un intranet) en utilisant des langages (basés
+% sur XML) et des protocoles standardisés et de les mettre en œuvre
+% via une interface auto-descriptive basée sur des formats
+% standardisés et ouverts''} %
 
-  % TODO: make a comment on this def and introduce the web services %
-  % composition idea:
+% TODO: make a comment on this def and introduce the web services %
+% composition idea:
 
-
-  \subsection{L'évolution des styles des services web}
-  \label{sec:levol-des-styl}
-  \input{content/evolution.tex}
-  \newpage
+% \subsection{L'évolution des styles des services web}
+% \label{sec:levol-des-styl}
+% \input{content/evolution.tex} 
+\newpage
 
 \section{L'architecture de référence et technlogies associées}
 \label{sec:reference-arch}
@@ -467,13 +456,145 @@ deux directions \cite{bartalos2011effective} (illustré dans La figure
   \newpage
 
 \section{Découverte des services web}
+% introduire a découverte des services Web dans le cadre d'un
+% composition
+La découverte de services est abordée dans un grand nombre de projets
+et travaux de recherche \cite{elie2010}, plusieurs définitions sont
+attribuées à ce concept, Elle est définie par Keller \textit{et al.}
+comme \textit{``la localisation automatique des services répondant à
+  une requête utilisateur''} \cite{keller2004wsmo}. Booth \textit{el
+  al.} décrivent le processus de découverte comme étant \textit{``la
+  localisation d'une description compréhensible par la machine d'un
+  service éventuellement inconnu au préalable et correspondant à
+  certains critères fonctionnels''} \cite{booth2004web}.
 
-WS discovery is related to getting appropriate service for a
-request. It is one of the critical steps in the process of developing
-applications based on SOA. It can be done using syntactic matching or
-semantic matching\cite{Omer2011}.\\
+D'une façon équivalente, Ankolekar \textit{el el.} ont défini la
+découverte comme étant l'acte de \textit{``localiser les services Web
+  (généralement par le biais d'un annuaire des services) fournissant
+  un service particulier et qui adhèrent aux contraintes spécifiées''}
+\cite{ankolekar2002daml}.
+
+Ces définitions mettent l'accent sur le mécanisme de comparaison de la
+requête avec les services, ainsi que son degré d'automatisation. Selon
+notre point de vue la découverte de services vise à comparer une
+requête d'un utilisateur avec les capacités d'un service web, et trie
+les résultats selon un certain mécanisme.
+
+Les capacités peuvent être fonctionnelles (les descriptions
+d'interfaces : syntaxiques ou sémantiques, les descriptions
+comportementales) ou non fonctionnelles (la qualité de service).
+
+Plusieurs critères peuvent être utilisés pour catégoriser les
+approches de découverte \cite{elie2010}, nous avons :
+
+\begin{itemize}
+\item le critère de centralisation/distribution des annuaires.
+\item le principe de l'algorithme de matching (syntaxique, sémantique
+  (logique, non logique), hybride, comportemental, non fonctionnel...).
+\item Le critère d'automatisation.
+\end{itemize}
+
+  \subsection{Localisation de services}
+  \label{sec:ws-localisation}
+
+  \subsection{Découverte manuel/automatique}
+  \label{sec:ws-desc:manual-vs-auto}
+  
+  \subsection{Matching des services Web}
+  \label{sec:ws-matching} 
+  Le processus de matchmaking repose sur la recherche de similarités
+  entre les paramètres descriptives de ces derniers. Il existe deux
+  catégories de paramètres de description des services web: les
+  paramètres fonctionnels et les paramètres non-fonctionnels que nous
+  décrivons tout de suite.
+
+    \subsubsection{Les paramètres fonctionnels}
+    \label{sec:params-fonc}
+
+    % La sémantique fonctionnelle décrit les fonctionnalités qu’offre le
+    % service en terme de transformation d’information dénotée par les
+    % Entrés/Sorties (I/O) et de changement d’état après l’exécution du
+    % service dénoté par les pré-conditions/effets (ou post-conditions)
+    % (P/E).  Ils sont appelés ainsi parce qu’ils sont nécessaires pour
+    % le fonctionnement du service web. Ces paramètres sont utiles dans
+    % la recherche des similarités. En effet, grâce au formalisme de
+    % description des services web (OWL-S), on trouve une description
+    % des données requises pour l’exécution du service (Inputs) et une
+    % description des résultats obtenus après exécution (Outputs). D’un
+    % autre coté, un service web peut altérer l’état du monde après son
+    % exécution.  L’état du monde requis pour que le service s’exécute
+    % est la pré-condition et le nouvel état généré après son exécution
+    % est l’effet du service sur le monde. Par exemple le service de
+    % logging à un site web possède comme information d’entrées le
+    % username et le password et l’information de sortie est un message
+    % de confirmation. Après l’exécution, l’état du monde change de
+    % not\_logged\_in à logged\_in. Prenons un autre exemple, un
+    % transfert d’argent du compte A vers le compte B ne peut se faire
+    % que si le compte A est solvable (les pré-conditions).  Les effets
+    % décrivent les sorties (Output) et l’impact d’une exécution d’un
+    % service web. Tant dis que le terme post-condition focalise souvent
+    % sur la description des conditions concernant les valeurs
+    % retournées des opérations du service web. Dans notre exemple
+    % ci-dessus, un impact de l'exécution serait le transfert réel de
+    % l'argent du compte de carte de crédit pour le compte de
+    % destination alors que la post-condition décrit qu'aucun argent ne
+    % s’est perdu lors du transfert [Car, 2007].  L’opération de
+    % matching consiste alors à relier les paramètres des différents
+    % services (faire correspondre) entre eux et cela suivant des règles
+    % de correspondance.
+
+    \subsubsection{Les paramètres non-fonctionnels}
+    \label{sec:params-non-fonc}
+
+    Les paramètres non fonctionnels sont des paramètres qui ne sont
+    pas reliés directement aux fonctionnalités d’un service web, mais
+    mesure la qualité avec laquelle le service délivre ses
+    fonctionnalités. Parmi ces paramètres on trouve:
+
+    \SpecialItem
+    \begin{description}
+    \item [Le coût]: C’est une propriété non-fonctionnelle qui est
+      pertinente pour le client qui veut utiliser le service.
+
+    \item [La sécurité]: La sécurité est une propriété
+      non-fonctionnelle qui est pertinente à la plupart des services
+      web. Elle applique des aspects tels que la communication et le
+      cryptage des données.
+
+    \item [La qualité]: La propriété qualité des services est un
+      ensemble de propriétés différentes qui affecte tous les aspects
+      spécifiques du service, son utilisation et sa production tel que
+      le temps de réponse d'un appel à une opération, la capacité du
+      service...etc
+    \end{description}
+
+    % Le matching des paramètres non-fonctionnels des services web est
+    % tout aussi important dans la phase de sélections des services
+    % candidats. Les propriétés non-fonctionnelles sont typiquement
+    % représentés comme des politiques de services web exprimées par le
+    % langage WS- Policy [Car, 2007].
+
+    % Généralement ces approches de matching des politiques peuvent être
+    % utilisées pour l'optimisation et l’évaluation des plans de
+    % composition.  Les services web correspondent à des entités
+    % dynamiques. Ils peuvent devenir disponibles à tout moment de
+    % l’exécution du système et découverts dynamiquement par leurs
+    % clients. Les fournisseurs et les consommateurs de services doivent
+    % donc disposer d’un moyen commun et fiable pour effectuer la
+    % publication et la recherche de services. On entend par découverte
+    % dynamique la possibilité de localiser automatiquement un ensemble
+    % de services web, sélectionner un service spécifique qui répond à
+    % des besoins particuliers de l’utilisateur.  Plusieurs initiatives
+    % ont traité la problématique de la découverte des services web dont
+    % les deux principales modèles suivants:
+
+    \subsubsection{Le modèle syntaxique de matching des services Web}
+    \label{sec:syntactic-matching}
+
+    \subsubsection{Le modèle sémantique de matching des services Web}
+    \label{sec:semantic-matching}
+
 \newpage
-
 \section{Conclusion}
   % faire un petit récapitulatif sur les technologies des services web
   % rappeler de notre problème principale : composition des services web

@@ -280,7 +280,7 @@
       des services Web peut être soit une composition statique soit
       une composition dynamique \cite{driss2011approche}:
 
-      \SpecialItem
+      \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
       \begin{description}
       \item[Composition statique] :est appelé aussi composition
         \textit{off-line}, précompil ou encore proactive. c'est une
@@ -337,7 +337,7 @@
       \label{sec:comp-manu}
       Classification basée sur le degré d'automatisation.
 
-      \SpecialItem
+      \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
       \begin{description}
       \item[Composition manuel]: Suppose que l'utilisateur gère la
         composition avec sa main, via un éditeur de texte et sans
@@ -554,7 +554,7 @@
     sous-ontologie: un \emph{service profile}, d'un \emph{service
       model} et d'un \emph{service grounding}.
 
-    \SpecialItem
+    \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
     \begin{description}
       \item[ServiceProfile.] il offre une
         description informelle des fonctionnalités rendues par le
@@ -615,7 +615,7 @@
     types de processus illustrés dans la figure
     \ref{fig:owls-ProcessModel}:
 
-    \SpecialItem
+    \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
     \begin{description}
     \item[Le processus atomique]: (\verb|AtomicProcess|) directement
       invoqué par l'intermédiaire d'un \verb|ServiceGrounding|
@@ -703,8 +703,9 @@
   par la suite est basée essentiellement sur l'état de l'art fait par
   Baryannis \emph{et al.}\cite{baryannis2010}.Nous distinguons quatres
   catégories de composition dynamique des services Web:
-  \SpecialItem
-  \begin{description}
+
+
+  \begin{itemize}
   \item[La composition  basée sur les workflows]: Ces approches
     éxploitent les résultats des recherches dans le domaine des
     \textit{workflows}.
@@ -720,7 +721,7 @@
   \item[La composition basée sur les techniques de planification]: Ces
     approches traitent le problème de composition comme un problème de
     planification.
-  \end{description}
+  \end{itemize}
 
   \subsection{La composition  basée sur les workflows}
     \label{sec:les-approches-basees}

@@ -5,263 +5,263 @@
 % \section{Le processus de matching et la découverte des services Web sémantiques}
 %% positionner l'approche par graphe dans les classification déjà
 %% abordées
-  \subsection{Définitions et terminologies de base}
-  \label{sec:match-des-serv}
-  % (\cite{lecue2006formal}, \cite{paolucci2002semantic},
-  % \cite{li2004software})\\
-  Le matching, l'alignement, le mapping...ect. Sont tous des termes
-  utilisées pour référencer le concept de recherche de
-  similarité. Voici quelques définitions de ces termes utilisés.
+%   \subsection{Définitions et terminologies de base}
+%   \label{sec:match-des-serv}
+%   % (\cite{lecue2006formal}, \cite{paolucci2002semantic},
+%   % \cite{li2004software})\\
+%   Le matching, l'alignement, le mapping...ect. Sont tous des termes
+%   utilisées pour référencer le concept de recherche de
+%   similarité. Voici quelques définitions de ces termes utilisés.
 
-  \begin{mydef}[Matching]
-    c'est le processus de découverte des liaisons et des
-    correspondances entre les entités de différentes représentations à
-    travers un algorithme de matching.
-  \end{mydef}
+%   \begin{mydef}[Matching]
+%     c'est le processus de découverte des liaisons et des
+%     correspondances entre les entités de différentes représentations à
+%     travers un algorithme de matching.
+%   \end{mydef}
 
-  % Matchmaking is defined as a process that requires a repository host
-  % to take a query or an advertisement as input, and to return all the
-  % advertisements that may satisfy the requirements specified in the
-  % input query or advertisement.
+%   % Matchmaking is defined as a process that requires a repository host
+%   % to take a query or an advertisement as input, and to return all the
+%   % advertisements that may satisfy the requirements specified in the
+%   % input query or advertisement.
 
-  Dans le contexte d'une architecture à services, le
-  \textit{Matchmaking} (ou le \textit{Matching}) est définie comme un
-  processus qui nécessite un annuaire des services de prendre une
-  requête en entrée, et de revenir tous les services qui peuvent
-  satisfaire les exigences spécifiées dans la requête d'entrée
-  \cite{li2004software}. Formellement, Le processus de
-  \textit{Matchmacking} peut se spécifié comme de suit:
+%   Dans le contexte d'une architecture à services, le
+%   \textit{Matchmaking} (ou le \textit{Matching}) est définie comme un
+%   processus qui nécessite un annuaire des services de prendre une
+%   requête en entrée, et de revenir tous les services qui peuvent
+%   satisfaire les exigences spécifiées dans la requête d'entrée
+%   \cite{li2004software}. Formellement, Le processus de
+%   \textit{Matchmacking} peut se spécifié comme de suit:
 
-  Soit $\Phi$ est l'ensemble de toutes les services référencés dans un
-  annuaire des services donné. Pour une requête \verb|R|.
+%   Soit $\Phi$ est l'ensemble de toutes les services référencés dans un
+%   annuaire des services donné. Pour une requête \verb|R|.
 
-  \begin{mydef}[Alignement]
-    on parle souvent de l'alignement des ontologies. C'est un ensemble
-    de correspondances entre deux ou plusieurs
-    ontologies. L'alignement est la sortie d’un processus de matching
-  \end{mydef}
+%   \begin{mydef}[Alignement]
+%     on parle souvent de l'alignement des ontologies. C'est un ensemble
+%     de correspondances entre deux ou plusieurs
+%     ontologies. L'alignement est la sortie d’un processus de matching
+%   \end{mydef}
 
-  \begin{mydef}[Mapping]
-    chercher des correspondances pour établir des transformations
-    entre deux objets de même nature mais pas de même forme. Par
-    conséquent, le mapping utilise les résultats du matching pour
-    effectuer les transformations des objets.
-  \end{mydef}
+%   \begin{mydef}[Mapping]
+%     chercher des correspondances pour établir des transformations
+%     entre deux objets de même nature mais pas de même forme. Par
+%     conséquent, le mapping utilise les résultats du matching pour
+%     effectuer les transformations des objets.
+%   \end{mydef}
 
-  Comme on le voit, tous ces termes prennent bien en compte la notion
-  de recherche de correspondance entre des concepts, dans certains
-  contextes ils sont utilisés indifféremment.  Pour les services web,
-  on parlera du matchnig ou matchmaking pour exprimer la mise en
-  correspondance entre deux entités, et du mapping pour exprimer la
-  transformation ou conversion des types de données.
+%   Comme on le voit, tous ces termes prennent bien en compte la notion
+%   de recherche de correspondance entre des concepts, dans certains
+%   contextes ils sont utilisés indifféremment.  Pour les services web,
+%   on parlera du matchnig ou matchmaking pour exprimer la mise en
+%   correspondance entre deux entités, et du mapping pour exprimer la
+%   transformation ou conversion des types de données.
 
-  Nous distinguons deux techniques de matching : matching syntaxique
-  et matching sémantique . Ils diffèrent dans la façon dont sont
-  calculés les éléments correspondants et sur le type de relation de
-  similitude \verb|M| utilisée:
+%   Nous distinguons deux techniques de matching : matching syntaxique
+%   et matching sémantique . Ils diffèrent dans la façon dont sont
+%   calculés les éléments correspondants et sur le type de relation de
+%   similitude \verb|M| utilisée:
 
-    \subsubsection{Matching syntactique}
-    \label{sec:matching-syntactique}
-    Utilisé pour l’extraction automatique de motifs textuels écrits en
-    langage naturel en utilisant la méthode d’étiquetage, différentes
-    techniques sont utilisées :
+%     \subsubsection{Matching syntactique}
+%     \label{sec:matching-syntactique}
+%     Utilisé pour l’extraction automatique de motifs textuels écrits en
+%     langage naturel en utilisant la méthode d’étiquetage, différentes
+%     techniques sont utilisées :
 
-    \SpecialItem
-    \begin{description}
-    \item [Techniques basées string (à mots)]: s méthodes prennent
-      l’avantage de la structure des mots qui est considérée comme
-      étant une séquence de lettres. Elles devraient, par exemple,
-      reconnaitre une similarité entre Book et textBook. Certaines
-      fonctions de calcul de distance convertissent une paire de
-      chaine de caractères en un nombre réel. Si le nombre est petit
-      (par rapport à un seuil) cela indique une grande similarité
-      entre ces deux chaines de caractères (ex : distance de Hamming).
+%     \SpecialItem
+%     \begin{description}
+%     \item [Techniques basées string (à mots)]: s méthodes prennent
+%       l’avantage de la structure des mots qui est considérée comme
+%       étant une séquence de lettres. Elles devraient, par exemple,
+%       reconnaitre une similarité entre Book et textBook. Certaines
+%       fonctions de calcul de distance convertissent une paire de
+%       chaine de caractères en un nombre réel. Si le nombre est petit
+%       (par rapport à un seuil) cela indique une grande similarité
+%       entre ces deux chaines de caractères (ex : distance de Hamming).
 
-    \item [Techniques basées langage]: Ces méthodes considère les noms
-      ou bien un terme comme une séquence de mots dans un langage
-      naturel (peer-review, reviewed-paper).  Ces méthodes utilisent
-      les techniques de traitement du langage naturel pour reconnaitre
-      les similarités entre les mots d’un terme par exemple : les
-      techniques de tokenization (segmentation), lemmatisation...etc.
-      Techniques utilisant des ressources linguistiques: comme les
-      thesaurus sont utilisées pour faire correspondre des mots en se
-      basant sur les relations linguistiques entre eux (synonymes,
-      hyponyme). Par exemple dans le cas du matching entre les
-      services web on fait correspondre les noms d’opérations et les
-      noms des paramètres qui sont considérés comme des mots de
-      langage naturel.
-    \end{description}
+%     \item [Techniques basées langage]: Ces méthodes considère les noms
+%       ou bien un terme comme une séquence de mots dans un langage
+%       naturel (peer-review, reviewed-paper).  Ces méthodes utilisent
+%       les techniques de traitement du langage naturel pour reconnaitre
+%       les similarités entre les mots d’un terme par exemple : les
+%       techniques de tokenization (segmentation), lemmatisation...etc.
+%       Techniques utilisant des ressources linguistiques: comme les
+%       thesaurus sont utilisées pour faire correspondre des mots en se
+%       basant sur les relations linguistiques entre eux (synonymes,
+%       hyponyme). Par exemple dans le cas du matching entre les
+%       services web on fait correspondre les noms d’opérations et les
+%       noms des paramètres qui sont considérés comme des mots de
+%       langage naturel.
+%     \end{description}
 
-    \subsubsection{Matching sémanique}
-    \label{sec:matching-semanique}
-    Consiste à chercher des correspondances sémantiques à partir des
-    concepts, et non pas des étiquettes. Il ne suffit pas d'examiner
-    la syntaxe des mots, mais leurs significations ou leurs
-    interprétations dans le domaine d’application. Les ontologies de
-    domaine et les techniques basées modèle sont utilisées dans ce
-    type de matching.
+%     \subsubsection{Matching sémanique}
+%     \label{sec:matching-semanique}
+%     Consiste à chercher des correspondances sémantiques à partir des
+%     concepts, et non pas des étiquettes. Il ne suffit pas d'examiner
+%     la syntaxe des mots, mais leurs significations ou leurs
+%     interprétations dans le domaine d’application. Les ontologies de
+%     domaine et les techniques basées modèle sont utilisées dans ce
+%     type de matching.
 
-    \SpecialItem
-    \begin{description}
-    \item [Ontologie de domaine spécifique]: spécifique peut être
-      utilisée comme source externe. Elles se focalisent sur un
-      domaine particulier et utilisent des termes qui sont propres à
-      ce domaine et qui ne sont pas liés aux concepts similaires dans
-      d’autres domaines. Par exemple dans le domaine de transport, on
-      trouve : bus, avion, taxi...etc. On peut trouver des termes qui
-      sont syntaxiquement identiques mais possédant des
-      interprétations différentes dans des domaines différents.
+%     \SpecialItem
+%     \begin{description}
+%     \item [Ontologie de domaine spécifique]: spécifique peut être
+%       utilisée comme source externe. Elles se focalisent sur un
+%       domaine particulier et utilisent des termes qui sont propres à
+%       ce domaine et qui ne sont pas liés aux concepts similaires dans
+%       d’autres domaines. Par exemple dans le domaine de transport, on
+%       trouve : bus, avion, taxi...etc. On peut trouver des termes qui
+%       sont syntaxiquement identiques mais possédant des
+%       interprétations différentes dans des domaines différents.
 
-    \item [Techniques basées modèle]: Appelées aussi les méthodes de
-      déduction, les algorithmes manipulent les entrées basées sur
-      leurs interprétations sémantiques. Si deux entités sont
-      similaires alors ils partagent les mêmes interprétations. Parmi
-      ces méthodes on trouve les techniques de satisfiabilité
-      propositionnelle [Giu, 2003A] Dans le cas du matching des
-      services web, ces derniers sont décrits à l’aide de supports
-    \end{description}
+%     \item [Techniques basées modèle]: Appelées aussi les méthodes de
+%       déduction, les algorithmes manipulent les entrées basées sur
+%       leurs interprétations sémantiques. Si deux entités sont
+%       similaires alors ils partagent les mêmes interprétations. Parmi
+%       ces méthodes on trouve les techniques de satisfiabilité
+%       propositionnelle [Giu, 2003A] Dans le cas du matching des
+%       services web, ces derniers sont décrits à l’aide de supports
+%     \end{description}
 
-    Dans le cas du matching des services web, ces derniers sont décrits
-    à l'aide de supports de description sémantique (OWL-S par
-    exemple). Ces descriptions contiennent des informations clés pour
-    leur mise en correspondance (les paramètres fonctionnels et non
-    fonctionnels).
+%     Dans le cas du matching des services web, ces derniers sont décrits
+%     à l'aide de supports de description sémantique (OWL-S par
+%     exemple). Ces descriptions contiennent des informations clés pour
+%     leur mise en correspondance (les paramètres fonctionnels et non
+%     fonctionnels).
 
-  \subsection{Mésures de similarité}
-  \label{sec:mesure-de-similarire}
-  objectif des mesures de similarité sémantique est d'évaluer la
-  proximité sémantique entre les concepts (auxquels les termes des
-  requêtes et documents sont rattachés). Et comme le matching des
-  services web revient à trouver les similarités entre les concepts
-  décrivant les propriétés des services web, nous avons jugé utile
-  d’explorer les différentes méthodes de recherche de similarité
-  utilisées dans le domaine de la recherche d’information, en
-  particulier.
+%   \subsection{Mésures de similarité}
+%   \label{sec:mesure-de-similarire}
+%   objectif des mesures de similarité sémantique est d'évaluer la
+%   proximité sémantique entre les concepts (auxquels les termes des
+%   requêtes et documents sont rattachés). Et comme le matching des
+%   services web revient à trouver les similarités entre les concepts
+%   décrivant les propriétés des services web, nous avons jugé utile
+%   d’explorer les différentes méthodes de recherche de similarité
+%   utilisées dans le domaine de la recherche d’information, en
+%   particulier.
 
-  \begin{mydef}[Similarité entre concepts]
-    Une similarité $\sigma$: C $\times$ C $\rightarrow$ [0,1] est une
-    fonction de couples de concepts vers un nombre compris entre 0 et
-    1 exprimant le degré de similarité entre deux concepts, tel que:
-    \SpecialItemi
-    \begin{itemize}
-      \item x $\in$ C, $\sigma$(x,x) = 1
-      \item x, y $\in$ C, $\sigma$(x,y) = $\sigma$(y,x)
-    \end{itemize}
-  \end{mydef}
+%   \begin{mydef}[Similarité entre concepts]
+%     Une similarité $\sigma$: C $\times$ C $\rightarrow$ [0,1] est une
+%     fonction de couples de concepts vers un nombre compris entre 0 et
+%     1 exprimant le degré de similarité entre deux concepts, tel que:
+%     \SpecialItemi
+%     \begin{itemize}
+%       \item x $\in$ C, $\sigma$(x,x) = 1
+%       \item x, y $\in$ C, $\sigma$(x,y) = $\sigma$(y,x)
+%     \end{itemize}
+%   \end{mydef}
 
-  Les ontologies définissent les propriétés des concepts et les
-  relations entre concepts. Une de ces relations est utilisée dans
-  notre application est \textsc{is–a} (est-un). Cette relation est utilisée
-  pour extraire des taxonomies à partir des ontologies
+%   Les ontologies définissent les propriétés des concepts et les
+%   relations entre concepts. Une de ces relations est utilisée dans
+%   notre application est \textsc{is–a} (est-un). Cette relation est utilisée
+%   pour extraire des taxonomies à partir des ontologies
 
-  \begin{mydef}[Similarité entre concepts]
-    Soit C l'ensemble de concepts définis dans une ontologie. On dit
-    que T est une taxonomie et on écrit T(C, $\leq$) tel que c $\leq$
-    c' signifie que c \textit{is–a} c' (le concept c est subsumé par
-    le concept).
-  \end{mydef}
+%   \begin{mydef}[Similarité entre concepts]
+%     Soit C l'ensemble de concepts définis dans une ontologie. On dit
+%     que T est une taxonomie et on écrit T(C, $\leq$) tel que c $\leq$
+%     c' signifie que c \textit{is–a} c' (le concept c est subsumé par
+%     le concept).
+%   \end{mydef}
 
-  De nombreuses approches ont été proposées pour évaluer la similarité
-  sémantique entre deux concepts. Ces approches se divisent en trois
-  catégories [Sli, 2006]: les approches basées sur les arcs, les
-  approches basées sur le contenu informationnel et les approches
-  hybrides. %% see annexe (1)
+%   De nombreuses approches ont été proposées pour évaluer la similarité
+%   sémantique entre deux concepts. Ces approches se divisent en trois
+%   catégories [Sli, 2006]: les approches basées sur les arcs, les
+%   approches basées sur le contenu informationnel et les approches
+%   hybrides. %% see annexe (1)
 
-\section{Matching des services Web sémantiques }
-\label{sec:match-des-serv-1}
-Le processus de matchmaking repose sur la recherche de similarités
-entre les paramètres descriptives de ces derniers. Il existe deux
-catégories de paramètres de description des services web: les
-paramètres fonctionnels et les paramètres non-fonctionnels que nous
-décrivons tout de suite.
+% \section{Matching des services Web sémantiques }
+% \label{sec:match-des-serv-1}
+% Le processus de matchmaking repose sur la recherche de similarités
+% entre les paramètres descriptives de ces derniers. Il existe deux
+% catégories de paramètres de description des services web: les
+% paramètres fonctionnels et les paramètres non-fonctionnels que nous
+% décrivons tout de suite.
 
-  \subsection{Les paramètres fonctionnels}
-  \label{sec:params-fonc}
+%   \subsection{Les paramètres fonctionnels}
+%   \label{sec:params-fonc}
 
-  La sémantique fonctionnelle décrit les fonctionnalités qu’offre le
-  service en terme de transformation d’information dénotée par les
-  Entrés/Sorties (I/O) et de changement d’état après l’exécution du
-  service dénoté par les pré-conditions/effets (ou post-conditions)
-  (P/E).  Ils sont appelés ainsi parce qu’ils sont nécessaires pour le
-  fonctionnement du service web. Ces paramètres sont utiles dans la
-  recherche des similarités. En effet, grâce au formalisme de
-  description des services web (OWL-S), on trouve une description des
-  données requises pour l’exécution du service (Inputs) et une
-  description des résultats obtenus après exécution (Outputs). D’un
-  autre coté, un service web peut altérer l’état du monde après son
-  exécution.  L’état du monde requis pour que le service s’exécute est
-  la pré-condition et le nouvel état généré après son exécution est
-  l’effet du service sur le monde. Par exemple le service de logging à
-  un site web possède comme information d’entrées le username et le
-  password et l’information de sortie est un message de
-  confirmation. Après l’exécution, l’état du monde change de
-  not\_logged\_in à logged\_in. Prenons un autre exemple, un transfert
-  d’argent du compte A vers le compte B ne peut se faire que si le
-  compte A est solvable (les pré-conditions).  Les effets décrivent
-  les sorties (Output) et l’impact d’une exécution d’un service
-  web. Tant dis que le terme post-condition focalise souvent sur la
-  description des conditions concernant les valeurs retournées des
-  opérations du service web. Dans notre exemple ci-dessus, un impact
-  de l'exécution serait le transfert réel de l'argent du compte de
-  carte de crédit pour le compte de destination alors que la
-  post-condition décrit qu'aucun argent ne s’est perdu lors du
-  transfert [Car, 2007].  L’opération de matching consiste alors à
-  relier les paramètres des différents services (faire correspondre)
-  entre eux et cela suivant des règles de correspondance.
+%   La sémantique fonctionnelle décrit les fonctionnalités qu’offre le
+%   service en terme de transformation d’information dénotée par les
+%   Entrés/Sorties (I/O) et de changement d’état après l’exécution du
+%   service dénoté par les pré-conditions/effets (ou post-conditions)
+%   (P/E).  Ils sont appelés ainsi parce qu’ils sont nécessaires pour le
+%   fonctionnement du service web. Ces paramètres sont utiles dans la
+%   recherche des similarités. En effet, grâce au formalisme de
+%   description des services web (OWL-S), on trouve une description des
+%   données requises pour l’exécution du service (Inputs) et une
+%   description des résultats obtenus après exécution (Outputs). D’un
+%   autre coté, un service web peut altérer l’état du monde après son
+%   exécution.  L’état du monde requis pour que le service s’exécute est
+%   la pré-condition et le nouvel état généré après son exécution est
+%   l’effet du service sur le monde. Par exemple le service de logging à
+%   un site web possède comme information d’entrées le username et le
+%   password et l’information de sortie est un message de
+%   confirmation. Après l’exécution, l’état du monde change de
+%   not\_logged\_in à logged\_in. Prenons un autre exemple, un transfert
+%   d’argent du compte A vers le compte B ne peut se faire que si le
+%   compte A est solvable (les pré-conditions).  Les effets décrivent
+%   les sorties (Output) et l’impact d’une exécution d’un service
+%   web. Tant dis que le terme post-condition focalise souvent sur la
+%   description des conditions concernant les valeurs retournées des
+%   opérations du service web. Dans notre exemple ci-dessus, un impact
+%   de l'exécution serait le transfert réel de l'argent du compte de
+%   carte de crédit pour le compte de destination alors que la
+%   post-condition décrit qu'aucun argent ne s’est perdu lors du
+%   transfert [Car, 2007].  L’opération de matching consiste alors à
+%   relier les paramètres des différents services (faire correspondre)
+%   entre eux et cela suivant des règles de correspondance.
 
-  \subsection{Les paramètres non-fonctionnels}
-  \label{sec:params-non-fonc}
+%   \subsection{Les paramètres non-fonctionnels}
+%   \label{sec:params-non-fonc}
 
-  Les paramètres non fonctionnels sont des paramètres qui ne sont pas
-  reliés directement aux fonctionnalités d’un service web, mais mesure
-  la qualité avec laquelle le service délivre ses
-  fonctionnalités. Parmi ces paramètres on trouve:
+%   Les paramètres non fonctionnels sont des paramètres qui ne sont pas
+%   reliés directement aux fonctionnalités d’un service web, mais mesure
+%   la qualité avec laquelle le service délivre ses
+%   fonctionnalités. Parmi ces paramètres on trouve:
 
-  \SpecialItem
-  \begin{description}
-  \item [Le coût]: C’est une propriété non-fonctionnelle qui est
-    pertinente pour le client qui veut utiliser le service.
+%   \SpecialItem
+%   \begin{description}
+%   \item [Le coût]: C’est une propriété non-fonctionnelle qui est
+%     pertinente pour le client qui veut utiliser le service.
 
-  \item [La sécurité]: La sécurité est une propriété non-fonctionnelle
-    qui est pertinente à la plupart des services web. Elle applique
-    des aspects tels que la communication et le cryptage des données.
+%   \item [La sécurité]: La sécurité est une propriété non-fonctionnelle
+%     qui est pertinente à la plupart des services web. Elle applique
+%     des aspects tels que la communication et le cryptage des données.
 
-  \item [La qualité]: La propriété qualité des services est un
-    ensemble de propriétés différentes qui affecte tous les aspects
-    spécifiques du service, son utilisation et sa production tel que
-    le temps de réponse d'un appel à une opération, la capacité du
-    service...etc
-  \end{description}
+%   \item [La qualité]: La propriété qualité des services est un
+%     ensemble de propriétés différentes qui affecte tous les aspects
+%     spécifiques du service, son utilisation et sa production tel que
+%     le temps de réponse d'un appel à une opération, la capacité du
+%     service...etc
+%   \end{description}
 
-  Le matching des paramètres non-fonctionnels des services web est
-  tout aussi important dans la phase de sélections des services
-  candidats. Les propriétés non-fonctionnelles sont typiquement
-  représentés comme des politiques de services web exprimées par le
-  langage WS- Policy [Car, 2007].
+%   Le matching des paramètres non-fonctionnels des services web est
+%   tout aussi important dans la phase de sélections des services
+%   candidats. Les propriétés non-fonctionnelles sont typiquement
+%   représentés comme des politiques de services web exprimées par le
+%   langage WS- Policy [Car, 2007].
 
-  Généralement ces approches de matching des politiques peuvent être
-  utilisées pour l'optimisation et l’évaluation des plans de
-  composition.  Les services web correspondent à des entités
-  dynamiques. Ils peuvent devenir disponibles à tout moment de
-  l’exécution du système et découverts dynamiquement par leurs
-  clients. Les fournisseurs et les consommateurs de services doivent
-  donc disposer d’un moyen commun et fiable pour effectuer la
-  publication et la recherche de services. On entend par découverte
-  dynamique la possibilité de localiser automatiquement un ensemble de
-  services web, sélectionner un service spécifique qui répond à des
-  besoins particuliers de l’utilisateur.  Plusieurs initiatives ont
-  traité la problématique de la découverte des services web dont les
-  deux principales modèles suivants:
+%   Généralement ces approches de matching des politiques peuvent être
+%   utilisées pour l'optimisation et l’évaluation des plans de
+%   composition.  Les services web correspondent à des entités
+%   dynamiques. Ils peuvent devenir disponibles à tout moment de
+%   l’exécution du système et découverts dynamiquement par leurs
+%   clients. Les fournisseurs et les consommateurs de services doivent
+%   donc disposer d’un moyen commun et fiable pour effectuer la
+%   publication et la recherche de services. On entend par découverte
+%   dynamique la possibilité de localiser automatiquement un ensemble de
+%   services web, sélectionner un service spécifique qui répond à des
+%   besoins particuliers de l’utilisateur.  Plusieurs initiatives ont
+%   traité la problématique de la découverte des services web dont les
+%   deux principales modèles suivants:
 
-  \subsection{Le modèle syntaxique de matching des services Web}
-  \label{sec:le-modele-syntaxique}
+%   \subsection{Le modèle syntaxique de matching des services Web}
+%   \label{sec:le-modele-syntaxique}
 
-  \subsection{Le modèle sémantique de matching des services Web}
-  \label{sec:le-modele-semantique}
+%   \subsection{Le modèle sémantique de matching des services Web}
+%   \label{sec:le-modele-semantique}
 
-  \subsection{Graphe de dépendance}
-  \label{sec:graph-de-depandence}
-  \cite{Omer2011}
+%   \subsection{Graphe de dépendance}
+%   \label{sec:graph-de-depandence}
+%   \cite{Omer2011}
 
 \section{Travaux connexes}
 \label{sec:travaux-relatives}
