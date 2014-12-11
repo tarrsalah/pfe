@@ -190,6 +190,7 @@ découverte.
     corps, qui est l'élément \texttt{<Fault>} (Erreur) utilisé pour
     rapporter les erreurs.
   \end{description}
+\newpage
 
   \subsection{Description: WSDL}
   \label{sec:wsdl}
@@ -343,50 +344,35 @@ manière dont on peut utiliser le service et non ce que fait le
 service, le standard \textsc{WSDL} est limité à l'énumération des
 opérations et à la description des types des paramètres d'entrée et de
 sortie associés, elle ne caractérise pas la sémantique de la
-fonctionnalité accomplie par le service. Par conséquent, la
-description \textsc{WSDL} reste insuffisante lors du processus de
-sélection.  Pour pallier cette Difficulté, plusieurs approches
+fonctionnalité accomplie par le service
+
+Par conséquent, la description \textsc{WSDL} reste insuffisante lors
+des processus de sélection, découvert et de la composition. Pour
+pallier cette Difficulté, plusieurs approches
 \cite{sivashanmugam2003adding,mcilraith2001semantic,
   mcilraith2003bringing, fensel2002web} proposent de rajouter une
-couche au dessus sémantique de \textsc{WSDL} complétant la description
+couche sémantique au dessus de \textsc{WSDL} complétant la description
 syntaxique par des précisions sémantiques.
 
-Dans cette section nous allons présenter les divers approches
-sémantiques visant à préciser la description d'un service en insistant
-sur les approches d'annotation sémantique et sur les ontologies de
-services.
-
-Les services Web enrichis par des métadonnées supplémentaires
-exprimant leur la sémantique sont appelés \textit{les services Web
-  sémantiques}. Les services de Web sémantique sont le résultat de
-l'évolution Web dans deux directions: l'ajout des dynamique éléments
-sur le Web et l'amélioration de la description syntaxique services Web (voir la figure \ref{fig:3w_to_sws})
-
-% (Bussler et al., 2002; Cardoso et Sheth, 2006; Curbera
-% et al., 2003; McIlraith et al., 2001; Payne et Lassila, 2004; Studer
-% et al., 2007)
-
-% Dans cette section nous présentons les modèles de description des
-% services web. Nous détaillons dans la première sous-section le modèle
-% de description syntaxique \acrshort{wsdl} \cite{chinnici2007web}
-% développé et standardisé par le \acrshort{w3c} qui est devenu un
-% élément essentiel dans des technologies services web. Ensuite en
-% mettant l'accent sur les limitations majeurs de cette approche dans un
-% environnement hétérogène qui nécessite un certain degré de dynamisité
-% et d'automatisation.  Finalement, Nous présentons les divers approches
+% Dans cette section nous allons présenter les divers approches
 % sémantiques visant à préciser la description d'un service en insistant
 % sur les approches d'annotation sémantique et sur les ontologies de
 % services.
-% \newpage
 
+Les services Web enrichis par des métadonnées supplémentaires
+exprimant leur la sémantique sont appelés \textit{les services Web
+  sémantiques} \cite{fensel2002semantic, mcilraith2001semantic}. Les
+services de Web sémantique sont le résultat de l'évolution Web dans
+deux directions \cite{bartalos2011effective} (illustré dans La figure
+\ref{fig:3w_to_sws}):
 
-% Web services enhanced by additional metadata expressing their
-% semantics are called Semantic Web services (Bussler et al., 2002;
-% Cardoso and Sheth, 2006; Curbera et al., 2003; McIlraith et al., 2001;
-% Payne and Lassila, 2004; Studer et al., 2007). Semantic Web services
-% are the result of the Web evolution in two directions: adding dynamic
-% elements to the Web and enhancement of the syntactic description of
-% Web services \cite{bartalos2011effective}.
+\begin{enumerate}
+  \item l'ajout des dynamique éléments sur le Web.
+  \item l'amélioration de la description syntaxique services Web
+\end{enumerate}
+
+ La notion du Web sémantique est abordée brièvement dans l'annexe
+ \ref{annexe:semantic-web}.
 
   \subsection{Annotations sémantiques}
   \label{sec:semantic-annot}
@@ -481,9 +467,7 @@ sur le Web et l'amélioration de la description syntaxique services Web (voir la
   \newpage
 
 \section{Découverte des services web}
-% Description syntactique (UDDI) vs description sémantique
 
-% TOTANSLATE
 WS discovery is related to getting appropriate service for a
 request. It is one of the critical steps in the process of developing
 applications based on SOA. It can be done using syntactic matching or
@@ -495,7 +479,7 @@ semantic matching\cite{Omer2011}.\\
   % rappeler de notre problème principale : composition des services web
 \newpage
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
-%%% End: 
+%%% End:
