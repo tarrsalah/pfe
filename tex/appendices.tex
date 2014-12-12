@@ -61,6 +61,7 @@ que les concepts et les relations d'un modèle abstrait reçoivent des
 noms et des définitions explicites. Le Web sémantique est devenu un
 domaine à part entière, preuve en est la création en 2001 du groupe de
 travail sur ce sujet par le \textsc{W3C}.
+
 \chapter{Les mesures de similarité}
 \label{annexe:similarity-measurement}
 
@@ -119,10 +120,10 @@ hybrides.
   l’ontologie doit être caractérisée par le plus court chemin qui fait
   intervenir un ancêtre commun ou le plus petit généralisant,
   connectant potentiellement deux objets à travers des descendants
-  communs. Parmi les travaux classifiés sous cette bannière on trouve:
+  communs. Parmi les travaux classifiés sous cette bannière on trouve:\\
 
-  \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
-  \begin{description}
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+  \begin{itemize}
   \item [la Mesure de Wu \& Palmer] Basée sur le principe suivant :
     Etant donnée une ontologie $\Pi$ formée par un ensemble de nœuds
     (Figure 28). R est la racine, X et Y les deux éléments de
@@ -142,7 +143,7 @@ hybrides.
     limite, cependant, avec cette mesure on peut obtenir une
     similarité plus élevée entre un concept et son voisinage par
     rapport à ce même concept et un concept fils, ce qui est inadéquat
-    dans le cadre de la recherche de l’information.
+    dans le cadre de la recherche de l’information.\\
 
   \item [La mesure de Zargayouna]
     Cette mesure de similarité est inspirée de celle de Wu-Palmer
@@ -161,8 +162,8 @@ hybrides.
     Où $Spec(x,y)=N_{1}*N_{2} *N_{3}$, tel que $N_{3}$ correspond au
     nombre maximum d'arcs qui séparent le plus petit ancêtre commun du
     concept \textit{virtuel} représentant l'anti-racine, $N_{1}$ et
-    $N_{2}$ séparent les nœuds $x$ et $y$ du nœud racine.
-  \end{description}
+    $N_{2}$ séparent les nœuds $x$ et $y$ du nœud racine.\\
+  \end{itemize}
 
 
 
