@@ -51,18 +51,18 @@ Cette définition surligne les caractéristiques clés de services Web
 \item[Basés sur des protocoles Internet] : L'utilisation de
   \acrshort{http} pour le transport des informations permet de
   traverser les contrôles d'accès dans un environnement hétérogène.
-  
+
 \item[Interopérables] : Le standard \textsc{SOAP} \cite{box2000simple}
   définit comme étant un protocole destiné à l'échange de messages
   structurés véhiculé généralement sur \textsc{HTTP} et sérialisé en
   \textsc{XML}, permettant le support pour l'interopérabilité.
-      
+
 \item[Basés sur XML] : Le méta-langage de balisage \textsc{XML}
   \textit{eXtensible Markup Language} est un standard Web ouvert par
   \textsc{W3C} \cite{bray1998extensible} offre un cadre standard pour
   la définition de documents Interprétable par des machines.
 \end{description}
-    
+
 M. P. Papazoglou \cite{papazoglou2003service} de apporte une
 autre définition des services web:\\ \emph{``Les services Web sont
 des éléments auto-descriptifs et indépendants des plateformes
@@ -80,7 +80,7 @@ standardisés et ouverts''}
 
 % \subsection{L'évolution des styles des services web}
 % \label{sec:levol-des-styl}
-% \input{content/evolution.tex} 
+% \input{content/evolution.tex}
 % \newpage
 
 \section{L'architecture de référence et technlogies associées}
@@ -99,12 +99,12 @@ comment ces trois rôles interagissent.
 \begin{description}
 \item[Le fournisseur]: Un prestataire des services fournit l'interface
   pour le service Web et l'implémentation de l'application.
-  
+
 \item[L'annuaire]: Un registre de service est une façon dont les
   services Web sont officiellement publiés. Le registre de service est
   basée sur la spécification \textsc{UDDI} et reflète des informations
   sur les services fournis par le fournisseur de services.
-  
+
 \item[Le client]: Un client d'un service est le consommateur d'un
   service Web, il utilise le registre de service pour obtenir des
   informations et pour pouvoir accèder à un service Web.
@@ -256,11 +256,12 @@ découverte.
   \newpage
   \subsection{Découverte: UDDI}
   \label{sec:uddi}
+  %TODO
   \acrshort{uddi} \cite{clement2004uddi} est une standardisation pour
   la publication et la découverte des services Web initialement conçue
   et spécifiée par le Consortium de standards
-  OASIS\footnote{\url{https://www.oasis-open.org}}, et il est le
-  résultat d'un accord d'un ensemble d’industriels
+  OASIS\footnote{\url{https://www.oasis-open.org}}, il est le résultat
+  d'un accord d'un ensemble d'industriels
   Ariba\footnote{\url{http://www.ariba.com/}}, IBM, Microsoft, etc en
   vue de devenir le registre standard de la technologie des services
   Web.
@@ -277,10 +278,10 @@ découverte.
   Un \textsc{UDDI} peut appartenir à un domaine public comme internet
   ou tout autre réseau accessible à un nombre non limité
   d'utilisateurs, comme il peut appartenir à un domaine restreint
-  comme l'intranet d’une entreprise ou d'un groupe d'entreprise.
+  comme l'intranet d'une entreprise ou d'un groupe d'entreprise.
 
-  Les données stockés dans l'UDDI sont structurées (en \textsc{XML})
-  et organisées en trois parties connues:
+  Les données stockés dans l'\textsc{UDDI} sont structurées (en
+  \textsc{XML}) et organisées en trois parties connues:
 
   \SpecialItem
   \begin{description}
@@ -288,7 +289,7 @@ découverte.
       les fournisseurs de services à savoir le nom de l'entreprise qui
       fournit le service, son identificateur commercial, ses adresses,
       etc.
-        
+
     \item[Pages jaunes]: comportent des descriptions détaillées sur
       les fournisseurs de services catalogués dans les pages blanches
       d'une de façon taxonomique (selon secteurs d'activités par
@@ -298,7 +299,7 @@ découverte.
       les services Web catalogués. Ces informations incluent la
       description du service, les adresses \textsc{URL}, du processus
       de son utilisation et des protocoles utilisés pour son
-      invocation.       
+      invocation.
   \end{description}
 
   % TODO: talk about OWL-S and why UDDI approach is semantically poor
@@ -451,23 +452,19 @@ deux directions \cite{bartalos2011effective} (illustré dans La figure
     \label{sec:owl-s-1}
   \newpage
 
-\section{Découverte des services web} 
+\section{Découverte des services web}
 
 La découverte des services Web dans est abordée dans un grand nombre
 de projets et travaux de recherche \cite{elie2010}, plusieurs
-définitions sont attribuées à ce concept, Elle est définie par Keller
-\textit{et al.}  comme \textit{``la localisation automatique des
-  services répondant à une requête utilisateur''}
-\cite{keller2004wsmo}. Booth \textit{el al.}  décrivent le processus
-de découverte comme étant \textit{``la localisation d'une description
-  compréhensible par la machine d'un service éventuellement inconnu au
-  préalable et correspondant à certains critères fonctionnels''}
-\cite{booth2004web}.
-
-D'une façon équivalente, Ankolekar \textit{el el.} ont défini la
+définitions sont attribuées à ce concept. Booth \textit{el al.}
+décrivent le processus de découverte comme étant \textit{``la
+  localisation d'une description compréhensible par la machine d'un
+  service éventuellement inconnu au préalable et correspondant à
+  certains critères fonctionnels''} \cite{booth2004web}. Á l'instar de
+booth \cite{booth2004web}, Ankolekar \textit{el el.} ont défini la
 découverte comme étant l'acte de \textit{``localiser les services Web
-(généralement par le biais d'un annuaire des services) fournissant un
-service particulier et qui adhèrent aux contraintes spécifiées''}
+  (généralement par le biais d'un annuaire des services) fournissant
+  un service particulier et qui adhèrent aux contraintes spécifiées''}
 \cite{ankolekar2002daml}.
 
 Ces définitions mettent l'accent sur le mécanisme de comparaison de la
@@ -486,15 +483,56 @@ approches de découverte \cite{elie2010}, nous avons :
 \begin{itemize}
 \item le critère de centralisation/distribution des annuaires.
 \item le principe de l'algorithme de matching (syntaxique, sémantique
-  (logique, non logique), hybride, comportemental, non fonctionnel...).
+  (logique, non logique), hybride, comportemental, non fonctionnel, etc.).
 \item Le critère d'automatisation.
 \end{itemize}
 
   \subsection{Localisation de services}
   \label{sec:ws-localisation}
 
+  La découverte de services consiste, en premier, à localiser les
+  fournisseurs proposant des services répondant à une requête
+  utilisateur. Les approches de localisation de services récurrentes
+  dans la littérature sont classées en deux catégories, à savoir les
+  approches centralisées et les approches distribuées \cite{elie2010}.
+
+  Le modèle \acrshort{uddi} \cite{clement2004uddi} (présenté dans
+  \ref{sec:uddi}) dans ces premières version repose sur une approche
+  \textit{centralisée} de publication et découverte de services
+  Web. \textsc{UDDI} définit un modèle de représentation des données
+  et des méta-données nécessaires à la publication, reposent sur
+  \textit{un seul annuaire} qui peut être géré par un module de mise
+  en correspondances \textit{(matchmaker)}.
+
+  Les approches distribuées de découverte de services consistent à
+  mettre en place une communauté (fédération) d'annuaires
+  \textsc{UDDI} \cite{rompothong2003query,
+    sivashanmugam2004discovery}.
+
+  Dans \cite{sivashanmugam2004discovery}, les auteurs proposent de
+  fournir un service qui agit comme une couche d'abstraction reliant
+  plusieurs instances \textsc{UDDI}. Chaque instance de \textsc{UDDI}
+  est responsable des données concernant les services auxquels elle
+  fait référence.
+
+  Dans \cite{verma2005meteor}, les auteurs présentent
+  \textsc{METEOR-S}, une infrastructure pair-à-pair extensible,
+  d'annuaires pour la publication de services Web sémantiques et leur
+  découverte permettant la collaboration entre plusieurs instances
+  d'annuaires \textsc{UDDI}.
+
+  La dernière version d' \textsc{UDDI} \cite{oasis2005specification}
+  (version 3.0.2) reprend le principe d'une fédération
+  d'annuaires. Elle décrit un annuaire \textsc{UDDI} comme un ensemble
+  de nœuds \textit{(UDDI nodes)} tel que chaque nœud fait partie d'un
+  seul annuaire et possède une copie répliquée de schéma globale de la
+  fédération. Les nœuds d'un annuaire collaborent pour gérer un
+  ensemble de structures de données \textsc{UDDI} et permettre une
+  meilleure gestion des requêtes.
+
   \subsection{Découverte manuel/automatique}
   \label{sec:ws-desc:manual-vs-auto}
+  \newpage
 
   \subsection{Matching des services Web}
   \label{sec:ws-matching} Le processus de matchmaking repose sur la
@@ -503,11 +541,8 @@ approches de découverte \cite{elie2010}, nous avons :
   services web: les paramètres fonctionnels et les paramètres
   non-fonctionnels que nous décrivons tout de suite.
 
-    \subsubsection{Les paramètres fonctionnels}
-    \label{sec:params-fonc}
-
-    \subsubsection{Les paramètres non-fonctionnels}
-    \label{sec:params-non-fonc}
+    \subsubsection{Paramètres de description des services web}
+    \label{sec:param-de-descr}
 
     \SpecialItem
     \begin{description}
