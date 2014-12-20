@@ -251,8 +251,8 @@ découverte.
     déclarant l'\textsc{URL} localisant le service (avec l'attribut
     \texttt{<address>}).
   \end{description}
-  % TODO: talk how WSDL description is limited, ref to the description
-  % section
+  % parler sur la limitation de la description syntaxique de WSDL,
+  % réferencer les \ref{sec:ws-description}
   \newpage
   \subsection{Découverte: UDDI}
   \label{sec:uddi}
@@ -307,6 +307,9 @@ découverte.
   % découverte automatique des services Web et l'insuffisance de la
   % description syntaxique.
   % \newpage
+
+  % critiquer la découvert manual des services dans UDDI
+  % référencer \ref{sec:ws-localisation}
 
 \section{Description des services web}
 \label{sec:ws-description}
@@ -505,9 +508,8 @@ approches de découverte \cite{elie2010}, nous avons :
   en correspondances \textit{(matchmaker)}.
 
   Les approches distribuées de découverte de services consistent à
-  mettre en place une communauté (fédération) d'annuaires
-  \textsc{UDDI} \cite{rompothong2003query,
-    sivashanmugam2004discovery}.
+  mettre en place une fédération d'annuaires \textsc{UDDI}
+  \cite{rompothong2003query, sivashanmugam2004discovery}.
 
   Dans \cite{sivashanmugam2004discovery}, les auteurs proposent de
   fournir un service qui agit comme une couche d'abstraction reliant
@@ -516,13 +518,13 @@ approches de découverte \cite{elie2010}, nous avons :
   fait référence.
 
   Dans \cite{verma2005meteor}, les auteurs présentent
-  \textsc{METEOR-S}, une infrastructure pair-à-pair extensible,
+  \textsc{METEOR-S}, une infrastructure pair-à-pair extensible
   d'annuaires pour la publication de services Web sémantiques et leur
   découverte permettant la collaboration entre plusieurs instances
   d'annuaires \textsc{UDDI}.
 
   La dernière version d' \textsc{UDDI} \cite{oasis2005specification}
-  (version 3.0.2) reprend le principe d'une fédération
+  (version \textit{3.0.2}) reprend le principe d'une fédération
   d'annuaires. Elle décrit un annuaire \textsc{UDDI} comme un ensemble
   de nœuds \textit{(UDDI nodes)} tel que chaque nœud fait partie d'un
   seul annuaire et possède une copie répliquée de schéma globale de la
@@ -539,9 +541,23 @@ approches de découverte \cite{elie2010}, nous avons :
   et semi-automatique d'une part, et les approches automatiques d'une
   autre part \cite{elie2010,garofalakis2004web}.
 
-  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+  \renewcommand{\descriptionlabel}[1]{\hspace{0cm}\textbullet~\textsf{#1}}
   \begin{description}
-  \item [Approches manuelles et semi-automatiques]:
+  \item [Approches manuelles et semi-automatiques]: Dans une approche
+    manuelle ou semi-automatique, la découverte est basée sur la
+    recherche de descriptions dans un annuaire \textsc{UDDI} et par
+    une simple comparaison entre mots clés, ce qui nécessite
+    l'intervention de l'utilisateur pour vérifier la pertinence et la
+    fiabilité des résultats de la rechreche.
+
+    Dans cette catégorie on peut citer L'approche de découverte
+    proposée par Verma \textit{el al.} \cite{verma2005meteor} dans le
+    cadre de \textsc{METEOR-S}, l'infrastructure présente un degré
+    d'automatisation plus avancé qu'une simple recherche dans un
+    annuaire. En effet, l'enrichissement sémantique des fichiers de
+    description des services Web permet une découverte
+    semi-automatique et plus précise.
+
   \item [Approches automatisées ]:
   \end{description}
 
@@ -554,31 +570,23 @@ approches de découverte \cite{elie2010}, nous avons :
   services web: les paramètres fonctionnels et les paramètres
   non-fonctionnels que nous décrivons tout de suite.
 
-    \subsubsection{Paramètres de description des services web}
-    \label{sec:param-de-descr}
+  Paramètres de description des services web
 
-    \begin{description}
-    \item [Le coût]: C’est une propriété non-fonctionnelle qui est
-      pertinente pour le client qui veut utiliser le service.
+  \begin{description}
+  \item [Le coût]: C’est une propriété non-fonctionnelle qui est
+    pertinente pour le client qui veut utiliser le service.
 
-    \item [La sécurité]: La sécurité est une propriété
-      non-fonctionnelle qui est pertinente à la plupart des services
-      web. Elle applique des aspects tels que la communication et le
-      cryptage des données.
+  \item [La sécurité]: La sécurité est une propriété
+    non-fonctionnelle qui est pertinente à la plupart des services
+    web. Elle applique des aspects tels que la communication et le
+    cryptage des données.
 
-    \item [La qualité]: La propriété qualité des services est un
-      ensemble de propriétés différentes qui affecte tous les aspects
-      spécifiques du service, son utilisation et sa production tel que
-      le temps de réponse d'un appel à une opération, la capacité du
-      service...etc
-    \end{description}
-
-    \subsubsection{Le modèle syntaxique de matching des services Web}
-    \label{sec:syntactic-matching}
-
-    \subsubsection{Le modèle sémantique de matching des services Web}
-    \label{sec:semantic-matching}
-
+  \item [La qualité]: La propriété qualité des services est un
+    ensemble de propriétés différentes qui affecte tous les aspects
+    spécifiques du service, son utilisation et sa production tel que
+    le temps de réponse d'un appel à une opération, la capacité du
+    service...etc
+  \end{description}
 \newpage
 \section{Conclusion}
 % faire un petit récapitulatif sur les technologies des services web
