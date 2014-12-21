@@ -111,24 +111,23 @@ comment ces trois rôles interagissent.
 \end{description}
 
 Pour qu'une application profite des services Web, trois comportements
-doivent avoir lieu: \textit{la publication} des descriptions du
-service, \textit{la découverte} des descriptions du service et
-\textit{l'invocation} des services basés sur la description du
-service.
+doivent avoir lieu : \textit{la publication} des descriptions du
+service, \textit{la découverte} de ces descriptions et enfin
+\textit{l'invocation} des services.
 
 \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
 \begin{description}
 \item[Publier]: Pour être accessible, une description de service doit
   être publiée afin que le client puisse la trouver.
 
-\item[Découvrir]: Dans l'opération de recherche, le demandeur de
-  service récupère une description directement ou interroge
-  le registre de service pour une catégorie requise.
+\item[Découvrir]: Lors de la recherche d'un service , le client
+  interroge un annuaire (ou un registre) des services pour une
+  catégorie requise des services et récupère une description détaille.
 
-\item[Invoquer (bind)]: Dans cette opération, le client invoque ou
-  initie une interaction avec le service utilisant les détails de
-  liaison dans la description du service pour le localiser, contacter
-  et l'appeler.
+\item[Invoquer (bind)]: le client peut ainsi invoquer une
+  fonctionalité particulière dans le service cible utilisant les
+  détails de liaison dans la description du service pour le localiser,
+  contacter et l'appeler.
 \end{description}
 
 Les services Web sont construits autour de standards qui sont
