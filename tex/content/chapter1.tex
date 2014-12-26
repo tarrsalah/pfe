@@ -569,14 +569,19 @@ approches de découverte \cite{elie2010}:
     annuaire \textsc{UDDI}. En effet, l'enrichissement sémantique des
     fichiers de description des services Web permet une découverte
     semi-automatique et plus précise.
-    % TODO: manual vs semi-auto découverte
 
     \subsubsection{Approches automatiques}
     \label{ws-desc:auto}
 
     La découverte automatique de services qui répond à un besoin donné
     est considéré comme une étape cruciale vers l'intégration
-    dynamique et évolutive des services Web.
+    dynamique et évolutive des services Web. On entend par découverte
+    automatique la possibilité de localiser automatiquement un Web
+    service qui répond à des besoins particuliers, Différentes
+    approches ont été proposées dans la littérature pour réaliser la
+    découverte dynamique de services \cite{paolucci2002semantic,
+      bernstein2002discovering, mandell2003bottom,
+      benatallah2005automating,keller2005automatic}.
 
     Dans \cite{mandell2003bottom} les auteurs présentent une approche
     d'automatisation de la découverte des services basée sur la
@@ -594,17 +599,14 @@ approches de découverte \cite{elie2010}:
 
     Keller \textit{et al} \cite{keller2005automatic} étudient un
     modèle de localisation automatique de services Web décrits via le
-    modèle \textsc{WSMO} (voir \ref{sec:wsmo}).
+    modèle \textsc{WSMO}. Le modèle proposé traite à la fois l'aspect
+    statique et l'aspect dynamique de la description des services
+    Web. L'aspect statique consiste à trouver les correspondances
+    entre les descriptions des services et une requête
+    utilisateur. L'aspect dynamique raffine le choix des services
+    pré-sélectionnés en interrogeant le fournisseur pour vérifier
+    certaines critères non fonctionnels.
 
-    % Le modèle proposé traite à la fois l'aspect statique et l'aspect
-    % dynamique de la description des services Web. L'aspect statique
-    % consiste à trouver les correspondances entre les descriptions des
-    % services et une requête utilisateur. L'aspect dynamique raffine le
-    % choix e des services pré-sélectionnés durant la phase statique en
-    % interrogeant le fournisseur pour vérifier certaines conditions
-    % d'utilisation telles que les pré-conditions, les effets et la
-    % disponibilité.
-    \newpage
   \subsection{Matching des services Web}
   \label{sec:ws-matching} Le processus du matching (ou le matchmaking)
   repose sur la recherche de similarités entre les paramètres
