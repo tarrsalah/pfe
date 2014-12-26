@@ -493,48 +493,64 @@ approches de découverte \cite{elie2010}:
 \item le principe de l'algorithme de matching.
 \end{itemize}
 
-  \subsection{Localisation des services}
-  \label{sec:ws-localisation}
+\subsection{Localisation des services}
+\label{sec:ws-localisation}
 
-  La découverte de services consiste, en premier, à localiser les
-  fournisseurs proposant des services répondant à une requête
-  utilisateur. Les approches de localisation de services récurrentes
-  dans la littérature sont classées en deux catégories, à savoir les
-  approches centralisées et les approches distribuées
-  \cite{elie2010, garofalakis2004web}.
+  La découverte consiste principalement à localiser les descriptions
+  de services répondant à une requête client. Les approches de
+  localisation des services récurrentes dans la littérature sont
+  classées en deux catégories, à savoir les approches centralisées et
+  les approches décentralisées ou distribuées
+  \cite{garofalakis2004web}.
 
-  Le modèle \acrshort{uddi} \cite{clement2004uddi} (présenté dans
-  \ref{sec:uddi}) dans ces premières version repose sur une approche
-  \textit{centralisée} de publication et découverte de services
-  Web. \textsc{UDDI} définit un modèle de représentation des données
-  et des méta-données nécessaires à la publication, reposent sur
-  \textit{un seul annuaire} qui peut être géré par un module de mise
-  en correspondances \textit{(matchmaker)}.
+    \subsubsection{Approches centralisées}
+    \label{sec:central-disc}
 
-  Les approches distribuées de découverte de services consistent à
-  mettre en place une fédération d'annuaires \textsc{UDDI}
-  \cite{rompothong2003query, sivashanmugam2004discovery}.
+    Les premières versions d'\textsc{UDDI} \cite{clement2004uddi}
+    (présenté dans \ref{sec:uddi}) reposent sur une approche
+    \textit{centralisée} de publication et découverte de services
+    Web. le registre \textsc{UDDI} définit un modèle de représentation
+    des données et des méta-données nécessaires à la publication,
+    reposent sur \textit{un seul annuaire} qui peut être géré par un
+    module de mise en correspondances \textit{(matchmaker)}.
 
-  Dans \cite{sivashanmugam2004discovery}, les auteurs proposent de
-  fournir un service qui agit comme une couche d'abstraction reliant
-  plusieurs instances \textsc{UDDI}. Chaque instance de \textsc{UDDI}
-  est responsable des données concernant les services auxquels elle
-  fait référence.
+    % TODO: détailler un peu le modèle UDDI.
+    Les approches centralisées de localisation des services Web ne se
+    limitent pas à la recherche syntaxique par mots clés.  Dans
+    \cite{srinivasan2004adding} les auteurs étendent le modèle
+    \textsc{UDDI} pour prendre en compte des descriptions
+    \textsc{OWL-S} et présentent \textit{OWL-S macthmaker}. L'objectif
+    est de permettre le stockage des fonctionnalités des services
+    désignées par \textit{capabilities} afin de rendre la découverte
+    plus précise.Cette approche bien que riches émantiquement ne
+    traite pas l'aspect automatisation de la découverte et repose sur
+    un \textsc{UDDI} centralisé.
 
-  Dans \cite{verma2005meteor}, les auteurs présentent
-  \textsc{METEOR-S}, une infrastructure pair-à-pair extensible
-  d'annuaires pour la publication de services Web sémantiques et leur
-  découverte permettant la collaboration entre plusieurs instances
-  d'annuaires \textsc{UDDI}.
+    \subsubsection{Approcehs décentralisées}
+    \label{sec:decentr-disc}
 
-  La dernière version d' \textsc{UDDI} \cite{oasis2005specification}
-  (version \textit{3.0.2}) reprend le principe d'une fédération
-  d'annuaires. Elle décrit un annuaire \textsc{UDDI} comme un ensemble
-  de nœuds \textit{(UDDI nodes)} tel que chaque nœud fait partie d'un
-  seul annuaire et possède une copie répliquée de schéma globale de la
-  fédération. Les nœuds d'un annuaire collaborent pour gérer un
-  ensemble de structures de données \textsc{UDDI} et permettre une
-  meilleure gestion des requêtes.
+    Les approches décentralisées de découverte des services consistent
+    à mettre en place une \textit{fédération} d'annuaires
+    \textsc{UDDI} agissant comme une couche d'abstraction reliant
+    plusieurs instances d'annuaires \cite {rompothong2003query,
+      sivashanmugam2004discovery}.
+
+    Plusieurs travaux dans la littérature proposent des solutions
+    décentralisées du processus de publication et découverte. Les
+    systèmes \cite{paolucci2003using, schmidt2004peer,
+      verma2005meteor} appuient sur des infrastructures pair-à-pair
+    \textit{peer-to-peer} et des ontologies pour la publication et la
+    découverte des services Web sémantiques permettant une forte
+    collaboration entre plusieurs instances d'annuaires \textsc{UDDI}.
+
+    La dernière version d'\textsc{UDDI} \cite{oasis2005specification}
+    (version \textit{3.0.2}) reprend le principe d'une fédération
+    d'annuaires. Elle décrit un annuaire \textsc{UDDI} comme un
+    ensemble de nœuds \textit{(UDDI nodes)} tel que chaque nœud fait
+    partie d'un seul annuaire et possède une copie répliquée de schéma
+    globale de la fédération. Les nœuds d'un annuaire collaborent pour
+    gérer un ensemble de structures de données \textsc{UDDI} et
+    permettre une meilleure gestion des requêtes.
 
   \subsection{Découverte manuelle/automatique}
   \label{sec:ws-desc:manual-vs-auto}
