@@ -312,14 +312,12 @@ découverte.
 \section{Description des services web}
 \label{sec:ws-description}
 
-Un service Web consiste à la définition d'une entité logiciel
-modulaire, \textit{auto-descriptive} et \textit{autonome}
-\textit{accessible} via Internet \cite{curbera2001web}. Dans la
-section précédente, nous avons vu l'architecture de base des services
-Web et la pile protocolaire pour la mise en place d'une telle
-architecture.
-
-\input{figs/3w_to_sws.tex}
+% Un service Web consiste à la définition d'une entité logiciel
+% modulaire, \textit{auto-descriptive} et \textit{autonome}
+% \textit{accessible} via Internet \cite{curbera2001web}. Dans la
+% section précédente, nous avons vu l'architecture de base des services
+% Web et la pile protocolaire pour la mise en place d'une telle
+% architecture.
 
 Une description du service Web est un document par lequel le
 fournisseur de services communique au client les spécifications pour
@@ -331,7 +329,7 @@ manière dont on peut utiliser le service et non ce que fait le
 service, le standard \textsc{WSDL} est limité à l'énumération des
 opérations et à la description des types des paramètres d'entrée et de
 sortie associés, elle ne caractérise pas la sémantique de la
-fonctionnalité accomplie par le service
+fonctionnalité accomplie par le service.
 
 Par conséquent, la description \textsc{WSDL} reste insuffisante lors
 des processus de sélection, découvert et de la composition. Pour
@@ -341,25 +339,39 @@ pallier cette Difficulté, plusieurs approches
 couche sémantique au dessus de \textsc{WSDL} complétant la description
 syntaxique par des précisions sémantiques.
 
-% Dans cette section nous allons présenter les divers approches
-% sémantiques visant à préciser la description d'un service en insistant
-% sur les approches d'annotation sémantique et sur les ontologies de
-% services.
-
+\input{figs/3w_to_sws.tex}
+\newpage
 Les services Web enrichis par des métadonnées supplémentaires
 exprimant leur la sémantique sont appelés \textit{les services Web
-  sémantiques} \cite{fensel2002semantic, mcilraith2001semantic}. Les
+sémantiques} \cite{fensel2002semantic, mcilraith2001semantic}. Les
 services de Web sémantique sont le résultat de l'évolution Web dans
-deux directions \cite{bartalos2011effective} (illustré dans La figure
-\ref{fig:3w_to_sws}):
+deux directions \cite{bartalos2011effective} (illustré dans La
+figure\ref{fig:3w_to_sws}):
 
 \begin{enumerate}
   \item l'ajout des dynamique éléments sur le Web.
   \item l'amélioration de la description syntaxique services Web
 \end{enumerate}
 
- La notion du Web sémantique est abordée brièvement dans l'annexe
- \ref{annexe:semantic-web}.
+Dans cette section nous allons présenter les divers approches
+sémantiques visant à préciser la description d'un service en insistant
+sur les approches d'annotation sémantique et sur les ontologies de
+services.
+
+La notion du Web sémantique est abordée brièvement dans l'annexe
+\ref{annexe:semantic-web}.
+
+  % TODO: elaborate
+\subsection{L'aspect fonctionnel et non fonctionel de description}
+  \label{sec:func-vs-non-func}
+
+  Il existe deux aspects de description des services Web:
+
+    \subsubsection{L'aspect fonctionnel}
+    \label{sec:aspect-fonctionnel}
+
+    \subsubsection{L'aspect non fonctionnel}
+    \label{sec:aspect-non-fonctionel}
 
   \subsection{Annotations sémantiques}
   \label{sec:semantic-annot}
