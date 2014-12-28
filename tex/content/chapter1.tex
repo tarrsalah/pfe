@@ -490,7 +490,7 @@ approches de découverte \cite{elie2010}:
 \item Le degré d'automatisation du processus de la découverte.
 \item le principe de l'algorithme de matching.
 \end{itemize}
-
+\newpage
 \subsection{Localisation des services}
 \label{sec:ws-localisation}
 
@@ -512,9 +512,8 @@ approches de découverte \cite{elie2010}:
     reposent sur \textit{un seul annuaire} qui peut être géré par un
     module de mise en correspondances \textit{(matchmaker)}.
 
-    % TODO: détailler un peu le modèle UDDI.
     Les approches centralisées de localisation des services Web ne se
-    limitent pas à la recherche syntaxique par mots clés.  Dans
+    limitent pas à la recherche syntaxique par mots clés. Dans
     \cite{srinivasan2004adding} les auteurs étendent le modèle
     \textsc{UDDI} pour prendre en compte des descriptions
     \textsc{OWL-S} et présentent \textit{OWL-S macthmaker}. L'objectif
@@ -573,11 +572,9 @@ approches de découverte \cite{elie2010}:
     résultats de la recherche et sélectionner le service Web qui
     répond au mieux à ses exigences.
 
-    % TODO: mentionner UDDI comme une approche purement manuelle
-    Dans cette catégorie nous pouvons citer L'approche de découverte
-    proposée par Verma \textit{el al.} \cite{verma2005meteor} dans le
-    cadre du project \textsc{METEOR-S}, l'infrastructure présente un
-    degré d'automatisation plus avancé qu'une simple recherche dans un
+    Verma \textit{el al.} \cite{verma2005meteor} dans le cadre du
+    project \textsc{METEOR-S}, l'infrastructure présente un degré
+    d'automatisation plus avancé qu'une simple recherche dans un
     annuaire \textsc{UDDI}. En effet, l'enrichissement sémantique des
     fichiers de description des services Web permet une découverte
     semi-automatique et plus précise.
@@ -608,7 +605,7 @@ approches de découverte \cite{elie2010}:
     partir des \textit{service profile} du processus \textsc{ BPEL}
     vers un annuaire contenant des services sémantiquement décrits en
     \textsc{OWL-S}.
-
+    %% TODO decouple from \cite{elie2010} words
     Keller \textit{et al} \cite{keller2005automatic} étudient un
     modèle de localisation automatique de services Web décrits via le
     modèle \textsc{WSMO}. Le modèle proposé traite à la fois l'aspect
@@ -618,32 +615,188 @@ approches de découverte \cite{elie2010}:
     utilisateur. L'aspect dynamique raffine le choix des services
     pré-sélectionnés en interrogeant le fournisseur pour vérifier
     certaines critères non fonctionnels.
-
+    \newpage
   \subsection{Matching des services Web}
-  \label{sec:ws-matching} Le processus du matching (ou le matchmaking)
-  repose sur la recherche de similarités entre les paramètres
-  descriptives de ces derniers. Il existe deux catégories de
-  paramètres de description des services web: les paramètres
-  fonctionnels et les paramètres non-fonctionnels que nous décrivons
-  tout de suite.
+  \label{sec:ws-matching}
+  % TODO
+  {\color{red}
+    \begin{itemize}
+    \item Défnir le processus de matching, alignement et mapping.
+    \item clarifier la liaison entre le matching sémantique et la
+      découverte automatique des services Web.
+    \item Le matching syntaxique vs matching sémanique
+    \item matching syntaxique
+    \item matching sémanique
+    \end{itemize}
+  }
 
-  Paramètres de description des services web
+  % Dans le contexte de la découverte des services Web. Le processus du
+  % matching (ou le \textit{matchmaking}) repose sur la recherche de
+  % similarités entre les paramètres descriptives fonctionnels et les
+  % paramètres non-fonctionnels des services. \ref{sec:ws-description}.
 
-  \begin{description}
-  \item [Le coût]: C’est une propriété non-fonctionnelle qui est
-    pertinente pour le client qui veut utiliser le service.
+  Dans le contexte d'une architecture à services, le \textit{Matching}
+  (ou le \textit{Matchmaking}) est définie comme un processus qui
+  nécessite un annuaire des services de prendre une requête en entrée,
+  et de revenir tous les services qui peuvent satisfaire les exigences
+  spécifiées dans la requête
+  d'entrée \cite{li2004software}. Formellement, Le processus de
+  \textit{Matchmacking} peut se spécifié comme de suit:
 
-  \item [La sécurité]: La sécurité est une propriété
-    non-fonctionnelle qui est pertinente à la plupart des services
-    web. Elle applique des aspects tels que la communication et le
-    cryptage des données.
+  \begin{mydef}[Matching]
+    c'est le processus de découverte des liaisons et des
+    correspondances entre les entités de différentes représentations à
+    travers un algorithme de matching.
+  \end{mydef}
 
-  \item [La qualité]: La propriété qualité des services est un
-    ensemble de propriétés différentes qui affecte tous les aspects
-    spécifiques du service, son utilisation et sa production tel que
-    le temps de réponse d'un appel à une opération, la capacité du
-    service...etc
-  \end{description}
+  % Dans le contexte de la découverte des services Web. Le processus du
+  % matching (ou le \textit{matchmaking}) repose sur la recherche de
+  % similarités entre les paramètres descriptives fonctionnels et les
+  % paramètres non-fonctionnels des services. \ref{sec:ws-description}.
+
+
+
+  \subsubsection{Matching syntaxique}
+  \label{sec:matching-syntactique}
+
+  \subsubsection{Matching sémanique}
+  \label{sec:matching-semanique}
+
+  {\color{red}
+    \begin{itemize}
+    \item Définit la notion de macthing sémanique.
+    \item les approches basées sur \textsc{WSMO}
+      \cite{paolucci2002semantic, keller2004wsmo}
+    \item les approches basées sur \textsc{OWL-S}
+      \cite{paolucci2002semantic,benatallah2003request,
+        benatallah2005automating, martin2004owl}
+    \end{itemize}
+  }
+
+  Les approches de calcul de similarités sémantique reposent sur des
+  modèles de description sémantique. Par la suite nous résumons
+  les deux approches majeures, basées respectivement sur le modèle
+  \textsc{OWL-S} et sur le modèle \textsc{WSMO} \cite{elie2010}.
+
+
+  % \begin{mydef}[Matching]
+  %   c'est le processus de découverte des liaisons et des
+  %   correspondances entre les entités de différentes représentations à
+  %   travers un algorithme de matching.
+  % \end{mydef}
+  % (\cite{lecue2006formal}, \cite{paolucci2002semantic},
+  % \cite{li2004software})\\
+
+  % Le matching, l'alignement, le mapping...ect. Sont tous des termes
+  % utilisées pour référencer le concept de recherche de
+  % similarité. Voici quelques définitions de ces termes utilisés.
+
+  % Matchmaking is defined as a process that requires a repository host
+  % to take a query or an advertisement as input, and to return all the
+  % advertisements that may satisfy the requirements specified in the
+  % input query or advertisement.
+
+  % Dans le contexte d'une architecture à services, le
+  % \textit{Matchmaking} (ou le \textit{Matching}) est définie comme un
+  % processus qui nécessite un annuaire des services de prendre une
+  % requête en entrée, et de revenir tous les services qui peuvent
+  % satisfaire les exigences spécifiées dans la requête d'entrée
+  % \cite{li2004software}. Formellement, Le processus de
+  % \textit{Matchmacking} peut se spécifié comme de suit:
+
+  % Soit $\Phi$ est l'ensemble de toutes les services référencés dans un
+  % annuaire des services donné. Pour une requête \verb|R|.
+
+  % \begin{mydef}[Alignement]
+  %   on parle souvent de l'alignement des ontologies. C'est un ensemble
+  %   de correspondances entre deux ou plusieurs
+  %   ontologies. L'alignement est la sortie d’un processus de matching
+  % \end{mydef}
+
+  % \begin{mydef}[Mapping]
+  %   chercher des correspondances pour établir des transformations
+  %   entre deux objets de même nature mais pas de même forme. Par
+  %   conséquent, le mapping utilise les résultats du matching pour
+  %   effectuer les transformations des objets.
+  % \end{mydef}
+
+  % Comme on le voit, tous ces termes prennent bien en compte la notion
+  % de recherche de correspondance entre des concepts, dans certains
+  % contextes ils sont utilisés indifféremment.  Pour les services web,
+  % on parlera du matchnig ou matchmaking pour exprimer la mise en
+  % correspondance entre deux entités, et du mapping pour exprimer la
+  % transformation ou conversion des types de données.
+
+  % Nous distinguons deux techniques de matching : matching syntaxique
+  % et matching sémantique . Ils diffèrent dans la façon dont sont
+  % calculés les éléments correspondants et sur le type de relation de
+  % similitude \verb|M| utilisée:
+
+  %   \subsubsection{Matching syntaxique}
+  %   \label{sec:matching-syntactique}
+  %   Utilisé pour l'extraction automatique de motifs textuels écrits en
+  %   langage naturel en utilisant la méthode d'étiquetage, différentes
+  %   techniques sont utilisées :
+  %   \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
+  %   \begin{description}
+  %   \item [Techniques basées string (à mots)]: s méthodes prennent
+  %     l’avantage de la structure des mots qui est considérée comme
+  %     étant une séquence de lettres. Elles devraient, par exemple,
+  %     reconnaitre une similarité entre Book et textBook. Certaines
+  %     fonctions de calcul de distance convertissent une paire de
+  %     chaine de caractères en un nombre réel. Si le nombre est petit
+  %     (par rapport à un seuil) cela indique une grande similarité
+  %     entre ces deux chaines de caractères (ex : distance de Hamming).
+
+  %   \item [Techniques basées langage]: Ces méthodes considère les noms
+  %     ou bien un terme comme une séquence de mots dans un langage
+  %     naturel (peer-review, reviewed-paper).  Ces méthodes utilisent
+  %     les techniques de traitement du langage naturel pour reconnaitre
+  %     les similarités entre les mots d’un terme par exemple : les
+  %     techniques de tokenization (segmentation), lemmatisation...etc.
+  %     Techniques utilisant des ressources linguistiques: comme les
+  %     thesaurus sont utilisées pour faire correspondre des mots en se
+  %     basant sur les relations linguistiques entre eux (synonymes,
+  %     hyponyme). Par exemple dans le cas du matching entre les
+  %     services web on fait correspondre les noms d’opérations et les
+  %     noms des paramètres qui sont considérés comme des mots de
+  %     langage naturel.
+  %   \end{description}
+
+  %   \subsubsection{Matching sémanique}
+  %   \label{sec:matching-semanique}
+  %   Consiste à chercher des correspondances sémantiques à partir des
+  %   concepts, et non pas des étiquettes. Il ne suffit pas d'examiner
+  %   la syntaxe des mots, mais leurs significations ou leurs
+  %   interprétations dans le domaine d’application. Les ontologies de
+  %   domaine et les techniques basées modèle sont utilisées dans ce
+  %   type de matching.
+
+  %   \begin{description}
+  %   \item [Ontologie de domaine spécifique]: spécifique peut être
+  %     utilisée comme source externe. Elles se focalisent sur un
+  %     domaine particulier et utilisent des termes qui sont propres à
+  %     ce domaine et qui ne sont pas liés aux concepts similaires dans
+  %     d’autres domaines. Par exemple dans le domaine de transport, on
+  %     trouve : bus, avion, taxi...etc. On peut trouver des termes qui
+  %     sont syntaxiquement identiques mais possédant des
+  %     interprétations différentes dans des domaines différents.
+
+  %   \item [Techniques basées modèle]: Appelées aussi les méthodes de
+  %     déduction, les algorithmes manipulent les entrées basées sur
+  %     leurs interprétations sémantiques. Si deux entités sont
+  %     similaires alors ils partagent les mêmes interprétations. Parmi
+  %     ces méthodes on trouve les techniques de satisfiabilité
+  %     propositionnelle [Giu, 2003A] Dans le cas du matching des
+  %     services web, ces derniers sont décrits à l’aide de supports
+  %   \end{description}
+
+  %   Dans le cas du matching des services web, ces derniers sont décrits
+  %   à l'aide de supports de description sémantique (OWL-S par
+  %   exemple). Ces descriptions contiennent des informations clés pour
+  %   leur mise en correspondance (les paramètres fonctionnels et non
+  %   fonctionnels).
+
 \newpage
 \section{Conclusion}
 % faire un petit récapitulatif sur les technologies des services web
