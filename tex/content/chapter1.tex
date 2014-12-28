@@ -618,43 +618,20 @@ approches de découverte \cite{elie2010}:
 
 \section{Matching des services Web}
 \label{sec:ws-matching}
-  % TODO
-{\color{red}
-  \begin{itemize}
-  \item Défnir le processus de matching, alignement et mapping.
-  \item clarifier la liaison entre le matching sémantique et la
-    découverte automatique des services Web.
-  \item Le matching syntaxique vs matching sémanique
-  \item matching syntaxique
-  \item matching sémanique
-  \end{itemize}
-}
 
-% Dans le contexte de la découverte des services Web. Le processus du
-% matching (ou le \textit{matchmaking}) repose sur la recherche de
-% similarités entre les paramètres descriptives fonctionnels et les
-% paramètres non-fonctionnels des services. \ref{sec:ws-description}.
-
-Dans le contexte d'une architecture à services, le \textit{Matching}
+Dans le contexte d'une découverte de services, le \textit{Matching}
 (ou le \textit{Matchmaking}) est définie comme un processus qui
 nécessite un annuaire des services de prendre une requête en entrée,
 et de revenir tous les services qui peuvent satisfaire les exigences
-spécifiées dans la requête d'entrée
-\cite{li2004software}. Formellement, Le processus de
-\textit{Matchmacking} peut se spécifié comme de suit:
+spécifiées dans la requête d'entrée \cite{li2004software}. Cette
+opération nécessite la recherche de similarités indiquant le degré de
+rapprochement entre les paramètres descriptives fonctionnels et
+non-fonctionnels (~\ref{sec:func-vs-non-func}) des services référencés
+d'une côté, et les paramètres de la requête client d'une autre.
 
-\begin{mydef}[Matching]
-  c'est le processus de découverte des liaisons et des correspondances
-  entre les entités de différentes représentations à travers un
-  algorithme de matching.
-\end{mydef}
-
-% Dans le contexte de la découverte des services Web. Le processus du
-% matching (ou le \textit{matchmaking}) repose sur la recherche de
-% similarités entre les paramètres descriptives fonctionnels et les
-% paramètres non-fonctionnels des services. \ref{sec:ws-description}.
-
-
+Le calcul de similarit é peut être basé sur des données syntaxiques ou
+sémantiques plus expressives \cite{elie2010}. Dans la suite nous
+résumons les approches décrites dans la littérature.
 
   \subsection{Matching syntaxique}
   \label{sec:matching-syntactique}
