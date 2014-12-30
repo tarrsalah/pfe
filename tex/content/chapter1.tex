@@ -360,18 +360,6 @@ services.
 La notion du Web sémantique est abordée brièvement dans l'annexe
 \ref{annexe:semantic-web}.
 
-  % TODO: elaborate
-\subsection{L'aspect fonctionnel et non fonctionel de description}
-  \label{sec:func-vs-non-func}
-
-  Il existe deux aspects de description des services Web:
-
-    \subsubsection{L'aspect fonctionnel}
-    \label{sec:aspect-fonctionnel}
-
-    \subsubsection{L'aspect non fonctionnel}
-    \label{sec:aspect-non-fonctionel}
-
   \subsection{Annotations sémantiques}
   \label{sec:semantic-annot}
 
@@ -462,6 +450,23 @@ La notion du Web sémantique est abordée brièvement dans l'annexe
 
     \subsubsection{OWL-S}
     \label{sec:owl-s-1}
+
+  % TODO: elaborate
+  \subsection{L'aspect fonctionnel et non fonctionel de description}
+  \label{sec:func-vs-non-func}
+  % TODO
+  {\color{red}
+    \cite{el2014cbr4wsd}
+  }
+
+  Il existe deux aspects de description des services Web:
+
+    \subsubsection{L'aspect fonctionnel}
+    \label{sec:aspect-fonctionnel}
+
+    \subsubsection{L'aspect non fonctionnel}
+    \label{sec:aspect-non-fonctionel}
+
 \newpage
 \section{Découverte des services web}
 \label{sec:ws-discovery}
@@ -487,9 +492,22 @@ approches de découverte \cite{elie2010}:
 \item le localisation des services (centralisation/décentralisation
   des annuaires).
 \item Le degré d'automatisation du processus de la découverte.
-\item le principe de l'algorithme de matching.
+\item le principe de l'algorithme de matching \ref{sec:ws-matching}.
 \end{itemize}
-\newpage
+
+
+{\color{red} %TODO: decouple from \cite{elie2010}
+  Dans cette section nous présentons les différentes approches de
+  localisation de services basées sur des modèles centralisés ou des
+  modèles distribués. Ensuite nous classifions les approches de
+  découverte selon le degré d'automatisation du traitement des
+  données. \cite{elie2010}
+}
+
+Le dernier critère de classification sera présenté dans la prochaine
+section \ref{sec:ws-matching}.
+
+% \newpage
 \subsection{Localisation des services}
 \label{sec:ws-localisation}
 
@@ -614,11 +632,9 @@ approches de découverte \cite{elie2010}:
     utilisateur. L'aspect dynamique raffine le choix des services
     pré-sélectionnés en interrogeant le fournisseur pour vérifier
     certaines critères non fonctionnels.
-    \newpage
 
 \section{Matching des services Web}
 \label{sec:ws-matching}
-
 Dans le contexte d'une découverte de services, le \textit{Matching}
 (ou le \textit{Matchmaking}) est définie comme un processus qui
 nécessite un annuaire des services de prendre une requête en entrée,
@@ -636,26 +652,56 @@ Web rencontrées dans la littérature.
 
   \subsection{Matching syntaxique}
   \label{sec:matching-syntactique}
+  {\color{red} Le principe général des approches basées sur la syntaxe
+    des descriptions des services est la comparaison syntaxique entre
+    la requête, basée mots clés du client et les descriptions
+    syntaxiques (\textsc{WSDL}) des services Web
+    référencés. \cite{chelbabi2012decouverte} 
+    
+    référence ver \ref{sec:syntactic-sim}
+  }  
 
-  \subsection{Matching sémanique}
-  \label{sec:matching-semanique}
 
-  {\color{red}
-    \begin{itemize}
-    \item Définit la notion de macthing sémanique.
-    \item les approches basées sur \textsc{WSMO}
-      \cite{paolucci2002semantic, keller2004wsmo}
-    \item les approches basées sur \textsc{OWL-S}
-      \cite{paolucci2002semantic,benatallah2003request,
-        benatallah2005automating, martin2004owl}
-    \end{itemize}
+  {\color{red} 
+    Pour pallier cette déficience, les capacités d’extensions du
+    modèle de données UDDI sont utilisées pour mettre au point une
+    correspondance (ou « mapping ») entre les déclarations.
   }
 
-  Les approches de calcul de similarités sémantique reposent sur des
-  modèles de description sémantique. Par la suite nous résumons
-  les deux approches majeures, basées respectivement sur le modèle
-  \textsc{OWL-S} et sur le modèle \textsc{WSMO} \cite{elie2010}.
+  \subsection{Matching sémanique}
+  \label{sec:matching-semanique}  
+  {\color{red} De récents travaux se sont focalisés sur la description
+    sémantique des services Web. Ce développement est de plus en plus
+    significatif puisqu'il semble pouvoir aborder certaines
+    insuffisances des approches basées sur les mots clés. Les
+    ontologies sont le modèle utilisé pour la représentation
+    sémantique des services Web, elle permet d’établir des relations
+    sémantiques entre les différents concepts d'un
+    domaine. \cite{chelbabi2012decouverte}
 
+    Consiste à chercher des correspondances sémantiques à partir des
+    concepts, et non pas des étiquettes. Il ne suffit pas d'examiner
+    la syntaxe des mots, mais leurs significations ou leurs
+    interprétations dans le domaine d'application. Les ontologies de
+    domaine et les techniques basées modèle sont utilisées dans ce
+    type de matching.
+
+    Les approches de calcul de similarités sémantique reposent sur des
+    modèles de description sémantique. Par la suite nous résumons
+    les deux approches majeures, basées respectivement sur le modèle
+    \textsc{OWL-S} et sur le modèle \textsc{WSMO} \cite{elie2010}.
+
+    référence ver \ref{sec:semantic-sim}
+  }  
+
+    \subsubsection{Matching sémantique basé sur WSMO}
+    \label{sec:match-wsmo}
+    \cite{paolucci2002semantic, keller2004wsmo}
+
+    \subsubsection{Matching sémantique basé sur OWL-S}
+    \label{sec:match-owls}    
+    \cite{paolucci2002semantic,benatallah2003request,
+        benatallah2005automating, martin2004owl}
 
   % \begin{mydef}[Matching]
   %   c'est le processus de découverte des liaisons et des
