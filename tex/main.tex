@@ -53,7 +53,7 @@
 \author{TAOURIRIT Salah Eddine}
 \title{composition des services web}
 
-\date{\today\\version 0.2.5}
+\date{\today\\version 0.2.6}
 \begin{document}
 
 %description style
@@ -81,19 +81,25 @@
 \listoftables
 
 \pagenumbering{arabic}
-\input{content/introduction}
+\input{chapters/introduction}
+
 \part{Étude bibliographique}
-\input{content/chapter1}
-\input{content/chapter2}
-\input{content/chapter3}
+\input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
 
 \part{L'approche proposée}
-\input{content/chapter4}
-\input{content/chapter5}
+\input{chapters/chapter4}
+\input{chapters/chapter5}
+
 \bibliographystyle{unsrt-fr}
 \bibliography{references}
-\addcontentsline{toc}{section}{bibliographie}
-\input{appendices.tex}
+\addcontentsline{toc}{chapter}{bibliographie}
+
+\begin{appendices}
+\input{appendices/A.tex}
+\input{appendices/B.tex}
+\end{appendices}
 \end{document}
 
 %%% Local Variables: 
