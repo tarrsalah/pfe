@@ -510,7 +510,6 @@ section \ref{sec:ws-matching}.
 % \newpage
 \subsection{Localisation des services}
 \label{sec:ws-localisation}
-
   La découverte consiste principalement à localiser les descriptions
   de services répondant à une requête client. Les approches de
   localisation des services récurrentes dans la littérature sont
@@ -520,7 +519,6 @@ section \ref{sec:ws-matching}.
 
     \subsubsection{Approches centralisées}
     \label{sec:central-disc}
-
     Les premières versions d'\textsc{UDDI} \cite{clement2004uddi}
     (présenté dans \ref{sec:uddi}) reposent sur une approche
     \textit{centralisée} de publication et découverte de services
@@ -542,7 +540,6 @@ section \ref{sec:ws-matching}.
 
     \subsubsection{Approcehs décentralisées}
     \label{sec:decentr-disc}
-
     Les approches décentralisées de découverte des services consistent
     à mettre en place une \textit{fédération} d'annuaires
     \textsc{UDDI} agissant comme une couche d'abstraction reliant
@@ -568,7 +565,6 @@ section \ref{sec:ws-matching}.
 
   \subsection{Découverte manuelle/automatique}
   \label{sec:ws-desc:manual-vs-auto}
-
   Selon le richesse sémantique de la description des services, le
   degré d'intervention de l'utilisateur dans la découverte
   variée. Nous pouvons distinguer les approches manuelles et
@@ -577,7 +573,6 @@ section \ref{sec:ws-matching}.
 
     \subsubsection{Approches manuelles et semi-automatiques}
     \label{ws-desc:manual}
-
     Dans une découverte manuelle, le client utilise un service de
     découverte pour localiser et sélectionner manuellement une
     description de service qui répond aux certains critères
@@ -598,7 +593,6 @@ section \ref{sec:ws-matching}.
 
     \subsubsection{Approches automatiques}
     \label{ws-desc:auto}
-
     La découverte automatique de services qui répond à un besoin donné
     est considéré comme une étape cruciale vers l'intégration
     dynamique et évolutive des services Web. On entend par découverte
@@ -647,34 +641,71 @@ d'une côté, et les paramètres de la requête client d'une autre.
 
 Le calcul de similarité peut être basé sur des données syntaxiques ou
 sémantiques plus expressives \cite{elie2010}. Dans la suite nous
-résumons les approches récurrentes du \textit{Matching} des services
-Web rencontrées dans la littérature.
+résumons les approches de \textit{Matching} des services Web
+rencontrées dans la littérature.
 
   \subsection{Matching syntaxique}
   \label{sec:matching-syntactique}
-  {\color{red} Le principe général des approches basées sur la syntaxe
-    des descriptions des services est la comparaison syntaxique entre
-    la requête, basée mots clés du client et les descriptions
-    syntaxiques (\textsc{WSDL}) des services Web
-    référencés. \cite{chelbabi2012decouverte} 
-    
-    référence ver \ref{sec:syntactic-sim}
-  }  
+  Ce approches sont basées sur la description syntaxique des services
+  (\textsc{WSDL}) et la comparaison syntaxique entre la requête client
+  et les descriptions des services Web référencés dans un annuaire
+  (\textsc{UDDI)}.
 
+  % L'origine de cette approche est issue du domaine de recherche
+  % d'information, les modèles mathématiques du calcule de similarité
+  % syntaxique sont présentées brièvement dans l'annexe
+  % \ref{sec:syntactic-sim}.
 
-  {\color{red} 
-    Pour pallier cette déficience, les capacités d’extensions du
-    modèle de données UDDI sont utilisées pour mettre au point une
-    correspondance (ou « mapping ») entre les déclarations.
-  }
+  La recherche dans l'annuaire \textsc{UDDI} \cite{clement2004uddi}
+  est l'exemple type d'une découverte syntaxique, le client envoie une
+  requête constituée de mots clés, cette requête est ensuite comparée
+  avec les mots clés du registre \textsc{UDDI}. Un ensemble de
+  descriptions des services Web sous forme des documents \textsc{WSDL}
+  (ou un ensemble des \textsc{URL} de ces derniers) est ensuite donné
+  comme résultat de recherche, le client sélectionne le service Web
+  qui répond au mieux à ses exigences.
+
+  % TODO: write
+  {\color{blue} Autre méthode que UDDI.
+
+    [Liang et al, 2004] emploie le thesaurus wordnet [Fellbaum, 1998]
+    pour enrichir les mots clés de la requête avec des synonymes. Ceci
+    permet l‘augmentation du rappel et l‘extension des
+    résultats. \cite{DBLP:journals/jwsr/LiangCSCL04}
+
+    Pour rendre la découverte de services Web basée mots clés plus
+    efficace, une technique issue du domaine de IR a été adoptée
+    [37]. Elle consiste à représenter les descriptions des services
+    Web sous forme de vec- teurs, tel que chaque vecteur contient un
+    ensemble de mots issus des termes utilisés dans toutes les
+    description des Services Web. Les vecteurs de description sont
+    ensuite organisés sous forme de matrice (terme × description). La
+    deuxième étape consiste à appliquer, sur cette matrice, la
+    technique LSI (Latent Semantic Indexing)1 . Cette méthode permet
+    de renvoyer toute description de service Web qui a une relation
+    sé- mantique avec la requête de
+    recherche.\cite{sajjanhar2004algorithm} d'origine de
+    \cite{chelbabi2012decouverte}}
+
+  Malgré sa simplicité et sa facilité d'implémentation, les approches
+  syntaxiques présentent plusieurs limitations:
+
+  % TODO: enhance
+  \begin{itemize}
+  \item un faible taux de rappel et de précision à cause de
+    l'ambigüité du langage naturel.
+  \item La nécessité de l'intervention humaine
+  \end{itemize}
+  % TODO: introduire le matching sémanique.
 
   \subsection{Matching sémanique}
-  \label{sec:matching-semanique}  
-  {\color{red} De récents travaux se sont focalisés sur la description
-    sémantique des services Web. Ce développement est de plus en plus
-    significatif puisqu'il semble pouvoir aborder certaines
-    insuffisances des approches basées sur les mots clés. Les
-    ontologies sont le modèle utilisé pour la représentation
+  \label{sec:matching-semanique}
+
+  {\color{blue} De récents travaux se sont focalisés sur la
+    description sémantique des services Web. Ce développement est de
+    plus en plus significatif puisqu'il semble pouvoir aborder
+    certaines insuffisances des approches basées sur les mots
+    clés. Les ontologies sont le modèle utilisé pour la représentation
     sémantique des services Web, elle permet d’établir des relations
     sémantiques entre les différents concepts d'un
     domaine. \cite{chelbabi2012decouverte}
@@ -692,14 +723,31 @@ Web rencontrées dans la littérature.
     \textsc{OWL-S} et sur le modèle \textsc{WSMO} \cite{elie2010}.
 
     référence ver \ref{sec:semantic-sim}
-  }  
+  }
+
+  {\color{red} In the semantics based approach, the service provider
+    should create also se- mantic annotations of the services and
+    provide them in the registry. The semantic description relates to
+    the abstract definition of services including the I/O types.
+    These attributes do not vary based on the place where the service
+    is deployed. This means that the same description suits all the
+    deployments of the same implementa- tion. Moreover, if we
+    implement the same functionality in different programming
+    languages, we can use the same semantic description in each
+    case. Hence, reusabil- ity of the semantic descriptions is
+    well-advised. The available semantics is then used to enhance a
+    search considering only pure syntactic descriptions with seman-
+    tics based search, to get more appropriate results. The semantics
+    is beneficial also to define the requestor’s intend. It allows
+    more expressive definition of the user
+    goal. \cite{bartalos2011effective} }
 
     \subsubsection{Matching sémantique basé sur WSMO}
     \label{sec:match-wsmo}
     \cite{paolucci2002semantic, keller2004wsmo}
 
     \subsubsection{Matching sémantique basé sur OWL-S}
-    \label{sec:match-owls}    
+    \label{sec:match-owls}
     \cite{paolucci2002semantic,benatallah2003request,
         benatallah2005automating, martin2004owl}
 
