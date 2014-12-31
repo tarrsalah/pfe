@@ -11,6 +11,99 @@ d'explorer les différentes méthodes de recherche de similarité
 utilisées dans le domaine de la recherche d’information, en
 particulier.
 
+  % Soit $\Phi$ est l'ensemble de toutes les services référencés dans un
+  % annuaire des services donné. Pour une requête \verb|R|.
+
+  % \begin{mydef}[Alignement]
+  %   on parle souvent de l'alignement des ontologies. C'est un ensemble
+  %   de correspondances entre deux ou plusieurs
+  %   ontologies. L'alignement est la sortie d’un processus de matching
+  % \end{mydef}
+
+  % \begin{mydef}[Mapping]
+  %   chercher des correspondances pour établir des transformations
+  %   entre deux objets de même nature mais pas de même forme. Par
+  %   conséquent, le mapping utilise les résultats du matching pour
+  %   effectuer les transformations des objets.
+  % \end{mydef}
+
+  % Comme on le voit, tous ces termes prennent bien en compte la notion
+  % de recherche de correspondance entre des concepts, dans certains
+  % contextes ils sont utilisés indifféremment.  Pour les services web,
+  % on parlera du matchnig ou matchmaking pour exprimer la mise en
+  % correspondance entre deux entités, et du mapping pour exprimer la
+  % transformation ou conversion des types de données.
+
+  % Nous distinguons deux techniques de matching : matching syntaxique
+  % et matching sémantique . Ils diffèrent dans la façon dont sont
+  % calculés les éléments correspondants et sur le type de relation de
+  % similitude \verb|M| utilisée:
+
+  %   \subsubsection{Matching syntaxique}
+  %   \label{sec:matching-syntactique}
+  %   Utilisé pour l'extraction automatique de motifs textuels écrits en
+  %   langage naturel en utilisant la méthode d'étiquetage, différentes
+  %   techniques sont utilisées :
+  %   \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
+  %   \begin{description}
+  %   \item [Techniques basées string (à mots)]: s méthodes prennent
+  %     l’avantage de la structure des mots qui est considérée comme
+  %     étant une séquence de lettres. Elles devraient, par exemple,
+  %     reconnaitre une similarité entre Book et textBook. Certaines
+  %     fonctions de calcul de distance convertissent une paire de
+  %     chaine de caractères en un nombre réel. Si le nombre est petit
+  %     (par rapport à un seuil) cela indique une grande similarité
+  %     entre ces deux chaines de caractères (ex : distance de Hamming).
+
+  %   \item [Techniques basées langage]: Ces méthodes considère les noms
+  %     ou bien un terme comme une séquence de mots dans un langage
+  %     naturel (peer-review, reviewed-paper).  Ces méthodes utilisent
+  %     les techniques de traitement du langage naturel pour reconnaitre
+  %     les similarités entre les mots d’un terme par exemple : les
+  %     techniques de tokenization (segmentation), lemmatisation...etc.
+  %     Techniques utilisant des ressources linguistiques: comme les
+  %     thesaurus sont utilisées pour faire correspondre des mots en se
+  %     basant sur les relations linguistiques entre eux (synonymes,
+  %     hyponyme). Par exemple dans le cas du matching entre les
+  %     services web on fait correspondre les noms d’opérations et les
+  %     noms des paramètres qui sont considérés comme des mots de
+  %     langage naturel.
+  %   \end{description}
+
+  %   \subsubsection{Matching sémanique}
+  %   \label{sec:matching-semanique}
+  %   Consiste à chercher des correspondances sémantiques à partir des
+  %   concepts, et non pas des étiquettes. Il ne suffit pas d'examiner
+  %   la syntaxe des mots, mais leurs significations ou leurs
+  %   interprétations dans le domaine d’application. Les ontologies de
+  %   domaine et les techniques basées modèle sont utilisées dans ce
+  %   type de matching.
+
+  %   \begin{description}
+  %   \item [Ontologie de domaine spécifique]: spécifique peut être
+  %     utilisée comme source externe. Elles se focalisent sur un
+  %     domaine particulier et utilisent des termes qui sont propres à
+  %     ce domaine et qui ne sont pas liés aux concepts similaires dans
+  %     d’autres domaines. Par exemple dans le domaine de transport, on
+  %     trouve : bus, avion, taxi...etc. On peut trouver des termes qui
+  %     sont syntaxiquement identiques mais possédant des
+  %     interprétations différentes dans des domaines différents.
+
+  %   \item [Techniques basées modèle]: Appelées aussi les méthodes de
+  %     déduction, les algorithmes manipulent les entrées basées sur
+  %     leurs interprétations sémantiques. Si deux entités sont
+  %     similaires alors ils partagent les mêmes interprétations. Parmi
+  %     ces méthodes on trouve les techniques de satisfiabilité
+  %     propositionnelle [Giu, 2003A] Dans le cas du matching des
+  %     services web, ces derniers sont décrits à l’aide de supports
+  %   \end{description}
+
+  %   Dans le cas du matching des services web, ces derniers sont décrits
+  %   à l'aide de supports de description sémantique (OWL-S par
+  %   exemple). Ces descriptions contiennent des informations clés pour
+  %   leur mise en correspondance (les paramètres fonctionnels et non
+  %   fonctionnels).
+
 \begin{mydef}[Similarité entre concepts]
   Une similarité $\sigma$: C $\times$ C $\rightarrow$ [0,1] est une
   fonction de couples de concepts vers un nombre compris entre 0 et 1

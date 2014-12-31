@@ -700,47 +700,25 @@ rencontrées dans la littérature.
 
   \subsection{Matching sémanique}
   \label{sec:matching-semanique}
+  De récents travaux se sont focalisés sur la description sémantique
+  des services Web dans le but d'adresser les insuffisances des
+  approches purement syntaxiques (voir \ref{sec:ws-description}). Les
+  ontologies sont les modèles les plus utilisés pour la représentation
+  sémantique des services Web. Dans ce type de découverte, le
+  prestataire de service doit fournir des annotations sémantiques pour
+  ses services publiés. La description sémantique se rapporte à la
+  définition abstraite des services comprenant les types
+  d'\textit{entrées/sorties}.
 
-  {\color{blue} De récents travaux se sont focalisés sur la
-    description sémantique des services Web. Ce développement est de
-    plus en plus significatif puisqu'il semble pouvoir aborder
-    certaines insuffisances des approches basées sur les mots
-    clés. Les ontologies sont le modèle utilisé pour la représentation
-    sémantique des services Web, elle permet d’établir des relations
-    sémantiques entre les différents concepts d'un
-    domaine. \cite{chelbabi2012decouverte}
+  Un \textsc{Matching} sémantique consiste à identifier un certain
+  degré de similitude entre les différents concepts sémantiques qui
+  décrivent le service requis (la requête) et celles des services
+  publiés.
 
-    Consiste à chercher des correspondances sémantiques à partir des
-    concepts, et non pas des étiquettes. Il ne suffit pas d'examiner
-    la syntaxe des mots, mais leurs significations ou leurs
-    interprétations dans le domaine d'application. Les ontologies de
-    domaine et les techniques basées modèle sont utilisées dans ce
-    type de matching.
-
-    Les approches de calcul de similarités sémantique reposent sur des
-    modèles de description sémantique. Par la suite nous résumons
-    les deux approches majeures, basées respectivement sur le modèle
-    \textsc{OWL-S} et sur le modèle \textsc{WSMO} \cite{elie2010}.
-
-    référence ver \ref{sec:semantic-sim}
-  }
-
-  {\color{red} In the semantics based approach, the service provider
-    should create also se- mantic annotations of the services and
-    provide them in the registry. The semantic description relates to
-    the abstract definition of services including the I/O types.
-    These attributes do not vary based on the place where the service
-    is deployed. This means that the same description suits all the
-    deployments of the same implementa- tion. Moreover, if we
-    implement the same functionality in different programming
-    languages, we can use the same semantic description in each
-    case. Hence, reusabil- ity of the semantic descriptions is
-    well-advised. The available semantics is then used to enhance a
-    search considering only pure syntactic descriptions with seman-
-    tics based search, to get more appropriate results. The semantics
-    is beneficial also to define the requestor’s intend. It allows
-    more expressive definition of the user
-    goal. \cite{bartalos2011effective} }
+  Les approches de calcul de similarités sémantique reposent sur des
+  modèles de description sémantique. Par la suite nous résumons deux
+  approches majeures, basées respectivement sur le modèle
+  \textsc{OWL-S} et sur le modèle \textsc{WSMO}.
 
     \subsubsection{Matching sémantique basé sur WSMO}
     \label{sec:match-wsmo}
@@ -750,124 +728,6 @@ rencontrées dans la littérature.
     \label{sec:match-owls}
     \cite{paolucci2002semantic,benatallah2003request,
         benatallah2005automating, martin2004owl}
-
-  % \begin{mydef}[Matching]
-  %   c'est le processus de découverte des liaisons et des
-  %   correspondances entre les entités de différentes représentations à
-  %   travers un algorithme de matching.
-  % \end{mydef}
-  % (\cite{lecue2006formal}, \cite{paolucci2002semantic},
-  % \cite{li2004software})\\
-
-  % Le matching, l'alignement, le mapping...ect. Sont tous des termes
-  % utilisées pour référencer le concept de recherche de
-  % similarité. Voici quelques définitions de ces termes utilisés.
-
-  % Matchmaking is defined as a process that requires a repository host
-  % to take a query or an advertisement as input, and to return all the
-  % advertisements that may satisfy the requirements specified in the
-  % input query or advertisement.
-
-  % Dans le contexte d'une architecture à services, le
-  % \textit{Matchmaking} (ou le \textit{Matching}) est définie comme un
-  % processus qui nécessite un annuaire des services de prendre une
-  % requête en entrée, et de revenir tous les services qui peuvent
-  % satisfaire les exigences spécifiées dans la requête d'entrée
-  % \cite{li2004software}. Formellement, Le processus de
-  % \textit{Matchmacking} peut se spécifié comme de suit:
-
-  % Soit $\Phi$ est l'ensemble de toutes les services référencés dans un
-  % annuaire des services donné. Pour une requête \verb|R|.
-
-  % \begin{mydef}[Alignement]
-  %   on parle souvent de l'alignement des ontologies. C'est un ensemble
-  %   de correspondances entre deux ou plusieurs
-  %   ontologies. L'alignement est la sortie d’un processus de matching
-  % \end{mydef}
-
-  % \begin{mydef}[Mapping]
-  %   chercher des correspondances pour établir des transformations
-  %   entre deux objets de même nature mais pas de même forme. Par
-  %   conséquent, le mapping utilise les résultats du matching pour
-  %   effectuer les transformations des objets.
-  % \end{mydef}
-
-  % Comme on le voit, tous ces termes prennent bien en compte la notion
-  % de recherche de correspondance entre des concepts, dans certains
-  % contextes ils sont utilisés indifféremment.  Pour les services web,
-  % on parlera du matchnig ou matchmaking pour exprimer la mise en
-  % correspondance entre deux entités, et du mapping pour exprimer la
-  % transformation ou conversion des types de données.
-
-  % Nous distinguons deux techniques de matching : matching syntaxique
-  % et matching sémantique . Ils diffèrent dans la façon dont sont
-  % calculés les éléments correspondants et sur le type de relation de
-  % similitude \verb|M| utilisée:
-
-  %   \subsubsection{Matching syntaxique}
-  %   \label{sec:matching-syntactique}
-  %   Utilisé pour l'extraction automatique de motifs textuels écrits en
-  %   langage naturel en utilisant la méthode d'étiquetage, différentes
-  %   techniques sont utilisées :
-  %   \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
-  %   \begin{description}
-  %   \item [Techniques basées string (à mots)]: s méthodes prennent
-  %     l’avantage de la structure des mots qui est considérée comme
-  %     étant une séquence de lettres. Elles devraient, par exemple,
-  %     reconnaitre une similarité entre Book et textBook. Certaines
-  %     fonctions de calcul de distance convertissent une paire de
-  %     chaine de caractères en un nombre réel. Si le nombre est petit
-  %     (par rapport à un seuil) cela indique une grande similarité
-  %     entre ces deux chaines de caractères (ex : distance de Hamming).
-
-  %   \item [Techniques basées langage]: Ces méthodes considère les noms
-  %     ou bien un terme comme une séquence de mots dans un langage
-  %     naturel (peer-review, reviewed-paper).  Ces méthodes utilisent
-  %     les techniques de traitement du langage naturel pour reconnaitre
-  %     les similarités entre les mots d’un terme par exemple : les
-  %     techniques de tokenization (segmentation), lemmatisation...etc.
-  %     Techniques utilisant des ressources linguistiques: comme les
-  %     thesaurus sont utilisées pour faire correspondre des mots en se
-  %     basant sur les relations linguistiques entre eux (synonymes,
-  %     hyponyme). Par exemple dans le cas du matching entre les
-  %     services web on fait correspondre les noms d’opérations et les
-  %     noms des paramètres qui sont considérés comme des mots de
-  %     langage naturel.
-  %   \end{description}
-
-  %   \subsubsection{Matching sémanique}
-  %   \label{sec:matching-semanique}
-  %   Consiste à chercher des correspondances sémantiques à partir des
-  %   concepts, et non pas des étiquettes. Il ne suffit pas d'examiner
-  %   la syntaxe des mots, mais leurs significations ou leurs
-  %   interprétations dans le domaine d’application. Les ontologies de
-  %   domaine et les techniques basées modèle sont utilisées dans ce
-  %   type de matching.
-
-  %   \begin{description}
-  %   \item [Ontologie de domaine spécifique]: spécifique peut être
-  %     utilisée comme source externe. Elles se focalisent sur un
-  %     domaine particulier et utilisent des termes qui sont propres à
-  %     ce domaine et qui ne sont pas liés aux concepts similaires dans
-  %     d’autres domaines. Par exemple dans le domaine de transport, on
-  %     trouve : bus, avion, taxi...etc. On peut trouver des termes qui
-  %     sont syntaxiquement identiques mais possédant des
-  %     interprétations différentes dans des domaines différents.
-
-  %   \item [Techniques basées modèle]: Appelées aussi les méthodes de
-  %     déduction, les algorithmes manipulent les entrées basées sur
-  %     leurs interprétations sémantiques. Si deux entités sont
-  %     similaires alors ils partagent les mêmes interprétations. Parmi
-  %     ces méthodes on trouve les techniques de satisfiabilité
-  %     propositionnelle [Giu, 2003A] Dans le cas du matching des
-  %     services web, ces derniers sont décrits à l’aide de supports
-  %   \end{description}
-
-  %   Dans le cas du matching des services web, ces derniers sont décrits
-  %   à l'aide de supports de description sémantique (OWL-S par
-  %   exemple). Ces descriptions contiennent des informations clés pour
-  %   leur mise en correspondance (les paramètres fonctionnels et non
-  %   fonctionnels).
 
 \newpage
 \section{Conclusion}
