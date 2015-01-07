@@ -646,15 +646,10 @@ rencontrées dans la littérature.
 
   \subsection{Matching syntaxique}
   \label{sec:matching-syntactique}
-  Ce approches sont basées sur la description syntaxique des services
-  (\textsc{WSDL}) et la comparaison syntaxique entre la requête client
-  et les descriptions des services Web référencés dans un annuaire
-  (\textsc{UDDI)}.
-
-  % L'origine de cette approche est issue du domaine de recherche
-  % d'information, les modèles mathématiques du calcule de similarité
-  % syntaxique sont présentées brièvement dans l'annexe
-  % \ref{sec:syntactic-sim}.
+  Les approches de \textit{Matching} syntaxique sont basées sur la
+  description syntaxique des services (\textsc{WSDL}) et la
+  comparaison syntaxique entre la requête client et les descriptions
+  des services Web référencés dans un annuaire (\textsc{UDDI)}.
 
   La recherche dans l'annuaire \textsc{UDDI} \cite{clement2004uddi}
   est l'exemple type d'une découverte syntaxique, le client envoie une
@@ -665,27 +660,21 @@ rencontrées dans la littérature.
   comme résultat de recherche, le client sélectionne le service Web
   qui répond au mieux à ses exigences.
 
-  % TODO: write
-  {\color{blue} Autre méthode que UDDI.
+  Liang \textit{et al.} \cite{DBLP:journals/jwsr/LiangCSCL04}
+  emploient la base de données lexicale \textit{WordNet}
+  \footnote{\url{http://wordnet.princeton.edu/}}
+  \cite{miller1990introduction} pour enrichir les mots clés de la
+  requête avec des synonymes. Ceci permet d'améliorer la qualité des
+  résultats.
 
-    [Liang et al, 2004] emploie le thesaurus wordnet [Fellbaum, 1998]
-    pour enrichir les mots clés de la requête avec des synonymes. Ceci
-    permet l‘augmentation du rappel et l‘extension des
-    résultats. \cite{DBLP:journals/jwsr/LiangCSCL04}
-
-    Pour rendre la découverte de services Web basée mots clés plus
-    efficace, une technique issue du domaine de IR a été adoptée
-    [37]. Elle consiste à représenter les descriptions des services
-    Web sous forme de vec- teurs, tel que chaque vecteur contient un
-    ensemble de mots issus des termes utilisés dans toutes les
-    description des Services Web. Les vecteurs de description sont
-    ensuite organisés sous forme de matrice (terme × description). La
-    deuxième étape consiste à appliquer, sur cette matrice, la
-    technique LSI (Latent Semantic Indexing)1 . Cette méthode permet
-    de renvoyer toute description de service Web qui a une relation
-    sé- mantique avec la requête de
-    recherche.\cite{sajjanhar2004algorithm} d'origine de
-    \cite{chelbabi2012decouverte}}
+  Sajjanhar \textit{et al.} \cite{sajjanhar2004algorithm} utilisent
+  des méthodes d'algèbre linéaire pour rendre le \textit{Matching} par
+  mots clés plus efficace. leur approche consiste à construire une
+  matrice contenant des informations sur tous les services Web qui ont
+  des mots communs dans leur description. Ensuite, une décomposition
+  en valeurs singulières est appliquée à cette matrice pour obtenir
+  toute description de service Web qui a une relation avec la requête
+  de recherche.
 
   Malgré sa simplicité et sa facilité d'implémentation, les approches
   syntaxiques présentent plusieurs limitations:
@@ -694,7 +683,7 @@ rencontrées dans la littérature.
   \begin{itemize}
   \item un faible taux de rappel et de précision à cause de
     l'ambigüité du langage naturel.
-  \item La nécessité de l'intervention humaine
+  \item La nécessité de l'intervention de l'utilisateur.
   \end{itemize}
   % TODO: introduire le matching sémanique.
 
