@@ -483,14 +483,13 @@ comme étant l'acte de \textit{``localisation d'une description
 
 \input{figs/ws-discovery-with-matching.tex}
 
-% TODO: refactore this paragraph
-L'opération de découverte d'un service web est établie essentiellement
-en deux phases, nous sélectionnons d'abord la ou les catégories de
-services web les plus proches à notre requête, ensuite nous comparons
-chacun de leurs membres avec le besoin spécifié par L'utilisateur.
-
-Plusieurs critères peuvent être utilisés pour catégoriser les
-approches de découverte \cite{elie2010}:
+% TODO
+Un processus de découverte de service web s'effectue en deux étapes
+principales, la première étape consiste à la sélectionner des services
+Web candidats les plus proches à la requête. Ensuite nous comparons
+chacun de leurs membres avec le besoin spécifié par
+L'utilisateur. Plusieurs critères peuvent être utilisés pour
+catégoriser les approches de découverte \cite{elie2010}:
 
 \begin{itemize}
 \item le localisation des services (centralisation/décentralisation
@@ -499,19 +498,14 @@ approches de découverte \cite{elie2010}:
 \item le principe de l'algorithme de matching \ref{sec:ws-matching}.
 \end{itemize}
 
+%TODO: decouple from \cite{elie2010}
+Dans cette section nous présentons les différentes approches de
+localisation de services basées sur des modèles centralisés ou des
+modèles distribués. Ensuite nous classifions les approches de
+découverte selon le degré d'automatisation du traitement des
+données. Le dernier critère de classification sera présenté dans la
+prochaine section \ref{sec:ws-matching}.
 
-{\color{red} %TODO: decouple from \cite{elie2010}
-  Dans cette section nous présentons les différentes approches de
-  localisation de services basées sur des modèles centralisés ou des
-  modèles distribués. Ensuite nous classifions les approches de
-  découverte selon le degré d'automatisation du traitement des
-  données. \cite{elie2010}
-}
-
-Le dernier critère de classification sera présenté dans la prochaine
-section \ref{sec:ws-matching}.
-
-% \newpage
 \subsection{Localisation des services}
 \label{sec:ws-localisation}
   La découverte consiste principalement à localiser les descriptions
@@ -521,44 +515,24 @@ section \ref{sec:ws-matching}.
   les approches décentralisées ou distribuées
   \cite{garofalakis2004web}.
 
-    \subsubsection{Approches centralisées}
-    \label{sec:central-disc}
-    Les premières versions d'\textsc{UDDI} \cite{clement2004uddi}
-    (présenté dans \ref{sec:uddi}) reposent sur une approche
-    \textit{centralisée} de publication et découverte de services
-    Web. le registre \textsc{UDDI} définit un modèle de représentation
-    des données et des méta-données nécessaires à la publication,
-    reposent sur \textit{un seul annuaire} qui peut être géré par un
-    module de mise en correspondances \textit{(matchmaker)}.
+  \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
+  \begin{description}
+  \item [Approches centralisées:] Les premières versions
+    d'\textsc{UDDI} \cite{clement2004uddi} (présenté dans
+    \ref{sec:uddi}) reposent sur une approche \textit{centralisée} de
+    publication et découverte de services Web. le registre
+    \textsc{UDDI} définit un modèle de représentation des données et
+    des méta-données nécessaires à la publication, reposent sur
+    \textit{un seul annuaire} qui peut être géré par un module de mise
+    en correspondances \textit{(matchmaker)}.
 
-    Les approches centralisées de localisation des services Web ne se
-    limitent pas à la recherche syntaxique par mots clés. Dans
-    \cite{srinivasan2004adding} les auteurs étendent le modèle
-    \textsc{UDDI} pour prendre en compte des descriptions
-    \textsc{OWL-S} et présentent \textit{OWL-S macthmaker}. L'objectif
-    est de permettre le stockage des fonctionnalités des services
-    désignées par \textit{capabilities} afin de rendre la découverte
-    plus précise.Cette approche bien que riches émantiquement ne
-    traite pas l'aspect automatisation de la découverte et repose sur
-    un \textsc{UDDI} centralisé.
-
-    \subsubsection{Approcehs décentralisées}
-    \label{sec:decentr-disc}
-    Les approches décentralisées de découverte des services consistent
-    à mettre en place une \textit{fédération} d'annuaires
-    \textsc{UDDI} agissant comme une couche d'abstraction reliant
-    plusieurs instances d'annuaires \cite {rompothong2003query,
-      sivashanmugam2004discovery}.
-
-    Plusieurs travaux dans la littérature proposent des solutions
-    décentralisées du processus de publication et découverte. Les
-    systèmes \cite{paolucci2003using, schmidt2004peer,
-      verma2005meteor} appuient sur des infrastructures pair-à-pair
-    \textit{peer-to-peer} et des ontologies pour la publication et la
-    découverte des services Web sémantiques permettant une forte
-    collaboration entre plusieurs instances d'annuaires \textsc{UDDI}.
-
-    La dernière version d'\textsc{UDDI} \cite{oasis2005specification}
+  \item [Approcehs décentralisées:] Les approches décentralisées de
+    découverte des services \cite{rompothong2003query,
+      sivashanmugam2004discovery, paolucci2003using, schmidt2004peer,
+      verma2005meteor} consistent à mettre en place une
+    \textit{fédération} d'annuaires \textsc{UDDI} agissant comme une
+    couche d'abstraction reliant plusieurs instances d'annuaires. La
+    dernière version d'\textsc{UDDI} \cite{oasis2005specification}
     (version \textit{3.0.2}) reprend le principe d'une fédération
     d'annuaires. Elle décrit un annuaire \textsc{UDDI} comme un
     ensemble de nœuds \textit{(UDDI nodes)} tel que chaque nœud fait
@@ -566,6 +540,7 @@ section \ref{sec:ws-matching}.
     globale de la fédération. Les nœuds d'un annuaire collaborent pour
     gérer un ensemble de structures de données \textsc{UDDI} et
     permettre une meilleure gestion des requêtes.
+  \end{description}
 
   \subsection{Découverte manuelle/automatique}
   \label{sec:ws-desc:manual-vs-auto}
@@ -575,61 +550,47 @@ section \ref{sec:ws-matching}.
   semi-automatique d'une part, et les approches automatiques d'une
   autre part \cite{elie2010,garofalakis2004web}.
 
-    \subsubsection{Approches manuelles et semi-automatiques}
-    \label{ws-desc:manual}
-    Dans une découverte manuelle, le client utilise un service de
-    découverte pour localiser et sélectionner manuellement une
-    description de service qui répond aux certains critères
-    fonctionnels. La recherche de descriptions dans cette approche est
-    souvent basée sur une simple comparaison syntaxique entre les mots
-    clés de la requête et les descriptions disponibles dans le
-    registre des services, ce qui nécessite l'intervention de
-    l'utilisateur pour vérifier la pertinence et la fiabilité des
-    résultats de la recherche et sélectionner le service Web qui
-    répond au mieux à ses exigences.
-
-    Verma \textit{el al.} \cite{verma2005meteor} dans le cadre du
-    project \textsc{METEOR-S}, l'infrastructure présente un degré
-    d'automatisation plus avancé qu'une simple recherche dans un
+  \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
+  \begin{description}
+  \item[Approches manuelles et semi-automatiques:] Dans une découverte
+    manuelle, le client utilise un service de découverte pour
+    localiser et sélectionner manuellement une description de service
+    qui répond aux certains critères fonctionnels. La recherche de
+    descriptions dans cette approche est souvent basée sur une simple
+    comparaison syntaxique entre les mots clés de la requête et les
+    descriptions disponibles dans le registre des services, ce qui
+    nécessite l'intervention de l'utilisateur pour vérifier la
+    pertinence et la fiabilité des résultats de la recherche et
+    sélectionner le service Web qui répond au mieux à ses
+    exigences. Verma \textit{et al.} \cite{verma2005meteor} dans le
+    cadre du projet \textsc{METEOR-S}, l'infrastructure présente un
+    degré d'automatisation plus avancé qu'une simple recherche dans un
     annuaire \textsc{UDDI}. En effet, l'enrichissement sémantique des
     fichiers de description des services Web permet une découverte
     semi-automatique et plus précise.
 
-    \subsubsection{Approches automatiques}
-    \label{ws-desc:auto}
-    La découverte automatique de services qui répond à un besoin donné
-    est considéré comme une étape cruciale vers l'intégration
-    dynamique et évolutive des services Web. On entend par découverte
-    automatique la possibilité de localiser automatiquement un Web
-    service qui répond à des besoins particuliers, Différentes
-    approches ont été proposées dans la littérature pour réaliser la
-    découverte dynamique de services \cite{paolucci2002semantic,
-      bernstein2002discovering, mandell2003bottom,
-      benatallah2005automating,keller2005automatic}.
-
-    Dans \cite{mandell2003bottom} les auteurs présentent une approche
-    d'automatisation de la découverte des services basée sur la
-    technologie \acrshort{bpel} (voir \ref{sec:bpel}) afin de
-    permettre une composition plus dynamique. Les auteurs proposent
-    d'étendre la description \textsc{BPEL} par l'intégration d'une
-    description sémantique \textsc{OWL-S} (voir \ref{sec:owl-s}) de
-    type \textit{service profile} et la mise en place d'un service de
-    découverte sémantique équipé par un raisonneur automatique. Au
-    cours de l'interprétation du document \textsc{BPEL} le service de
-    découverte sémantique intervient et envoie des requêtes générées à
-    partir des \textit{service profile} du processus \textsc{ BPEL}
-    vers un annuaire contenant des services sémantiquement décrits en
-    \textsc{OWL-S}.
-    %% TODO decouple from \cite{elie2010} words
-    Keller \textit{et al} \cite{keller2005automatic} étudient un
-    modèle de localisation automatique de services Web décrits via le
-    modèle \textsc{WSMO}. Le modèle proposé traite à la fois l'aspect
-    statique et l'aspect dynamique de la description des services
-    Web. L'aspect statique consiste à trouver les correspondances
-    entre les descriptions des services et une requête
-    utilisateur. L'aspect dynamique raffine le choix des services
-    pré-sélectionnés en interrogeant le fournisseur pour vérifier
-    certaines critères non fonctionnels.
+  \item[Approches automatiques:] La découverte automatique de services
+    qui répond à un besoin donné est considéré comme une étape
+    cruciale vers l'intégration dynamique et évolutive des services
+    Web. On entend par découverte automatique la possibilité de
+    localiser automatiquement un Web service qui répond à des besoins
+    particuliers, Différentes approches ont été proposées dans la
+    littérature pour réaliser la découverte dynamique de services
+    \cite{paolucci2002semantic, bernstein2002discovering,
+      mandell2003bottom,
+      benatallah2005automating,keller2005automatic}. Dans
+    \cite{mandell2003bottom} les auteurs présentent une approche
+    d'automatisation de la découverte des services modélisés en
+    \acrshort{bpel} (voir \ref{sec:bpel}) dans le but d'une
+    composition plus dynamique. Les auteurs proposent d'étendre la
+    description \textsc{BPEL} par l'intégration d'une description
+    sémantique \textsc{OWL-S} (voir \ref{sec:owl-s}) de type
+    \textit{service profile} et la mise en place d'un module de
+    \textit{Matching} sémantique équipé par un raisonneur
+    automatique. Autrement, Keller \textit{et al}
+    \cite{keller2005automatic} étudient un modèle de localisation
+    automatique de services Web décrits via le modèle \textsc{WSMO}.
+  \end{description}
 
 \section{Matching des services Web}
 \label{sec:ws-matching}
