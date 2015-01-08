@@ -483,22 +483,22 @@ comme étant l'acte de \textit{``localisation d'une description
 
 \input{figs/ws-discovery-with-matching.tex}
 
-% TODO
-Un processus de découverte de service web s'effectue en deux étapes
-principales, la première étape consiste à la sélectionner des services
-Web candidats les plus proches à la requête. Ensuite nous comparons
-chacun de leurs membres avec le besoin spécifié par
-L'utilisateur. Plusieurs critères peuvent être utilisés pour
-catégoriser les approches de découverte \cite{elie2010}:
-
-\begin{itemize}
+Un processus de découverte de service web s'effectue en deux phases
+principales (illustrés dans la figure
+\ref{fig:ws-discovery-with-matching}). Premièrement, un module de mis
+en correspondance (\textit{Matching}) renvoie tous les services Web
+candidats selon le degré de similitude entre les services disponibles
+et les exigences spécifiés par la requête (aspect fonctionnel). la
+deuxième étape consiste à sélectionner et invoquer le service le plus
+satisfaisant (aspect non fonctionnel). Plusieurs critères peuvent être
+utilisés pour catégoriser les approches de découverte \cite{elie2010}:
+\begin{enumerate}
 \item le localisation des services (centralisation/décentralisation
   des annuaires).
 \item Le degré d'automatisation du processus de la découverte.
-\item le principe de l'algorithme de matching \ref{sec:ws-matching}.
-\end{itemize}
+\item le principe de l'algorithme de \textit{Matching}.
+\end{enumerate}
 
-%TODO: decouple from \cite{elie2010}
 Dans cette section nous présentons les différentes approches de
 localisation de services basées sur des modèles centralisés ou des
 modèles distribués. Ensuite nous classifions les approches de
