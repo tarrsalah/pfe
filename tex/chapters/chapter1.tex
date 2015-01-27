@@ -488,12 +488,13 @@ principales (illustrés dans la figure
 \ref{fig:ws-discovery-with-matching}). Premièrement, un module de mis
 en correspondance (\textit{Matching}) renvoie tous les services Web
 candidats selon le degré de similitude entre les services disponibles
-et les exigences spécifiés par la requête (aspect fonctionnel). la
+et les exigences spécifiés par la requête (aspect fonctionnel). La
 deuxième étape consiste à sélectionner et invoquer le service le plus
 satisfaisant (aspect non fonctionnel). Plusieurs critères peuvent être
 utilisés pour catégoriser les approches de découverte \cite{elie2010}:
+
 \begin{enumerate}
-\item le localisation des services (centralisation/décentralisation
+\item la localisation des services (centralisation/décentralisation
   des annuaires).
 \item Le degré d'automatisation du processus de la découverte.
 \item le principe de l'algorithme de \textit{Matching}.
@@ -529,17 +530,21 @@ prochaine section \ref{sec:ws-matching}.
   \item [Approcehs décentralisées:] Les approches décentralisées de
     découverte des services \cite{rompothong2003query,
       sivashanmugam2004discovery, paolucci2003using, schmidt2004peer,
-      verma2005meteor} consistent à mettre en place une
-    \textit{fédération} d'annuaires \textsc{UDDI} agissant comme une
-    couche d'abstraction reliant plusieurs instances d'annuaires. La
-    dernière version d'\textsc{UDDI} \cite{oasis2005specification}
-    (version \textit{3.0.2}) reprend le principe d'une fédération
-    d'annuaires. Elle décrit un annuaire \textsc{UDDI} comme un
-    ensemble de nœuds \textit{(UDDI nodes)} tel que chaque nœud fait
-    partie d'un seul annuaire et possède une copie répliquée de schéma
-    globale de la fédération. Les nœuds d'un annuaire collaborent pour
-    gérer un ensemble de structures de données \textsc{UDDI} et
-    permettre une meilleure gestion des requêtes.
+      verma2005meteor, sahin2005spider} consistent à mettre en place
+    une \textit{fédération} d'annuaires \textsc{UDDI} agissant comme
+    une couche d'abstraction reliant plusieurs instances
+    d'annuaires. La plupart des approches distribués sont basées sur
+    des systèmes pair-à-pair (\textit{peer to peer}) incluant
+    \cite{schmidt2004peer, verma2005meteor, sahin2005spider}.
+
+    La dernière version d'\textsc{UDDI} \cite{oasis2005specification}
+    (\textit{3.0.2}) reprend le principe d'une fédération d'annuaires
+    et décrit un annuaire \textsc{UDDI} comme un ensemble de nœuds
+    \textit{(UDDI nodes)} tel que chaque nœud fait partie d'un seul
+    annuaire et possède une copie répliquée de schéma globale de la
+    fédération. Les nœuds d'un annuaire collaborent pour gérer un
+    ensemble de structures de données \textsc{UDDI} et permettre une
+    meilleure gestion des requêtes.
   \end{description}
 
   \subsection{Découverte manuelle/automatique}
@@ -558,16 +563,18 @@ prochaine section \ref{sec:ws-matching}.
     qui répond aux certains critères fonctionnels. La recherche de
     descriptions dans cette approche est souvent basée sur une simple
     comparaison syntaxique entre les mots clés de la requête et les
-    descriptions disponibles dans le registre des services, ce qui
-    nécessite l'intervention de l'utilisateur pour vérifier la
-    pertinence et la fiabilité des résultats de la recherche et
-    sélectionner le service Web qui répond au mieux à ses
-    exigences. Verma \textit{et al.} \cite{verma2005meteor} dans le
-    cadre du projet \textsc{METEOR-S}, l'infrastructure présente un
-    degré d'automatisation plus avancé qu'une simple recherche dans un
-    annuaire \textsc{UDDI}. En effet, l'enrichissement sémantique des
-    fichiers de description des services Web permet une découverte
-    semi-automatique et plus précise.
+    descriptions des services disponibles, ce qui nécessite
+    l'intervention de l'utilisateur pour vérifier la pertinence et la
+    fiabilité des résultats de la recherche et sélectionner le service
+    Web qui répond au mieux à ses exigences.
+
+    % Verma \textit{et al.}  \cite{verma2005meteor} dans le cadre du
+    % projet \textsc{METEOR-S}, l'infrastructure présente un degré
+    % d'automatisation plus avancé qu'une simple recherche dans un
+    % annuaire \textsc{UDDI}. En effet, l'enrichissement sémantique des
+    % fichiers de description des services Web permet une découverte
+    % semi-automatique et plus précise
+    .
 
   \item[Approches automatiques:] La découverte automatique de services
     qui répond à un besoin donné est considéré comme une étape
@@ -600,8 +607,8 @@ nécessite un annuaire des services de prendre une requête en entrée,
 et de revenir tous les services qui peuvent satisfaire les exigences
 spécifiées dans la requête d'entrée \cite{li2004software}. Cette
 opération nécessite la recherche de similarités indiquant le degré de
-rapprochement entre les paramètres descriptives fonctionnels et
-non fonctionnels (~\ref{sec:func-vs-non-func}) des services référencés
+rapprochement entre les paramètres descriptives fonctionnels et non
+fonctionnels (~\ref{sec:func-vs-non-func}) des services référencés
 d'une côté, et les paramètres de la requête client d'une autre.
 
 Le calcul de similarité peut être basé sur des données syntaxiques ou
@@ -611,7 +618,7 @@ rencontrées dans la littérature.
 
   \subsection{Matching syntaxique}
   \label{sec:matching-syntactique}
-  Les approches de \textit{Matching} syntaxique sont basées sur la
+  Les approches de \textit{Matching} synatxique sont basées sur la
   description syntaxique des services (\textsc{WSDL}) et la
   comparaison syntaxique entre la requête client et les descriptions
   des services Web référencés dans un annuaire (\textsc{UDDI)}.
@@ -664,7 +671,7 @@ rencontrées dans la littérature.
   définition abstraite des services comprenant les types
   d'\textit{entrées/sorties}.
 
-  Un \textsc{Matching} sémantique consiste à identifier un certain
+  Un \textit{Matching} sémantique consiste à identifier un certain
   degré de similitude entre les différents concepts sémantiques qui
   décrivent le service requis (la requête) et celles des services
   publiés.
@@ -672,7 +679,7 @@ rencontrées dans la littérature.
   Les approches de calcul de similarités sémantique reposent sur des
   modèles de description sémantique. Par la suite nous résumons deux
   approches majeures, basées respectivement sur le modèle
-  \textsc{OWL-S} et sur le modèle \textsc{WSMO}.
+  \textsc{WSMO} et sur le modèle \textsc{OWL-S}.
 
     \subsubsection{Matching sémantique basé sur WSMO}
     \label{sec:match-wsmo}
