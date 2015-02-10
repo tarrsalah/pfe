@@ -601,15 +601,15 @@ prochaine section \ref{sec:ws-matching}.
 
 \section{Matching des services Web}
 \label{sec:ws-matching}
-Dans le contexte d'une découverte de services, le \textit{Matching}
-(ou le \textit{Matchmaking}) est définie comme un processus qui
-nécessite un annuaire des services de prendre une requête en entrée,
-et de revenir tous les services qui peuvent satisfaire les exigences
-spécifiées dans la requête d'entrée \cite{li2004software}. Cette
-opération nécessite la recherche de similarités indiquant le degré de
-rapprochement entre les paramètres descriptives fonctionnels et non
-fonctionnels (~\ref{sec:func-vs-non-func}) des services référencés
-d'une côté, et les paramètres de la requête client d'une autre.
+Le \textit{Matching} (ou le \textit{Matchmaking}) des services Web est
+définie comme un processus qui nécessite un annuaire des services de
+prendre une requête en entrée, et de revenir tous les services qui
+peuvent satisfaire les exigences spécifiées dans la requête d'entrée
+\cite{li2004software}. Cette opération nécessite la recherche de
+similarités indiquant le degré de rapprochement entre les paramètres
+descriptives fonctionnels et non fonctionnels
+(~\ref{sec:func-vs-non-func}) des services référencés d'une côté, et
+les paramètres de la requête client d'une autre.
 
 Le calcul de similarité peut être basé sur des données syntaxiques ou
 sémantiques plus expressives \cite{elie2010}. Dans la suite nous
@@ -619,18 +619,14 @@ rencontrées dans la littérature.
   \subsection{Matching syntaxique}
   \label{sec:matching-syntactique}
   Les approches de \textit{Matching} synatxique sont basées sur la
-  description syntaxique des services (\textsc{WSDL}) et la
-  comparaison syntaxique entre la requête client et les descriptions
-  des services Web référencés dans un annuaire (\textsc{UDDI)}.
-
-  La recherche dans l'annuaire \textsc{UDDI} \cite{clement2004uddi}
-  est l'exemple type d'une découverte syntaxique, le client envoie une
-  requête constituée de mots clés, cette requête est ensuite comparée
-  avec les mots clés du registre \textsc{UDDI}. Un ensemble de
-  descriptions des services Web sous forme des documents \textsc{WSDL}
-  (ou un ensemble des \textsc{URL} de ces derniers) est ensuite donné
-  comme résultat de recherche, le client sélectionne le service Web
-  qui répond au mieux à ses exigences.
+  description \textbf{syntaxique} des services (\textsc{WSDL})
+  référencés dans un annuaire \textsc{UDDI} \cite{clement2004uddi}. Le
+  client envoie une requête constituée de mots clés, cette requête est
+  ensuite comparée avec les mots clés du registre \textsc{UDDI}. Un
+  ensemble de descriptions des services Web sous forme des documents
+  \textsc{WSDL} (ou un ensemble des \textsc{URL} de ces derniers) est
+  ensuite donné comme résultat de recherche, le client sélectionne le
+  service Web qui répond au mieux à ses exigences.
 
   Liang \textit{et al.} \cite{DBLP:journals/jwsr/LiangCSCL04}
   emploient la base de données lexicale \textit{WordNet}
