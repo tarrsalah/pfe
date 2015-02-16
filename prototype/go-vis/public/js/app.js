@@ -9,6 +9,7 @@
     var Edge = function(data) {
 	this.from = data.from;
 	this.to = data.to;
+	this.label= data.label;
     };
 
     var Graph = function(data) {
@@ -55,5 +56,4 @@
 	});
     };
     m.module(document.getElementById("app"), app);
-    window.app = app;
 }(document, vis, m));

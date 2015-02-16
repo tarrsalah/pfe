@@ -11,8 +11,9 @@ type Node struct {
 }
 
 type Edge struct {
-	From int64 `json:"from"`
-	To   int64 `json:"to"`
+	From  int64  `json:"from"`
+	To    int64  `json:"to"`
+	Label string `json:"label"`
 }
 
 type Graph struct {
@@ -30,12 +31,12 @@ func main() {
 			Node{5, "five"},
 		},
 		Edges: []Edge{
-			Edge{1, 2},
-			Edge{1, 4},
-			Edge{1, 5},
-			Edge{2, 4},
-			Edge{3, 5},
-			Edge{2, 5},
+			Edge{1, 2, "three"},
+			Edge{1, 4, "five"},
+			Edge{1, 5, "six"},
+			Edge{2, 4, "six"},
+			Edge{3, 5, "eight"},
+			Edge{2, 5, "saven"},
 		},
 	}
 
