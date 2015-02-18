@@ -129,7 +129,7 @@
 % TODO
 % requirement for good web service composition
 
-
+\newpage
 \section{Travaux connexes}
 \label{sec:travaux-relatives}
 % TODO: une petite introduction aux travaux connexes
@@ -171,79 +171,84 @@
 
   \subsection{Génération Online du graphe de dépendance}
   \label{sec:generation-online}
-    \SpecialItem
-    \begin{itemize}        
-    \item[Travaux de Liang et al. \cite{liang2005and}] Présente une
-      formalisation du problème de composition de service comme un
-      problème de recherche dans un graphe \textit{And/Or}.
 
-      Donc un graphe de dépendance (SDG) est construit dynamiquement
-      suite à une requête dans un domaine spécifique choisie par
-      l'utilisateur. Un graphe \textit{And/Or} contient des nœuds et
-      des connecteurs de deux types: connecteur And/connecteur Or.
+  Dans \cite{liang2005and}, Liang \textit{et al.}  Présentent une
+  formalisation du problème de composition de service comme un
+  problème de recherche dans un graphe \textit{And/Or}. Donc un graphe
+  de dépendance (SDG) est construit dynamiquement suite à une requête
+  dans un domaine spécifique choisie par l'utilisateur. Un graphe
+  \textit{And/Or} contient des nœuds et des connecteurs de deux types:
+  connecteur And/connecteur Or.
 
-      Un connecteur And reliant des services avec un autre service
-      s'il existe une relation de type and entre les paramètres de ces
-      services, càd, toutes les entrées fournis par les services
-      doivent être disponibles pour l'exécution du service
-      destinataire. Des services sont connectés par un Or avec un
-      autre service s'il existe une relation logique de type Or entre
-      les paramètres des ces services, càd, n'importe quel service
-      pourra produire l'entrée requise par le service
-      destinataire. C'est la caractéristique principale de cette
-      approche: tenir compte des deux types de branchement
-      \textit{And/Or}.  Après, un algorithme de recherche itératif est
-      appliqué pour trouver le service composite minimal et complet
-      satisfaisant la requête puis soumis à évaluation par
-      l'utilisateur jusqu'à ce qu'il valide le résultat (méthode
-      semi-automatique).
+  Un connecteur And reliant des services avec un autre service s'il
+  existe une relation de type and entre les paramètres de ces
+  services, càd, toutes les entrées fournis par les services doivent
+  être disponibles pour l'exécution du service destinataire. Des
+  services sont connectés par un Or avec un autre service s'il existe
+  une relation logique de type Or entre les paramètres des ces
+  services, càd, n'importe quel service pourra produire l'entrée
+  requise par le service destinataire. C'est la caractéristique
+  principale de cette approche: tenir compte des deux types de
+  branchement \textit{And/Or}.  Après, un algorithme de recherche
+  itératif est appliqué pour trouver le service composite minimal et
+  complet satisfaisant la requête puis soumis à évaluation par
+  l'utilisateur jusqu'à ce qu'il valide le résultat (méthode
+  semi-automatique).
 
-      % In 2005, Altheya Lang and Y.W.Su [5] presented a model for web
-      % service composition based on AND/OR graph, and a graph search
-      % algorithm for searching the graph to find out the composite
-      % service(s) that satisfies a user request. For a given service
-      % request that only can be fulfilled by a composition of web
-      % services, their algorithm find the service categories that are
-      % relevant to the request and dynamically create an AND/OR graph
-      % to grasp the functional dependencies among the web services of
-      % these service categories. The graph is changed based on the
-      % information reflected in a request. The search algorithm is used
-      % to search the changed AND/OR graph for a minimal and adequate
-      % composite service template that satisfies the service demand.
-      % The algorithm can be executed repeatedly on the graph to find
-      % out different templates until the result is considered by the
-      % service requester
+  % In 2005, Altheya Lang and Y.W.Su [5] presented a model for web
+  % service composition based on AND/OR graph, and a graph search
+  % algorithm for searching the graph to find out the composite
+  % service(s) that satisfies a user request. For a given service
+  % request that only can be fulfilled by a composition of web
+  % services, their algorithm find the service categories that are
+  % relevant to the request and dynamically create an AND/OR graph
+  % to grasp the functional dependencies among the web services of
+  % these service categories. The graph is changed based on the
+  % information reflected in a request. The search algorithm is used
+  % to search the changed AND/OR graph for a minimal and adequate
+  % composite service template that satisfies the service demand.
+  % The algorithm can be executed repeatedly on the graph to find
+  % out different templates until the result is considered by the
+  % service requester
 
-    \item [Travaux de Freddy et Léger\cite{lecue2006formal}] Ce travail
-      également considère l'existence d'un mécanisme de découverte des
-      services candidats, puis établir toutes les relations de
-      dépendance entre ces services en utilisant la notion de lien
-      causal et sauvegarde des ces informations dans une matrice
-      d'adjacence.
+  Dans \cite{lecue2006formal}, Freddy et Léger considèrent également
+  l'existence d'un mécanisme de découverte des services candidats,
+  puis établir toutes les relations de dépendance entre ces services
+  en utilisant la notion de lien causal et sauvegarde des ces
+  informations dans une matrice d'adjacence.
 
-      Optimizing qos-aware semantic web service composition
-      \cite{lecue2009optimizing}
+  % Optimizing qos-aware semantic web service composition
+  % \cite{lecue2009optimizing}
 
-    \item[Travaux de Abrehet et Schill \cite{omer2009dependency}] Les
-      auteurs supposent que les services candidates avaient été déjà
-      découverts localement par un algorithme de découverte orienté
-      but. L'exécution du plan se déroule en quatre principales
-      étapes. La première est la génération du graphe de dépendance
-      grâce à un algorithme qui utilise une matrice d'adjacence des
-      dépendances Inputs/Outputs entre les services. Les dépendances
-      sont identifiés si au moins une paire de paramètre (des
-      Input(WS1) et Output(WS2)) sont en relation exact ou plug-in
-      selon [Paolucci], càd, In(WS1) Out (WS2). La deuxième étape
-      consiste à extraire du graphe les dépendances cyclique (de type
-      Loop) en utilisant l'algorithme [4] puis régénérer un nouveau
-      graphe de dépendance acyclique en remplaçant chaque sous- graphe
-      cyclique par un nœud composé. La troisième étape est
-      l'extraction du plan de composition. Pour générer enfin le plan
-      final, les nœuds composés seront remplacés par leurs sous-plans
-      respectifs.  La principale contribution de ce travail est la
-      manière de traiter les cas de boucle dans un graphe, ce problème
-      particulièrement a été très peu abordé dans ce domaine.
+  % \cite{Omer2011}
+
+  Dans \cite{omer2009dependency}, les auteurs supposent que les
+  services candidates avaient été déjà découverts localement par un
+  algorithme de découverte orienté but. L'exécution du plan se déroule
+  en quatre principales étapes.
+
+  \SpecialItem
+  \begin{itemize}
+  \item La première est la génération du graphe de dépendance grâce à
+    un algorithme qui utilise une matrice d'adjacence des dépendances
+    Inputs/Outputs entre les services. Les dépendances sont identifiés
+    si au moins une paire de paramètre (des Input(WS1) et Output(WS2))
+    sont en relation exact ou plug-in selon [Paolucci], càd, In(WS1)
+    Out (WS2).
+
+  \item La deuxième étape consiste à extraire du graphe les
+    dépendances cyclique (de type Loop) en utilisant l'algorithme [4]
+    puis régénérer un nouveau graphe de dépendance acyclique en
+    remplaçant chaque sous- graphe cyclique par un nœud composé
+
+  \item La troisième étape est l'extraction du plan de
+    composition. Pour générer enfin le plan final, les nœuds composés
+    seront remplacés par leurs sous-plans respectifs.
   \end{itemize}
+
+  La principale contribution de ce travail est la manière de traiter
+  les cas de boucle dans un graphe, ce problème particulièrement a été
+  très peu abordé dans ce domaine.
 
   \subsection{Génération Offline du graphe de dépendance}
   \label{sec:gener-offline}
@@ -257,28 +262,24 @@
   jour au fur et à mesure des changements (l'arrivée ou non
   disponibilité des services).
 
-  \begin{itemize}
-  \item[Travaux Hashemian et Mavaddat \cite{hashemian2006graph}] le
-    graphe de depdendance est construit à priori dont les sommets
-    représentent les paramètres (Inputs/outputs) et les arcs
-    représentent les services (utilisant ces paramètres). Suite à une
-    requête, le processus de composition se déroulera en deux étapes :
-    a) trouver les services potentiels pouvant participer dans la
-    composition en cherchant les sous graphes couvrant tous Ventrées
-    et Vsorties (fournies dans la requête) en utilisant une recherche
-    en largeur d'abords (breadth first search). b) La deuxième étape
-    consiste à extraire les plans d'exécution en utilisant à partir
-    des services découverts. Les structures de composition considérées
-    dans ce travail sont les séquences, les branchements
-    conditionnels.
+  Dans \cite{hashemian2006graph} le graphe de depdendance est
+  construit à priori dont les sommets représentent les paramètres
+  (Inputs/outputs) et les arcs représentent les services (utilisant
+  ces paramètres). Suite à une requête, le processus de composition se
+  déroulera en deux étapes : a) trouver les services potentiels
+  pouvant participer dans la composition en cherchant les sous graphes
+  couvrant tous Ventrées et Vsorties (fournies dans la requête) en
+  utilisant une recherche en largeur d'abords (breadth first
+  search). b) La deuxième étape consiste à extraire les plans
+  d'exécution en utilisant à partir des services découverts. Les
+  structures de composition considérées dans ce travail sont les
+  séquences, les branchements conditionnels.
 
-  \item[Travaux de Elmaghraoui \textit{et al.} \cite{elmaghraoui2011graph}]
-    Modélise à priori toutes les dépendances entre les services et
-    aussi sauvegarde tous les meilleurs chemins entre les nœuds du
-    graphe dans une matrice en utilisant l'algorithme de Floyed, en
-    optimisant le degré de matching, temps d'exécution, coût et la
-    disponibilité du service.
-  \end{itemize}
+  Dans \cite{elmaghraoui2011graph}, les auteurs modélisent à priori
+  toutes les dépendances entre les services et aussi sauvegarde tous
+  les meilleurs chemins entre les nœuds du graphe dans une matrice en
+  utilisant l'algorithme de Floyed, en optimisant le degré de
+  matching, temps d'exécution, coût et la disponibilité du service.
 
   \subsection{Autres travaux basés sur le graphe matching}
   \label{sec:autres-travaux}
@@ -299,6 +300,8 @@
 
   \subsection{Discussion et comparaison}
   \label{sec:discussion-comparaison}
+  % comparaison
+  \input{tables/comparison-graph-composition.tex}
   % TODO
 \section{Vers les bases de données graphe}
 \label{sec:vers-les-bases}
