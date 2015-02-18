@@ -1,12 +1,27 @@
 \begin{table}[htb!]
   \centering
-  \begin{tabular}{|c|c|c|c|c|}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{|l|c|c|c|c|}
     \hline
-    Approche& Méthode& Génération& Algorithme & Sémantique\\
-    &de modélisation & Du graph & de parcours & \\  \hline
-    Liang \textit{et al.} \cite{liang2005and} & And/Or graph & Online & Floyed & Oui\\
+    \textbf{Approche} & \textbf{Méthode de}         & \textbf{Génération} & \textbf{Algorithme}  & \textbf{Sémantique}\\
+             & \textbf{Modélisation}       & \textbf{Du graph}   & \textbf{de parcours} & \\
+
+    \hline\hline
+
+    % online
+    Liang \textit{et al.} \cite{liang2005and}       & And/Or graph & Online  &        & Oui \\ \hline
+
+    Freddy et Léger \cite{lecue2006formal}    &              & Online  &        & Oui \\ \hline
+
+    O.Abrehet              &              & Online  &        & Oui \\
+    et Schill \cite{omer2009dependency}          &              &         &        &     \\ \hline
+
+    % offline
+    Hashemian \textit{et al.} \cite{hashemian2006graph}   &              & Offline &        & Oui \\ \hline
+
+    Elmaghraoui \textit{et al.} \cite{elmaghraoui2011graph} &              & Offline &        & Oui \\
     \hline
-  \end{tabular}
+  \end{tabular}}
   \newline
   \caption{Comparaison des approches de composition basées sur le modèle graph}
   \label{comparaison-graph-composition}
