@@ -1,26 +1,49 @@
 \begin{table}[htb!]
   \centering
-  \resizebox{\textwidth}{!}{%
-  \begin{tabular}{|l|c|c|c|c|}
+  \resizebox{1.12\textwidth}{!}{%
+  \begin{tabular}{|c|c|c|>{\centering\arraybackslash}m{1.5in}|>{\centering\arraybackslash}m{1in}|>{\centering\arraybackslash}m{1.8in}|@{}m{0pt}@{}}
     \hline
-    \textbf{Approche} & \textbf{Méthode de}         & \textbf{Génération} & \textbf{Algorithme}  & \textbf{Sémantique}\\
-             & \textbf{Modélisation}       & \textbf{Du graph}   & \textbf{de parcours} & \\
+           &                               & \textbf{Génération} &                &            &  \textbf{Les paramètres}          &\\
+     \textbf{Année} &       \textbf{Approche}                &    \textbf{du}      &   \textbf{Algorithme}   & \textbf{Sémantique} &  \textbf{non}                     &\\
+           &                               &   \textbf{graph}    &                &            &  \textbf{fonctionnels}            &\\
 
-    \hline\hline
+     \hline\hline %--------------------------------------------------------------------------------------------------
 
-    % online
-    Liang \textit{et al.} \cite{liang2005and}       & And/Or graph & Online  &        & Oui \\ \hline
+      2005  & Liang \textit{et al.} \cite{liang2005and}             &  Online    &  And/Or graph  & Non        &     Non                  &\\  [5ex]
 
-    Freddy et Léger \cite{lecue2006formal}    &              & Online  &        & Oui \\ \hline
+     \hline %-------------------------------------------------------------------------------------------------------
 
-    O.Abrehet              &              & Online  &        & Oui \\
-    et Schill \cite{omer2009dependency}          &              &         &        &     \\ \hline
+            & Freddy et Léger \cite{lecue2006formal}          &  Online    &                & Oui        &     Non                 &\\  [5ex]
 
-    % offline
-    Hashemian \textit{et al.} \cite{hashemian2006graph}   &              & Offline &        & Oui \\ \hline
+     \hline %--------------------------------------------------------------------------------------------------------
 
-    Elmaghraoui \textit{et al.} \cite{elmaghraoui2011graph} &              & Offline &        & Oui \\
-    \hline
+            & Abrehet et Schill \cite{omer2009dependency}        &  Online    &                & Oui        &      Non                &\\  [5ex]
+
+    \hline %--------------------------------------------------------------------------------------------------------
+
+    2005    &  Arpinar \textit{et al.} \cite{arpinar2005ontology}         &  Offline   &                &            &       Non                &\\ [5ex]
+
+    \hline %--------------------------------------------------------------------------------------------------------
+
+    2006    &  Hashemian \textit{et al.} \cite{hashemian2006graph}        &  Offline   &                &           &       Non                &\\ [5ex]
+
+    \hline %-------------------------------------------------------------------------------------------------------
+
+            &                             &             & Extension du      &         &                          &\\ 
+    2008    & Gu Zhifeng \textit{et al.} \cite{gu2008automatic}       &   Offline   & Liang's \textit{et al} \cite{liang2005and} &  Non    &       Non                &\\ 
+            &                             &             &  And/Or graph     &         &                          &\\ 
+
+    \hline %--------------------------------------------------------------------------------------------------------
+
+           &                               &            & Extension du   &            &    Coût,                &\\
+    2011   &   Elmaghraoui \textit{et al.} \cite{elmaghraoui2011graph}      &  Offline   & Floyd-Warshall & Oui        &    Temps de réponse,    &\\
+           &                               &            &                &            &    Disponiblité         &\\
+    \hline %--------------------------------------------------------------------------------------------------------
+
+           &    Chaker Ben                 &            & Extension du   &            &                         &\\
+    2013   &  Mahmoud \textit{et al.} \cite{mahmoud2013towards}           &  Offline   & Floyd-Warshall & Oui        &    Imprécis             &\\
+           &                               &            &                &            &                         &\\
+    \hline %--------------------------------------------------------------------------------------------------------
   \end{tabular}}
   \newline
   \caption{Comparaison des approches de composition basées sur le modèle graph}
