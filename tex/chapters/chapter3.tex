@@ -171,31 +171,46 @@
 
   \subsection{Génération Online du graphe de dépendance}
   \label{sec:generation-online}
+  % intro
+  \begin{text} % TODO: enhance this intro.
+    {\'E}tant donnée une requête de l'utilisateur, les services candidats
+    à la composition sont découverts et interconnectés au moment du
+    traitement de la requête (dynamiquement). Donc le graphe généré
+    contient un nombre restreints de services candidats mais peut
+    inclure plusieurs alternatives de plans possibles. Donc le plan de
+    composition sera dérivé du graphe généré en optimisant la qualité
+    du plan (degré de matching, les valeurs de qualité). Citant
+    quelques travaux se classant sous cette catégorie.
+  \end{text}
 
   % liang2005and: AND/OR graph and search algorithm for discovering composite web services
   \begin{text}
-    Dans \cite{liang2005and}, Liang \textit{et al.}  Présentent une
+    Dans \cite{liang2005and}, Liang \textit{et al.} présentent une
     formalisation du problème de composition de service comme un
-    problème de recherche dans un graphe \textit{And/Or}. Donc un
-    graphe de dépendance (SDG) est construit dynamiquement suite à une
-    requête dans un domaine spécifique choisie par l'utilisateur. Un
-    graphe \textit{And/Or} contient des nœuds et des connecteurs de
-    deux types: connecteur And/connecteur Or.
+    problème de recherche dans un graphe \textit{And/Or}.
 
-    Un connecteur And reliant des services avec un autre service s'il
-    existe une relation de type and entre les paramètres de ces
-    services, càd, toutes les entrées fournis par les services doivent
-    être disponibles pour l'exécution du service destinataire. Des
-    services sont connectés par un Or avec un autre service s'il
-    existe une relation logique de type Or entre les paramètres des
-    ces services, càd, n'importe quel service pourra produire l'entrée
-    requise par le service destinataire. C'est la caractéristique
-    principale de cette approche: tenir compte des deux types de
-    branchement \textit{And/Or}.  Après, un algorithme de recherche
-    itératif est appliqué pour trouver le service composite minimal et
-    complet satisfaisant la requête puis soumis à évaluation par
-    l'utilisateur jusqu'à ce qu'il valide le résultat (méthode
-    semi-automatique).
+    % Dans \cite{liang2005and}, Liang \textit{et al.}  Présentent une
+    % formalisation du problème de composition de service comme un
+    % problème de recherche dans un graphe \textit{And/Or}. Donc un
+    % graphe de dépendance (SDG) est construit dynamiquement suite à une
+    % requête dans un domaine spécifique choisie par l'utilisateur. Un
+    % graphe \textit{And/Or} contient des nœuds et des connecteurs de
+    % deux types: connecteur And/connecteur Or.
+
+    % Un connecteur And reliant des services avec un autre service s'il
+    % existe une relation de type and entre les paramètres de ces
+    % services, càd, toutes les entrées fournis par les services doivent
+    % être disponibles pour l'exécution du service destinataire. Des
+    % services sont connectés par un Or avec un autre service s'il
+    % existe une relation logique de type Or entre les paramètres des
+    % ces services, càd, n'importe quel service pourra produire l'entrée
+    % requise par le service destinataire. C'est la caractéristique
+    % principale de cette approche: tenir compte des deux types de
+    % branchement \textit{And/Or}.  Après, un algorithme de recherche
+    % itératif est appliqué pour trouver le service composite minimal et
+    % complet satisfaisant la requête puis soumis à évaluation par
+    % l'utilisateur jusqu'à ce qu'il valide le résultat (méthode
+    % semi-automatique).
 
     % In 2005, Altheya Lang and Y.W.Su [5] presented a model for web
     % service composition based on AND/OR graph, and a graph search
@@ -238,7 +253,7 @@
     \begin{itemize}
     \item La première est la génération du graphe de dépendance grâce à
       un algorithme qui utilise une matrice d'adjacence des dépendances
-      Inputs/Outputs \emph{}ntre les services. Les dépendances sont identifiés
+      Inputs/Outputs entre les services. Les dépendances sont identifiés
       si au moins une paire de paramètre (des Input(WS1) et Output(WS2))
       sont en relation exact ou plug-in selon [Paolucci], càd, In(WS1)
       Out (WS2).
@@ -260,49 +275,49 @@
 
   % mahmoud2013towards: Towards a Graph-Based Approach for Web Services Composition
   \begin{text}
+
     Dans \cite{mahmoud2013towards} ... % TODO
   \end{text}
-
 
   \subsection{Génération Offline du graphe de dépendance}
   \label{sec:gener-offline}
 
    % intro
-   \begin{text}
-     certains auteurs considèrent qu'il serait plus intéressant
-     d'utiliser des informations complètes sur tous les services
-     publiés pour assurer une recherche plus exhaustive des services
-     candidats à la composition. Pour cela, le graphe de dépendance
-     est pré-généré à partir du registre ou sont publiés les
-     services. Par conséquent, le graphe inclut toutes les dépendances
-     possibles entre les services disponibles, par contre il peut être
-     volumineux et doit être mis à jour au fur et à mesure des
-     changements (l'arrivée ou non disponibilité des services).
-   \end{text}
+  \begin{text}
+    certains auteurs considèrent qu'il serait plus intéressant
+    d'utiliser des informations complètes sur tous les services
+    publiés pour assurer une recherche plus exhaustive des services
+    candidats à la composition. Pour cela, le graphe de dépendance
+    est pré-généré à partir du registre ou sont publiés les
+    services. Par conséquent, le graphe inclut toutes les dépendances
+    possibles entre les services disponibles, par contre il peut être
+    volumineux et doit être mis à jour au fur et à mesure des
+    changements (l'arrivée ou non disponibilité des services).
+  \end{text}
 
    % arpinar2005ontology: Ontology-driven web services composition platform
-   \begin{text}
-     Dans \cite{arpinar2005ontology}, ...
-   \end{text}
+  \begin{text}
+    Dans \cite{arpinar2005ontology}, ...
+  \end{text}
 
    %hashemian2006graph: A graph-based framework for composition of stateless web services
-   \begin{text}
-     Dans \cite{hashemian2006graph} le graphe de depdendance est
-     construit à priori dont les sommets représentent les paramètres
-     (Inputs/outputs) et les arcs représentent les services (utilisant
-     ces paramètres). Suite à une requête, le processus de composition
-     se déroulera en deux étapes : a) trouver les services potentiels
-     pouvant participer dans la composition en cherchant les sous
-     graphes couvrant tous Ventrées et Vsorties (fournies dans la
-     requête) en utilisant une recherche en largeur d'abords (breadth
-     first search). b) La deuxième étape consiste à extraire les plans
-     d'exécution en utilisant à partir des services découverts. Les
-     structures de composition considérées dans ce travail sont les
-     séquences, les branchements conditionnels.
-   \end{text}
+  \begin{text}
+    Dans \cite{hashemian2006graph} le graphe de depdendance est
+    construit à priori dont les sommets représentent les paramètres
+    (Inputs/outputs) et les arcs représentent les services (utilisant
+    ces paramètres). Suite à une requête, le processus de composition
+    se déroulera en deux étapes : a) trouver les services potentiels
+    pouvant participer dans la composition en cherchant les sous
+    graphes couvrant tous Ventrées et Vsorties (fournies dans la
+    requête) en utilisant une recherche en largeur d'abords (breadth
+    first search). b) La deuxième étape consiste à extraire les plans
+    d'exécution en utilisant à partir des services découverts. Les
+    structures de composition considérées dans ce travail sont les
+    séquences, les branchements conditionnels.
+  \end{text}
 
    %elmaghraoui2011graph: Graph based E-Government web service composition
-   \begin{text}
+  \begin{text}
      Dans \cite{elmaghraoui2011graph}, les auteurs modélisent à priori
      toutes les dépendances entre les services et aussi sauvegarde
      tous les meilleurs chemins entre les nœuds du graphe dans une
