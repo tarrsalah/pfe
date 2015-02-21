@@ -1,4 +1,4 @@
-\chapter{La Composition des services web}
+\chapter{La Composition de services web}
 %% TODO Introduire la notion de la composition et le plan du chapitre
 
 % Dans le chapitres précédent, nous avons étudiés la description, la
@@ -28,7 +28,7 @@
 % définitions et les types de composition de services Web présents dans
 % la littérature. Ensuite, nous étudions .....
 %   Enfin, un ensemble de travaux proposent des approches de la
-% composition dynamiques des services web sémantiques.
+% composition dynamiques de services web sémantiques.
 
 \newpage
 
@@ -36,7 +36,7 @@
   \label{sec:defin-et-caract}
 
   Cette section a pour but d'exposer, d'une part, quelques définitions
-  et objectifs de la composition des services Web proposées par la
+  et objectifs de la composition de services Web proposées par la
   communauté, et d'autre part, les différents types et mécanismes de
   composition selon différents points de vue rencontrés dans la
   littérature.
@@ -51,7 +51,7 @@
     % TODO discussion de la définition.
 
     Selon S. Dustdar et W. Schreiner \cite{dustdar2005survey} :
-    \emph{`` L'infrastructure de base des services Web suffit pour la
+    \emph{`` L'infrastructure de base de services Web suffit pour la
       mise en œuvre d'interactions simples entre un client et un
       service Web. Si la mise en œuvre d'une application métier
       implique l'invocation d'autres services web, il est nécessaire
@@ -74,7 +74,7 @@
     La composition de services Web vise essentiellement quatre
     objectifs \cite{driss2011approche}:
     \begin{enumerate}
-      \item Créer de nouvelles fonctionnalités en combinant des services
+      \item Créer de nouvelles fonctionnalités en combinant de services
         déjà existants.
       \item Résoudre des problèmes complexes auxquels aucune solution\\
         n'a été trouvée.
@@ -107,7 +107,7 @@
     \SpecialItem
     \begin{description}
     \item[La phase de définition] Pendant cette phase, le client de
-      service spécifie les exigence de composition des services en
+      service spécifie les exigence de composition de services en
       termes des besoins et des préférences pour le service
       composite. l'exigence est ensuite \textit{décomposé}, soit
       semi-automatique ou automatique, dans un modèle de
@@ -151,12 +151,12 @@
     composition de services dans un flot de processus métier:
     l'\emph{orchestration} de services et la \emph{chorégraphie} des
     services. Ces deux procédés de coordination décrivent deux aspects
-    de création des processus métiers à partir des services Web
+    de création des processus métiers à partir de services Web
     composites \cite{peltz2003web}.
     %% Introduire la notion d'un procédé de coordination
     \textbf{Un procédé} est représenté par un graphe orienté
     d'activités ou un flot de contrôle qui donne l'ordre d'exécution
-    des activités et la logique de coordination des services. Chaque
+    des activités et la logique de coordination de services. Chaque
     activité représente une fonctionnalité réalisée concrètement par
     un service \cite{chollet2009orchestration}.
 
@@ -168,7 +168,7 @@
       \subsubsection{Orchestration}
       \label{sec:orchestration-sec}
       Selon Sonia \emph{et al.} \cite{jamal2005environnement}:
-      \emph{``L'orchestration des services Web permet de définir
+      \emph{``L'orchestration de services Web permet de définir
         l'arranegement et l'enchaînement de ces services selon un
         canevas bien défini. Elle décrit la manière par laquelle les
         services peuvent interagir ensemble tout en incluant l'ordre
@@ -233,11 +233,11 @@
     d'approches formelles développées par la littérature concernant la
     composition. Ces techniques sont également classés en fonction de
     différents dimensions, et selon les travaux effectués dans le
-    champ des services web, les définitions des types de composition
+    champ de services web, les définitions des types de composition
     diffèrent d'une communauté de l'autre.
  
     Barros \emph{et al.} \cite{barros2006standards} classent la
-    composition des services Web en trois catégories : la composition
+    composition de services Web en trois catégories : la composition
     comportementale, l'orchestration et la chorégraphie, à l'instar de
     Barros \emph{et al.}, Peltz \cite{peltz2003web} considère que les
     deux dernières \textit{(orchestration, chorégraphie)}.
@@ -249,13 +249,13 @@
     l'art considèrent l'orchestration et la chorégraphie comme des
     modèles d'exécution appliqués dans le contexte d'une
     composition. Il distingue trois stratégies de composition selon la
-    disponibilité des services Web composites lors de composition et
+    disponibilité de services Web composites lors de composition et
     de le dégré d'automatisation: composition \textbf{statique},
     \textbf{semi-dynamique} et \textbf{dynamique} (voir la
     figure \ref{fig:static-vs-dynamic-composition}).
 
     %% Les Procédés de coordination comme une vision (point de vue)
-    %% d'une composition des services Web.
+    %% d'une composition de services Web.
     
     % Microsoft Biztalk et Bea WebLogic sont deux exemples de moteurs
     % de composition statiques de services Web. Pour la composition
@@ -268,7 +268,7 @@
     % demande un changement de l'architecture du logiciel, voire de la
     % définition de l'application et crée l'obligation de faire une
     % nouvelle conception de l'application. C'est pourquoi, la
-    % composition statique des services web est considérée rigide et
+    % composition statique de services web est considérée rigide et
     % trop ee restrictive [86 S. Sanlaville, Environnement de proc ́d ́
     % extensible pour l'orchestration : Application aux services e e
     % web, Ph.D. Thesis, 2005 ]
@@ -276,15 +276,15 @@
 
       \subsubsection{Composition statique/dynamique}
       \label{sec:comp-stat}
-      Selon la disponibilité des services composites, La composition
-      des services Web peut être soit une composition statique soit
+      Selon la disponibilité de services composites, La composition
+      de services Web peut être soit une composition statique soit
       une composition dynamique \cite{driss2011approche}:
 
       \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
       \begin{description}
       \item[Composition statique] :est appelé aussi composition
         \textit{off-line}, précompil ou encore proactive. c'est une
-        composition qui utilise des services basiques qui sont au
+        composition qui utilise de services basiques qui sont au
         préalablement définis d'une façon figée et qui ne peuvent pas
         changer en fonction du contexte du client. Ce type de
         composition engendre des applications peu flexibles, parfois
@@ -294,14 +294,14 @@
         % services déjà existants dans des environnements « stables » où
         % les services Web participants sont toujours disponibles et où
         % le comportement du service composite est le même pour tous les
-        % clients. La composition des services web prend place durant la
+        % clients. La composition de services web prend place durant la
         % période de conception. Les composants sont choisis, reliés
         % entre eux et enfin compilés et déployés. Le service composite
         % ainsi obtenu fonctionnera bien tant que son environnement et
         % les services qui le composent ne changent pas ou ne changent
         % que rarement. Microsoft BizTalk est un exemple de moteurs de
         % composition statique. Ce type de composition est utile pour
-        % mettre en place des services composites qui implémente des
+        % mettre en place de services composites qui implémente des
         % services métiers connus et très souvent sollicités dans un
         % domaine donné (donc communs à plusieurs utilisateurs), par
         % exemple : achat d’un véhicule, planification d’un voyage...etc
@@ -312,8 +312,8 @@
 
       \item[Composition dynamique]: appelée aussi composition
         \textit{on-line}, postcompilée ou encore réactive. Elle se
-        réfère à la sélection des services basiques à la
-        volée. Autrement dit, la sélection des services basiques ne
+        réfère à la sélection de services basiques à la
+        volée. Autrement dit, la sélection de services basiques ne
         peut pas être définie à l'avance mais elle sera faite au
         moment de l'exécution en fonction des contraintes imposées par
         le client. Ceci permet d' élaborer différents scénario de
@@ -323,13 +323,13 @@
         % Dans ce type, les services Web à composer sont déterminés lors
         % de l’exécution de la requête d’un client. Ils peuvent être
         % déterminés selon les contraintes de chaque client, la
-        % disponibilité des services Web, ...etc. La composition
+        % disponibilité de services Web, ...etc. La composition
         % dynamique apparaît la plus intéressante d’une part,elle promet
         % d'être capable de faire face à un environnement très dynamique
-        % dans lequel des services apparaissent et disparaissent
-        % rapidement. La composition des services web implique : - La
+        % dans lequel de services apparaissent et disparaissent
+        % rapidement. La composition de services web implique : - La
         % découverte des « bons » services à composer selon les besoins
-        % et la disponibilité des services.  - La dynamicité et la
+        % et la disponibilité de services.  - La dynamicité et la
         % flexibilité dans la composition de services Web.
       \end{description}            
 
@@ -414,7 +414,7 @@
 
     %% procédé abstraite vs exécutable Selon \cite{chollet2009orchestration}
     % WS-BPEL est un langage de procédés basé sur la technologie XML,
-    % tout comme les autres standards des services Web. WS-BPEL permet
+    % tout comme les autres standards de services Web. WS-BPEL permet
     % de construire des procédés interprétables et exécutables par un
     % moteur d'orchestration.
 
@@ -436,10 +436,10 @@
     \textbf{globale} des collaborations entre les services Web
     \cite{elie2010}, à l'instar des standards de services Web,
     \textsc{WS-CDL} est basé sur \textsc{XML}, il complète la
-    description \acrshort{wsdl} des services Web afin de décrire les
+    description \acrshort{wsdl} de services Web afin de décrire les
     points d'interactions entre les services Web engagés dans une
     composition. Contrairement à la spécification \textsc{BPEL}
-    \ref{sec:bpel}, Les interactions des services sont décrites d'une
+    \ref{sec:bpel}, Les interactions de services sont décrites d'une
     manière \textit{peer-to-peer}, Il n'y a pas de notion de
     coordination ou d'un service Web principal d'orchestration.
 
@@ -535,14 +535,14 @@
       al.}  \cite{ankolekar2002daml} présentent une ontologie pour les
     services web dans le but d'automatiser la \emph{découverte},
     \emph{l'invocation}, la \emph{composition} et la
-    \emph{surveillance} de l'exécution des services
+    \emph{surveillance} de l'exécution de services
     \cite{mcilraith2003bringing}, les auteurs reprennent la notion de
     classes d'\textsc{OWL} et proposent l'ontologie \textsc{OWL-S}.
     %% TODO redraw the picture
     \input{figs/owls.tex}
 
     L'objectif principal de ces recherches est d'établir une
-    plateforme dans laquelle les descriptions des services Web sont
+    plateforme dans laquelle les descriptions de services Web sont
     partagés en utilisant une ontologie standard, constituée d'un
     ensembles de classes de base et des propriétés pour résoudre les
     ambiguïtés et de rendre la description d'un service compréhensible
@@ -595,7 +595,7 @@
       avec le service.
 
       Le rôle de mise en correspondance est principalement à de
-      combler l'écart entre la description sémantique des services Web
+      combler l'écart entre la description sémantique de services Web
       (détallée dans le deux premières sous-ontologies) et les
       modèles de description de service existants qui sont
       principalement syntaxique (\textsc{WSDL}).
@@ -639,7 +639,7 @@
     \subsection{Comparaison}
     \label{sec:langs-comparaison}
 
-    Une composition des services Web nécessite la satisfaction de
+    Une composition de services Web nécessite la satisfaction de
     plusieurs exigences techniques \cite{sheng2014web,
       bucchiarone2006survey} , le tableau
     \ref{comparaison-des-standards-et-langages-d-composition} montre
@@ -651,7 +651,7 @@
     \SpecialItem
     \begin{itemize}
       \item [La composabilité] indique la capacité
-        d'assembler des services participants dans un processus de
+        d'assembler de services participants dans un processus de
         composition et de modéliser les interactions entre eux.
 
       \item [La representation du rôle] indique La représentation de
@@ -670,7 +670,7 @@
 
       \item [le support du sémantique] est la capacité de représenter
         la sémantique de services participants pour faciliter la
-        découverte des services et la composition dynamique.
+        découverte de services et la composition dynamique.
 
       \item [le support industriel] indiqué par la qualité des outils
         et le support industriel de la technologie.
@@ -683,9 +683,9 @@
     \textsc{BPEL} et \textsc{WS-CDL} ont le support complet de la
     définition des rôles et la compensation. On peut aussi remarquer
     que seules le \textsc{OWL-S} et \textsc{WSMF} permettent de la
-    composition sémantique des services Web.
+    composition sémantique de services Web.
 
-  \section{Les approches de composition dynamiques des services web}
+  \section{Les approches de composition dynamiques de services web}
   \label{sec:comp-dynam}
 
   La littérature quit traite la problématique de composition des
@@ -702,7 +702,7 @@
   de plusieurs communautés de recherches. La classification présentée
   par la suite est basée essentiellement sur l'état de l'art fait par
   Baryannis \emph{et al.}\cite{baryannis2010}.Nous distinguons quatres
-  catégories de composition dynamique des services Web:
+  catégories de composition dynamique de services Web:
 
 
   \begin{itemize}
@@ -712,9 +712,9 @@
 
   \item[La composition dirigée par les modèles]: Ces approches
     utilisent les languages de modélisation (les réseux de Petri,
-    \textsc{UML}) pour décrire la composition des services.
+    \textsc{UML}) pour décrire la composition de services.
 
-  \item[La composition algébrique et mathématique des services web]:
+  \item[La composition algébrique et mathématique de services web]:
     Ces approches utilisent des méthodes mathématiques (logique
     mathématiques, algèbre).
 
@@ -744,9 +744,9 @@
     composition de services sous forme d'un processus métier est de
     plus en plus populaire.
 
-    Les approches de composition des services Web basées sur les
+    Les approches de composition de services Web basées sur les
     techniques de \textit{workflow} étaient l'une des prmières
-    solutions proposées pour la composition automatiques des services
+    solutions proposées pour la composition automatiques de services
     Web. Initialement, la plupart des travaux ont porté sur la
     composition statique et manuelle. Des travaux plus récents,
     cependant, a tenté de réaliser la composition dynamiques des
@@ -761,7 +761,7 @@
 
     %% TODO
     \textit{Paws} \cite{ardagna2007paws} est une plateforme de
-    composition des services Web qui se concentre sur l'adaptabilité et
+    composition de services Web qui se concentre sur l'adaptabilité et
     la flexibilité d'une composition modélisé sous forme un processus
     métier.
 
@@ -808,14 +808,14 @@
 
     Skogan \textit{et al.}  \cite{skogan2004web} proposent une méthode
     qui utilise les diagrammes d'activités \textsc{UML} pour modéliser
-    la composition des services. Ces diagrammes là sont utilisés pour
+    la composition de services. Ces diagrammes là sont utilisés pour
     générer un processus exécutable d'orchestration \textsc{BPEL}
     utilisant des transformations \textsc{XSLT}, ce tarvail se limite
     à la description syntaxique de service Web utilisant les documents
     \textsc{WSDL} comme des entrées de la transformation
     \textsc{UML}. Dans \cite{gronmo2005model} les auteurs essayent de
     soulèver cette limitation en considérant également
-    l'enrichissement sémantique des services avec des ontologies
+    l'enrichissement sémantique de services avec des ontologies
     \textsc{OWLS} et des annotations \textsc{WSMO}.
 
     Les réseaux de Petri \cite{petri1962kommunikation} constituent une
@@ -889,7 +889,7 @@
     syntaxique de \textsc{WS-CDL} en \textsc{CSP}.
 
     Rao \textit{et al.} \cite{rao2004logic} proposent l'utilisation de
-    la logique linéaire pour la composition automatique des services
+    la logique linéaire pour la composition automatique de services
     Web. La logique linéaire est une extension de la logique classique
     de premier ordre pour modéliser la notion d'évolution d'états. les
     auteurs proposent une méthode de traduction automatique de

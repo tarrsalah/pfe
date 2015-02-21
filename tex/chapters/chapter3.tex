@@ -1,8 +1,8 @@
-\chapter{Les approches de composition dynamique des services Web sémantiques baseés sur le modèle graphe}
+\chapter{Les approches de composition dynamique de services Web sémantiques baseés sur le modèle graphe}
 %% Introduction to the chapter
 \newpage
 \section{Préliminaires}
-% \section{Le processus de matching et la découverte des services Web sémantiques}
+% \section{Le processus de matching et la découverte de services Web sémantiques}
 % positionner l'approche par graphe dans les classification déjà
 % abordées
 
@@ -12,7 +12,7 @@
 %   proximité sémantique entre les concepts (auxquels les termes des
 %   requêtes et documents sont rattachés). Et comme le matching des
 %   services web revient à trouver les similarités entre les concepts
-%   décrivant les propriétés des services web, nous avons jugé utile
+%   décrivant les propriétés de services web, nous avons jugé utile
 %   d’explorer les différentes méthodes de recherche de similarité
 %   utilisées dans le domaine de la recherche d’information, en
 %   particulier.
@@ -42,11 +42,11 @@
 %   catégories [Sli, 2006]: les approches basées sur les arcs, les
 %   approches basées sur le contenu informationnel et les approches
 %   hybrides. %% see annexe (1)
-% \section{Matching des services Web sémantiques }
+% \section{Matching de services Web sémantiques }
 % \label{sec:match-des-serv-1}
 % Le processus de matchmaking repose sur la recherche de similarités
 % entre les paramètres descriptives de ces derniers. Il existe deux
-% catégories de paramètres de description des services web: les
+% catégories de paramètres de description de services web: les
 % paramètres fonctionnels et les paramètres non-fonctionnels que nous
 % décrivons tout de suite.
 %   \subsection{Les paramètres fonctionnels}
@@ -58,7 +58,7 @@
 %   (P/E).  Ils sont appelés ainsi parce qu’ils sont nécessaires pour le
 %   fonctionnement du service web. Ces paramètres sont utiles dans la
 %   recherche des similarités. En effet, grâce au formalisme de
-%   description des services web (OWL-S), on trouve une description des
+%   description de services web (OWL-S), on trouve une description des
 %   données requises pour l’exécution du service (Inputs) et une
 %   description des résultats obtenus après exécution (Outputs). D’un
 %   autre coté, un service web peut altérer l’état du monde après son
@@ -92,16 +92,16 @@
 %   \item [Le coût]: C’est une propriété non-fonctionnelle qui est
 %     pertinente pour le client qui veut utiliser le service.
 %   \item [La sécurité]: La sécurité est une propriété non-fonctionnelle
-%     qui est pertinente à la plupart des services web. Elle applique
+%     qui est pertinente à la plupart de services web. Elle applique
 %     des aspects tels que la communication et le cryptage des données.
-%   \item [La qualité]: La propriété qualité des services est un
+%   \item [La qualité]: La propriété qualité de services est un
 %     ensemble de propriétés différentes qui affecte tous les aspects
 %     spécifiques du service, son utilisation et sa production tel que
 %     le temps de réponse d'un appel à une opération, la capacité du
 %     service...etc
 %   \end{description}
-%   Le matching des paramètres non-fonctionnels des services web est
-%   tout aussi important dans la phase de sélections des services
+%   Le matching des paramètres non-fonctionnels de services web est
+%   tout aussi important dans la phase de sélections de services
 %   candidats. Les propriétés non-fonctionnelles sont typiquement
 %   représentés comme des politiques de services web exprimées par le
 %   langage WS- Policy [Car, 2007].
@@ -116,11 +116,11 @@
 %   dynamique la possibilité de localiser automatiquement un ensemble de
 %   services web, sélectionner un service spécifique qui répond à des
 %   besoins particuliers de l’utilisateur.  Plusieurs initiatives ont
-%   traité la problématique de la découverte des services web dont les
+%   traité la problématique de la découverte de services web dont les
 %   deux principales modèles suivants:
-%   \subsection{Le modèle syntaxique de matching des services Web}
+%   \subsection{Le modèle syntaxique de matching de services Web}
 %   \label{sec:le-modele-syntaxique}
-%   \subsection{Le modèle sémantique de matching des services Web}
+%   \subsection{Le modèle sémantique de matching de services Web}
 %   \label{sec:le-modele-semantique}
 %   \subsection{Graphe de dépendance}
 %   \label{sec:graph-de-depandence}
@@ -144,7 +144,7 @@
 % peuvent être exploitées.  Les méthodes de composition utilisant le
 % modèle de graphe peuvent être classées en deux catégories selon que le
 % graphe de dépendance soit construit à priori (en phase de publication
-% des services) ou pendant le traitement de la requête de composition:
+% de services) ou pendant le traitement de la requête de composition:
 
 % Nacera (TODO: améliorer cette introduction)
 % Certaines approches ont été proposées récemment pour la découverte
@@ -186,47 +186,28 @@
   % liang2005and: AND/OR graph and search algorithm for discovering composite web services
   \begin{text}
     Dans \cite{liang2005and}, Liang \textit{et al.} présentent une
-    formalisation du problème de composition de service comme un
-    problème de recherche dans un graphe \textit{And/Or}.
+    formalisation du problème de composition de services comme un
+    problème de recherche dans un graphe \textit{And/Or}. Suite à une
+    requête dans un domaine spécifique choisie par le client, un
+    graphe de composition est construit dynamiquement reflétant les
+    dépendances fonctionnelles entre les services du domaine.
 
-    % Dans \cite{liang2005and}, Liang \textit{et al.}  Présentent une
-    % formalisation du problème de composition de service comme un
-    % problème de recherche dans un graphe \textit{And/Or}. Donc un
-    % graphe de dépendance (SDG) est construit dynamiquement suite à une
-    % requête dans un domaine spécifique choisie par l'utilisateur. Un
-    % graphe \textit{And/Or} contient des nœuds et des connecteurs de
-    % deux types: connecteur And/connecteur Or.
+    Le graphe généré contient des nœuds et des connecteurs de deux
+    types: des connecteurs \textit{And} et des connecteurs
+    \textit{Or}. Un connecteur \textit{And} reliant de services avec
+    un autre service s'il existe une relation de type \textit{And}
+    entre les paramètres de ces services, donc, toutes les entrées
+    fournis par les services doivent être disponibles pour l'exécution
+    du service destinataire. Des services sont connectés par un
+    \textit{Or} avec un autre service s'il existe une relation logique
+    de type \textit{Or} entre les paramètres des ces services, donc,
+    n'importe quel service pourra produire l'entrée requise par le
+    service destinataire.
 
-    % Un connecteur And reliant des services avec un autre service s'il
-    % existe une relation de type and entre les paramètres de ces
-    % services, càd, toutes les entrées fournis par les services doivent
-    % être disponibles pour l'exécution du service destinataire. Des
-    % services sont connectés par un Or avec un autre service s'il
-    % existe une relation logique de type Or entre les paramètres des
-    % ces services, càd, n'importe quel service pourra produire l'entrée
-    % requise par le service destinataire. C'est la caractéristique
-    % principale de cette approche: tenir compte des deux types de
-    % branchement \textit{And/Or}.  Après, un algorithme de recherche
-    % itératif est appliqué pour trouver le service composite minimal et
-    % complet satisfaisant la requête puis soumis à évaluation par
-    % l'utilisateur jusqu'à ce qu'il valide le résultat (méthode
-    % semi-automatique).
-
-    % In 2005, Altheya Lang and Y.W.Su [5] presented a model for web
-    % service composition based on AND/OR graph, and a graph search
-    % algorithm for searching the graph to find out the composite
-    % service(s) that satisfies a user request. For a given service
-    % request that only can be fulfilled by a composition of web
-    % services, their algorithm find the service categories that are
-    % relevant to the request and dynamically create an AND/OR graph
-    % to grasp the functional dependencies among the web services of
-    % these service categories. The graph is changed based on the
-    % information reflected in a request. The search algorithm is used
-    % to search the changed AND/OR graph for a minimal and adequate
-    % composite service template that satisfies the service demand.
-    % The algorithm can be executed repeatedly on the graph to find
-    % out different templates until the result is considered by the
-    % service requester
+    L'algorithme de recherche est appliqué itérativement pour trouver
+    le service composite minimal et complet satisfaisant la requête
+    puis soumis à évaluation par le service client jusqu'à ce qu'il
+    valide le résultat.
   \end{text}
 
   % lecue2006formal: A formal model for semantic web service composition
@@ -275,13 +256,21 @@
 
   % mahmoud2013towards: Towards a Graph-Based Approach for Web Services Composition
   \begin{text}
-
     Dans \cite{mahmoud2013towards} ... % TODO
+    The work of Mahmoud, Bettahar and Saidi published in 2013 [8] can
+    be considered as significant one. They proposed a model for
+    automatically composing web services with the help of the directed
+    graphs. The graph also describes the Web services, and the
+    ordering of web services execution. In contrast, the user query,
+    defined by a set of inputs and outputs parameters, can be stated
+    as a directed graph composed of web services. They used web
+    service as a function: Web service (Parameters,
+    State-of-the-world), where parameters are input, output and state
+    of the world is pre-condition and effects.
   \end{text}
 
   \subsection{Génération Offline du graphe de dépendance}
   \label{sec:gener-offline}
-
    % intro
   \begin{text}
     certains auteurs considèrent qu'il serait plus intéressant

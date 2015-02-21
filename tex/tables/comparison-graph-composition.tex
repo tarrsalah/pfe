@@ -1,32 +1,31 @@
 \begin{table}[htb!]
   \centering
-  \resizebox{1.1\textwidth}{!}{%
-    \begin{tabular}{|c|>{\centering\arraybackslash}m{1.5in}|>{\centering\arraybackslash}m{0.9in}|
+  \resizebox{1\textwidth}{!}{%
+    \begin{tabular}{|>{\centering\arraybackslash}m{1.5in}|>{\centering\arraybackslash}m{0.9in}|
         >{\centering\arraybackslash}m{1.5in}|>{\centering\arraybackslash}m{1in}|>{\centering\arraybackslash}m{1.4in}|@{}m{0pt}@{}}
-    \hline
-    \textbf{Année} & \textbf{Approche}  & \textbf{Génération du graph} & \textbf{Algorithme}& \textbf{Sémantique} &  \textbf{Les paramètres non-fonctionnels} &\\
-    \hline\hline %--------------------------------------------------------------------------------------------------
-     %---------------------------------------------------------------------------------------------------------------
-
-    2005    & Liang \textit{et al.} \cite{liang2005and} &Online & And/Or graph & Non & Non &\\  [4ex]
-     \hline %-------------------------------------------------------------------------------------------------------
-    2005    &  Arpinar \textit{et al.} \cite{arpinar2005ontology}& Offline& & & &\\ [5ex]
-    \hline %--------------------------------------------------------------------------------------------------------
-    2006    & Freddy et Léger \cite{lecue2006formal} &Online&  &  &  &\\  [5ex]
-    \hline %--------------------------------------------------------------------------------------------------------
-    2006    & Hashemian \textit{et al.} \cite{hashemian2006graph} &Offline&Recherche en largeur d'abord(BFS)& Oui& Non&\\[6ex] %done
-    \hline %-------------------------------------------------------------------------------------------------------
-    2008    & Gu Zhifeng \textit{et al.} \cite{gu2008automatic}&Offline& Extension de And/Or graph utilisée par \cite{liang2005and}  & Non & Non &\\[10ex]
-    \hline %--------------------------------------------------------------------------------------------------------
-    2009    & Abrehet et Schill \cite{omer2009dependency}&Online& Variation d'une recherche topologique basée sur \cite{ma2007systematic}& Oui & Non &\\[10ex] %done
-    \hline %--------------------------------------------------------------------------------------------------------
-    2011    & Elmaghraoui \textit{et al.} \cite{elmaghraoui2011graph}& Offline & Extension de Floyd-Warshall & Oui & Coût, temps de réponse, disponiblité.&\\[10ex] % done
-    \hline %--------------------------------------------------------------------------------------------------------
-    2011    & Samuel et Sasipraba \textit{et al.} \cite{samuel2011approach}& TODO & TODO & TODO & TODO&\\[10ex]
-    \hline %--------------------------------------------------------------------------------------------------------
-    2013    & Chaker Ben Mahmoud \textit{et al.} \cite{mahmoud2013towards} &Online & Non définie & Oui & Non &\\[6ex] %done
-    \hline %--------------------------------------------------------------------------------------------------------
-  \end{tabular}}
+      \hline
+      \textbf{Approche}  & \textbf{Génération du graph} & \textbf{Algorithme}& \textbf{Sémantique} &  \textbf{Les paramètres non-fonctionnels} &\\
+      \hline\hline %--------------------------------------------------------------------------------------------------
+      % ---------------------------------------------------------------------------------------------------------------
+      Liang \textit{et al.} \cite{liang2005and} &Online & And/Or graph & Non & Non &\\ [4ex] %done
+      \hline %\item ------------------------------------------------------------------------------------------------------
+      Arpinar \textit{et al.} \cite{arpinar2005ontology}& Offline& & & &\\ [5ex]
+      \hline %--------------------------------------------------------------------------------------------------------
+      Freddy et Léger \cite{lecue2006formal} &Online&  &  &  &\\  [5ex]
+      \hline %--------------------------------------------------------------------------------------------------------
+      Hashemian \textit{et al.} \cite{hashemian2006graph} &Offline&Recherche en largeur d'abord(BFS)& Oui& Non&\\[6ex] %done
+      \hline %-------------------------------------------------------------------------------------------------------
+      Gu Zhifeng \textit{et al.} \cite{gu2008automatic}&Offline& Extension de And/Or graph utilisée par \cite{liang2005and}  & Non & Non &\\[10ex]
+      \hline %--------------------------------------------------------------------------------------------------------
+      Abrehet et Schill \cite{omer2009dependency}&Online& Variation d'une recherche topologique basée sur \cite{ma2007systematic}& Oui & Non &\\[10ex] %done
+      \hline %--------------------------------------------------------------------------------------------------------
+      Elmaghraoui \textit{et al.} \cite{elmaghraoui2011graph}& Offline & Extension de Floyd-Warshall & Oui & Coût, temps de réponse, disponiblité.&\\[10ex] % done
+      \hline %--------------------------------------------------------------------------------------------------------
+      Samuel et Sasipraba \textit{et al.} \cite{samuel2011approach}& TODO & TODO & TODO & TODO&\\[10ex]
+      \hline %--------------------------------------------------------------------------------------------------------
+      Chaker Ben Mahmoud \textit{et al.} \cite{mahmoud2013towards} &Online & Non définie & Oui & Non &\\[6ex] %done
+      \hline %--------------------------------------------------------------------------------------------------------
+    \end{tabular}}
   \newline
   \caption{Comparaison des approches de composition basées sur le modèle graph}
   \label{comparaison-graph-composition}
