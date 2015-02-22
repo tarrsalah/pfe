@@ -284,7 +284,7 @@
     changements (l'arrivée ou non disponibilité des services).
   \end{text}
 
-   % arpinar2005ontology: Ontology-driven web services composition platform
+   % arpinar2005ontology
   \begin{text}
     L'approche proposée par Arpinar \textit{et al.}
     \cite{arpinar2005ontology} se base sur la programmation dynamique
@@ -293,23 +293,40 @@
     similarité sémantique entre les services.
   \end{text}
 
-   %hashemian2006graph: A graph-based framework for composition of stateless web services
+  % hashemian2006graph
   \begin{text}
-    Dans \cite{hashemian2006graph} le graphe de depdendance est
-    construit à priori dont les sommets représentent les paramètres
-    (Inputs/outputs) et les arcs représentent les services (utilisant
-    ces paramètres). Suite à une requête, le processus de composition
-    se déroulera en deux étapes : a) trouver les services potentiels
-    pouvant participer dans la composition en cherchant les sous
-    graphes couvrant tous Ventrées et Vsorties (fournies dans la
-    requête) en utilisant une recherche en largeur d'abords (breadth
-    first search). b) La deuxième étape consiste à extraire les plans
-    d'exécution en utilisant à partir des services découverts. Les
-    structures de composition considérées dans ce travail sont les
-    séquences, les branchements conditionnels.
+    Hashemian \textit{et al.} \cite{hashemian2006graph} stockent les
+    dépendances entres les entrés/sorties des services disponibles
+    dans un graphe dont les sommets représentent les paramètres
+    \textit{(entrées/sorties)} et les arcs représentent les
+    services. Les auteurs introduisent aussi une algèbre des processus
+    pour spécifier le comportement des services Web composites basé
+    sur le comportement des plus simples, les structures de
+    composition considérées dans ce travail sont les séquences, les
+    branchements conditionnels, structures parallèles et la
+    synchronisation.
+
+    Suite à une requête, le processus de composition se déroulera en
+    deux étapes:
+
+    \begin{itemize}
+    \item trouver les services potentiels pouvant participer dans la
+      composition en cherchant les sous graphes couvrant tous les
+      $sommets_{entrées}$ et $sommets_{sorties}$ (fournies dans la
+      requête) en utilisant une recherche en largeur d'abords (breadth
+      first search).
+
+    \item La deuxième étape consiste à extraire les plans d'exécution
+      en utilisant à partir des services découverts.
+    \end{itemize}
   \end{text}
 
-   %elmaghraoui2011graph: Graph based E-Government web service composition
+  % talantikite2009semantic
+  \begin{text}
+    Dans \cite{talantikite2009semantic}, ...
+  \end{text}
+
+  %elmaghraoui2011graph
   \begin{text}
     Dans \cite{elmaghraoui2011graph}, les auteurs modélisent à priori
     toutes les dépendances entre les services dans un graphe de
