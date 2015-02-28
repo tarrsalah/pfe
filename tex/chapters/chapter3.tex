@@ -222,31 +222,34 @@
     % \cite{lecue2009optimizing}
   \end{text}
 
-  % omer2009dependency Dependency based automatic service composition using directed graph
+  % omer2009dependency Dependency based automatic service composition using directed graph.
+  % TODO: read omer2009dependency and refactor this paragraph to my own words.
   \begin{text}
     Dans \cite{omer2009dependency}, les auteurs supposent que les
     services candidates avaient été déjà découverts localement par un
-    algorithme de découverte orienté but. L'exécution du plan se déroule
-    en quatre principales étapes.
+    algorithme de découverte orienté but. L'exécution du plan se
+    déroule en quatre principales étapes.
     % \cite{Omer2011}
 
     \SpecialItem
     \begin{itemize}
-    \item La première est la génération du graphe de dépendance grâce à
-      un algorithme qui utilise une matrice d'adjacence des dépendances
-      Inputs/Outputs entre les services. Les dépendances sont identifiés
-      si au moins une paire de paramètre (des Input(WS1) et Output(WS2))
-      sont en relation exact ou plug-in selon [Paolucci], càd, In(WS1)
-      Out (WS2).
+    \item La première est la génération du graphe de dépendance grâce
+      à un algorithme qui utilise une matrice d'adjacence des
+      dépendances \textit{Inputs/Outputs} entre les services. Les
+      dépendances sont identifiés si au moins une paire de paramètre
+      (des \textit{Input($WS_1$)} et \textit{Output($WS_2$)}) sont en
+      relation \textit{exact} ou \textit{plug-in} selon
+      \cite{paolucci2002semantic}.
 
-    \item La deuxième étape consiste à extraire du graphe les
-      dépendances cyclique (de type Loop) en utilisant l'algorithme [4]
-      puis régénérer un nouveau graphe de dépendance acyclique en
-      remplaçant chaque sous- graphe cyclique par un nœud composé
+    \item Extraire du graphe les dépendances cyclique (en boucle) en
+      utilisant l'algorithme \cite{tarjan1973enumeration}.
 
-    \item La troisième étape est l'extraction du plan de
-      composition. Pour générer enfin le plan final, les nœuds composés
-      seront remplacés par leurs sous-plans respectifs.
+    \item Régénérer un nouveau graphe de dépendance acyclique en
+      remplaçant chaque sous-graphe cyclique par un nœud composé
+
+    \item l'extraction du plan de composition. Pour générer enfin le
+      plan final, les nœuds composés seront remplacés par leurs
+      sous-plans respectifs.
     \end{itemize}
 
     La principale contribution de ce travail est la manière de traiter
