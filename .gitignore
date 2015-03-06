@@ -9,10 +9,14 @@
 !*.org
 !Makefile
 !*.js
+!*.java
+!*.owls
+!*.wsdl
+!*.xml
 !*.go
 !*.css
 !tex/main.pdf
-
+/prototype/wsdl-to-owls/.idea
 /tex/content/_region_.tex
 /tex/figs/_region_.tex
 /tex/_region_.tex
@@ -21,3 +25,5 @@
 /org/
 /prototype/go-vis/**/bower_components/**
 /pdf/
+/prototype/wsdl-to-owls
+
