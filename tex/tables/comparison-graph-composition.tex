@@ -1,35 +1,35 @@
 \begin{table}[htb!]
   \centering
-  \resizebox{1.05\textwidth}{!}{%
+  \resizebox{1.05\textwidth}{!}{
+    %% TODO: vérifer l'inconsistance des informations
     \begin{tabular}{|>{\centering\arraybackslash}m{1.5in}|>{\centering\arraybackslash}m{0.9in}|
         >{\centering\arraybackslash}m{1.6in}|>{\centering\arraybackslash}m{1in}|>{\centering\arraybackslash}m{1.4in}|@{}m{0pt}@{}}
       \hline
       \textbf{Approche}  & \textbf{Génération du graph} & \textbf{Algorithme utilsé}& \textbf{Sémantique} &  \textbf{Les paramètres non-fonctionnels} &\\
       \hline\hline %--------------------------------------------------------------------------------------------------
       % ---------------------------------------------------------------------------------------------------------------
-      Liang \textit{et al.} \cite{liang2005and} & Online & Recherche dans un And/Or graph & Non & Non &\\ [6ex] %done
+      Liang \textit{et al.} \cite{liang2005and} & Online & Recherche dans un And/Or graph & Non & Non &\\ [8ex]
       \hline %\item ------------------------------------------------------------------------------------------------------
-      Arpinar \textit{et al.} \cite{arpinar2005ontology} & Offline & Bellman-Ford & Oui & Temps d'exécution &\\ [6ex] %done
+      Arpinar \textit{et al.} \cite{arpinar2005ontology} & Offline & Bellman-Ford & Oui & Temps d'exécution &\\ [8ex]
       \hline %--------------------------------------------------------------------------------------------------------
-      Freddy et Léger \cite{lecue2006formal} & Online &  &  &  &\\  [6ex]
+      Freddy et Léger \cite{lecue2006formal} & Online & Recherche par régression  & Oui &  Non &\\  [8ex]
       \hline %--------------------------------------------------------------------------------------------------------
-      Hashemian \textit{et al.} \cite{hashemian2006graph} & Offline & Recherche en largeur d'abord (BFS) ou en profondeur (DFS) & Oui & Non&\\[12ex] %done
-      \hline %-------------------------------------------------------------------------------------------------------
-      Gu Zhifeng \textit{et al.} \cite{gu2008automatic}& Offline & Extension de And/Or graph utilisée par \cite{liang2005and}  & Non & Non &\\[12ex]
+      Hashemian \textit{et al.} \cite{hashemian2006graph} & Offline & Recherche en largeur d'abord (BFS) ou en profondeur (DFS) & Oui & Non&\\[ 12ex]
       \hline %--------------------------------------------------------------------------------------------------------
-      Abrehet et Schill \cite{omer2009dependency}& Online & Recherche basée sur un trie topologique  \cite{ma2007systematic}& Oui & Non &\\[12ex] %done
+      Abrehet et Schill \cite{omer2009dependency}& Online & Recherche basée sur un trie topologique  \cite{ma2007systematic}& Oui & Non &\\ [12ex]
       \hline %--------------------------------------------------------------------------------------------------------
-      Elmaghraoui \textit{et al.} \cite{elmaghraoui2011graph}& Offline & Extension de Floyd-Warshall & Oui & Coût, temps d'exécution, disponiblité.&\\[12ex] % done
+      Talantikite \textit{et al.} \cite{talantikite2009semantic} & Offline & Recherche en profondeur combiné avec un chaînage arrière & Oui & Non & \\ [12ex]
       \hline %--------------------------------------------------------------------------------------------------------
-      Samuel et Sasipraba \textit{et al.} \cite{samuel2011approach}& TODO & TODO & TODO & TODO&\\[10ex]
+      Elmaghraoui \textit{et al.} \cite{elmaghraoui2011graph}& Offline & Extension de Floyd-Warshall & Oui & Coût, temps d'exécution, disponiblité.&\\ [12ex]
       \hline %--------------------------------------------------------------------------------------------------------
-      Chaker Ben Mahmoud \textit{et al.} \cite{mahmoud2013towards} &Online & Non définie & Oui & Non &\\[6ex] %done
+      Chaker Ben Mahmoud \textit{et al.} \cite{mahmoud2013towards} & Online & Non définie & Oui & Non &\\ [8ex]
       \hline %--------------------------------------------------------------------------------------------------------
     \end{tabular}}
   \newline
   \caption{Comparaison des approches de composition basées sur le modèle graph}
   \label{comparaison-graph-composition}
 \end{table}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
