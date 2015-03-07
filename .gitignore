@@ -25,5 +25,7 @@
 /org/
 /prototype/go-vis/**/bower_components/**
 /pdf/
-/prototype/wsdl-to-owls
 
+/prototype/wsdl-to-owls/target/
+/prototype/wsdl-to-owls/nb-configuration.xml
+/prototype/wsdl-to-owls/nbactions.xml
