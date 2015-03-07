@@ -29,3 +29,4 @@
 /prototype/wsdl-to-owls/target/
 /prototype/wsdl-to-owls/nb-configuration.xml
 /prototype/wsdl-to-owls/nbactions.xml
+/prototype/wsdl-to-owls/target/**
