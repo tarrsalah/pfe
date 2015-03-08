@@ -30,3 +30,7 @@
 /prototype/wsdl-to-owls/nb-configuration.xml
 /prototype/wsdl-to-owls/nbactions.xml
 /prototype/wsdl-to-owls/target/**
+/prototype/soap-services/target/
+/prototype/soap-services/src/main/resources/public/bower_components/*
+/prototype/soap-services/nb-configuration.xml
+/prototype/soap-services/nbactions.xml
