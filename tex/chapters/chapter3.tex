@@ -353,7 +353,6 @@
 
   % talantikite2009semantic
   \begin{text}
-
     % The proposed approach uses an inter-connected network of
     % semantic Web services describing in OWL-S, using the similarity
     % measure (outputs–inputs similarity) between concepts based on
@@ -372,8 +371,6 @@
 
     Cette technique prend avantages des algorithmes de chaînage du
     système expert et les annotations sémantiques.
-
-
   \end{text}
 
   %elmaghraoui2011graph
@@ -389,7 +386,7 @@
 
   \subsection{Autres travaux basés sur le graphe matching}
   \label{sec:autres-travaux}
-
+  \begin{text}
   Samuel et Sasipraba \textit{et al.} \cite{samuel2011approach}\\
 
   Alfredo Cuzzocrea, Marco Fisichella: ‘A Flexible Graph-based
@@ -416,18 +413,98 @@
 \newpage
 \section{Vers les bases de données graphe}
 \label{sec:graph-db}
+%% intoduction
+%% TODO: rewrite
+%% FIXME: plagit
+\begin{text}
+  Un grand nombre de problèmes pratiques dans différentes disciplines
+  peuvent être intuitivement représentés sous forme de graphe : des
+  nœuds reliés par des arcs (étiqueté ou non).
+
+  Depuis plusieurs décennies, les développeurs ont essayé de stoker
+  des ensembles de données connectés, semi-structurées à l'intérieur
+  des bases de données relationnelles. Mais alors que les bases de
+  données relationnelles ont été initialement conçues pour codifier
+  des structures tabulaires. Cependant, les données fortement
+  connectées sont traitées de manière très pauvre par les bases de
+  données relationnelles. Chaque opération sur une relation dans un
+  graphe ou réseau résulte en une opération de jointure dans le
+  \acrshort{SGBDR}, implémentée comme une opération ensembliste entre
+  l'ensemble des clés primaires de deux tables - une opération lente
+  et sans capacité à monter en charge alors que le nombre de t-uples
+  de ces tables augmente \cite{robinson2013graph}.
+
+  Les bases de données NoSQL et plus particulièrement celles orientées
+  graphes sont donc conçues pour modéliser des réseaux de données
+  fortement connectées et y naviguer facilement en bénéficiant de
+  performances extrêmement élevées – un atout qui explique leur succès
+  auprès de Facebook\footnote{\url{http://www.facebook.com}},
+  LinkedIn\footnote{\url{http://www.linkedin.com}} et autres réseaux
+  sociaux. Ces derniers sont devenus ces dernières années l'un de cas
+  d'utilisation les plus visibles des bases de données graphe.
+  LinkedIn parvient ainsi facilement à afficher le degré de séparation
+  entre chaque contact, qui n'est finalement que la distance entre les
+  nœuds dans le graphe représentant les personnes et leurs relations.
+\end{text}
+  \newpage
   \subsection{L'environnement NoSQL}
   \label{sec:nosql}
   %% les 4 modèles majeurs des bases de données NoSQL
-  \subsection{Les bases de données orientées graphe}
+  %% pourquoi les bases de données graphe?
+  \acrshort{nosql} désigne une catégorie de systèmes de gestion de
+  base de données (\acrshort{SGBD}) qui n'est plus fondée sur
+  l'architecture classique des bases relationnelles. L'unité logique
+  n'y est plus la table, et les données ne sont en général pas
+  manipulées avec \textsc{SQL}. À l'origine, servant à manipuler des
+  bases de données géantes pour des sites web de très grande audience
+  tels que Google\footnote{\url{http://www.google.com}},
+  Amazon\footnote{\url{http:://amazon.com}}, Facebook et
+  eBay\footnote{\url{http://www.ebay.com}}. En bref, les bases de
+  données \acrshort{nosql} peuvent être catégorisées selon leur modèle
+  de données dans les quatres catégories suivantes:
+
+  \begin{itemize}
+  \item [Dépots clés-valeurs]: Le principe des bases
+    \textit{clé/valeur} est de stocker les données sous une forme
+    simple: une \emph{clé } (chaîne de caractères) associé à une
+    \emph{valeur} (chaîne de caractère, nombre ou bien un objet
+    sérialisé), cette clé est utilisée pout toutes les opérations à
+    effectuer sur les données telles que l'insertion, la mise à jour
+    et la supression. Bien que la structure est plus simple, la
+    vitesse d'interrogation est extrêmement supérieur à la base de
+    données relationnelles favorisant l'évolutivité
+    (\emph{scalability}) plus que la cohérence. Les solutions les plus
+    connues (redis \footnote{\url{http://www.redis.io}},
+    Riak\footnote{\url{http://basho.com/riak/}} et
+    voldemort\footnote{\url{http://www.project-voldemort.com/voldemort/}})
+    sont principalement influencés par le project \emph{Dynamo}
+    d'Amazon \cite{decandia2007dynamo}.
+
+  \item [Orientées colonnes]: Une base de données orientée colonnes
+    est une base de données qui stocke les données par colonne et non
+    par ligne. L'orientation colonne permet d'ajouter des colonnes
+    plus facilement aux tables (les lignes n'ont pas besoin d'être
+    redimensionnées). Elle permet de plus une compression par colonne,
+    efficace lorsque les données de la colonne se ressemblent.
+
+  \item [Orientées documents]: La base de données orientée documents
+    est une évolution de la base de données clé-valeur où chaque clé
+    n'est plus associée à une valeur sous forme de bloc binaire mais à
+    un document dont la structure reste libre.
+
+  \item [Orientées graphes]: %TODO
+  \end{itemize}
+
+  \subsection{Bases de données orientées graphe}
   \label{sec:graph-database-overview}
   %% un état de l'art des bases de données graphe disponibles.
   %% une étude comparative entres les différentes solutions.
-  %% conclusion justificative pour nottre choix (neo4j)
-  \subsection{Neo4j}
   %% les caractéristiques clés du neo4j
+  %% conclusion justificative pour nottre choix (neo4j)
+  \subsection{Langages de requête}
+  \label{query-languages}
+
   %% Neo4j internals
-  \label{neo4j}
 
 \section{Conclusion}
 \label{sec:conclusion-2}
