@@ -446,7 +446,7 @@ cette section, nous présentons les différentes modèles et plateformes
 l'accent sur les modèles graphe des base de données (\textsc{Neo4j}
 particulièrement), leurs caractéristiques et avantages dans le cadre
 de notre problématique principale.
-
+\newpage
   \subsection{L'environnement NoSQL}
   \label{sec:nosql}
   \acrshort{nosql} désigne une catégorie de systèmes de gestion de
@@ -455,10 +455,8 @@ de notre problématique principale.
   n'y est plus la table, et les données ne sont en général pas
   manipulées avec \textsc{SQL}. À l'origine, servant à manipuler des
   bases de données géantes pour des sites web de très grande audience
-  tels que Google\footnote{\url{http://www.google.com}},
-  Amazon\footnote{\url{http:://amazon.com}}, Facebook et
-  eBay\footnote{\url{http://www.ebay.com}}. En bref, les bases de
-  données \acrshort{nosql} peuvent être catégorisées selon leur modèle
+  tels que Google Amazon, Facebook et eBay. En bref, les bases de
+  données \textsc{NoSQL} peuvent être catégorisées selon leur modèle
   de données dans les quatres catégories suivantes:
 
   \begin{itemize}
@@ -470,7 +468,7 @@ de notre problématique principale.
     effectuer sur les données telles que l'insertion, la mise à jour
     et la supression. Bien que la structure est plus simple, la
     vitesse d'interrogation est extrêmement supérieur à la base de
-    données relationnelles favorisant l'évolutivité
+    données relationnelles favorisant la scalabilité
     (\emph{scalability}) plus que la cohérence. Les solutions les plus
     connues (redis \footnote{\url{http://www.redis.io}},
     Riak\footnote{\url{http://basho.com/riak/}} et
@@ -478,28 +476,80 @@ de notre problématique principale.
     sont principalement influencés par le project \emph{Dynamo}
     d'Amazon \cite{decandia2007dynamo}.
 
+  \item [Orientées documents]: Cette famille de base de données est
+    une évolution de la base de données \textit{clé/valeur} destinée
+    aux applications qui gèrent des documents (généralement du format
+    \textsc{JSON} ou \textsc{XML}) où chaque clé n'est plus associée à
+    une valeur sous forme de bloc binaire mais à un document dont la
+    structure reste libre (\textit{scheme-less}). L'avantage est de
+    pouvoir récupérer, via une seule clé, un ensemble d’informations
+    structurées de manière hiérarchique. ansi que le stockage de
+    volumes très importants de données pour lesquelles la modélisation
+    relationnelle aurait entraînée une limitation des possibilités de
+    partitionnement et de réplication. les deux implémentations les
+    plus populaires dans cette catégorie sont
+    CouchDB\footnote{\url{http://couchdb.apache.org/}} d'Apache et
+    MongoDB\footnote{\url{http://www.mongodb.org/}}.
+
   \item [Orientées colonnes]: Une base de données orientée colonnes
     est une base de données qui stocke les données par colonne et non
     par ligne. L'orientation colonne permet d'ajouter des colonnes
     plus facilement aux tables (les lignes n'ont pas besoin d'être
     redimensionnées). Elle permet de plus une compression par colonne,
-    efficace lorsque les données de la colonne se ressemblent.
-
-  \item [Orientées documents]: La base de données orientée documents
-    est une évolution de la base de données clé-valeur où chaque clé
-    n'est plus associée à une valeur sous forme de bloc binaire mais à
-    un document dont la structure reste libre.
+    efficace lorsque les données de la colonne se ressemblent. Comme
+    solutions, on retrouve principalement
+    HBase\footnote{\url{http://hbase.apache.org/}},
+    HyperTable\footnote{\url{http://hypertable.org/}} (implémentations
+    Open Source du modèle \emph{BigTable} \cite{chang2008bigtable}
+    publié par Google) ainsi que
+    Cassandra\footnote{\url{http://cassandra.apache.org/}} (projet
+    Apache qui respecte l'architecture distribuée de \emph{Dynamo}
+    \cite{decandia2007dynamo} d'Amazon et le modèle BigTable de
+    Google).
 
   \item [Orientées graphes]: %TODO
   \end{itemize}
 
+  %% pourquoi les bases de données graphe?
+  \newpage
   \subsection{Bases de données orientées graphe}
   \label{sec:graph-database-overview}
+
+  Un grand nombre de problèmes pratiques dans différentes disciplines
+  peuvent être intuitivement représentés sous forme de graphe : des
+  nœuds reliés par des arcs (étiqueté ou non).
+
+  Depuis plusieurs décennies, les développeurs ont essayé de stoker
+  des ensembles de données connectés, semi-structurées à l'intérieur
+  des bases de données relationnelles. Mais alors que les bases de
+  données relationnelles ont été initialement conçues pour codifier
+  des structures tabulaires. Cependant, les données fortement
+  connectées sont traitées de manière très pauvre par les bases de
+  données relationnelles. Chaque opération sur une relation dans un
+  graphe ou réseau résulte en une opération de jointure dans le
+  \acrshort{SGBDR}, implémentée comme une opération ensembliste entre
+  l'ensemble des clés primaires de deux tables - une opération lente
+  et sans capacité à monter en charge alors que le nombre de t-uples
+  de ces tables augmente \cite{robinson2013graph}.
+
+  Les bases de données NoSQL et plus particulièrement celles orientées
+  graphes sont donc conçues pour modéliser des réseaux de données
+  fortement connectées et y naviguer facilement en bénéficiant de
+  performances extrêmement élevées – un atout qui explique leur succès
+  auprès de Facebook\footnote{\url{http://www.facebook.com}},
+  LinkedIn\footnote{\url{http://www.linkedin.com}} et autres réseaux
+  sociaux. Ces derniers sont devenus ces dernières années l'un de cas
+  d'utilisation les plus visibles des bases de données graphe.
+  LinkedIn parvient ainsi facilement à afficher le degré de séparation
+  entre chaque contact, qui n'est finalement que la distance entre les
+  nœuds dans le graphe représentant les personnes et leurs relations.
+
   %% un état de l'art des bases de données graphe disponibles.
   %% une étude comparative entres les différentes solutions.
   %% les caractéristiques clés du neo4j
   %% conclusion justificative pour nottre choix (neo4j)
-  \subsection{Langages de requête}
+  \subsection{Langages d'interrogation des bases de données graphe
+}
   \label{query-languages}
 
   %% Neo4j internals
