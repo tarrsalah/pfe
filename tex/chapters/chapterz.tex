@@ -5,7 +5,7 @@ computing, divers types d'applications ont émergés, ce qui augmente
 l'mportance accrue de la technologie de base de données, notamment
 dans les aspects suivants \cite{han2011survey}:
 
-\begin{itemize} % to expand
+\begin{itemize}
 \item Haute concurrente de lecture et d'écriture avec une faible
   latence.
 \item Stockage et la gestion d'une grande masse de données \emph{(Big
@@ -17,22 +17,26 @@ Bien que les bases de données relationnelles ont occupé une grande
 position dans le domaine de stockage de données, le modèle relationnel
 commençait à montrer ses limites en faisant face au-dessus exigences:
 
-\begin{itemize} % to expand
+\begin{itemize}
 \item Lente lecture et l'écriture.
 \item Capacité limitée.
 \item Difficulté d'expansion et scalabilité.
 \end{itemize}
 
 Afin de faire face aux limitations ci-dessus, une variété de nouveaux
-types de bases de données ont apparu. En général, ces nouvelles bases
-de données sont très différents avec bases de données relationnelles,
-il est appelé les bases de données \acrshort{nosql}. Dans la suite de
-cette section, nous présentons les différentes modèles et plateformes
-\textsc{NoSQL} les plus connues dans l'industrie, tout en mettant
-l'accent sur les modèles graphe des base de données (\textsc{Neo4j}
-particulièrement), leurs caractéristiques et avantages dans le cadre
-de notre problématique principale.
-\newpage
+types de bases de données ont été apparus qui s'affranchissent du
+modèle relationnel pour miser sur le partitionnement horizontal et le
+relâchement des contraintes d'intégrité, ce modèle émergent est appelé
+le modèle \acrshort{nosql}. Dans ce chapitre, nous exposons les
+différentes approches et plateformes du stockage \textsc{NoSQL} les
+plus connues dans l'industrie tout en mettant l'accent sur les bases
+de données graphe (et \emph{Neo4j} particulièrement). Nous commençons
+d'abord par présenter les quatre catégories majeurs des systèmes
+\textsc{NoSQL}. Ensuite, nous focalisons sur les \acrshort{SGBD}
+orientés graphe, leurs différents modèles et implémentations ainsi que
+les langages de requête les plus adoptés pour les interroger.
+
+
 \section{L'environnement NoSQL}
 \label{sec:nosql}
 \acrshort{nosql} désigne une catégorie de systèmes de gestion de base
@@ -97,10 +101,9 @@ quatres catégories suivantes:
   \end{itemize}
 
   %% pourquoi les bases de données graphe?
-  
+\newpage
 \section{Bases de données orientées graphe}
 \label{sec:graph-database-overview}
-
 Un grand nombre de problèmes pratiques dans différentes disciplines
 peuvent être intuitivement représentés sous forme de graphe : des
 nœuds reliés par des arcs (étiqueté ou non).
@@ -118,11 +121,11 @@ primaires de deux tables - une opération lente et sans capacité à
 monter en charge alors que le nombre de t-uples de ces tables augmente
 \cite{robinson2013graph}.
 
-Les bases de données NoSQL et plus particulièrement celles orientées
-graphes sont donc conçues pour modéliser des réseaux de données
-fortement connectées et y naviguer facilement en bénéficiant de
-performances extrêmement élevées – un atout qui explique leur succès
-auprès de Facebook\footnote{\url{http://www.facebook.com}},
+Les bases de données orientées graphes sont donc conçues pour
+modéliser des réseaux de données fortement connectées et y naviguer
+facilement en bénéficiant de performances extrêmement élevées – un
+atout qui explique leur succès auprès de
+Facebook\footnote{\url{http://www.facebook.com}},
 LinkedIn\footnote{\url{http://www.linkedin.com}} et autres réseaux
 sociaux. Ces derniers sont devenus ces dernières années l'un de cas
 d'utilisation les plus visibles des bases de données graphe.  LinkedIn
@@ -134,7 +137,7 @@ dans le graphe représentant les personnes et leurs relations.
 \label{query-languages}
 
   % TODO: Neo4j internals
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
-%%% End: 
+%%% End:
