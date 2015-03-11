@@ -1,3 +1,9 @@
+\newpage
+
+{\color{red}
+  VIDE
+}
+\newpage
 \chapter{Vers les bases de données graphe}
 \label{ch:graph-db}
 Avec le développement rapide et continu de l'Internet et le cloud
@@ -30,10 +36,10 @@ relâchement des contraintes d'intégrité, ce modèle émergent est appelé
 le modèle \acrshort{nosql}. Dans ce chapitre, nous exposons les
 différentes approches et plateformes du stockage \textsc{NoSQL} les
 plus connues dans l'industrie tout en mettant l'accent sur les bases
-de données graphe (et \emph{Neo4j} particulièrement). Nous commençons
+de données graphes (et \emph{Neo4j} particulièrement). Nous commençons
 d'abord par présenter les quatre catégories majeurs des systèmes
 \textsc{NoSQL}. Ensuite, nous focalisons sur les \acrshort{SGBD}
-orientés graphe, leurs différents modèles et implémentations ainsi que
+orientés graphes, leurs différents modèles et implémentations ainsi que
 les langages de requête les plus adoptés pour les interroger.
 
 
@@ -45,41 +51,46 @@ classique des bases relationnelles. L'unité logique n'y est plus la
 table, et les données ne sont en général pas manipulées avec
 \textsc{SQL}. À l'origine, servant à manipuler des bases de données
 géantes pour des sites web de très grande audience tels que Google
-Amazon, Facebook et eBay. En bref, les bases de données \textsc{NoSQL}
-peuvent être catégorisées selon leur modèle de données dans les
-quatres catégories suivantes:
+Amazon, Facebook et eBay.
 
-\begin{itemize}
-\item [Dépots clés-valeurs]: Le principe des bases \textit{clé/valeur}
-  est de stocker les données sous une forme simple: une \emph{clé }
-  (chaîne de caractères) associé à une \emph{valeur} (chaîne de
-  caractère, nombre ou bien un objet sérialisé), cette clé est
-  utilisée pout toutes les opérations à effectuer sur les données
-  telles que l'insertion, la mise à jour et la supression. Bien que la
-  structure est plus simple, la vitesse d'interrogation est
-  extrêmement supérieur à la base de données relationnelles favorisant
-  la scalabilité (\emph{scalability}) plus que la cohérence. Les
-  solutions les plus connues (redis
-  \footnote{\url{http://www.redis.io}},
-  Riak\footnote{\url{http://basho.com/riak/}} et
-  voldemort\footnote{\url{http://www.project-voldemort.com/voldemort/}})
-  sont principalement influencés par le project \emph{Dynamo} d'Amazon
-  \cite{decandia2007dynamo}.
+\newpage
+  \subsection{Catégories des bases de données NoSQL}
+  \label{4nosql}
+  En bref, les bases de données \textsc{NoSQL} peuvent être
+  catégorisées selon leur modèle de données dans les quatres
+  catégories suivantes:
 
-\item [Orientées documents]: Cette famille de base de données est une
-  évolution de la base de données \textit{clé/valeur} destinée aux
-  applications qui gèrent des documents (généralement du format
-  \textsc{JSON} ou \textsc{XML}) où chaque clé n'est plus associée à
-  une valeur sous forme de bloc binaire mais à un document dont la
-  structure reste libre (\textit{scheme-less}). L'avantage est de
-  pouvoir récupérer, via une seule clé, un ensemble d’informations
-  structurées de manière hiérarchique. ansi que le stockage de volumes
-  très importants de données pour lesquelles la modélisation
-  relationnelle aurait entraînée une limitation des possibilités de
-  partitionnement et de réplication. les deux implémentations les plus
-  populaires dans cette catégorie sont
-  CouchDB\footnote{\url{http://couchdb.apache.org/}} d'Apache et
-  MongoDB\footnote{\url{http://www.mongodb.org/}}.
+  \begin{itemize}
+  \item [Dépots clés-valeurs]: Le principe des bases
+    \textit{clé/valeur} est de stocker les données sous une forme
+    simple: une \emph{clé } (chaîne de caractères) associé à une
+    \emph{valeur} (chaîne de caractère, nombre ou bien un objet
+    sérialisé), cette clé est utilisée pout toutes les opérations à
+    effectuer sur les données telles que l'insertion, la mise à jour
+    et la supression. Bien que la structure est plus simple, la
+    vitesse d'interrogation est extrêmement supérieur à la base de
+    données relationnelles favorisant la scalabilité
+    (\emph{scalability}) plus que la cohérence. Les solutions les plus
+    connues (redis \footnote{\url{http://www.redis.io}},
+    Riak\footnote{\url{http://basho.com/riak/}} et
+    voldemort\footnote{\url{http://www.project-voldemort.com/voldemort/}})
+    sont principalement influencés par le project \emph{Dynamo}
+    d'Amazon \cite{decandia2007dynamo}.
+
+  \item [Orientées documents]: Cette famille de base de données est
+    une évolution de la base de données \textit{clé/valeur} destinée
+    aux applications qui gèrent des documents (généralement du format
+    \textsc{JSON} ou \textsc{XML}) où chaque clé n'est plus associée à
+    une valeur sous forme de bloc binaire mais à un document dont la
+    structure reste libre (\textit{scheme-less}). L'avantage est de
+    pouvoir récupérer, via une seule clé, un ensemble d’informations
+    structurées de manière hiérarchique. ansi que le stockage de
+    volumes très importants de données pour lesquelles la modélisation
+    relationnelle aurait entraînée une limitation des possibilités de
+    partitionnement et de réplication. les deux implémentations les
+    plus populaires dans cette catégorie sont
+    CouchDB\footnote{\url{http://couchdb.apache.org/}} d'Apache et
+    MongoDB\footnote{\url{http://www.mongodb.org/}}.
 
   \item [Orientées colonnes]: Une base de données orientée colonnes
     est une base de données qui stocke les données par colonne et non
@@ -100,41 +111,76 @@ quatres catégories suivantes:
   \item [Orientées graphes]: %TODO
   \end{itemize}
 
-  %% pourquoi les bases de données graphe?
+  \subsection{Comparaison}
+  \label{nosql-comp}
+
+  %% pourquoi les bases de données graphes?
 \newpage
-\section{Bases de données orientées graphe}
+\section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
-Un grand nombre de problèmes pratiques dans différentes disciplines
-peuvent être intuitivement représentés sous forme de graphe : des
-nœuds reliés par des arcs (étiqueté ou non).
+% TODO: rewrite the intro
+\begin{text}
+  Un grand nombre de problèmes pratiques dans différentes disciplines
+  peuvent être intuitivement représentés sous forme de graphes : des
+  nœuds reliés par des arcs (étiqueté ou non).
 
-Depuis plusieurs décennies, les développeurs ont essayé de stoker des
-ensembles de données connectés, semi-structurées à l'intérieur des
-bases de données relationnelles. Mais alors que les bases de données
-relationnelles ont été initialement conçues pour codifier des
-structures tabulaires. Cependant, les données fortement connectées
-sont traitées de manière très pauvre par les bases de données
-relationnelles. Chaque opération sur une relation dans un graphe ou
-réseau résulte en une opération de jointure dans le \acrshort{SGBDR},
-implémentée comme une opération ensembliste entre l'ensemble des clés
-primaires de deux tables - une opération lente et sans capacité à
-monter en charge alors que le nombre de t-uples de ces tables augmente
-\cite{robinson2013graph}.
+  Depuis plusieurs décennies, les développeurs ont essayé de stoker
+  des ensembles de données connectés, semi-structurées à l'intérieur
+  des bases de données relationnelles. Mais alors que les bases de
+  données relationnelles ont été initialement conçues pour codifier
+  des structures tabulaires. Cependant, les données fortement
+  connectées sont traitées de manière très pauvre par les bases de
+  données relationnelles. Chaque opération sur une relation dans un
+  graphes ou réseau résulte en une opération de jointure dans le
+  \acrshort{SGBDR}, implémentée comme une opération ensembliste entre
+  l'ensemble des clés primaires de deux tables - une opération lente
+  et sans capacité à monter en charge alors que le nombre de t-uples
+  de ces tables augmente \cite{robinson2013graph}.
 
-Les bases de données orientées graphes sont donc conçues pour
-modéliser des réseaux de données fortement connectées et y naviguer
-facilement en bénéficiant de performances extrêmement élevées – un
-atout qui explique leur succès auprès de
-Facebook\footnote{\url{http://www.facebook.com}},
-LinkedIn\footnote{\url{http://www.linkedin.com}} et autres réseaux
-sociaux. Ces derniers sont devenus ces dernières années l'un de cas
-d'utilisation les plus visibles des bases de données graphe.  LinkedIn
-parvient ainsi facilement à afficher le degré de séparation entre
-chaque contact, qui n'est finalement que la distance entre les nœuds
-dans le graphe représentant les personnes et leurs relations.
+  Les bases de données orientées graphes sont donc conçues pour
+  modéliser des réseaux de données fortement connectées et y naviguer
+  facilement en bénéficiant de performances extrêmement élevées – un
+  atout qui explique leur succès auprès de
+  Facebook\footnote{\url{http://www.facebook.com}},
+  LinkedIn\footnote{\url{http://www.linkedin.com}} et autres réseaux
+  sociaux. Ces derniers sont devenus ces dernières années l'un de cas
+  d'utilisation les plus visibles des bases de données graphes.
+  LinkedIn parvient ainsi facilement à afficher le degré de séparation
+  entre chaque contact, qui n'est finalement que la distance entre les
+  nœuds dans le graphes représentant les personnes et leurs relations.
+\end{text}
 
-\section{Langages d'interrogation des bases de données graphe}
+ %TODO: relational vs graph database
+  \newpage
+  \subsection{Techniques de persistance des bases de données graphes}
+  \label{sec:persistence-tech}
+
+  \begin{itemize}
+  \item [Bases de données graphes au-dessus de d'un stockage SQL]
+  \item [Bases de données graphes au-dessus d'un stackages NoSQL]
+  \item [Les bases de données graphes natives]
+  \end{itemize}
+  \newpage
+  \subsection{Détails d'implémentation}
+  \label{graph-internals}
+  \begin{itemize}
+  \item [Index-free adjacency]
+  \item [Vertex Centric Indices]
+  \item [Bitmaps representation of graphs]
+  \item [Write Ahead Log]
+  \end{itemize}
+  \newpage
+  \subsection{Comparaison}
+  \label{graphdb-comp}
+
+\newpage
+\section{Langages d'interrogation des bases de données graphes}
 \label{query-languages}
+  \subsection{SPARQL}
+  \subsection{Gremlin}
+  \subsection{Cypher}
+
+\section{Conclusion}
 
   % TODO: Neo4j internals
 %%% Local Variables:
