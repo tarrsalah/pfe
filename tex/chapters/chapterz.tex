@@ -1,9 +1,3 @@
-\newpage
-
-{\color{red}
-  VIDE
-}
-\newpage
 \chapter{Vers les bases de données graphe}
 \label{ch:graph-db}
 Avec le développement rapide et continu de l'Internet et le cloud
@@ -175,34 +169,40 @@ Amazon, Facebook et eBay.
 \newpage
 \section{Langages d'interrogation des bases de données graphes}
 \label{query-languages}
-% TODO: intro
 
 Les langages de requêtes ont toujours été la clé du succès des
 systèmes de gestion des bases de données. La prévalence des
-\acrshort{SGBDR} dans les dernières décennies ets étroitement couplé
-avec le succès du \textsc{SQL}. Des divers langages d'interrogation
-inventés
-% TODO: make a simple graph example
+\emph{\acrshort{SGBDR}} dans les dernières décennies est étroitement
+couplé avec le succès du \emph{SQL}. Des divers langages ont été
+définis pour exprimer des requêtes vis-à-vis plusieurs dépôts de
+données, par exemple, \emph{XQuery} \cite{boag2002xquery} et
+\emph{XPath} \cite{clark1999xml} pour les bases de données
+\emph{\acrshort{xml}}, \emph{QQL} \cite{alashqur1989oql} pour les
+bases de données orientées objets et \emph{SPARQL}
+\cite{prud2008sparql} pour les triplestore (dépôt des documents
+\emph{RDF}). Dans cette section on va présenter les langages de
+requêtes les plus utilisée pour l'interrogation des bases de données
+graphes.
 
+% et performants les plus
+% utilisés pour l'interrogation des bases de données graphes.
+
+  % TODO: make a simple graph example
   \subsection{SPARQL}
   \label{sparql}
 
-
-  {\color{red}
-    \url{http://franz.com/agraph/support/documentation/current/sparql-tutorial.html}
-  }\newpage
-
-  SPARQL [25] is a query language for RDF data and is recognized as
-  one of the key technologies of the semantic web. It can extract
-  values from structured and semi- structured data and supports
-  unambiguous queries. A SPARQL endpoint accepts queries and returns
-  results via HTTP, the results of SPARQL queries can be returned
-  and/or rendered in a variety of formats such as XML, HTML or
-  JSON. So it can be adapt by web service like REST server easily.  To
-  give an example of how SPARQL works, we will do a query on DBPedia,
-  which we mention in RDF section. This query will return the result
-  of people born before 1900 in China form DBPedia, and sorted by
-  names:
+  \begin{text}
+  SPARQL \cite{prud2008sparql} is a query language for RDF data and is
+  recognized as one of the key technologies of the semantic web. It
+  can extract values from structured and semi-structured data and
+  supports unambiguous queries. A SPARQL endpoint accepts queries and
+  returns results via HTTP, the results of SPARQL queries can be
+  returned and/or rendered in a variety of formats such as XML, HTML
+  or JSON. So it can be adapt by web service like REST server easily.
+  To give an example of how SPARQL works, we will do a query on
+  DBPedia, which we mention in RDF section. This query will return the
+  result of people born before 1900 in China form DBPedia, and sorted
+  by names:
 
   SELECT ?name ?birth ?death ?person WHERE {
     ?person dbo:birthPlace :China .
@@ -222,24 +222,23 @@ inventés
   Virtuoso.  SPARQL is supported by some databases such as
   AllegroGraph natively. Other graph databases like Neo4j also support
   SPARQL by applying plugin Linked Data.
+  \end{text}% TODO: translate
+
+
 
   \subsection{Gremlin}
   \label{gremlin}
 
-  {\color{red}
-    \url{https://github.com/tinkerpop/gremlin/wiki}
-  }
-
-  Gremlin is a graph query language based on the open source software
-  Blueprints.  It can be used on all of the graph databases that
-  support Blueprints. It can be used in various JVM languages such as
-  Java, and Groovy. By working with Blueprint API, Gremlin can be used
-  to manipulate the graph database. It provides a command line prompt
-  to insert/update/delete the nodes and edges. As a query language, it
-  can perform complex graph traversals compactly. To get the same
-  query result, it uses much less code than using Java API. For
-  instance, it just needs 3 lines to get eigenvector centrality of a
-  graph:
+  Gremlin \cite{gremlin-wiki} is a graph query language based on the
+  open source software Blueprints.  It can be used on all of the graph
+  databases that support Blueprints. It can be used in various JVM
+  languages such as Java, and Groovy. By working with Blueprint API,
+  Gremlin can be used to manipulate the graph database. It provides a
+  command line prompt to insert/update/delete the nodes and edges. As
+  a query language, it can perform complex graph traversals
+  compactly. To get the same query result, it uses much less code than
+  using Java API. For instance, it just needs 3 lines to get
+  eigenvector centrality of a graph:
 
   m = [:]; c = 0;
   g.V.as(’x’).out.groupCount(m).loop(’x’){c++ <1000}
@@ -259,17 +258,8 @@ inventés
   initial choice as the query language for graph database.
 
   \subsection{Cypher}
-
-  {\color{red}
-    \url{http://neo4j.com/docs/stable/cypher-introduction.html}\\
-    \url{https://github.com/neo4j-contrib/manual-french/blob/master/po/cypher.po}
-  }
-
-
-
-  {\color{red}
-    compare gremlin and cypher using\cite{holzschuher2013performance}
-  }
+  \label{sec:cypher}
+  \cite{cypher-docs}
 
 \section{Conclusion}
 
