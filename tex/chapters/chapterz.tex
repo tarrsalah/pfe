@@ -39,6 +39,7 @@ les langages de requête les plus adoptés pour les interroger.
 
 \section{L'environnement NoSQL}
 \label{sec:nosql}
+% TODO: make a real definition
 \acrshort{nosql} désigne une catégorie de systèmes de gestion de base
 de données (\acrshort{SGBD}) qui n'est plus fondée sur l'architecture
 classique des bases relationnelles. L'unité logique n'y est plus la
@@ -47,7 +48,6 @@ table, et les données ne sont en général pas manipulées avec
 géantes pour des sites web de très grande audience tels que Google
 Amazon, Facebook et eBay.
 
-\newpage
   \subsection{Catégories des bases de données NoSQL}
   \label{4nosql}
   En bref, les bases de données \textsc{NoSQL} peuvent être
@@ -109,7 +109,6 @@ Amazon, Facebook et eBay.
   \label{nosql-comp}
 
   %% pourquoi les bases de données graphes?
-\newpage
 \section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
 % TODO: rewrite the intro
@@ -184,9 +183,6 @@ bases de données orientées objets et \emph{SPARQL}
 requêtes les plus utilisée pour l'interrogation des bases de données
 graphes.
 
-% et performants les plus
-% utilisés pour l'interrogation des bases de données graphes.
-
   % TODO: make a simple graph example
   \subsection{SPARQL}
   \label{sparql}
@@ -224,8 +220,6 @@ graphes.
   SPARQL by applying plugin Linked Data.
   \end{text}% TODO: translate
 
-
-
   \subsection{Gremlin}
   \label{gremlin}
 
@@ -259,9 +253,48 @@ graphes.
 
   \subsection{Cypher}
   \label{sec:cypher}
-  \cite{cypher-docs}
+  \emph{Cypher} \cite{cypher-docs} est un langage des requêtes
+  déclaratif pour interagir avec les bases des données graphes
+  \emph{Neo4j}, développé et maintenu par \emph{Neo Technology}. Il
+  permet d'effectuer des requêtes et mises jour du graphe efficaces
+  sans avoir écrire de traversiers d'une manière procédurale.
 
-\section{Conclusion}
+  En étant un langage déclaratif, \emph{Cypher} se concentre sur la
+  clarté d'exprimer \textit{quoi retrouver dans un graphe et non
+    comment le faire}. Ceci est en contraste aux langages impératifs
+  comme Java et aux langages script comme \emph{Gremlin}
+  \ref{gremlin}, ce qui rend le fait d'optimisation de requêtes un
+  détail d'implémentation non exposé aux utilisateurs. \emph{Cypher}
+  est inspiré de plusieurs approches et construit sur des pratiques
+  établies pour l'interrogation expressif des bases de données. La
+  plupart des mots clés comme \verb|WHERE| et \verb|ORDER BY|, et La
+  concordance de patterns sont hérités directement des langages
+  déclaratifs comme \emph{SQL} et \emph{SPARQL} \ref{sparql} avec
+  quelque propriétés inspirés des langages fonctionnels comme
+  \emph{Haskell} et \emph{ML}.
+
+  Le langage \emph{Cypher} comporte un nombre de clauses distinctes,
+  des clauses pour l'interrogation du graphe comme:
+  \begin{itemize}
+  \item [\texttt{MATCH}]: Utilisé pour pour décrire Le pattern du graphe
+    à correspondre, principalement sur la base de relations entre les
+    nœuds du graphe.
+  \item [\texttt{WHERE}]: Sert à un critère de filtrage.
+  \item [\texttt{RETURN}]: Spécifie ce qu'il faut retourner comme
+    résultat finale de requête.
+  \end{itemize}
+
+
+  \emph{Cypher} contient en outre des clauses pour l'écriture, la mise
+  à jour et suppression de données, par exemple:
+
+  \begin{itemize}
+  \item [\texttt{CREATE}]: Crée des nœuds ou des relations.
+  \item [\texttt{SET}]: Affecte des valeurs aux propriétés..
+  \item [\texttt{DELETE}]: supprime des noeuds, relations ou propriétés.
+  \end{itemize}
+
+  \section{Conclusion}
 
   % TODO: Neo4j internals
 %%% Local Variables:
