@@ -178,7 +178,7 @@ données, par exemple, \emph{XQuery} \cite{boag2002xquery} et
 \emph{XPath} \cite{clark1999xml} pour les bases de données
 \emph{\acrshort{xml}}, \emph{QQL} \cite{alashqur1989oql} pour les
 bases de données orientées objets et \emph{SPARQL}
-\cite{prud2008sparql} pour les triplestore (dépôt des documents
+\cite{prud2008sparql} pour les triplestores (les bases de données
 \emph{RDF}). Dans cette section on va présenter les langages de
 requêtes les plus utilisée pour l'interrogation des bases de données
 graphes.
@@ -221,35 +221,19 @@ graphes.
   \end{text}% TODO: translate
 
   \subsection{Gremlin}
-  \label{gremlin}
+  \label{sec:gremlin}
 
-  Gremlin \cite{gremlin-wiki} is a graph query language based on the
-  open source software Blueprints.  It can be used on all of the graph
-  databases that support Blueprints. It can be used in various JVM
-  languages such as Java, and Groovy. By working with Blueprint API,
-  Gremlin can be used to manipulate the graph database. It provides a
-  command line prompt to insert/update/delete the nodes and edges. As
-  a query language, it can perform complex graph traversals
-  compactly. To get the same query result, it uses much less code than
-  using Java API. For instance, it just needs 3 lines to get
-  eigenvector centrality of a graph:
+  \emph{Gremlin} \cite{gremlin-wiki} est un projet open source
+  développé et maintenu par TinkerPop, \emph{Gremlin} est un langage
+  de domaine spécifique (\acrshort{DSL}) pour le parcours des graphes
+  (), il trouve ses applications dans les domaines de la recherche,
+  l'analyse et la manipulation des bases de données orientées graphes
+  qui implémentent le modèle \emph{Blueprints} \cite{blueprints} de
+  données (\emph{modèle de graphe attribué}).
 
-  m = [:]; c = 0;
-  g.V.as(’x’).out.groupCount(m).loop(’x’){c++ <1000}
-  m.sort { -it.value }
-
-
-  Another important feature of Gremlin is there are many add-ons and
-  connectors on it. For example, the JUNG algorithms library gives
-  Gremlin the ability to compute centrality score, or do a clustering
-  on the graph. The connector LinkedData Sail makes Gremlin easily
-  access RDF just like SPARQL. Besides gremlin, some graph database
-  vendor also provide their own query language, such as Cypher from
-  Neo4j. There is a performance comparison in [26] that concludes
-  Cypher is more syntax friendly to the SQL users but the gremlin has
-  a little performance advantage when running the query.  Considering
-  its compatibility and pluggable nature, Gremlin should be the
-  initial choice as the query language for graph database.
+  La syntaxe \emph{Gremlin} est basée sur \emph{XPath} de manière à
+  être capable d'exprimer des descriptions de parcours même profonds
+  avec des expressions simples.
 
   \subsection{Cypher}
   \label{sec:cypher}
@@ -257,7 +241,8 @@ graphes.
   déclaratif pour interagir avec les bases des données graphes
   \emph{Neo4j}, développé et maintenu par \emph{Neo Technology}. Il
   permet d'effectuer des requêtes et mises jour du graphe efficaces
-  sans avoir écrire de traversiers d'une manière procédurale.
+  sans avoir écrire de traversiers (parcours) d'une manière
+  procédurale.
 
   En étant un langage déclaratif, \emph{Cypher} se concentre sur la
   clarté d'exprimer \textit{quoi retrouver dans un graphe et non
