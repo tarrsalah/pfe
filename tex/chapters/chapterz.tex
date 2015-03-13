@@ -15,7 +15,8 @@ dans les aspects suivants \cite{han2011survey}:
 
 Bien que les bases de données relationnelles ont occupé une grande
 position dans le domaine de stockage de données, le modèle relationnel
-commençait à montrer ses limites en faisant face au-dessus exigences:
+commençait à montrer ses limites en faisant face au-dessus exigences
+\cite{han2011survey}:
 
 \begin{itemize}
 \item Lente lecture et l'écriture.
@@ -33,9 +34,8 @@ plus connues dans l'industrie tout en mettant l'accent sur les bases
 de données graphes (et \emph{Neo4j} particulièrement). Nous commençons
 d'abord par présenter les quatre catégories majeurs des systèmes
 \textsc{NoSQL}. Ensuite, nous focalisons sur les \acrshort{SGBD}
-orientés graphes, leurs différents modèles et implémentations ainsi que
-les langages de requête les plus adoptés pour les interroger.
-
+orientés graphes, leurs différents modèles et implémentations ainsi
+que les langages de requêtes les plus adoptés pour les interroger.
 
 \section{L'environnement NoSQL}
 \label{sec:nosql}
@@ -46,30 +46,43 @@ classique des bases relationnelles. L'unité logique n'y est plus la
 table, et les données ne sont en général pas manipulées avec
 \textsc{SQL}. À l'origine, servant à manipuler des bases de données
 géantes pour des sites web de très grande audience tels que Google
-Amazon, Facebook et eBay.
+Amazon, Facebook et eBay. D'aprés Martin fowler \textit{et al.}
+\cite{sadalage2012nosql}, Les caractéristiques communes des bases de
+données \acrshort{nosql} sont:
+
+\begin{itemize}
+\item Not using the relational model.
+\item Running well on clusters
+\item Open-source
+\item Built for the 21st century web estates
+\item Schemaless
+\end{itemize}
 
   \subsection{Catégories des bases de données NoSQL}
-  \label{4nosql}
-  En bref, les bases de données \textsc{NoSQL} peuvent être
-  catégorisées selon leur modèle de données dans les quatres
-  catégories suivantes:
+  \label{nosql}
+  Il existe dans la mouvance \acrshort{nosql} une diversité importante
+  d'approches. que nous classons en quatre grandes catégories : dépots
+  clés/valeurs, bases orientées documents, orientées colonnes, et
+  bases orientées graphes.
 
   \begin{itemize}
-  \item [Dépots clés-valeurs]: Le principe des bases
+  \item [Dépots clés/valeurs]: Le principe des bases
     \textit{clé/valeur} est de stocker les données sous une forme
     simple: une \emph{clé } (chaîne de caractères) associé à une
-    \emph{valeur} (chaîne de caractère, nombre ou bien un objet
-    sérialisé), cette clé est utilisée pout toutes les opérations à
-    effectuer sur les données telles que l'insertion, la mise à jour
-    et la supression. Bien que la structure est plus simple, la
-    vitesse d'interrogation est extrêmement supérieur à la base de
-    données relationnelles favorisant la scalabilité
-    (\emph{scalability}) plus que la cohérence. Les solutions les plus
-    connues (redis \footnote{\url{http://www.redis.io}},
-    Riak\footnote{\url{http://basho.com/riak/}} et
-    voldemort\footnote{\url{http://www.project-voldemort.com/voldemort/}})
-    sont principalement influencés par le project \emph{Dynamo}
-    d'Amazon \cite{decandia2007dynamo}.
+    \emph{valeur} d'une forme libre (chaîne de caractère, nombre ou
+    bien un objet sérialisé), cette clé est utilisée pout toutes les
+    opérations à effectuer sur les données telles que l'insertion, la
+    mise à jour et la supression. Bien que la structure est plus
+    simple, la vitesse d'interrogation est extrêmement supérieur à la
+    base de données relationnelles favorisant la scalabilité
+    (\emph{scalability}) plus que la cohérence, on les retrouve très
+    souvent comme système de stockage de cache ou de sessions
+    distribuées, notamment là où l’intégrité relationnelle des données
+    est non significative. Les solutions les plus connues, telle que
+    \emph{Redis}, \emph{Riak} et \emph{Voldemort} sont principalement
+    influencés par le project \emph{Dynamo} d'Amazon
+    \cite{decandia2007dynamo}.
+    \newpage
 
   \item [Orientées documents]: Cette famille de base de données est
     une évolution de la base de données \textit{clé/valeur} destinée
@@ -82,9 +95,8 @@ Amazon, Facebook et eBay.
     volumes très importants de données pour lesquelles la modélisation
     relationnelle aurait entraînée une limitation des possibilités de
     partitionnement et de réplication. les deux implémentations les
-    plus populaires dans cette catégorie sont
-    CouchDB\footnote{\url{http://couchdb.apache.org/}} d'Apache et
-    MongoDB\footnote{\url{http://www.mongodb.org/}}.
+    plus populaires dans cette catégorie sont \emph{CouchDB} d'Apache
+    et \emph{MongoDB}.
 
   \item [Orientées colonnes]: Une base de données orientée colonnes
     est une base de données qui stocke les données par colonne et non
@@ -92,23 +104,34 @@ Amazon, Facebook et eBay.
     plus facilement aux tables (les lignes n'ont pas besoin d'être
     redimensionnées). Elle permet de plus une compression par colonne,
     efficace lorsque les données de la colonne se ressemblent. Comme
-    solutions, on retrouve principalement
-    HBase\footnote{\url{http://hbase.apache.org/}},
-    HyperTable\footnote{\url{http://hypertable.org/}} (implémentations
-    Open Source du modèle \emph{BigTable} \cite{chang2008bigtable}
-    publié par Google) ainsi que
-    Cassandra\footnote{\url{http://cassandra.apache.org/}} (projet
-    Apache qui respecte l'architecture distribuée de \emph{Dynamo}
-    \cite{decandia2007dynamo} d'Amazon et le modèle BigTable de
-    Google).
+    solutions, on retrouve principalement \emph{HBase},
+    \emph{HyperTable} (implémentations Open Source du modèle
+    \emph{BigTable} \cite{chang2008bigtable} publié par Google) ainsi
+    que \emph{Cassandra} (projet Apache qui respecte l'architecture
+    distribuée de \emph{Dynamo} \cite{decandia2007dynamo} d'Amazon et
+    le modèle BigTable de Google).
 
-  \item [Orientées graphes]: %TODO
+  \item [Orientées graphes]: Ce paradigme est le moins connu de ceux
+    de la mouvance \acrshort{nosql}. Ce modèle s'appuie principalement
+    sur deux concepts: d'une part l'utilisation d'un moteur de
+    stockage pour les objets (qui se présentent sous la forme d'une
+    base documentaire, chaque entité de cette base étant nommée
+    \emph{nœud}). D'autre part, à ce modèle, vient s'ajouter un
+    mécanisme permettant de décrire les relations entre les objets
+    (\emph{arcs}). Principalement, ces bases de données sont nettement
+    plus efficaces que leur pendant relationnel pour traiter les
+    problématiques liées aux réseaux.  En effet, lorsqu'on utilise le
+    modèle relationnel, cela nécessite un grand nombre d'opérations
+    complexes (souvent, des jointures trop lentes) pour obtenir des
+    résultats. Dans cette catégorie on peut citer \emph{Neo4j},
+    \emph{OrientDB}, \emph{Titan} et \emph{AllegroGraph} comme les
+    implémentations les plus répondus de ce modèle.
   \end{itemize}
-
-  \subsection{Comparaison}
-  \label{nosql-comp}
-
+  \newpage
+  \subsection{Le théorème de CAP \cite{brewer2000towards}}
+ 
   %% pourquoi les bases de données graphes?
+\newpage
 \section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
 % TODO: rewrite the intro
