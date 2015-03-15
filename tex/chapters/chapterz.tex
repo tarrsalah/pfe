@@ -169,8 +169,6 @@ données \acrshort{nosql} sont:
   positionnement de quelque systèmes \emph{NoSQL} par rapport au
   théorème \acrshort{cap} .
 
-
-
 \section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
 % TODO: rewrite the intro
@@ -208,13 +206,44 @@ données \acrshort{nosql} sont:
 % TODO: relational vs graph database
   \subsection{Techniques de persistance des bases de données graphes}
   \label{sec:persistence-tech}
+  Généralement, nous pouvons distinguer trois techniques majeures du
+  stockage adoptés par les systèmes de gestion des bases de données
+  graphes: les bases de données graphes qui utilisent des
+  \acrshort{SGBDR} comme un \emph{backend}, celles qui utilisent des
+  systèmes \acrshort{nosql}, et enfin, nous avons les bases de données
+  graphes natives qui fournissent ses propres implémentations du
+  stockage en termes des nœuds et des arcs directement.
 
-  \begin{itemize}
-  \item [Bases de données graphes au-dessus de d'un stockage SQL]
-  \item [Bases de données graphes au-dessus d'un stackages NoSQL]
-  \item [Les bases de données graphes natives]
-  \end{itemize}
+    \subsubsection{Bases de données graphes au-dessus de d'un stockage  SQL}
+    \label{sec:graphdb-over-sql}
+    Une base de donnée graphe peut être stockée dans une table
+    relationnelle avec deux colonnes. Les étiquettes et les attributs
+    de nœuds et arcs peuvent être gérés séparément dans d'autres
+    tables et renvoyé par des clés étrangères. l'utilisation des
+    \acrshort{SGBDR} comme un moteur de stockage a quelques avantages
+    : des systèmes d'indexation évolués, un support des transactions
+    sophistiqué, et le langage de requêtes \emph{SQL} qui est un
+    standard bien établi avec a cycle d'apprentissage rapide.
 
+      \input{figs/periscope-gq.tex}
+
+    Cette classe comprend \emph{GRIPP} \cite{trissl2007fast}, et
+    Periscope/GQ \cite{tian2008periscope} développé par l'université
+    de Michigan qui implémente un système de gestion des bases de
+    données graphes comme une application au-dessus d'un moteur de
+    stockage relationnel \emph{PostgreSQL} (ce qui est démontré dans
+    la figure \ref{fig:periscope-gq}).
+
+    \subsubsection{Bases de données graphes au-dessus d'un stackages NoSQL}
+    \label{sec:graphdb-over-nosql}
+
+    exemples: HypergraphDB, OrientDB, Titan
+
+    \subsubsection{Les bases de données graphes natives}
+    \label{sec:graphdb-native}
+    Noe4j, AllegroGraph, DEX, InfiniteGraph
+
+  \newpage
   \subsection{Détails d'implémentation}
   \label{graph-internals}
   \begin{itemize}
