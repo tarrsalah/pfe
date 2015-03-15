@@ -28,11 +28,13 @@ Afin de faire face aux limitations ci-dessus, une variété de nouveaux
 types de bases de données ont été apparus qui s'affranchissent du
 modèle relationnel pour miser sur le partitionnement horizontal et le
 relâchement des contraintes d'intégrité, ce modèle émergent est appelé
-le modèle \acrshort{nosql}. Dans ce chapitre, nous exposons les
-différentes approches et plateformes du stockage \textsc{NoSQL} les
-plus connues dans l'industrie tout en mettant l'accent sur les bases
-de données graphes (et \emph{Neo4j} particulièrement). Nous commençons
-d'abord par présenter les quatre catégories majeurs des systèmes
+le modèle \acrshort{nosql}.
+
+Dans ce chapitre, nous exposons les différentes approches et
+plateformes du stockage \textsc{NoSQL} les plus connues dans
+l'industrie tout en mettant l'accent sur les bases de données graphes
+(et \emph{Neo4j} particulièrement). Nous commençons d'abord par
+présenter les quatre catégories majeurs des systèmes
 \textsc{NoSQL}. Ensuite, nous focalisons sur les \acrshort{SGBD}
 orientés graphes, leurs différents modèles et implémentations ainsi
 que les langages de requêtes les plus adoptés pour les interroger.
@@ -53,7 +55,7 @@ données \acrshort{nosql} sont:
 \begin{itemize}
 \item Ne sont pas fondées sur de le modèle relationnel classique.
 \item Optimisées pour les environments distribués.
-\item Généralement sous des licences \emph{Open Source}
+\item Généralement sous des licences \emph{Open Source}.
 \item Construites pour les applications Web modernes avec une grande
   masse de données.
 \item \emph{Schemaless} (il n'existe plus d'intégrité référentielle ou
@@ -61,7 +63,7 @@ données \acrshort{nosql} sont:
 \end{itemize}
 
   \subsection{Catégories des bases de données NoSQL}
-  \label{nosql}
+  \label{sec:cat-nosql}
   Il existe dans la mouvance \acrshort{nosql} une diversité importante
   d'approches. que nous classons en quatre grandes catégories : dépots
   clés/valeurs, bases orientées documents, orientées colonnes, et
@@ -79,7 +81,7 @@ données \acrshort{nosql} sont:
     base de données relationnelles favorisant la scalabilité
     (\emph{scalability}) plus que la cohérence, on les retrouve très
     souvent comme système de stockage de cache ou de sessions
-    distribuées, notamment là où l’intégrité relationnelle des données
+    distribuées, notamment là où l'intégrité relationnelle des données
     est non significative. Les solutions les plus connues, telle que
     \emph{Redis}, \emph{Riak} et \emph{Voldemort} sont principalement
     influencés par le project \emph{Dynamo} d'Amazon
@@ -129,11 +131,45 @@ données \acrshort{nosql} sont:
     \emph{OrientDB}, \emph{Titan} et \emph{AllegroGraph} comme les
     implémentations les plus répondus de ce modèle.
   \end{itemize}
-  \newpage
-  \subsection{Le théorème de CAP \cite{brewer2000towards}}
- 
-  %% pourquoi les bases de données graphes?
-\newpage
+
+  \subsection{Le théorème de CAP }
+  \label{sec:cap}
+
+  \acrshort{cap} \cite{brewer2000towards} est l'acronyme de
+  \textit{``\textbf{C}onsistency, \textbf{A}vailability and
+    \textbf{P}artition Tolerance''}, ou \textit{``Cohérence,
+    Disponibilité et Résistance au partitionnement''}. Ce théorème
+  explique qu'il est impossible qu'un système distribué satisfasse
+  simultanément aux trois contraintes suivantes:
+
+  \begin{itemize}
+  \item [Cohérence]: tous les nœuds du système voient exactement les
+    mêmes données au même moment.
+
+  \item [Disponibilité]: la perte de nœuds n'empêche pas les survivants
+    de continuer à fonctionner correctement.
+
+  \item [Résistance au partitionnement]: aucune panne moins importante
+    qu'une coupure totale du réseau ne doit empêcher le système de
+    répondre correctement (ou encore : en cas de partitionnement ,
+    chacune des partitions doit pouvoir fonctionner de manière
+    autonome).
+  \end{itemize}
+
+  \input{figs/cap.tex}
+
+  Le théorème de \acrshort{cap} stipule qu'il est impossible d'obtenir
+  ces trois propriétés en même temps dans un système distribué et
+  qu'il faut donc en choisir deux parmi les trois, Les bases de
+  données relationnelles implémentent les propriétés de cohérence et
+  de disponibilité (système \emph{CA}). Les bases de données
+  \emph{NoSQL} sont généralement des systèmes \emph{CP} (cohérent et
+  résistant au partitionnement) ou \emph{AP} (disponible et résistant
+  au partitionnement), ce qui illustré dans La figure \ref{fig:cap}
+  ci-dessus.
+
+
+
 \section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
 % TODO: rewrite the intro
