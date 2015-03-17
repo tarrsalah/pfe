@@ -55,5 +55,6 @@
 	    config: draw
 	});
     };
+    
     m.module(document.getElementById("app"), app);
 }(document, vis, m));
