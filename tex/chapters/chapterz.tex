@@ -206,6 +206,7 @@ données \acrshort{nosql} sont:
 % TODO: relational vs graph database
   \subsection{Techniques de persistance des bases de données graphes}
   \label{sec:persistence-tech}
+  % TODO: rewrite
   Généralement, nous pouvons distinguer trois techniques majeures du
   stockage adoptés par les systèmes de gestion des bases de données
   graphes: les bases de données graphes qui utilisent des
@@ -216,14 +217,15 @@ données \acrshort{nosql} sont:
 
     \subsubsection{Bases de données graphes au-dessus de d'un stockage  SQL}
     \label{sec:graphdb-over-sql}
-    Une base de donnée graphe peut être stockée dans une table
-    relationnelle avec deux colonnes. Les étiquettes et les attributs
-    de nœuds et arcs peuvent être gérés séparément dans d'autres
-    tables et renvoyé par des clés étrangères. l'utilisation des
-    \acrshort{SGBDR} comme un moteur de stockage a quelques avantages
-    : des systèmes d'indexation évolués, un support des transactions
-    sophistiqué, et le langage de requêtes \emph{SQL} qui est un
-    standard bien établi avec a cycle d'apprentissage rapide.
+    % TODO: rewrite this paragraph
+    Une base de donnée graphe peut être stockée dans une base de
+    données relationnelle. Les étiquettes et les attributs de nœuds et
+    arcs peuvent être gérés séparément dans d'autres tables et renvoyé
+    par des clés étrangères. l'utilisation des \acrshort{SGBDR} comme
+    un moteur de stockage a quelques avantages : des systèmes
+    d'indexation évolués, un support des transactions sophistiqué, et
+    le langage de requêtes \emph{SQL} qui est un standard bien établi
+    avec a cycle d'apprentissage rapide.
 
       \input{figs/periscope-gq.tex}
 
@@ -234,16 +236,103 @@ données \acrshort{nosql} sont:
     stockage relationnel \emph{PostgreSQL} (ce qui est démontré dans
     la figure \ref{fig:periscope-gq}).
 
+    % TODO: why not graphdb over SGBDR?
+
     \subsubsection{Bases de données graphes au-dessus d'un stackages NoSQL}
     \label{sec:graphdb-over-nosql}
+    Plusieurs systèmes de base de données graphes emploient des
+    systèmes \acrshort{nosql} comme un moteur de stockage interne
+    offrant une meilleure scalabilité et un support fiable pour le
+    partitionnement des données.
 
-    exemples: HypergraphDB, OrientDB, Titan
+    \begin{itemize}
+    \item [HypergraphDB]: \emph{HypergraphDB} \cite{hypergraphdb,
+        iordanov2010hypergraphdb} est une base de donnée qui
+      implémente le modèle de données \emph{``hypergraph''} où la
+      notion d'un arc est étendue pour pouvoir connecter plus de deux
+      nœuds, ce qui est particulièrement utile pour la modélisation
+      des données tels que la représentation des connaissances,
+      l'intelligence artificielle et la
+      bio-informatique. \emph{HypergraphDB} utilise le modèle
+      \textit{clé/valeur} de \emph{BerkeleyDB} \cite{berkeleydb} pour
+      stocker toutes les informations relatives du graphe sous forme
+      de pairs \textit{clé/valeur}, chaque objet du graphe (nœud ou
+      arc) est identifié par un clé unique (appelé atome). Chaque
+      atome est lié à un ensemble des atomes par une relation de type
+      \emph{0:N} (zéro ou plusieurs atomes), ces relations forment
+      également la structure typologique ``hypergraph''.
+
+    \item [OrientDB]: \emph{OrientDB} \cite{orientdb} est un système
+      de gestion de base de données graphes hybride qui combine les
+      fonctionnalités d'une base orientée documents et une base
+      orientée graphes avec une capacité de stockage des données
+      structurées ou semi-structurées (\emph{schema-less}). il
+      supporte aussi la répartition de charge à travers plusieurs
+      machines et la réplication multi-maîtres tout en assurant les
+      propriétés \acrshort{acid} de données. Pour les requêtes
+      simples, \emph{OrientDB} s'appuie sur \emph{SQL} et utilise des
+      langages de parcours des graphes comme \emph{Gremlin} afin
+      d'éviter les jointures \emph{SQL} coûteuses pour les requêtes
+      complexes.
+
+      \newpage
+    \item [Titan]: \emph{Titan} \cite{titan} est une base de données
+      orientée graphes évolutive (\emph{scalable}) et
+      transactionnelle, optimisée pour le stockage et l'interrogation
+      des données graphes contenant des centaines de milliards de
+      sommets et d'arcs à travers un \emph{cluster} multi-machine avec
+      des schémas complexes du parcours et requêtage et une éxecution
+      en temps réal. \emph{Titan} utilise une multitude des systèmes
+      \emph{NoSQL} comme un moteur de stockage (\emph{backend}), par
+      exemple, \emph{Hbase}, \emph{Cassandra}, \emph{BerkeleyDB},
+      cette diversité offre une flexibilité en terme des
+      caractéristiques \emph{CAP} \ref{sec:cap} assurées par le
+      système.
+    \end{itemize}
 
     \subsubsection{Les bases de données graphes natives}
     \label{sec:graphdb-native}
-    Noe4j, AllegroGraph, DEX, InfiniteGraph
+    % These graph databases will have their own file systems to store
+    % the data instead of relying on other storage techniques. As the
+    % name implies, these databases are always optimized to store and
+    % manage graph-like relation- ship data. At the same time, they may
+    % share some features to fulfill the requirements as high
+    % performance database services.
 
-  \newpage
+    \begin{itemize}
+    \item [Neo4j]: % TODO:
+
+    \item [AllegroGraph]:\emph{AllegroGraph} \cite{allegrograph} est
+      un système performant de persistence des données graphes avec un
+      stockage natif, implémenté initialement comme une base de
+      \acrshort{rdf}, avec un support d'interrogation
+      \acrshort{sparql} et un service \acrshort{rest}
+      \cite{fielding2000architectural}. Similaire à \emph{Neo4j},
+      \emph{Allegrograph} garantis la satisfaction des propriétés
+      \acrshort{acid} d'atomicité, cohérence, isolation et
+      durabilité. \emph{AllegroGraph} supporte \acrshort{sparql},
+      RDFS++ et Prolog pour des applications clientes multiples.
+
+    \item [Sparksee]: \emph{Sparsity} \cite{sparksee} (auparavant
+      connu sous le nom \emph{DEX}) est un système natif de stockage
+      de données graphes persistants et temporaires. \emph{Sparsity}
+      focalise sur la gestion et l'interrogation des géantes bases de
+      données graphes à haute performance. En encodant les matrices
+      d'adjacences en \emph{bitmap}, le système a une gestion d'espace
+      disque compact et efficace afin de d'assurer une trés bonne
+      performance.
+
+    \item [InfiniteGraph]: \emph{InfiniteGraph} \cite{infinitegraph}
+      est un système distribué de gestion des bases de données graphes
+      qui supporte des grandes masses évolutives de données
+      (\emph{large-scale}) avec une capacité d'analyse efficace des
+      graphes et une bonne prise en charge des algoritmes distribués
+      du parcours. \emph{InfiniteGraph} fournis une variété
+      d'implémentations pour des différents systèmes (serveurs
+      d'application, les plateformes de \emph{cloud computing} et les
+      systèmes embarqués).
+    \end{itemize}
+
   \subsection{Détails d'implémentation}
   \label{graph-internals}
   \begin{itemize}
@@ -254,7 +343,7 @@ données \acrshort{nosql} sont:
   \end{itemize}
 
   \subsection{Comparaison}
-  \label{graphdb-comp}
+  \label{sec:graphdb-comp}
 
 \newpage
 \section{Langages d'interrogation des bases de données graphes}
