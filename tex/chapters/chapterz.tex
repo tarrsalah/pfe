@@ -292,15 +292,24 @@ données \acrshort{nosql} sont:
 
     \subsubsection{Les bases de données graphes natives}
     \label{sec:graphdb-native}
-    % These graph databases will have their own file systems to store
-    % the data instead of relying on other storage techniques. As the
-    % name implies, these databases are always optimized to store and
-    % manage graph-like relation- ship data. At the same time, they may
-    % share some features to fulfill the requirements as high
-    % performance database services.
+    Les bases de données graphes natives possèdent leurs propres
+    systèmes de fichiers pour stocker les données au lieu de compter
+    sur des moteurs de stockage tiers. Ces bases de données sont
+    optimisés pour stocker et gérer les données fortement connectées
+    où la performance et la disponibilité sont primordiales.
 
     \begin{itemize}
-    \item [Neo4j]: % TODO:
+      %TODO: translate + enhance
+    \item [Neo4j]: Neo4j \cite{neo4j} is a disk-based transactional
+      graph database that implemented in Java. It is one the most
+      popular graph databases. Besides the advantages in traversing
+      the graph data like other graph databases, it highlights its
+      full ACID transaction support and convenient REST server
+      interfaces. Those features ensure it to be suitable for its
+      enterprise solutions. It also pro- vides its own query language
+      called Cypher, which can handle different kinds of queries with
+      syntax. At the same time, their developers make APIs for almost
+      all of program- ming languages to access their graph database.
 
     \item [AllegroGraph]:\emph{AllegroGraph} \cite{allegrograph} est
       un système performant de persistence des données graphes avec un
