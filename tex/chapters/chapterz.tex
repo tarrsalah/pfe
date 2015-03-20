@@ -295,8 +295,9 @@ données \acrshort{nosql} sont:
     Les bases de données graphes natives possèdent leurs propres
     systèmes de fichiers pour stocker les données au lieu de compter
     sur des moteurs de stockage tiers. Ces bases de données sont
-    optimisés pour stocker et gérer les données fortement connectées
-    où la performance et la disponibilité sont primordiales.
+    optimisés pour stocker et gérer les données \textbf{fortement}
+    connectées où la performance et la disponibilité sont
+    primordiales.
 
     \begin{itemize}
       %TODO: translate + enhance
@@ -311,6 +312,7 @@ données \acrshort{nosql} sont:
       syntax. At the same time, their developers make APIs for almost
       all of program- ming languages to access their graph database.
 
+      %TODO: enhance Allegrograph paragraph
     \item [AllegroGraph]:\emph{AllegroGraph} \cite{allegrograph} est
       un système performant de persistence des données graphes avec un
       stockage natif, implémenté initialement comme une base de
@@ -340,21 +342,101 @@ données \acrshort{nosql} sont:
       d'implémentations pour des différents systèmes (serveurs
       d'application, les plateformes de \emph{cloud computing} et les
       systèmes embarqués).
+
+    \item [FlockDB]: FlockDB \cite{flockdb} is an open source
+      distributed, fault-tolerant graph database for managing wide but
+      shallow network graphs. It was initially used by Twitter to
+      store relationships between users, e.g. followings and
+      favorites. FlockDB differs from other graph databases,
+      e.g. Neo4j in that it is not designed for multi-hop graph
+      traversal but rather for rapid set operations, not unlike the
+      primary use-case for Redis sets. Since it is still in the
+      process of being packaged for outside of Twitter use, the code
+      is still very rough and hence there is no stable release
+      available yet. FlockDB was posted on GitHub shortly after
+      Twitter released its Gizzard framework, which it uses to query
+      the FlockDB distributed datastore.
     \end{itemize}
 
-  \subsection{Détails d'implémentation}
-  \label{graph-internals}
-  \begin{itemize}
-  \item [Index-free adjacency]
-  \item [Vertex Centric Indices]
-  \item [Bitmaps representation of graphs]
-  \item [Write Ahead Log]
-  \end{itemize}
+    \input{figs/gpi.tex}
 
+  \subsection{Détails d'implémentation}
+  \label{sec:graph-internals} 
+  \begin{itemize}
+
+  \item [Index-free adjacency]:Index-free adjacency (Neo4j) makes the
+    nodes contain direct reference/index to their adjacent neighboring
+    nodes. This means it is unnecessary to maintain a global index for
+    relationships between nodes/edges. This term has similar concept
+    as adjacency list, except the local indices for each node may also
+    contain the property of nodes and edges.  By using Index-free
+    adjacency, time of queries based on traversal the graph will be
+    inde- pendent of the total size of the graph.
+
+
+  \item [Vertex Centric Indices]: Vertex Centric Indices (Titan) is
+    used to find if a certain node is connected to another node by
+    their unique identifier. As the desciption in the second chapter,
+    most networks in real world can be fit with power-law
+    distribution. It means most of the nodes do not have large amount
+    of neighbors. But there do exist some supernodes which connect
+    large number of nodes, these supernodes result in the small world
+    phenomena. For example, US president Barack Obama currently has
+    38,844,920 followers on Twitter. Appling graph term to it, the
+    vertex Obama is considered a supernode in Twitters network. Obama
+    send a tweet, it will be sent to more than 38 million accounts on
+    Twitter. To store these supernodes, graph database like Titan will
+    first build an index to classify the edges according to edges
+    label or property, because there may not be just one type of edge
+    for the supernode. Then it sorts the incident nodes of the
+    supernode. By doing these, when querying a vertexs neighbor,
+    linear scans of incident edge (O(n)) can be reduced to at least
+    O(log(n)).
+
+  \item [Bitmaps representation of graphs]: Graph database like DEX
+    uses adjacency matrix to multiple small indices to improve the
+    management performance. The indices will be encoded into
+    bitmaps. The first bit represent the first node insert to the
+    graph, the last bit represent the latest coming node.  The
+    relationship between each bit and node will be kept in an index,
+    when there is a new node inserted, the index will be updated. To
+    add an edge between two nodes, it just needs to update the related
+    bit to 1. DEX also uses key-value maps to provide the index of
+    full data access to complement the bitmaps. Because the adjacency
+    is usually sparse, the compressed bitmaps will use the space more
+    efficiently. Another advantage is that the insert, delete
+    operations are all bit operations, which are much faster than
+    common operation for objects.
+
+
+  \item [Write Ahead Log]: Different from other techniques discussed
+    in this section, Write Ahead Log (WAL) is a technique that widely
+    used in transactional database. In transactional systems,
+    atomicity and durability (from the ACID guarantees) are provided
+    by using a WAL. All modifications during a transactional are
+    persisted on disk as they are requested but are not actually
+    stored. After the transactional is committed, only then the
+    modifications of transactions will be really stored on the
+    database and the transactional is removed from is temporary
+    place. In Neo4j, WAL stores 3 files, a marker file, keeping track
+    of which of the other two is the current active log file
+    [23]. When the transaction finished normally, marker file will be
+    marked as healthy and two other log files are removed. But if the
+    process crashes, the marker file will be indicated as not
+    finished, it will go look at the last active log. If the log has
+    all of information of the transaction, it will do recovery by
+    creating a new transaction. Otherwise it will do rollback, which
+    means remove the transaction files in temporary space. This
+    technique has ensured the atomicity of the transaction process. In
+    most of graph databases API, we can call commit () to finish the
+    transaction.
+  \end{itemize}
+  \newpage
   \subsection{Comparaison}
   \label{sec:graphdb-comp}
+  % \input{tables/graphdb-comp.tex}
 
-\newpage
+ \newpage
 \section{Langages d'interrogation des bases de données graphes}
 \label{query-languages}
 
