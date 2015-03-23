@@ -132,6 +132,7 @@ données \acrshort{nosql} sont:
   \end{itemize}
 
   \input{chapters/cap.tex}
+
 \section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
 % TODO: rewrite the intro
@@ -167,6 +168,7 @@ données \acrshort{nosql} sont:
 \end{text}
 
 % TODO: relational vs graph database
+\newpage
   \subsection{Techniques de persistance des bases de données graphes}
   \label{sec:persistence-tech}
   % TODO: rewrite
@@ -190,15 +192,15 @@ données \acrshort{nosql} sont:
     le langage de requêtes \emph{SQL} qui est un standard bien établi
     avec a cycle d'apprentissage rapide.
 
-    \input{figs/periscope-gq.tex}
+    % \input{figs/periscope-gq.tex}
 
     Cette classe comprend \emph{GRIPP} \cite{trissl2007fast}, et
     Periscope/GQ \cite{tian2008periscope} développé par l'université
     de Michigan qui implémente un système de gestion des bases de
     données graphes comme une application au-dessus d'un moteur de
-    stockage relationnel \emph{PostgreSQL} (ce qui est démontré dans
-    la figure \ref{fig:periscope-gq}).
+    stockage relationnel \emph{PostgreSQL}
 
+    % (ce qui est démontré dans la figure \ref{fig:periscope-gq}).
     \subsubsection{Bases de données graphes au-dessus d'un stackages NoSQL}
     \label{sec:graphdb-over-nosql}
     Plusieurs systèmes de base de données graphes emploient des
@@ -294,15 +296,70 @@ données \acrshort{nosql} sont:
     (serveurs d'application, les plateformes de \emph{cloud computing}
     et les systèmes embarqués).
 
-  \subsection{Détails d'implémentation}
-  \label{sec:graph-internals}
-      \input{figs/gpi.tex}
+    \subsection{Techniques de stockage et d'indexation}
+    \label{sec:graph-internals}
+
+    Il ya plusieurs façons représenter un graphe dans une mémoire
+    principale d'un système de stockage. On dit qu'un système de
+    gestion des base de données graphes dispose des capacités
+    \emph{natives} de parcours des graphes s'il est possède une
+    propriété fondamentale appelée \emph{index-free adjacency}. Dans
+    cette sous-section on va présenter quelques techniques de stockage
+    interne et d'indexation utilisées par les système de gestion des
+    base de données graphe.
+
+    \input{figs/gpi.tex}
+
+    \begin{itemize}
+    \item [Index-free adjacency]: Dans un système de stockage de base
+      de données graphes qui utilise la technique \emph{index-free
+        adjacency}, chaque noeud maintient des références directs à
+      ses noeuds adjacents agissant comme un micro index d'autres
+      noeuds voisins. Cette méthode améliore la fiabilité du système
+      de stockage d'une façon considérable comparant à cels qui
+      utilise un index global. En effet, le temps de réponse des
+      requêtes est indépendant à la taille globale du graphe. Pour
+      traverser une graphe d'une taille donnée $n$ à $m$ pas, le coût
+      est d'ordre $\mathcal{O}(m\log{}n)$ dans un système avec un
+      index globale, et d'ordre $\mathcal{O}(m)$ pour un système natif
+      qui utilise un \emph{index-free adjacency}.
+
+      \input{figs/vertex-centric-indices.tex}
+    % TODO: enhance the vertex stuff ...
+    \item [Vertex Centric Indices] (\emph{Titan} \cite{vertexci}):
+      L'objectif de cette technique est de trier et indexer tous arcs
+      incidents d'un noeud (et donc les noeud adjacents) selon les
+      propriétés de ces arcs. Ces indexes élimine la nécessité de
+      balayage linéaire des arcs incidents lors d'un requête de
+      parcours ($\mathcal{O}(n)$) en faveur d'un parcour plus rapide (
+      $\mathcal{O}(n)$ ou $\mathcal{O}(\log{}n)$). Cette méthode est
+      utilisée surtout pour confronter le problème de \emph{Supernode}
+      dans les graphes fortement connectés, un \emph{Supernode} est un
+      noeud avec un trés grans nombre des arcs incidents.
+
+    \item [Bitmaps representation of graphs]: Graph database like DEX
+      uses adjacency matrix to multiple small indices to improve the
+      management performance. The indices will be encoded into
+      bitmaps. The first bit represent the first node insert to the
+      graph, the last bit represent the latest coming node.  The
+      relationship between each bit and node will be kept in an index,
+      when there is a new node inserted, the index will be updated. To
+      add an edge between two nodes, it just needs to update the
+      related bit to 1. DEX also uses key-value maps to provide the
+      index of full data access to complement the bitmaps. Because the
+      adjacency is usually sparse, the compressed bitmaps will use the
+      space more efficiently. Another advantage is that the insert,
+      delete operations are all bit operations, which are much faster
+      than common operation for objects.
+    \end{itemize}
+
 
   \subsection{Comparaison}
   \label{sec:graphdb-comp}
+\newpage
 
  % \input{tables/graphdb-comp.tex}
-\newpage\
+
 \section{Langages des requêtes}
 \label{sec:query-languages}
 
