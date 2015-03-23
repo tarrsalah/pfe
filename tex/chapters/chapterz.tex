@@ -86,7 +86,6 @@ données \acrshort{nosql} sont:
     \emph{Redis}, \emph{Riak} et \emph{Voldemort} sont principalement
     influencés par le project \emph{Dynamo} d'Amazon
     \cite{decandia2007dynamo}.
-    \newpage
 
   \item [Orientées documents]: Cette famille de base de données est
     une évolution de la base de données \textit{clé/valeur} destinée
@@ -132,43 +131,7 @@ données \acrshort{nosql} sont:
     implémentations les plus répondus de ce modèle.
   \end{itemize}
 
-  \subsection{Le théorème de CAP }
-  \label{sec:cap}
-
-  \acrshort{cap} \cite{brewer2000towards} est l'acronyme de
-  \textit{``\textbf{C}onsistency, \textbf{A}vailability and
-    \textbf{P}artition Tolerance''}, ou \textit{``Cohérence,
-    Disponibilité et Résistance au partitionnement''}. Ce théorème
-  explique qu'il est impossible qu'un système distribué satisfasse
-  simultanément aux trois contraintes suivantes:
-
-  \begin{itemize}
-  \item [Cohérence]: tous les nœuds du système voient exactement les
-    mêmes données au même moment.
-
-  \item [Disponibilité]: la perte de nœuds n'empêche pas les survivants
-    de continuer à fonctionner correctement.
-
-  \item [Résistance au partitionnement]: aucune panne moins importante
-    qu'une coupure totale du réseau ne doit empêcher le système de
-    répondre correctement (ou encore : en cas de partitionnement ,
-    chacune des partitions doit pouvoir fonctionner de manière
-    autonome).
-  \end{itemize}
-
-  \input{figs/cap.tex}
-
-  Le théorème de \acrshort{cap} stipule qu'il est impossible d'obtenir
-  ces trois propriétés en même temps dans un système distribué et
-  qu'il faut donc en choisir deux parmi les trois, Les bases de
-  données relationnelles implémentent les propriétés de cohérence et
-  de disponibilité (système \emph{CA}). Les bases de données
-  \emph{NoSQL} sont généralement des systèmes \emph{CP} (cohérent et
-  résistant au partitionnement) ou \emph{AP} (disponible et résistant
-  au partitionnement), la figure \ref{fig:cap} présente le
-  positionnement de quelque systèmes \emph{NoSQL} par rapport au
-  théorème \acrshort{cap} .
-
+  \input{chapters/cap.tex}
 \section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
 % TODO: rewrite the intro
@@ -227,7 +190,7 @@ données \acrshort{nosql} sont:
     le langage de requêtes \emph{SQL} qui est un standard bien établi
     avec a cycle d'apprentissage rapide.
 
-      \input{figs/periscope-gq.tex}
+    \input{figs/periscope-gq.tex}
 
     Cette classe comprend \emph{GRIPP} \cite{trissl2007fast}, et
     Periscope/GQ \cite{tian2008periscope} développé par l'université
@@ -236,8 +199,6 @@ données \acrshort{nosql} sont:
     stockage relationnel \emph{PostgreSQL} (ce qui est démontré dans
     la figure \ref{fig:periscope-gq}).
 
-    % TODO: why not graphdb over SGBDR?
-
     \subsubsection{Bases de données graphes au-dessus d'un stackages NoSQL}
     \label{sec:graphdb-over-nosql}
     Plusieurs systèmes de base de données graphes emploient des
@@ -245,50 +206,44 @@ données \acrshort{nosql} sont:
     offrant une meilleure scalabilité et un support fiable pour le
     partitionnement des données.
 
-    \begin{itemize}
-    \item [HypergraphDB]: \emph{HypergraphDB} \cite{hypergraphdb,
-        iordanov2010hypergraphdb} est une base de donnée qui
-      implémente le modèle de données \emph{``hypergraph''} où la
-      notion d'un arc est étendue pour pouvoir connecter plus de deux
-      nœuds, ce qui est particulièrement utile pour la modélisation
-      des données tels que la représentation des connaissances,
-      l'intelligence artificielle et la
-      bio-informatique. \emph{HypergraphDB} utilise le modèle
-      \textit{clé/valeur} de \emph{BerkeleyDB} \cite{berkeleydb} pour
-      stocker toutes les informations relatives du graphe sous forme
-      de pairs \textit{clé/valeur}, chaque objet du graphe (nœud ou
-      arc) est identifié par un clé unique (appelé atome). Chaque
-      atome est lié à un ensemble des atomes par une relation de type
-      \emph{0:N} (zéro ou plusieurs atomes), ces relations forment
-      également la structure typologique ``hypergraph''.
+    \emph{HypergraphDB} \cite{hypergraphdb, iordanov2010hypergraphdb}
+    est une base de donnée qui implémente le modèle de données
+    \emph{``hypergraph''} où la notion d'un arc est étendue pour
+    pouvoir connecter plus de deux nœuds, ce qui est particulièrement
+    utile pour la modélisation des données tels que la représentation
+    des connaissances, l'intelligence artificielle et la
+    bio-informatique. \emph{HypergraphDB} utilise le modèle
+    \textit{clé/valeur} de \emph{BerkeleyDB} \cite{berkeleydb} pour
+    stocker toutes les informations relatives du graphe sous forme de
+    pairs \textit{clé/valeur}, chaque objet du graphe (nœud ou arc)
+    est identifié par un clé unique (appelé atome). Chaque atome est
+    lié à un ensemble des atomes par une relation de type \emph{0:N}
+    (zéro ou plusieurs atomes), ces relations forment également la
+    structure typologique ``hypergraph''.
 
-    \item [OrientDB]: \emph{OrientDB} \cite{orientdb} est un système
-      de gestion de base de données graphes hybride qui combine les
-      fonctionnalités d'une base orientée documents et une base
-      orientée graphes avec une capacité de stockage des données
-      structurées ou semi-structurées (\emph{schema-less}). il
-      supporte aussi la répartition de charge à travers plusieurs
-      machines et la réplication multi-maîtres tout en assurant les
-      propriétés \acrshort{acid} de données. Pour les requêtes
-      simples, \emph{OrientDB} s'appuie sur \emph{SQL} et utilise des
-      langages de parcours des graphes comme \emph{Gremlin} afin
-      d'éviter les jointures \emph{SQL} coûteuses pour les requêtes
-      complexes.
+    \emph{OrientDB} \cite{orientdb} est un système hybride de gestion
+    de base de données graphes qui combine les fonctionnalités d'une
+    base orientée documents et une base orientée graphes avec une
+    capacité de stockage des données structurées ou semi-structurées
+    (\emph{schema-less}). il supporte aussi la répartition de charge à
+    travers plusieurs machines et la réplication multi-maîtres tout en
+    assurant les propriétés \acrshort{acid} de données. Pour les
+    requêtes simples, \emph{OrientDB} s'appuie sur \emph{SQL} et
+    utilise des langages de parcours des graphes comme \emph{Gremlin}
+    afin d'éviter les jointures \emph{SQL} coûteuses pour les requêtes
+    complexes.
 
-      \newpage
-    \item [Titan]: \emph{Titan} \cite{titan} est une base de données
-      orientée graphes évolutive (\emph{scalable}) et
-      transactionnelle, optimisée pour le stockage et l'interrogation
-      des données graphes contenant des centaines de milliards de
-      sommets et d'arcs à travers un \emph{cluster} multi-machine avec
-      des schémas complexes du parcours et requêtage et une éxecution
-      en temps réal. \emph{Titan} utilise une multitude des systèmes
-      \emph{NoSQL} comme un moteur de stockage (\emph{backend}), par
-      exemple, \emph{Hbase}, \emph{Cassandra}, \emph{BerkeleyDB},
-      cette diversité offre une flexibilité en terme des
-      caractéristiques \emph{CAP} \ref{sec:cap} assurées par le
-      système.
-    \end{itemize}
+    \emph{Titan} \cite{titan} est une base de données orientée graphes
+    évolutive (\emph{scalable}) et transactionnelle, optimisée pour le
+    stockage et l'interrogation des données graphes contenant des
+    centaines de milliards de sommets et d'arcs à travers un
+    \emph{cluster} multi-machine avec des schémas complexes du
+    parcours et requêtage et une éxecution en temps réal. \emph{Titan}
+    utilise une multitude des systèmes \emph{NoSQL} comme un moteur de
+    stockage (\emph{backend}), par exemple, \emph{Hbase},
+    \emph{Cassandra}, \emph{BerkeleyDB}, cette diversité offre une
+    flexibilité en terme des caractéristiques \emph{CAP} \ref{sec:cap}
+    assurées par le système.
 
     \subsubsection{Les bases de données graphes natives}
     \label{sec:graphdb-native}
@@ -299,162 +254,84 @@ données \acrshort{nosql} sont:
     connectées où la performance et la disponibilité sont
     primordiales.
 
-    \begin{itemize}
-      %TODO: translate + enhance
-    \item [Neo4j]: Neo4j \cite{neo4j} is a disk-based transactional
-      graph database that implemented in Java. It is one the most
-      popular graph databases. Besides the advantages in traversing
-      the graph data like other graph databases, it highlights its
-      full ACID transaction support and convenient REST server
-      interfaces. Those features ensure it to be suitable for its
-      enterprise solutions. It also pro- vides its own query language
-      called Cypher, which can handle different kinds of queries with
-      syntax. At the same time, their developers make APIs for almost
-      all of program- ming languages to access their graph database.
+    % TODO: translate + enhance
+    \emph{Neo4j} \cite{neo4j} is a disk-based transactional graph
+    database that implemented in Java. It is one the most popular
+    graph databases. Besides the advantages in traversing the graph
+    data like other graph databases, it highlights its full ACID
+    transaction support and convenient REST server interfaces. Those
+    features ensure it to be suitable for its enterprise solutions. It
+    also pro- vides its own query language called Cypher, which can
+    handle different kinds of queries with syntax. At the same time,
+    their developers make APIs for almost all of program- ming
+    languages to access their graph database.
 
       %TODO: enhance Allegrograph paragraph
-    \item [AllegroGraph]:\emph{AllegroGraph} \cite{allegrograph} est
-      un système performant de persistence des données graphes avec un
-      stockage natif, implémenté initialement comme une base de
-      \acrshort{rdf}, avec un support d'interrogation
-      \acrshort{sparql} et un service \acrshort{rest}
-      \cite{fielding2000architectural}. Similaire à \emph{Neo4j},
-      \emph{Allegrograph} garantis la satisfaction des propriétés
-      \acrshort{acid} d'atomicité, cohérence, isolation et
-      durabilité. \emph{AllegroGraph} supporte \acrshort{sparql},
-      RDFS++ et Prolog pour des applications clientes multiples.
+    \emph{AllegroGraph} \cite{allegrograph} est un système performant
+    de persistence des données graphes avec un stockage natif,
+    implémenté initialement comme une base de \acrshort{rdf}, avec un
+    support d'interrogation \acrshort{sparql} et un service
+    \acrshort{rest} \cite{fielding2000architectural}. Similaire à
+    \emph{Neo4j}, \emph{Allegrograph} garantis la satisfaction des
+    propriétés \acrshort{acid} d'atomicité, cohérence, isolation et
+    durabilité. \emph{AllegroGraph} supporte \acrshort{sparql}, RDFS++
+    et Prolog pour des applications clientes multiples.
 
-    \item [Sparksee]: \emph{Sparsity} \cite{sparksee} (auparavant
-      connu sous le nom \emph{DEX}) est un système natif de stockage
-      de données graphes persistants et temporaires. \emph{Sparsity}
-      focalise sur la gestion et l'interrogation des géantes bases de
-      données graphes à haute performance. En encodant les matrices
-      d'adjacences en \emph{bitmap}, le système a une gestion d'espace
-      disque compact et efficace afin de d'assurer une trés bonne
-      performance.
+    \emph{Sparsity} \cite{sparksee} (auparavant connu sous le nom
+    \emph{DEX}) est un système natif de stockage de données graphes
+    persistants et temporaires. \emph{Sparsity} focalise sur la
+    gestion et l'interrogation des géantes bases de données graphes à
+    haute performance. En encodant les matrices d'adjacences en
+    \emph{bitmap}, le système a une gestion d'espace disque compact et
+    efficace afin de d'assurer une trés bonne performance.
 
-    \item [InfiniteGraph]: \emph{InfiniteGraph} \cite{infinitegraph}
-      est un système distribué de gestion des bases de données graphes
-      qui supporte des grandes masses évolutives de données
-      (\emph{large-scale}) avec une capacité d'analyse efficace des
-      graphes et une bonne prise en charge des algoritmes distribués
-      du parcours. \emph{InfiniteGraph} fournis une variété
-      d'implémentations pour des différents systèmes (serveurs
-      d'application, les plateformes de \emph{cloud computing} et les
-      systèmes embarqués).
-
-    \item [FlockDB]: FlockDB \cite{flockdb} is an open source
-      distributed, fault-tolerant graph database for managing wide but
-      shallow network graphs. It was initially used by Twitter to
-      store relationships between users, e.g. followings and
-      favorites. FlockDB differs from other graph databases,
-      e.g. Neo4j in that it is not designed for multi-hop graph
-      traversal but rather for rapid set operations, not unlike the
-      primary use-case for Redis sets. Since it is still in the
-      process of being packaged for outside of Twitter use, the code
-      is still very rough and hence there is no stable release
-      available yet. FlockDB was posted on GitHub shortly after
-      Twitter released its Gizzard framework, which it uses to query
-      the FlockDB distributed datastore.
-    \end{itemize}
-
-    \input{figs/gpi.tex}
+    \emph{InfiniteGraph} \cite{infinitegraph} est un système distribué
+    de gestion des bases de données graphes qui supporte des grandes
+    masses évolutives de données (\emph{large-scale}) avec une
+    capacité d'analyse efficace des graphes et une bonne prise en
+    charge des algoritmes distribués du parcours. \emph{InfiniteGraph}
+    fournis une variété d'implémentations pour des différents systèmes
+    (serveurs d'application, les plateformes de \emph{cloud computing}
+    et les systèmes embarqués).
 
   \subsection{Détails d'implémentation}
-  \label{sec:graph-internals} 
-  \begin{itemize}
+  \label{sec:graph-internals}
+      \input{figs/gpi.tex}
 
-  \item [Index-free adjacency]:Index-free adjacency (Neo4j) makes the
-    nodes contain direct reference/index to their adjacent neighboring
-    nodes. This means it is unnecessary to maintain a global index for
-    relationships between nodes/edges. This term has similar concept
-    as adjacency list, except the local indices for each node may also
-    contain the property of nodes and edges.  By using Index-free
-    adjacency, time of queries based on traversal the graph will be
-    inde- pendent of the total size of the graph.
-
-
-  \item [Vertex Centric Indices]: Vertex Centric Indices (Titan) is
-    used to find if a certain node is connected to another node by
-    their unique identifier. As the desciption in the second chapter,
-    most networks in real world can be fit with power-law
-    distribution. It means most of the nodes do not have large amount
-    of neighbors. But there do exist some supernodes which connect
-    large number of nodes, these supernodes result in the small world
-    phenomena. For example, US president Barack Obama currently has
-    38,844,920 followers on Twitter. Appling graph term to it, the
-    vertex Obama is considered a supernode in Twitters network. Obama
-    send a tweet, it will be sent to more than 38 million accounts on
-    Twitter. To store these supernodes, graph database like Titan will
-    first build an index to classify the edges according to edges
-    label or property, because there may not be just one type of edge
-    for the supernode. Then it sorts the incident nodes of the
-    supernode. By doing these, when querying a vertexs neighbor,
-    linear scans of incident edge (O(n)) can be reduced to at least
-    O(log(n)).
-
-  \item [Bitmaps representation of graphs]: Graph database like DEX
-    uses adjacency matrix to multiple small indices to improve the
-    management performance. The indices will be encoded into
-    bitmaps. The first bit represent the first node insert to the
-    graph, the last bit represent the latest coming node.  The
-    relationship between each bit and node will be kept in an index,
-    when there is a new node inserted, the index will be updated. To
-    add an edge between two nodes, it just needs to update the related
-    bit to 1. DEX also uses key-value maps to provide the index of
-    full data access to complement the bitmaps. Because the adjacency
-    is usually sparse, the compressed bitmaps will use the space more
-    efficiently. Another advantage is that the insert, delete
-    operations are all bit operations, which are much faster than
-    common operation for objects.
-
-
-  \item [Write Ahead Log]: Different from other techniques discussed
-    in this section, Write Ahead Log (WAL) is a technique that widely
-    used in transactional database. In transactional systems,
-    atomicity and durability (from the ACID guarantees) are provided
-    by using a WAL. All modifications during a transactional are
-    persisted on disk as they are requested but are not actually
-    stored. After the transactional is committed, only then the
-    modifications of transactions will be really stored on the
-    database and the transactional is removed from is temporary
-    place. In Neo4j, WAL stores 3 files, a marker file, keeping track
-    of which of the other two is the current active log file
-    [23]. When the transaction finished normally, marker file will be
-    marked as healthy and two other log files are removed. But if the
-    process crashes, the marker file will be indicated as not
-    finished, it will go look at the last active log. If the log has
-    all of information of the transaction, it will do recovery by
-    creating a new transaction. Otherwise it will do rollback, which
-    means remove the transaction files in temporary space. This
-    technique has ensured the atomicity of the transaction process. In
-    most of graph databases API, we can call commit () to finish the
-    transaction.
-  \end{itemize}
-  \newpage
   \subsection{Comparaison}
   \label{sec:graphdb-comp}
-  % \input{tables/graphdb-comp.tex}
 
- \newpage
-\section{Langages d'interrogation des bases de données graphes}
-\label{query-languages}
+ % \input{tables/graphdb-comp.tex}
+\newpage\
+\section{Langages des requêtes}
+\label{sec:query-languages}
 
 Les langages de requêtes ont toujours été la clé du succès des
-systèmes de gestion des bases de données. La prévalence des
-\emph{\acrshort{SGBDR}} dans les dernières décennies est étroitement
-couplé avec le succès du \emph{SQL}. Des divers langages ont été
-définis pour exprimer des requêtes vis-à-vis plusieurs dépôts de
-données, par exemple, \emph{XQuery} \cite{boag2002xquery} et
-\emph{XPath} \cite{clark1999xml} pour les bases de données
-\emph{\acrshort{xml}}, \emph{QQL} \cite{alashqur1989oql} pour les
-bases de données orientées objets et \acrshort{sparql}
-\cite{prud2008sparql} pour les triplestores (les bases de données
-\emph{RDF}). Dans cette section on va présenter les langages de
-requêtes les plus utilisée pour l'interrogation des bases de données
-graphes.
+\acrshort{SGBD}. La prévalence des \emph{\acrshort{SGBDR}} dans les
+dernières décennies est étroitement couplée avec le succès du
+\emph{SQL}. Des divers langages ont été définis pour exprimer des
+requêtes vis-à-vis plusieurs dépôts de données, par exemple,
+\emph{XQuery} \cite{boag2002xquery} et \emph{XPath}
+\cite{clark1999xml} pour les bases de données \emph{\acrshort{xml}},
+\emph{QQL} \cite{alashqur1989oql} pour les bases de données orientées
+objets et \acrshort{sparql} \cite{prud2008sparql} pour les
+triplestores (les bases de données \emph{RDF}).
 
-  % TODO: make a simple graph example
+\input{figs/query-graph-example.tex}
+
+Cette section présente trois langages de requêtes largement supportés
+par les systèmes de gestion des bases de données graphes. Le graphe
+présenté par la figure \ref{fig:query-graph-example} sera utilisé pour
+illustrer le syntaxe et la sémantiques de ces trois languges. Le
+graphe représente le résultat d'un processus de \emph{matching}
+sémantique entre cinq service Web qui forme un plan de composition.
+
+
+  % definition
+  % example
+  % syntax
+  % graph-db support
+
   \subsection{SPARQL}
   \label{sec:sparql}
 
@@ -471,15 +348,9 @@ graphes.
   \acrshort{http} dans une variété de formats tels que \acrshort{xml},
   HTML ou \acrshort{json}
 
-  % syntaxe
-  % example
-  % graph-db support
-
-  {\color{red} \textsc{SPARQL} is supported by some databases such as
-    AllegroGraph natively. Other graph databases like Neo4j also
-    support \textsc{SPARQL} by applying plugin Linked Data.  }
-
-
+  La plupart des bases de données graphes ont un support de
+  \textsc{SPARQL} soit nativement telle que \emph{Allegrograph} soit
+  via des extensions comme dans le cas de \emph{Neo4j}.
 
   \subsection{Gremlin}
   \label{sec:gremlin}
@@ -494,8 +365,6 @@ graphes.
   Le syntaxe \emph{Gremlin} est basée sur \emph{XPath} de manière à
   être capable d'exprimer des descriptions de parcours même profonds
   avec des expressions simples et compactes.
-
-  % example
 
   La distribution \emph{Gremlin} (maintenu par \emph{TinkerPop}) est
   supporté par la plupart des bases de données graphes via des
@@ -546,13 +415,9 @@ graphes.
   \item [\texttt{DELETE}]: supprime des noeuds, relations ou propriétés.
   \end{itemize}
 
-  % graph-db support
-
-  % TODO:comparaison
-
+  \newpage
   \section{Conclusion}
 
-  % TODO: Neo4j internals
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
