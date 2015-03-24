@@ -1,5 +1,6 @@
 % !TEX root = ../main.tex
-\chapter{Services web}
+\chapter{Services Web}
+\label{ch:web-service}
 Ce chapitre établit une étude du fondement théorique de notre travail
 à savoir les concepts de base du paradigme service Web.  Nous
 commençons d'abord par présenter un tour d'horizon définissant
@@ -9,7 +10,7 @@ intéressons à montrer les limitations de l'approche syntaxique de la
 description de services web et l'apport de l'enrichissement sémantique
 de cette dernière aux processus de la découverte et la composition de
 services Web.
-
+\newpage
 \section{Définitions}
 \label{sec:ws-notions-de-base}
 
@@ -20,37 +21,40 @@ disponible par Internet, qui utilise un format standard (généralement
 pas lié à un système d'exploitation ou un langage de programmation
 particulier.
 
-\label{sec:ws-definition}
-Curbera et al. \cite{curbera2001web} a définissent un service web
-comme \emph{``une application réseau capable d'interagir par le moyen
-  des standards et des protocoles via des interfaces bien spécifiés,
-  dans lequel est décris utilisant un langage de description
-  fonctionnel standardisé''}.
+
+\begin{mydef} [\textbf{Service Web \cite{curbera2001web}}] `` Un
+  service web est une application réseau capable d'interagir par le
+  moyen des standards et des protocoles via des interfaces bien
+  spécifiés, dans lequel est décris utilisant un langage de
+  description fonctionnel standardisé.''
+\end{mydef}
 
 Les services Web ont été proposés initialement par IBM
 \cite{kreger2001web} et Microsoft, puis en standardisés par le
 \acrshort{w3c} \footnote{\url{http://www.w3.org/}} et définis
-\cite{WSA} par :
+\cite{WSA} par:
 
-\emph{``Un service web est un système conçu pour permettre
+\begin{mydef}[\textbf{Service Web}]
+  ``Un service web est un système conçu pour permettre
   d'interopérabilité des applications à travers un réseau.  Il est
   caractérisé par un format de description
   interprétable/compréhensible automatiquement par la machine,
   D'autres systèmes peuvent interagir avec le Service Web selon la
   manière prescrite dans sa description et en utilisant des messages
   SOAP, généralement transmis via le protocole HTTP et sérialisés en
-  XML et en d'autres standards du Web ''}.
+  XML et en d'autres standards du Web.''
+\end{mydef}
 
 Cette définition surligne les caractéristiques clés de services Web
 \cite{fremantle2002enterprise}:
 
-\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+\renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
 \begin{description}
-\item[Basés sur des protocoles Internet] : L'utilisation de
+\item[Basés sur des protocoles Internet]: L'utilisation de
   \acrshort{http} pour le transport des informations permet de
   traverser les contrôles d'accès dans un environnement hétérogène.
 
-\item[Interopérables] : Le standard \textsc{SOAP} \cite{box2000simple}
+\item[Interopérables]: Le standard \textsc{SOAP} \cite{box2000simple}
   définit comme étant un protocole destiné à l'échange de messages
   structurés véhiculé généralement sur \textsc{HTTP} et sérialisé en
   \textsc{XML}, permettant le support pour l'interopérabilité.
@@ -60,18 +64,22 @@ Cette définition surligne les caractéristiques clés de services Web
   \textsc{W3C} \cite{bray1998extensible} offre un cadre standard pour
   la définition de documents Interprétable par des machines.
 \end{description}
+\enddescription
 
 M. P. Papazoglou \cite{papazoglou2003service} de apporte une
-autre définition de services web:\\ \emph{``Les services Web sont
-des éléments auto-descriptifs et indépendants des plateformes
-permettent la composition faible coût d’applications
-distribuées. Les services Web effectuent des fonctions allant de
-simples requêtes des processus métiers complexes. Les services Web
-permettent aux organisations d’exposer leurs programmes résultats
-sur Internet (ou sur un intranet) en utilisant des langages (basés
-sur XML) et des protocoles standardisés et de les mettre en œuvre
-via une interface auto-descriptive basée sur des formats
-standardisés et ouverts''}
+autre définition de services web:
+
+\begin{mydef} [\textbf{Service Web}]
+``Les services Web sont des éléments auto-descriptifs et
+  indépendants des plateformes permettent la composition faible coût
+  d’applications distribuées. Les services Web effectuent des
+  fonctions allant de simples requêtes des processus métiers
+  complexes. Les services Web permettent aux organisations d’exposer
+  leurs programmes résultats sur Internet (ou sur un intranet) en
+  utilisant des langages (basés sur XML) et des protocoles
+  standardisés et de les mettre en œuvre via une interface
+  auto-descriptive basée sur des formats standardisés et ouverts''
+\end{mydef}
 
 % TODO: make a comment on this def and introduce the web services %
 % composition idea:
@@ -80,7 +88,7 @@ standardisés et ouverts''}
 % \label{sec:levol-des-styl}
 % \input{content/evolution.tex}
 % \newpage
-
+\newpage
 \section{Architecture de référence}
 \label{sec:reference-arch}
 Cette architecture a été proposée afin de promouvoir
@@ -107,6 +115,7 @@ comment ces trois rôles interagissent.
   service Web, il utilise le registre de service pour obtenir des
   informations et pour pouvoir accèder à un service Web.
 \end{description}
+\enddescription
 
 Pour qu'une application profite de services Web, trois comportements
 doivent avoir lieu : \textit{la publication} des descriptions du
@@ -309,7 +318,7 @@ découverte.
   % critiquer la découvert manual de services dans UDDI
   % référencer \ref{sec:ws-localisation}
 
-\section{Description de services web}
+\section{Description de services Web sémantique}
 \label{sec:ws-description}
 
 % Un service Web consiste à la définition d'une entité logiciel

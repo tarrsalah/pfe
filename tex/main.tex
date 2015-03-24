@@ -56,15 +56,18 @@
 \date{\today\\version 0.2.7}
 \begin{document}
 
-%description style
+% itemize style
 \let\Item\item \newcommand{\head}[1]{\textnormal{\textbf{#1}}}
-\newcommand\SpecialItem{\renewcommand\item[1][]{\Item[\textbullet~\sffamily ##1]}}
-\newcommand\SpecialItemi{\renewcommand\item[1][]{\Item[\textendash~\sffamily ##1]}}
-\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+\newcommand\SpecialItem{\renewcommand\item[1][]{\Item[\hspace{0.5cm}\textbullet~\sffamily ##1]}}
+\newcommand\SpecialItemI{\renewcommand\item[1][]{\Item[\textendash~\sffamily ##1]}}
+
+% description style
+\renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
 \renewcommand\enddescription{\endlist\global\let\item\Item}
-% enable it if you want an arabic numeration for subsubsubsection
+
 % \renewcommand{\thesubsubsection}{\arabic{subsection}.\alph{subsubsection})}
 % \renewcommand{\thesubsubsection}{\alph{subsubsection})}
+% \renewcommand{\thesubsubsection}{} % remore numbering
 \newtheorem{mydef}{Definition}
 
 \maketitle
