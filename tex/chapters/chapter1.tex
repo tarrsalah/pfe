@@ -1,4 +1,4 @@
-% !TEX root = ../main.tex
+%% !TEX root = ../main.tex
 \chapter{Services Web}
 \label{ch:web-service}
 Ce chapitre établit une étude du fondement théorique de notre travail
@@ -10,155 +10,185 @@ intéressons à montrer les limitations de l'approche syntaxique de la
 description de services web et l'apport de l'enrichissement sémantique
 de cette dernière aux processus de la découverte et la composition de
 services Web.
+
 \newpage
 \section{Définitions}
-\label{sec:ws-notions-de-base}
+\label{sec:ws-definitions}
 
-Les services Web est l'approche la plus populaire pour mettre en œuvre
-une architecture SOA . Le terme service Web qualifie tout service
-disponible par Internet, qui utilise un format standard (généralement
-\acrshort{xml} ou \acrshort{json}) d'échange de messages, et qui n'est
-pas lié à un système d'exploitation ou un langage de programmation
-particulier.
+  \subsection{Architecture orienté services}
+  \label{sec:soa}
+  Cette architecture a été proposée afin de promouvoir
+  l'interopérabilité et l'extensibilité de services Web dans
+  l'ensemble, une architecture de base de services Web est constitué
+  d'un fournisseur du servicee \textit{(Provider)}, un annuaire des
+  services \textit{(Service Registry)}, et un client du service
+  \textit{(Service Requester)}. La figure \ref{fig:ws_roles} montre
+  comment ces trois rôles interagissent.
 
+  \input{figs/ws_roles.tex}
 
-\begin{mydef} [\textbf{Service Web \cite{curbera2001web}}] `` Un
-  service web est une application réseau capable d'interagir par le
-  moyen des standards et des protocoles via des interfaces bien
-  spécifiés, dans lequel est décris utilisant un langage de
-  description fonctionnel standardisé.''
-\end{mydef}
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+  \begin{description}
+  \item[Le fournisseur]: Un prestataire de services fournit
+    l'interface pour le service Web et l'implémentation de
+    l'application.
 
-Les services Web ont été proposés initialement par IBM
-\cite{kreger2001web} et Microsoft, puis en standardisés par le
-\acrshort{w3c} \footnote{\url{http://www.w3.org/}} et définis
-\cite{WSA} par:
+  \item[L'annuaire]: Un registre de service est une façon dont les
+    services Web sont officiellement publiés. Le registre de service
+    est basée sur la spécification \textsc{UDDI} et reflète des
+    informations sur les services fournis par le fournisseur de
+    services.
 
-\begin{mydef}[\textbf{Service Web}]
-  ``Un service web est un système conçu pour permettre
-  d'interopérabilité des applications à travers un réseau.  Il est
-  caractérisé par un format de description
-  interprétable/compréhensible automatiquement par la machine,
-  D'autres systèmes peuvent interagir avec le Service Web selon la
-  manière prescrite dans sa description et en utilisant des messages
-  SOAP, généralement transmis via le protocole HTTP et sérialisés en
-  XML et en d'autres standards du Web.''
-\end{mydef}
+  \item[Le client]: Un client d'un service est le consommateur d'un
+    service Web, il utilise le registre de service pour obtenir des
+    informations et pour pouvoir accèder à un service Web.
+  \end{description}
+  \enddescription
 
-Cette définition surligne les caractéristiques clés de services Web
-\cite{fremantle2002enterprise}:
+  Pour qu'une application profite de services Web, trois comportements
+  doivent avoir lieu : \textit{la publication} des descriptions du
+  service, \textit{la découverte} de ces descriptions et enfin
+  \textit{l'invocation} de services.
 
-\renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
-\begin{description}
-\item[Basés sur des protocoles Internet]: L'utilisation de
-  \acrshort{http} pour le transport des informations permet de
-  traverser les contrôles d'accès dans un environnement hétérogène.
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+  \begin{description}
+  \item[Publier]: Pour être accessible, une description de service
+    doit être publiée afin que le client puisse la trouver.
 
-\item[Interopérables]: Le standard \textsc{SOAP} \cite{box2000simple}
-  définit comme étant un protocole destiné à l'échange de messages
-  structurés véhiculé généralement sur \textsc{HTTP} et sérialisé en
-  \textsc{XML}, permettant le support pour l'interopérabilité.
+  \item[Découvrir]: Lors de la découverte d'un service , le client
+    interroge un annuaire (ou un registre) de services pour une
+    catégorie requise de services et récupère une description
+    détaillée.
 
-\item[Basés sur XML] : Le méta-langage de balisage \textsc{XML}
-  \textit{eXtensible Markup Language} est un standard Web ouvert par
-  \textsc{W3C} \cite{bray1998extensible} offre un cadre standard pour
-  la définition de documents Interprétable par des machines.
-\end{description}
-\enddescription
+  \item[Invoquer (bind)]: le client peut ainsi invoquer une
+    fonctionalité particulière dans le service cible utilisant les
+    détails de liaison dans la description du service pour le
+    localiser, contacter et l'appeler.
+  \end{description}
+  % TODO
+\subsection{Services Web}
+  Les services Web est l'approche la plus populaire pour mettre en
+  œuvre une architecture \acrshort{soa}. Le terme service Web qualifie
+  tout service disponible par Internet, qui utilise un format standard
+  (généralement \acrshort{xml} ou \acrshort{json}) d'échange de
+  messages, et qui n'est pas lié à un système d'exploitation ou un
+  langage de programmation particulier.
 
-M. P. Papazoglou \cite{papazoglou2003service} de apporte une
-autre définition de services web:
+  À l'origine, la technologie des services web a été initiée par
+  \emph{IBM} \cite{kreger2001web} et \emph{Microsoft}, puis en partie
+  standardisés par le Le consortium du \acrshort{w3c}
+  \footnote{\url{http://www.w3.org/}}, l'organisme chargé de
+  standardiser les spécifications techniques du Web.
 
-\begin{mydef} [\textbf{Service Web}]
-``Les services Web sont des éléments auto-descriptifs et
-  indépendants des plateformes permettent la composition faible coût
-  d’applications distribuées. Les services Web effectuent des
-  fonctions allant de simples requêtes des processus métiers
-  complexes. Les services Web permettent aux organisations d’exposer
-  leurs programmes résultats sur Internet (ou sur un intranet) en
-  utilisant des langages (basés sur XML) et des protocoles
-  standardisés et de les mettre en œuvre via une interface
-  auto-descriptive basée sur des formats standardisés et ouverts''
-\end{mydef}
+  D'après Curbera \emph{et al.} \cite{curbera2001web}: \textit{``Un
+    service Web une application réseau capable d'interagir par le
+    moyen des standards et des protocoles via des interfaces bien
+    spécifiés, dans lequel est décris utilisant un langage de
+    description fonctionnel standardisé.''}
 
-% TODO: make a comment on this def and introduce the web services %
-% composition idea:
+  Selon Cubera \emph{el al.}, un service Web est vu principalement
+  comme une application réseau accessible à d'autres
+  applications. Cette définition est très ouverte dans le sens qu'elle
+  permet de considérer toute application identifié une \acrshort{uri}
+  avec un interface bien défini comme un service Web, ce qui est pas
+  le cas poue les scripts \acrshort{cgi} ou les applications CORBA par
+  exemple.
+
+  \acrshort{w3c} fournit une définition plus spécifique aux services
+  Web \cite{WSA}:
+
+  \textit{``Un service web est un système conçu pour permettre
+    d'interopérabilité des applications à travers un réseau.  Il est
+    caractérisé par un format de description
+    interprétable/compréhensible automatiquement par la machine,
+    D'autres systèmes peuvent interagir avec le Service Web selon la
+    manière prescrite dans sa description et en utilisant des messages
+    SOAP, généralement transmis via le protocole HTTP et sérialisés en
+    XML et en d'autres standards du Web.''}
+
+  Cette définition surligne les caractéristiques suivantes de services
+  Web \cite{fremantle2002enterprise}:
+
+  \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
+  \begin{description}
+  \item[Basés sur des protocoles Internet]: L'utilisation de
+    \acrshort{http} pour le transport des informations permet de
+    traverser les contrôles d'accès dans un environnement hétérogène.
+
+  \item[Interopérables]: Le standard \acrshort{soap}
+    \cite{box2000simple} définit comme étant un protocole destiné à
+    l'échange de messages structurés véhiculé généralement sur
+    \textsc{HTTP} et sérialisé en \textsc{XML}, permettant le support
+    pour l'interopérabilité.
+
+  \item[Basés sur XML] : Le méta-langage de balisage \textsc{XML}
+    \textit{eXtensible Markup Language} est un standard Web ouvert par
+    \textsc{W3C} \cite{bray1998extensible} offre un cadre standard
+    pour la définition de documents Interprétable par des machines.
+  \end{description}
+  \enddescription
+
+  M. P. Papazoglou \cite{papazoglou2003service} apporte une autre
+  définition détaillée de services Web (traduction par
+  \cite{driss2011approche}):
+
+  \textit{``Les services Web sont des éléments auto-descriptifs et
+    indépendants des plateformes permettent la composition faible coût
+    d’applications distribuées. Les services Web effectuent des
+    fonctions allant de simples requêtes des processus métiers
+    complexes. Les services Web permettent aux organisations d'exposer
+    leurs programmes résultats sur Internet (ou sur un intranet) en
+    utilisant des langages (basés sur XML) et des protocoles
+    standardisés et de les mettre en œuvre via une interface
+    auto-descriptive basée sur des formats standardisés et ouverts.''}
+
+  Techniquement, un service Web est donc une entité logicielle offrant
+  une ou plusieurs e fonctionnalités allant des plus simples aux plus
+  complexes. Ces entités sont \emph{décrites}, \emph{publiées},
+  \emph{découvertes}, \emph{invoquées} et \emph{composées} à travers
+  le Web grâce à l'utilisation de l'Internet (avec \acrshort{http})
+  comme infrastructure de communication ainsi que de formats de
+  données standardisés comme \acrshort{xml}.
+
+  % Dans les sections suivantes, nous allons présenté les
+  % fonctionnalités
+
+  % TODO: make a comment on this def and introduce the web
+  % services composition idea.
 
 % \subsection{L'évolution des styles de services web}
-% \label{sec:levol-des-styl}
-% \input{content/evolution.tex}
-% \newpage
-\newpage
-\section{Architecture de référence}
+% \label{sec:levol-des-styl} % \input{content/evolution.tex} %
+\section{Standards de services Web}
 \label{sec:reference-arch}
-Cette architecture a été proposée afin de promouvoir
-l'interopérabilité et l'extensibilité de services Web dans
-l'ensemble, une architecture de base de services Web est constitué
-d'un fournisseur du servicee \textit{(Provider)}, un annuaire des
-services \textit{(Service Registry)}, et un client du service
-\textit{(Service Requester)}. La figure \ref{fig:ws_roles} montre
-comment ces trois rôles interagissent.
-
-\input{figs/ws_roles.tex}
-
-\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
-\begin{description}
-\item[Le fournisseur]: Un prestataire de services fournit l'interface
-  pour le service Web et l'implémentation de l'application.
-
-\item[L'annuaire]: Un registre de service est une façon dont les
-  services Web sont officiellement publiés. Le registre de service est
-  basée sur la spécification \textsc{UDDI} et reflète des informations
-  sur les services fournis par le fournisseur de services.
-
-\item[Le client]: Un client d'un service est le consommateur d'un
-  service Web, il utilise le registre de service pour obtenir des
-  informations et pour pouvoir accèder à un service Web.
-\end{description}
-\enddescription
-
-Pour qu'une application profite de services Web, trois comportements
-doivent avoir lieu : \textit{la publication} des descriptions du
-service, \textit{la découverte} de ces descriptions et enfin
-\textit{l'invocation} de services.
-
-\renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
-\begin{description}
-\item[Publier]: Pour être accessible, une description de service doit
-  être publiée afin que le client puisse la trouver.
-
-\item[Découvrir]: Lors de la découverte d'un service , le client
-  interroge un annuaire (ou un registre) de services pour une
-  catégorie requise de services et récupère une description
-  détaillée.
-
-\item[Invoquer (bind)]: le client peut ainsi invoquer une
-  fonctionalité particulière dans le service cible utilisant les
-  détails de liaison dans la description du service pour le localiser,
-  contacter et l'appeler.
-\end{description}
-
 Les services Web sont construits autour de standards qui sont
-\acrshort{soap}, \acrshort{wsdl} et \acrshort{uddi} assurant
-respectivement leur communication, leur description et leur
-découverte.
+\acrshort{soap}, \acrshort{wsdl} et \acrshort{uddi}, assurant
+respectivement leur \emph{communication}, leur \emph{description} et
+leur \emph{découverte}. La figure \ref{fig:ws-standards-relationships}
+illustre les ralations sous-jacentes entres ces spécifications et la
+contribution de chacun d'entre eux dans le processus de mise en oeuvre
+d'une architecture à base de services Web.
+
+\input{figs/ws-standards-relationships.tex}
+
+Dans la suite de section, nous présentons brièvement ces trois
+spécifications, leurs origines, structures et fonctionalités de base.
 
   \subsection{Communication: SOAP}
   \label{sec:soap}
   Développé par IBM\footnote{\url{http://www.ibm.com}} et
   Microsoft\footnote{\url{http://www.microsoft.com}}
-  \cite{box2000simple}, Le langage \textsc{SOAP} est une
+  \cite{box2000simple}, Le langage \acrshort{soap} est une
   recommandation \textsc{W3C} \cite{mitra2003soap} qui le définit
   comme étant un protocole destiné à l'échange de messages structurés,
-  permettant d'invoquer des applications sur des réseaux distribués.
+  permettant d'invoquer des applications sur des réseaux
+  distribués. \acrshort{soap} est basé sur \textsc{XML} pour mettre en
+  place un mécanisme valable d'échange des données indépendant du
+  modèle de programmation de l'application et du système
+  d'exploitation.
 
-  \textsc{SOAP} est basé sur \textsc{XML} pour mettre en place un
-  mécanisme valable d'échange des données indépendant du modèle de
-  programmation de l'application et du système d'exploitation.
-
-  Un message \textsc{SOAP} est un document XML constitué d'une
-  enveloppe \textsc{SOAP} obligatoire, d'un en-tête \textsc{SOAP}
-  facultatif et d'un corps \textsc{SOAP} obligatoire (voir la figure
+  Un message \acrshort{soap} est un document XML constitué d'une
+  enveloppe \acrshort{soap} obligatoire, d'un en-tête \acrshort{soap}
+  facultatif et d'un corps \acrshort{soap} obligatoire (voir la figure
   \ref{fig:soap-message-structure}):
 
   \input{figs/soap_all.tex}
@@ -166,11 +196,11 @@ découverte.
   \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
   \begin{description}
   \item[Enveloppe \texttt{<Envelope>}]: L'élément racine du message
-    \textsc{SOAP}, définissant le contexte du message, son
+    \acrshort{soap}, définissant le contexte du message, son
     destinataire et son contenu, il englobe l'en-tête et le corps.
 
   \item[En-tête \texttt{<Header>}]: Un mécanisme générique permettant
-    d'ajouter des fonctions à un message \textsc{SOAP} d'une manière
+    d'ajouter des fonctions à un message \acrshort{soap} d'une manière
     modulaire sans accord préalable entre les parties en
     communication.  Des exemples d'extension qui peuvent être
     implémentées comme des en-têtes sont des authentifications, des
@@ -179,7 +209,7 @@ découverte.
   \item[Corps \texttt{<Body>}]: Contient les informations obligatoires
     destinées à l'ultime destinataire du message, il sert comme un
     container pour les informations mandataires à l'intention du
-    récepteur du message. \textsc{SOAP} définit un élément pour le
+    récepteur du message. \acrshort{soap} définit un élément pour le
     corps, qui est l'élément \texttt{<Fault>} (Erreur) utilisé pour
     rapporter les erreurs.
   \end{description}
@@ -189,7 +219,7 @@ découverte.
   Le langage de description de services Web \acrshort{wsdl}
   \cite{christensen2001web, chinnici2007web} est une recommandation du
   \acrshort{w3c}, maintenant dans sa deuxième version.  \textsc{WSDL}
-  est basé sur \textsc{XML} pour décrire les fonctions opérationnelles
+  est basé sur \acrshort{xml} pour décrire les fonctions opérationnelles
   de services Web. La description \textsc{WSDL} est composée d'un
   interface et des implémentations. L'interface est une définition
   abstraite et réutilisable service qui peut être référencée par
@@ -199,14 +229,14 @@ découverte.
 
   Le langage de description de services Web \acrshort{wsdl}
   \cite{chinnici2007web} fournit un modèle ainsi qu'un langage basé
-  sur \textsc{XML} de description de services Web. Un fichier
+  sur \acrshort{xml} de description de services Web. Un fichier
   \textsc{WSDL} comprend une description des fonctionnalités d'un
   service, mais il ne se préoccupe pas de l'implantation de celles-ci.
   Il contient aussi des informations concernant la localisation du
   service, ainsi que les données et les protocoles à utiliser pour
   l'invoquer. En pratique, le document \textsc{WSDL}
   \footnote{\url{http://www.w3.org/TR/wsdl20/}} est un document
-  \textsc{XML} qui se divise en deux parties \cite{elie2010} :
+  \acrshort{xml} qui se divise en deux parties \cite{elie2010} :
 
   \SpecialItem
   \begin{itemize}
@@ -226,7 +256,7 @@ découverte.
   \SpecialItem
   \renewcommand{\descriptionlabel}[1]{\hspace{1.5cm}\texttt{#1}}
   \begin{description}
-  \item[<Types>]: décrit sous la forme d'un schéma \textsc{XML} les
+  \item[<Types>]: décrit sous la forme d'un schéma \acrshort{xml} les
     types des données échangées entre le client et le fournisseur de
     services \cite{part20012}.
 
@@ -275,9 +305,9 @@ découverte.
   permettant de créer un \textbf{annuaire} permettant de localiser sur
   le réseau le services web recherchés, les services référencés dans
   \textsc{UDDI} sont accessibles par l'intermédiaire du protocole de
-  communication \textsc{SOAP}, et la publication des informations
+  communication \acrshort{soap}, et la publication des informations
   concernant les fournisseurs et les services doit être spécifiée en
-  \textsc{XML} afin que la recherche et l'utilisation soient faites de
+  \acrshort{xml} afin que la recherche et l'utilisation soient faites de
   manière \textbf{dynamique} et \textbf{automatique}.
 
   Un \textsc{UDDI} peut appartenir à un domaine public comme internet
@@ -288,7 +318,7 @@ découverte.
   % TODO ajouter la description dans  denayer2004decouverte
 
   Les données stockés dans l'\textsc{UDDI} sont structurées (en
-  \textsc{XML}) et organisées en trois parties connues:
+  \acrshort{xml}) et organisées en trois parties connues:
 
   \SpecialItem
   \begin{description}
@@ -318,7 +348,7 @@ découverte.
   % critiquer la découvert manual de services dans UDDI
   % référencer \ref{sec:ws-localisation}
 
-\section{Description de services Web sémantique}
+\section{Description sémantique de services Web}
 \label{sec:ws-description}
 
 % Un service Web consiste à la définition d'une entité logiciel
@@ -526,10 +556,10 @@ prochaine section \ref{sec:ws-matching}.
   \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
   \begin{description}
   \item [Approches centralisées:] Les premières versions
-    d'\textsc{UDDI} \cite{clement2004uddi} (présenté dans
+    d'\acrshort{uddi} \cite{clement2004uddi} (présenté dans
     \ref{sec:uddi}) reposent sur une approche \textit{centralisée} de
     publication et découverte de services Web. le registre
-    \textsc{UDDI} définit un modèle de représentation des données et
+    \acrshort{uddi} définit un modèle de représentation des données et
     des méta-données nécessaires à la publication, reposent sur
     \textit{un seul annuaire} qui peut être géré par un module de mise
     en correspondances \textit{(matchmaker)}.
@@ -538,19 +568,19 @@ prochaine section \ref{sec:ws-matching}.
     découverte de services \cite{rompothong2003query,
       sivashanmugam2004discovery, paolucci2003using, schmidt2004peer,
       verma2005meteor, sahin2005spider} consistent à mettre en place
-    une \textit{fédération} d'annuaires \textsc{UDDI} agissant comme
+    une \textit{fédération} d'annuaires \acrshort{uddi} agissant comme
     une couche d'abstraction reliant plusieurs instances
     d'annuaires. La plupart des approches distribués sont basées sur
     des systèmes pair-à-pair (\textit{peer to peer}) incluant
     \cite{schmidt2004peer, verma2005meteor, sahin2005spider}.
 
-    La dernière version d'\textsc{UDDI} \cite{oasis2005specification}
+    La dernière version d'\acrshort{uddi} \cite{oasis2005specification}
     (\textit{3.0.2}) reprend le principe d'une fédération d'annuaires
-    et décrit un annuaire \textsc{UDDI} comme un ensemble de nœuds
+    et décrit un annuaire \acrshort{uddi} comme un ensemble de nœuds
     \textit{(UDDI nodes)} tel que chaque nœud fait partie d'un seul
     annuaire et possède une copie répliquée de schéma globale de la
     fédération. Les nœuds d'un annuaire collaborent pour gérer un
-    ensemble de structures de données \textsc{UDDI} et permettre une
+    ensemble de structures de données \acrshort{uddi} et permettre une
     meilleure gestion des requêtes.
   \end{description}
 
@@ -578,7 +608,7 @@ prochaine section \ref{sec:ws-matching}.
     % Verma \textit{et al.}  \cite{verma2005meteor} dans le cadre du
     % projet \textsc{METEOR-S}, l'infrastructure présente un degré
     % d'automatisation plus avancé qu'une simple recherche dans un
-    % annuaire \textsc{UDDI}. En effet, l'enrichissement sémantique des
+    % annuaire \acrshort{uddi}. En effet, l'enrichissement sémantique des
     % fichiers de description de services Web permet une découverte
     % semi-automatique et plus précise
     .
@@ -627,9 +657,9 @@ rencontrées dans la littérature.
   \label{sec:matching-syntactique}
   Les approches de \textit{Matching} synatxique sont basées sur la
   description \textbf{syntaxique} de services (\textsc{WSDL})
-  référencés dans un annuaire \textsc{UDDI} \cite{clement2004uddi}. Le
+  référencés dans un annuaire \acrshort{uddi} \cite{clement2004uddi}. Le
   client envoie une requête constituée de mots clés, cette requête est
-  ensuite comparée avec les mots clés du registre \textsc{UDDI}. Un
+  ensuite comparée avec les mots clés du registre \acrshort{uddi}. Un
   ensemble de descriptions de services Web sous forme des documents
   \textsc{WSDL} (ou un ensemble des \textsc{URL} de ces derniers) est
   ensuite donné comme résultat de recherche, le client sélectionne le
