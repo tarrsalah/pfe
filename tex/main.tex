@@ -1,7 +1,6 @@
 %!TEX root = main.tex;
 
 \documentclass[a4paper, oneside, 12pt]{report}
-% \documentclass[12pt, a4paper, oneside]{memoir}
 \usepackage[a4paper, inner=1.5cm, outer=3cm, top=2cm, bottom=3cm, bindingoffset=2cm]{geometry}
 
 \usepackage[french]{babel}
@@ -34,7 +33,6 @@
 \usepackage{titlesec}
 \usepackage{lmodern}
 \usepackage{fancyvrb}
-
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[toc,page]{appendix}
@@ -67,8 +65,12 @@
 
 % \renewcommand{\thesubsubsection}{\arabic{subsection}.\alph{subsubsection})}
 % \renewcommand{\thesubsubsection}{\alph{subsubsection})}
-% \renewcommand{\thesubsubsection}{} % remore numbering
+\renewcommand{\thesubsubsection}{} % remore numbering
 \newtheorem{mydef}{Definition}
+
+% setup caption names
+\captionsetup[figure]{name=Figure.}
+\captionsetup[table]{name=Table.}
 
 \maketitle
 
@@ -78,7 +80,9 @@
 
 \pagenumbering{roman}
 \tableofcontents
+
 \input{acronyms.tex}
+
 \printglossaries
 \listoffigures
 \listoftables
