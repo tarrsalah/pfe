@@ -20,7 +20,7 @@ services Web.
   Cette architecture a été proposée afin de promouvoir
   l'interopérabilité et l'extensibilité de services Web dans
   l'ensemble, une architecture de base de services Web est constitué
-  d'un fournisseur du servicee \textit{(Provider)}, un annuaire des
+  d'un fournisseur du service \textit{(Provider)}, un annuaire des
   services \textit{(Service Registry)}, et un client du service
   \textit{(Service Requester)}. La figure \ref{fig:ws_roles} montre
   comment ces trois rôles interagissent.
@@ -41,7 +41,7 @@ services Web.
 
   \item[Le client]: Un client d'un service est le consommateur d'un
     service Web, il utilise le registre de service pour obtenir des
-    informations et pour pouvoir accèder à un service Web.
+    informations et pour pouvoir accéder à un service Web.
   \end{description}
   \enddescription
 
@@ -61,11 +61,19 @@ services Web.
     détaillée.
 
   \item[Invoquer (bind)]: le client peut ainsi invoquer une
-    fonctionalité particulière dans le service cible utilisant les
+    fonctionnalité particulière dans le service cible utilisant les
     détails de liaison dans la description du service pour le
     localiser, contacter et l'appeler.
   \end{description}
   % TODO
+
+  % SOA is not tied to a specific implementation technology. Indeed it
+  % may be implemented using a wide-range of technologies including
+  % Web Services [8], RPC [33], DCOM [67], REST [63] or CORBA
+  % [149]. In our work, we focus on Web Services-based SOA [157],
+  % which is described in the following section
+
+
 \subsection{Services Web}
   Les services Web est l'approche la plus populaire pour mettre en
   œuvre une architecture \acrshort{soa}. Le terme service Web qualifie
@@ -91,7 +99,7 @@ services Web.
   applications. Cette définition est très ouverte dans le sens qu'elle
   permet de considérer toute application identifié une \acrshort{uri}
   avec un interface bien défini comme un service Web, ce qui est pas
-  le cas poue les scripts \acrshort{cgi} ou les applications CORBA par
+  le cas pour les scripts \acrshort{cgi} ou les applications CORBA par
   exemple.
 
   \acrshort{w3c} fournit une définition plus spécifique aux services
@@ -106,7 +114,7 @@ services Web.
     SOAP, généralement transmis via le protocole HTTP et sérialisés en
     XML et en d'autres standards du Web.''}
 
-  Cette définition surligne les caractéristiques suivantes de services
+  Cette définition souligne les caractéristiques suivantes de services
   Web \cite{fremantle2002enterprise}:
 
   \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
@@ -118,10 +126,10 @@ services Web.
   \item[Interopérables]: Le standard \acrshort{soap}
     \cite{box2000simple} définit comme étant un protocole destiné à
     l'échange de messages structurés véhiculé généralement sur
-    \textsc{HTTP} et sérialisé en \textsc{XML}, permettant le support
-    pour l'interopérabilité.
+    \textsc{HTTP} et sérialisé en \acrshort{w3c}, permettant le
+    support pour l'interopérabilité.
 
-  \item[Basés sur XML] : Le méta-langage de balisage \textsc{XML}
+  \item[Basés sur XML] : Le méta-langage de balisage \acrshort{w3c}
     \textit{eXtensible Markup Language} est un standard Web ouvert par
     \textsc{W3C} \cite{bray1998extensible} offre un cadre standard
     pour la définition de documents Interprétable par des machines.
@@ -145,10 +153,10 @@ services Web.
   Techniquement, un service Web est donc une entité logicielle offrant
   une ou plusieurs e fonctionnalités allant des plus simples aux plus
   complexes. Ces entités sont \emph{décrites}, \emph{publiées},
-  \emph{découvertes}, \emph{invoquées} et \emph{composées} à travers
-  le Web grâce à l'utilisation de l'Internet (avec \acrshort{http})
-  comme infrastructure de communication ainsi que de formats de
-  données standardisés comme \acrshort{xml}.
+  \emph{découvertes}, \emph{invoquées} et \emph{composées} grâce à
+  l'utilisation de Web (avec \acrshort{http}) comme infrastructure de
+  communication ainsi que de formats de données standardisés basés sur
+  \acrshort{xml}.
 
   % Dans les sections suivantes, nous allons présenté les
   % fonctionnalités
@@ -158,30 +166,31 @@ services Web.
 
 % \subsection{L'évolution des styles de services web}
 % \label{sec:levol-des-styl} % \input{content/evolution.tex} %
+
 \section{Standards de services Web}
 \label{sec:reference-arch}
 Les services Web sont construits autour de standards qui sont
 \acrshort{soap}, \acrshort{wsdl} et \acrshort{uddi}, assurant
 respectivement leur \emph{communication}, leur \emph{description} et
 leur \emph{découverte}. La figure \ref{fig:ws-standards-relationships}
-illustre les ralations sous-jacentes entres ces spécifications et la
+illustre les relations sous-jacentes entres ces spécifications et la
 contribution de chacun d'entre eux dans le processus de mise en oeuvre
 d'une architecture à base de services Web.
 
 \input{figs/ws-standards-relationships.tex}
 
 Dans la suite de section, nous présentons brièvement ces trois
-spécifications, leurs origines, structures et fonctionalités de base.
+spécifications, leurs origines, structures et fonctionnalité de base.
 
   \subsection{Communication: SOAP}
   \label{sec:soap}
   Développé par IBM\footnote{\url{http://www.ibm.com}} et
   Microsoft\footnote{\url{http://www.microsoft.com}}
   \cite{box2000simple}, Le langage \acrshort{soap} est une
-  recommandation \textsc{W3C} \cite{mitra2003soap} qui le définit
+  recommandation \acrshort{w3c} \cite{mitra2003soap} qui le définit
   comme étant un protocole destiné à l'échange de messages structurés,
   permettant d'invoquer des applications sur des réseaux
-  distribués. \acrshort{soap} est basé sur \textsc{XML} pour mettre en
+  distribués. \acrshort{soap} est basé sur \acrshort{w3c} pour mettre en
   place un mécanisme valable d'échange des données indépendant du
   modèle de programmation de l'application et du système
   d'exploitation.
@@ -193,7 +202,8 @@ spécifications, leurs origines, structures et fonctionalités de base.
 
   \input{figs/soap_all.tex}
 
-  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+  \SpecialItem
+  \renewcommand{\descriptionlabel}[1]{\hspace{1.5cm}\texttt{#1}}
   \begin{description}
   \item[Enveloppe \texttt{<Envelope>}]: L'élément racine du message
     \acrshort{soap}, définissant le contexte du message, son
@@ -213,14 +223,16 @@ spécifications, leurs origines, structures et fonctionalités de base.
     corps, qui est l'élément \texttt{<Fault>} (Erreur) utilisé pour
     rapporter les erreurs.
   \end{description}
+  \enddescription
 
   \subsection{Description: WSDL}
   \label{sec:wsdl}
+
   Le langage de description de services Web \acrshort{wsdl}
   \cite{christensen2001web, chinnici2007web} est une recommandation du
-  \acrshort{w3c}, maintenant dans sa deuxième version.  \textsc{WSDL}
+  \acrshort{w3c}, maintenant dans sa deuxième version.  \acrshort{wsdl}
   est basé sur \acrshort{xml} pour décrire les fonctions opérationnelles
-  de services Web. La description \textsc{WSDL} est composée d'un
+  de services Web. La description \acrshort{wsdl} est composée d'un
   interface et des implémentations. L'interface est une définition
   abstraite et réutilisable service qui peut être référencée par
   plusieurs implémentations.
@@ -230,11 +242,11 @@ spécifications, leurs origines, structures et fonctionalités de base.
   Le langage de description de services Web \acrshort{wsdl}
   \cite{chinnici2007web} fournit un modèle ainsi qu'un langage basé
   sur \acrshort{xml} de description de services Web. Un fichier
-  \textsc{WSDL} comprend une description des fonctionnalités d'un
+  \acrshort{wsdl} comprend une description des fonctionnalités d'un
   service, mais il ne se préoccupe pas de l'implantation de celles-ci.
   Il contient aussi des informations concernant la localisation du
   service, ainsi que les données et les protocoles à utiliser pour
-  l'invoquer. En pratique, le document \textsc{WSDL}
+  l'invoquer. En pratique, le document \acrshort{wsdl}
   \footnote{\url{http://www.w3.org/TR/wsdl20/}} est un document
   \acrshort{xml} qui se divise en deux parties \cite{elie2010} :
 
@@ -249,8 +261,10 @@ spécifications, leurs origines, structures et fonctionalités de base.
     \footnote{Service Endpoint}, et les protocoles spécifiques
     d'accès.
   \end{itemize}
+  \enddescription
 
-  La partie abstraite d'un document \textsc{WSDL} contient deux
+
+  La partie abstraite d'un document \acrshort{wsdl} contient deux
   sous-parties:
 
   \SpecialItem
@@ -260,16 +274,17 @@ spécifications, leurs origines, structures et fonctionalités de base.
     types des données échangées entre le client et le fournisseur de
     services \cite{part20012}.
 
-  \item[<Interface>]: Les interfaces\textsc{WDSL} offrent une manière
-    abstraite de décrire la fonctionnalité du service, ils ont défini
-    les opérations (éléments \texttt{<operation>}) en terme de
-    paramètres d'entrée et de sortie sous frorme d'un un modèle
+  \item[<Interface>]: Les interfaces \acrshort{wsdl} offrent une
+    manière abstraite de décrire la fonctionnalité du service, ils ont
+    défini les opérations (éléments \texttt{<operation>}) en terme de
+    paramètres d'entrée et de sortie sous fore d'un un modèle
     d'échange de message \textit{(message exchange
-      pattern)}. \textsc{WSDL} contient huit modèles de messages
+      pattern)}. \acrshort{wsdl} contient huit modèles de messages
     prédéfinis, mais on peut facilement définir de nouveaux.
   \end{description}
+  \enddescription
 
-  La définition concrète d'un document \textsc{WSDL} est constituée
+  La définition concrète d'un document \acrshort{wsdl} est constituée
   de:
 
   \SpecialItem
@@ -283,7 +298,7 @@ spécifications, leurs origines, structures et fonctionalités de base.
     décrit. Pour chaque interface décrite, un élément service lui est
     associé. Le sous-élément \texttt{<endpoint>} définit un port
     d’accès en référençant l'élément \texttt{<binding>} associé et en
-    déclarant l'\textsc{URL} localisant le service (avec l'attribut
+    déclarant l'\acrshort{url} localisant le service (avec l'attribut
     \texttt{<address>}).
   \end{description}
   % parler sur la limitation de la description syntaxique de WSDL,
@@ -310,7 +325,7 @@ spécifications, leurs origines, structures et fonctionalités de base.
   \acrshort{xml} afin que la recherche et l'utilisation soient faites de
   manière \textbf{dynamique} et \textbf{automatique}.
 
-  Un \textsc{UDDI} peut appartenir à un domaine public comme internet
+  Un \textsc{UDDI} peut appartenir à un domaine public comme Internet
   ou tout autre réseau accessible à un nombre non limité
   d'utilisateurs, comme il peut appartenir à un domaine restreint
   comme l'intranet d'une entreprise ou d'un groupe d'entreprise.
@@ -361,21 +376,21 @@ spécifications, leurs origines, structures et fonctionalités de base.
 Une description du service Web est un document par lequel le
 fournisseur de services communique au client les spécifications pour
 invoquer le service Web \cite{lopez2008selection}. Malgré les
-améliorations apportées au standard \textsc{WSDL} dans son deuxième
+améliorations apportées au standard \acrshort{wsdl} dans son deuxième
 version \cite{chinnici2007web}, la description du service reste
 uniquement au niveau fonctionnel, c'est-à-dire qu'elle contient la
 manière dont on peut utiliser le service et non ce que fait le
-service, le standard \textsc{WSDL} est limité à l'énumération des
+service, le standard \acrshort{wsdl} est limité à l'énumération des
 opérations et à la description des types des paramètres d'entrée et de
 sortie associés, elle ne caractérise pas la sémantique de la
 fonctionnalité accomplie par le service.
 
-Par conséquent, la description \textsc{WSDL} reste insuffisante lors
+Par conséquent, la description \acrshort{wsdl} reste insuffisante lors
 des processus de sélection, découvert et de la composition. Pour
 pallier cette Difficulté, plusieurs approches
 \cite{sivashanmugam2003adding,mcilraith2001semantic,
   mcilraith2003bringing, fensel2002web} proposent de rajouter une
-couche sémantique au dessus de \textsc{WSDL} complétant la description
+couche sémantique au dessus de \acrshort{wsdl} complétant la description
 syntaxique par des précisions sémantiques.
 
 \input{figs/3w_to_sws.tex}
@@ -414,17 +429,17 @@ La notion du Web sémantique est abordée brièvement dans l'annexe
 
     \subsubsection{WSDL-S}
     \textsc{WSDL-S} \cite{akkiraju2005web} est le résultat d'un
-    travail collaboratif entre IBM, laboratoire LSDSI et l'iniversité
+    travail collaboratif entre IBM, laboratoire LSDSI et l'université
     de Geogia \footnote{\url{http://www.uga.edu/}}.  La spécification
-    a devenue une recommandation \textsc{W3C} depuis 2005. Son
+    a devenue une recommandation \acrshort{w3c} depuis 2005. Son
     objectif principal est de fournir un processus d'annotation
     sémantique compatible avec les technologies
     existantes. Pratiquement, Le méta-modèle \textsc{WSDL-S} repose
-    sur les capabilités du modèle \textsc{WSDL} en rajoutant trois
+    sur les capabilités du modèle \acrshort{wsdl} en rajoutant trois
     éléments majeurs \texttt{<category>}, \texttt{<effect>} et deux
     attributs \texttt{modelReference} et \texttt{schemaMapping}. Les
     éléments introduits permettent de rajouter des informations qui
-    n'étaient pas prises en compte dans \textsc{WSDL} comme \emph{les
+    n'étaient pas prises en compte dans \acrshort{wsdl} comme \emph{les
       préconditions} et \emph{les effets} d'une opération. Tandis que
     les attributs permettent de référencer des concepts dans des
     ontologies de référence, ces préconditions et effets ensemble avec
@@ -436,22 +451,22 @@ La notion du Web sémantique est abordée brièvement dans l'annexe
     La spécification \acrshort{sawsdl} \cite{kopecky2007sawsdl} est la
     suite de \textsc{WSDL-S} et il partage les mêmes principes de ce
     dernier. issue d'initiative du groupe de travail d'annotations
-    sémantiques pour \textsc{WSDL}
+    sémantiques pour \acrshort{wsdl}
     \footnote{\url{http://www.w3.org/TR/sawsdl/}} et soumise au
-    \textsc{W3C} en 2007, \textsc{SAWSDL} définit un mécanisme
+    \acrshort{w3c} en 2007, \textsc{SAWSDL} définit un mécanisme
     d'annoter sémantiquement les interfaces et les opérations
-    \textsc{WSDL}, ainsi que les types \textsc{XML schema} en les
+    \acrshort{wsdl}, ainsi que les types \textsc{XML schema} en les
     reliant à des concepts dans une ontologie. Cette annotation repose
     sur la définition d'attributs étendant le standard de
     description. Les annotations sémantiques référencent des
-    ontologies pré-existantes. Le mécanisme d'annotation de
+    ontologies préexistantes. Le mécanisme d'annotation de
     \textsc{SAWSDL} est indépendant de tout langage de représentation
     \cite{lopez2008selection} d'ontologies.
 
     \textsc{SAWSDL} propose deux sortes d'annotations sémantiques: une
     pour identifier le concept sémantique (représentée par l'attribut
     \texttt{modelReference}) et une autre pour faire le lien entre le
-    concept et le document \textsc{WSDL} (représentée par les
+    concept et le document \acrshort{wsdl} (représentée par les
     attributs \texttt{liftingSchemaMapping} et
     \texttt{loweringSchemaMapping}).
 
@@ -492,7 +507,7 @@ La notion du Web sémantique est abordée brièvement dans l'annexe
     \label{sec:owl-s-1}
 
   % TODO: elaborate
-  \subsection{L'aspect fonctionnel et non fonctionel de description}
+  \subsection{L'aspect fonctionnel et non fonctionnel de description}
   \label{sec:func-vs-non-func}
   % TODO  move this section the first section of the chapter-3
   {\color{red}
@@ -560,11 +575,11 @@ prochaine section \ref{sec:ws-matching}.
     \ref{sec:uddi}) reposent sur une approche \textit{centralisée} de
     publication et découverte de services Web. le registre
     \acrshort{uddi} définit un modèle de représentation des données et
-    des méta-données nécessaires à la publication, reposent sur
+    des métadonnées nécessaires à la publication, reposent sur
     \textit{un seul annuaire} qui peut être géré par un module de mise
     en correspondances \textit{(matchmaker)}.
 
-  \item [Approcehs décentralisées:] Les approches décentralisées de
+  \item [Approches décentralisées:] Les approches décentralisées de
     découverte de services \cite{rompothong2003query,
       sivashanmugam2004discovery, paolucci2003using, schmidt2004peer,
       verma2005meteor, sahin2005spider} consistent à mettre en place
@@ -655,13 +670,13 @@ rencontrées dans la littérature.
 
   \subsection{Matching syntaxique}
   \label{sec:matching-syntactique}
-  Les approches de \textit{Matching} synatxique sont basées sur la
-  description \textbf{syntaxique} de services (\textsc{WSDL})
+  Les approches de \textit{Matching} syntaxique sont basées sur la
+  description \textbf{syntaxique} de services (\acrshort{wsdl})
   référencés dans un annuaire \acrshort{uddi} \cite{clement2004uddi}. Le
   client envoie une requête constituée de mots clés, cette requête est
   ensuite comparée avec les mots clés du registre \acrshort{uddi}. Un
   ensemble de descriptions de services Web sous forme des documents
-  \textsc{WSDL} (ou un ensemble des \textsc{URL} de ces derniers) est
+  \acrshort{wsdl} (ou un ensemble des \textsc{URL} de ces derniers) est
   ensuite donné comme résultat de recherche, le client sélectionne le
   service Web qui répond au mieux à ses exigences.
 
@@ -687,7 +702,7 @@ rencontrées dans la littérature.
   % TODO: enhance
   \begin{itemize}
   \item un faible taux de rappel et de précision à cause de
-    l'ambigüité du langage naturel.
+    l'ambiguïté du langage naturel.
   \item La nécessité de l'intervention de l'utilisateur.
   \end{itemize}
   % TODO: introduire le matching sémantique.
