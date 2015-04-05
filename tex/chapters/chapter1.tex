@@ -14,7 +14,7 @@ services Web.
 \newpage
 \section{Définitions}
 \label{sec:ws-definitions}
-
+% TODO: write an section introduction
   \subsection{Architecture orienté services}
   \label{sec:soa}
   Cette architecture a été proposée afin de promouvoir
@@ -73,7 +73,7 @@ services Web.
   % [149]. In our work, we focus on Web Services-based SOA [157],
   % which is described in the following section
 
-
+\newpage
 \subsection{Services Web}
   Les services Web est l'approche la plus populaire pour mettre en
   œuvre une architecture \acrshort{soa}. Le terme service Web qualifie
@@ -82,9 +82,9 @@ services Web.
   messages, et qui n'est pas lié à un système d'exploitation ou un
   langage de programmation particulier.
 
-  À l'origine, la technologie des services web a été initiée par
-  \emph{IBM} \cite{kreger2001web} et \emph{Microsoft}, puis en partie
-  standardisés par le Le consortium du \acrshort{w3c}
+  À l'origine, la technologie des services web a été initiée par IBM
+  \cite{kreger2001web} et Microsoft, puis en partie standardisés par
+  le Le consortium du \acrshort{w3c}
   \footnote{\url{http://www.w3.org/}}, l'organisme chargé de
   standardiser les spécifications techniques du Web.
 
@@ -158,14 +158,8 @@ services Web.
   communication ainsi que de formats de données standardisés basés sur
   \acrshort{xml}.
 
-  % Dans les sections suivantes, nous allons présenté les
-  % fonctionnalités
-
-  % TODO: make a comment on this def and introduce the web
-  % services composition idea.
-
 % \subsection{L'évolution des styles de services web}
-% \label{sec:levol-des-styl} % \input{content/evolution.tex} %
+% \label{sec:levol-des-styl} % \input{content/evolution.tex}
 
 \section{Standards de services Web}
 \label{sec:reference-arch}
@@ -180,7 +174,7 @@ d'une architecture à base de services Web.
 \input{figs/ws-standards-relationships.tex}
 
 Dans la suite de section, nous présentons brièvement ces trois
-spécifications, leurs origines, structures et fonctionnalité de base.
+spécifications, leurs origines, structures et fonctionnalités de base.
 
   \subsection{Communication: SOAP}
   \label{sec:soap}
@@ -190,20 +184,20 @@ spécifications, leurs origines, structures et fonctionnalité de base.
   recommandation \acrshort{w3c} \cite{mitra2003soap} qui le définit
   comme étant un protocole destiné à l'échange de messages structurés,
   permettant d'invoquer des applications sur des réseaux
-  distribués. \acrshort{soap} est basé sur \acrshort{w3c} pour mettre en
-  place un mécanisme valable d'échange des données indépendant du
+  distribués. \acrshort{soap} est basé sur \acrshort{xml} pour mettre
+  en place un mécanisme valable d'échange des données indépendant du
   modèle de programmation de l'application et du système
   d'exploitation.
 
-  Un message \acrshort{soap} est un document XML constitué d'une
-  enveloppe \acrshort{soap} obligatoire, d'un en-tête \acrshort{soap}
-  facultatif et d'un corps \acrshort{soap} obligatoire (voir la figure
-  \ref{fig:soap-message-structure}):
+  Un message \acrshort{soap} est un document \acrshort{xml} constitué
+  d'une enveloppe \acrshort{soap} obligatoire, d'un en-tête
+  \acrshort{soap} facultatif et d'un corps \acrshort{soap} obligatoire
+  (voir la figure \ref{fig:soap-message-structure}):\\\\
 
   \input{figs/soap_all.tex}
 
   \SpecialItem
-  \renewcommand{\descriptionlabel}[1]{\hspace{1.5cm}\texttt{#1}}
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\texttt{#1}}
   \begin{description}
   \item[Enveloppe \texttt{<Envelope>}]: L'élément racine du message
     \acrshort{soap}, définissant le contexte du message, son
@@ -230,12 +224,13 @@ spécifications, leurs origines, structures et fonctionnalité de base.
 
   Le langage de description de services Web \acrshort{wsdl}
   \cite{christensen2001web, chinnici2007web} est une recommandation du
-  \acrshort{w3c}, maintenant dans sa deuxième version.  \acrshort{wsdl}
-  est basé sur \acrshort{xml} pour décrire les fonctions opérationnelles
-  de services Web. La description \acrshort{wsdl} est composée d'un
-  interface et des implémentations. L'interface est une définition
-  abstraite et réutilisable service qui peut être référencée par
-  plusieurs implémentations.
+  \acrshort{w3c}, maintenant dans sa deuxième version.
+  \acrshort{wsdl} est basé sur \acrshort{xml} pour décrire les
+  fonctions opérationnelles de services Web. La description
+  \acrshort{wsdl} est composée d'un interface et des
+  implémentations. L'interface est une définition abstraite et
+  réutilisable service qui peut être référencée par plusieurs
+  implémentations.
 
   \input{figs/wsdl-document-structure.tex}
 
@@ -263,12 +258,11 @@ spécifications, leurs origines, structures et fonctionnalité de base.
   \end{itemize}
   \enddescription
 
-
   La partie abstraite d'un document \acrshort{wsdl} contient deux
   sous-parties:
 
   \SpecialItem
-  \renewcommand{\descriptionlabel}[1]{\hspace{1.5cm}\texttt{#1}}
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\texttt{#1}}
   \begin{description}
   \item[<Types>]: décrit sous la forme d'un schéma \acrshort{xml} les
     types des données échangées entre le client et le fournisseur de
@@ -288,7 +282,7 @@ spécifications, leurs origines, structures et fonctionnalité de base.
   de:
 
   \SpecialItem
-  \renewcommand{\descriptionlabel}[1]{\hspace{1.5cm}\texttt{#1}}
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\texttt{#1}}
   \begin{description}
   \item[<Binding>]: L'élément \texttt{Binding} reprend les opérations
     de l'élément \texttt{<Interface>} et leurs associe un protocole de
@@ -336,6 +330,7 @@ spécifications, leurs origines, structures et fonctionnalité de base.
   \acrshort{xml}) et organisées en trois parties connues:
 
   \SpecialItem
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\texttt{#1}}
   \begin{description}
     \item[Pages blanches]: fournissent des descriptions générales sur
       les fournisseurs de services à savoir le nom de l'entreprise qui
@@ -366,12 +361,14 @@ spécifications, leurs origines, structures et fonctionnalité de base.
 \section{Description sémantique de services Web}
 \label{sec:ws-description}
 
-% Un service Web consiste à la définition d'une entité logiciel
-% modulaire, \textit{auto-descriptive} et \textit{autonome}
-% \textit{accessible} via Internet \cite{curbera2001web}. Dans la
-% section précédente, nous avons vu l'architecture de base de services
-% Web et la pile protocolaire pour la mise en place d'une telle
-% architecture.
+Un service Web consiste à la définition d'une entité logiciel
+modulaire, \textit{auto-descriptive} et \textit{autonome}
+\textit{accessible} via Internet \cite{curbera2001web}. Dans la
+section précédente, nous avons vu l'architecture de base de services
+Web et la pile protocolaire pour la mise en place d'une telle
+architecture.
+
+\input{figs/3w_to_sws.tex}
 
 Une description du service Web est un document par lequel le
 fournisseur de services communique au client les spécifications pour
@@ -393,7 +390,6 @@ pallier cette Difficulté, plusieurs approches
 couche sémantique au dessus de \acrshort{wsdl} complétant la description
 syntaxique par des précisions sémantiques.
 
-\input{figs/3w_to_sws.tex}
 
 Les services Web enrichis par des métadonnées supplémentaires
 exprimant leur la sémantique sont appelés \textit{les services Web
@@ -430,22 +426,23 @@ La notion du Web sémantique est abordée brièvement dans l'annexe
     \subsubsection{WSDL-S}
     \textsc{WSDL-S} \cite{akkiraju2005web} est le résultat d'un
     travail collaboratif entre IBM, laboratoire LSDSI et l'université
-    de Geogia \footnote{\url{http://www.uga.edu/}}.  La spécification
-    a devenue une recommandation \acrshort{w3c} depuis 2005. Son
+    de Geogia \footnote{\url{http://www.uga.edu/}}. La spécification a
+    devenue une recommandation \acrshort{w3c} depuis 2005. Son
     objectif principal est de fournir un processus d'annotation
     sémantique compatible avec les technologies
     existantes. Pratiquement, Le méta-modèle \textsc{WSDL-S} repose
     sur les capabilités du modèle \acrshort{wsdl} en rajoutant trois
     éléments majeurs \texttt{<category>}, \texttt{<effect>} et deux
-    attributs \texttt{modelReference} et \texttt{schemaMapping}. Les
-    éléments introduits permettent de rajouter des informations qui
-    n'étaient pas prises en compte dans \acrshort{wsdl} comme \emph{les
-      préconditions} et \emph{les effets} d'une opération. Tandis que
-    les attributs permettent de référencer des concepts dans des
-    ontologies de référence, ces préconditions et effets ensemble avec
-    les annotations sémantiques des éléments \texttt{<inputs>} et
-    \texttt{<outputs>} permet de l'automatisation du processus de
-    découvert de services.
+    attributs \texttt{modelReference} et \texttt{schemaMapping}.
+
+    Les éléments introduits permettent de rajouter des informations
+    qui n'étaient pas prises en compte dans \acrshort{wsdl} comme
+    \emph{les préconditions} et \emph{les effets} d'une
+    opération. Tandis que les attributs permettent de référencer des
+    concepts dans des ontologies de référence, ces préconditions et
+    effets ensemble avec les annotations sémantiques des éléments
+    \texttt{<inputs>} et \texttt{<outputs>} permet de l'automatisation
+    du processus de découvert de services.
 
     \subsubsection{SAWSDL}
     La spécification \acrshort{sawsdl} \cite{kopecky2007sawsdl} est la
@@ -506,21 +503,90 @@ La notion du Web sémantique est abordée brièvement dans l'annexe
     \subsubsection{OWL-S}
     \label{sec:owl-s-1}
 
-  % TODO: elaborate
-  \subsection{L'aspect fonctionnel et non fonctionnel de description}
-  \label{sec:func-vs-non-func}
-  % TODO  move this section the first section of the chapter-3
-  {\color{red}
-    \cite{el2014cbr4wsd}
-  }
+    \textsc{OWL-S} \cite{martin2004owl} désigné par \textsc{DAML-S}
+    \cite{ankolekar2002daml} dans les versions antérieures, est un
+    langage issue des travaux de \acrshort{darba}
+    \footnote{\url{http://www.darpa.mil/}} et son programme
+    \acrshort{daml} \footnote{\url{http://www.daml.org/services/}} en
+    collaboration avec des chercheurs de plusieurs universités et
+    organisations. Il a été intégré au consortium \textsc{W3C} en
+    2004, au sein du groupe d'intérêt sur les services Web
+    sémantiques, lors de la recommandation du langage \textsc{OWL}
+    \cite{horrocks2002daml+oil, mcguinness2004owl}. Ankolekar \emph{et
+      al.}  \cite{ankolekar2002daml} présentent une ontologie pour les
+    services web dans le but d'automatiser la \emph{découverte},
+    \emph{l'invocation}, la \emph{composition} et la
+    \emph{surveillance} de l'exécution de services
+    \cite{mcilraith2003bringing}, les auteurs reprennent la notion de
+    classes d'\textsc{OWL} et proposent l'ontologie \textsc{OWL-S}.
+    %% TODO redraw the picture
+    \input{figs/owls.tex}
 
-  Il existe deux aspects de description de services Web:
+    L'objectif principal de ces recherches est d'établir une
+    plateforme dans laquelle les descriptions de services Web sont
+    partagés en utilisant une ontologie standard, constituée d'un
+    ensembles de classes de base et des propriétés pour résoudre les
+    ambiguïtés et de rendre la description d'un service compréhensible
+    par une machine.
 
-    \subsubsection{L'aspect fonctionnel}
-    \label{sec:aspect-fonctionnel}
+    la figure \ref{fig:owl-s} décrit la structure tripartie d'une
+    ontologie \textsc{OWL-S}. Elle est composé de trois
+    sous-ontologie: un \emph{service profile}, d'un \emph{service
+      model} et d'un \emph{service grounding}.
 
-    \subsubsection{L'aspect non fonctionnel}
-    \label{sec:aspect-non-fonctionel}
+    \SpecialItem
+    \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\texttt{#1}}
+    \begin{description}
+    \item[ServiceProfile.] il offre une description informelle des
+      fonctionnalités rendues par le service (\verb|serviceName|,
+      \verb|textDescription|) et des informations concernant son
+      fournisseur (\verb|contactInformation|). D'une aure côté, il
+      spécifie des fonctionnalités offertes par le service (
+      comportement fonctionnel) en terme de transformation
+      d'information dénotée par les \textit{Entrés/Sorties}
+      \textsc{(I/O)} (\verb|hasInput|, \verb|hasOutput|) et de
+      changement d'état après l'exécution du service dénoté par les
+      \textit{pré-conditions/effets} \textsc{(P/E)}
+      (\verb|hasPrecondition|, \verb|hasResult|).
+
+      Du point de vue de découverte et de la composition, Le
+      \verb|ServiceProfile| est la partie la plus importante de la
+      définition du service \textsc{OWL-S}.
+
+    \item[ServiceModel.] il décrit le fonctionnement du service du en
+      indiquant comment les résultats sont produits étape par étape
+      précisant la façon un client peut interagir avec le service afin
+      d'atteindre sa fonctionnalité. Ceci est fait en exprimant la
+      transformation de données avec \textit{Entrés/Sorties}
+      \textsc{(I/O)} etla transformation de l'Etat avec
+      \textit{pré-conditions/effets} \textsc{(P/E)}.
+
+      le \verb|ServiceProfile| est généralement considéré comme un
+      sous-ensemble du \verb|ServiceModel|, contenant uniquement
+      l'information nécessaire pour annoncer le service Web pour une
+      découverte ultérieure.
+
+    \item[ServiceGrounding.] Permet de spécifier les détails d'accès
+      au service en précisant le protocole, le format des messages, la
+      sérialisation et l'adressage. Il représente une correspondance
+      \textit{(mapping)} entre la définition abstraite d'un processus
+      \textsc{OWL-S} décrivant le service et la définition
+      \textsc{WSDL} concrète des éléments nécessaires pour interagir
+      avec le service.
+
+      % Le rôle de mise en correspondance est principalement à de
+      % combler l'écart entre la description sémantique de services Web
+      % (détallée dans le deux premières sous-ontologies) et les modèles
+      % de description de service existants qui sont principalement
+      % syntaxique (\textsc{WSDL}).
+    \end{description}
+    \enddescription
+
+    Le \verb|ServiceProfile| fournissent éventuellement d'autres
+    informations supplémentaires sur le service comme la qualité qu'il
+    assure en terme du temps de réponse et du coût, une classification
+    possible d'un service (\verb|serviceCategory|), et un paramètre
+    générique \verb|serviceParameter|.
 
 \section{Découverte de services web}
 \label{sec:ws-discovery}
@@ -556,8 +622,8 @@ Dans cette section nous présentons les différentes approches de
 localisation de services basées sur des modèles centralisés ou des
 modèles distribués. Ensuite nous classifions les approches de
 découverte selon le degré d'automatisation du traitement des
-données. Le dernier critère de classification sera présenté dans la
-prochaine section \ref{sec:ws-matching}.
+données. Le dernière sous-section sera consacrée au problème de
+macthing de matching.
 
 \subsection{Localisation de services}
 \label{sec:ws-localisation}
@@ -568,25 +634,25 @@ prochaine section \ref{sec:ws-matching}.
   les approches décentralisées ou distribuées
   \cite{garofalakis2004web}.
 
-  \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
-  \begin{description}
-  \item [Approches centralisées:] Les premières versions
-    d'\acrshort{uddi} \cite{clement2004uddi} (présenté dans
-    \ref{sec:uddi}) reposent sur une approche \textit{centralisée} de
-    publication et découverte de services Web. le registre
-    \acrshort{uddi} définit un modèle de représentation des données et
-    des métadonnées nécessaires à la publication, reposent sur
-    \textit{un seul annuaire} qui peut être géré par un module de mise
-    en correspondances \textit{(matchmaker)}.
+    \subsubsection{Approches centralisées}
+    Les premières versions d'\acrshort{uddi} \cite{clement2004uddi}
+    (présenté dans \ref{sec:uddi}) reposent sur une approche
+    \textit{centralisée} de publication et découverte de services
+    Web. le registre \acrshort{uddi} définit un modèle de
+    représentation des données et des métadonnées nécessaires à la
+    publication, reposent sur \textit{un seul annuaire} qui peut être
+    géré par un module de mise en correspondances
+    \textit{(matchmaker)}.
 
-  \item [Approches décentralisées:] Les approches décentralisées de
-    découverte de services \cite{rompothong2003query,
-      sivashanmugam2004discovery, paolucci2003using, schmidt2004peer,
-      verma2005meteor, sahin2005spider} consistent à mettre en place
-    une \textit{fédération} d'annuaires \acrshort{uddi} agissant comme
-    une couche d'abstraction reliant plusieurs instances
-    d'annuaires. La plupart des approches distribués sont basées sur
-    des systèmes pair-à-pair (\textit{peer to peer}) incluant
+    \subsubsection{Approches décentralisées}
+    Les approches décentralisées de découverte de services
+    \cite{rompothong2003query, sivashanmugam2004discovery,
+      paolucci2003using, schmidt2004peer, verma2005meteor,
+      sahin2005spider} consistent à mettre en place une
+    \textit{fédération} d'annuaires \acrshort{uddi} agissant comme une
+    couche d'abstraction reliant plusieurs instances d'annuaires. La
+    plupart des approches distribués sont basées sur des systèmes
+    pair-à-pair (\textit{peer to peer}) incluant
     \cite{schmidt2004peer, verma2005meteor, sahin2005spider}.
 
     La dernière version d'\acrshort{uddi} \cite{oasis2005specification}
@@ -597,7 +663,6 @@ prochaine section \ref{sec:ws-matching}.
     fédération. Les nœuds d'un annuaire collaborent pour gérer un
     ensemble de structures de données \acrshort{uddi} et permettre une
     meilleure gestion des requêtes.
-  \end{description}
 
   \subsection{Découverte manuelle/automatique}
   \label{sec:ws-desc:manual-vs-auto}
@@ -607,38 +672,29 @@ prochaine section \ref{sec:ws-matching}.
   semi-automatique d'une part, et les approches automatiques d'une
   autre part \cite{elie2010,garofalakis2004web}.
 
-  \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
-  \begin{description}
-  \item[Approches manuelles et semi-automatiques:] Dans une découverte
-    manuelle, le client utilise un service de découverte pour
-    localiser et sélectionner manuellement une description de service
-    qui répond aux certains critères fonctionnels. La recherche de
-    descriptions dans cette approche est souvent basée sur une simple
-    comparaison syntaxique entre les mots clés de la requête et les
-    descriptions de services disponibles, ce qui nécessite
-    l'intervention de l'utilisateur pour vérifier la pertinence et la
-    fiabilité des résultats de la recherche et sélectionner le service
-    Web qui répond au mieux à ses exigences.
+    \subsubsection{Approches manuelles et semi-automatiques}
+    Dans une découverte manuelle, le client utilise un service de
+    découverte pour localiser et sélectionner manuellement une
+    description de service qui répond aux certains critères
+    fonctionnels. La recherche de descriptions dans cette approche est
+    souvent basée sur une simple comparaison syntaxique entre les mots
+    clés de la requête et les descriptions de services disponibles, ce
+    qui nécessite l'intervention de l'utilisateur pour vérifier la
+    pertinence et la fiabilité des résultats de la recherche et
+    sélectionner le service Web qui répond au mieux à ses exigences.
 
-    % Verma \textit{et al.}  \cite{verma2005meteor} dans le cadre du
-    % projet \textsc{METEOR-S}, l'infrastructure présente un degré
-    % d'automatisation plus avancé qu'une simple recherche dans un
-    % annuaire \acrshort{uddi}. En effet, l'enrichissement sémantique des
-    % fichiers de description de services Web permet une découverte
-    % semi-automatique et plus précise
-    .
+    \subsubsection{Approches automatiques}
+    La découverte automatique de services qui répond à un besoin donné
+    est considéré comme une étape cruciale vers l'intégration
+    dynamique et évolutive de services Web. On entend par découverte
+    automatique la possibilité de localiser automatiquement un Web
+    service qui répond à des besoins particuliers, Différentes
+    approches ont été proposées dans la littérature pour réaliser la
+    découverte dynamique de services \cite{paolucci2002semantic,
+      bernstein2002discovering, mandell2003bottom,
+      benatallah2005automating,keller2005automatic}.
 
-  \item[Approches automatiques:] La découverte automatique de services
-    qui répond à un besoin donné est considéré comme une étape
-    cruciale vers l'intégration dynamique et évolutive de services
-    Web. On entend par découverte automatique la possibilité de
-    localiser automatiquement un Web service qui répond à des besoins
-    particuliers, Différentes approches ont été proposées dans la
-    littérature pour réaliser la découverte dynamique de services
-    \cite{paolucci2002semantic, bernstein2002discovering,
-      mandell2003bottom,
-      benatallah2005automating,keller2005automatic}. Dans
-    \cite{mandell2003bottom} les auteurs présentent une approche
+    Dans \cite{mandell2003bottom} les auteurs présentent une approche
     d'automatisation de la découverte de services modélisés en
     \acrshort{bpel} (voir \ref{sec:bpel}) dans le but d'une
     composition plus dynamique. Les auteurs proposent d'étendre la
@@ -649,94 +705,83 @@ prochaine section \ref{sec:ws-matching}.
     automatique. Autrement, Keller \textit{et al}
     \cite{keller2005automatic} étudient un modèle de localisation
     automatique de services Web décrits via le modèle \textsc{WSMO}.
-  \end{description}
 
-\section{Matching de services Web}
-\label{sec:ws-matching}
-Le \textit{Matching} (ou le \textit{Matchmaking}) de services Web est
-définie comme un processus qui nécessite un annuaire de services de
-prendre une requête en entrée, et de revenir tous les services qui
-peuvent satisfaire les exigences spécifiées dans la requête d'entrée
-\cite{li2004software}. Cette opération nécessite la recherche de
-similarités indiquant le degré de rapprochement entre les paramètres
-descriptives fonctionnels et non fonctionnels
-(~\ref{sec:func-vs-non-func}) de services référencés d'une côté, et
-les paramètres de la requête client d'une autre.
+  \subsection{Matching de services Web}
+  \label{sec:ws-matching}
+  Le \textit{Matching} (ou le \textit{Matchmaking}) de services Web
+  est définie comme un processus qui nécessite un annuaire de services
+  de prendre une requête en entrée, et de revenir tous les services
+  qui peuvent satisfaire les exigences spécifiées dans la requête
+  d'entrée \cite{li2004software}. Cette opération nécessite la
+  recherche de similarités indiquant le degré de rapprochement entre
+  les paramètres descriptives \textit{fonctionnels} et \textit{non
+    fonctionnels} de services référencés d'une côté, et les paramètres
+  de la requête client d'une autre.  Le calcul de similarité peut être
+  basé sur des données syntaxiques ou sémantiques plus expressives
+  \cite{elie2010}.
 
-Le calcul de similarité peut être basé sur des données syntaxiques ou
-sémantiques plus expressives \cite{elie2010}. Dans la suite nous
-résumons les approches de \textit{Matching} de services Web
-rencontrées dans la littérature.
+    \subsubsection{Matching syntaxique}
+    \label{sec:matching-syntactique}
+    Les approches de \textit{Matching} syntaxique sont basées sur la
+    description syntaxique de services (\acrshort{wsdl}) référencés
+    dans un annuaire \acrshort{uddi} \cite{clement2004uddi}. Le client
+    envoie une requête constituée de mots clés, cette requête est
+    ensuite comparée avec les mots clés du registre
+    \acrshort{uddi}. Un ensemble de descriptions de services Web sous
+    forme des documents \acrshort{wsdl} (ou un ensemble des
+    \textsc{URL} de ces derniers) est ensuite donné comme résultat de
+    recherche, le client sélectionne le service Web qui répond au
+    mieux à ses exigences.
 
-  \subsection{Matching syntaxique}
-  \label{sec:matching-syntactique}
-  Les approches de \textit{Matching} syntaxique sont basées sur la
-  description \textbf{syntaxique} de services (\acrshort{wsdl})
-  référencés dans un annuaire \acrshort{uddi} \cite{clement2004uddi}. Le
-  client envoie une requête constituée de mots clés, cette requête est
-  ensuite comparée avec les mots clés du registre \acrshort{uddi}. Un
-  ensemble de descriptions de services Web sous forme des documents
-  \acrshort{wsdl} (ou un ensemble des \textsc{URL} de ces derniers) est
-  ensuite donné comme résultat de recherche, le client sélectionne le
-  service Web qui répond au mieux à ses exigences.
+    Liang \textit{et al.} \cite{DBLP:journals/jwsr/LiangCSCL04}
+    emploient la base de données lexicale \textit{WordNet}
+    \footnote{\url{http://wordnet.princeton.edu/}}
+    \cite{miller1990introduction} pour enrichir les mots clés de la
+    requête avec des synonymes. Ceci permet d'améliorer la qualité des
+    résultats.
 
-  Liang \textit{et al.} \cite{DBLP:journals/jwsr/LiangCSCL04}
-  emploient la base de données lexicale \textit{WordNet}
-  \footnote{\url{http://wordnet.princeton.edu/}}
-  \cite{miller1990introduction} pour enrichir les mots clés de la
-  requête avec des synonymes. Ceci permet d'améliorer la qualité des
-  résultats.
+    Sajjanhar \textit{et al.} \cite{sajjanhar2004algorithm} utilisent
+    des méthodes d'algèbre linéaire pour rendre le \textit{Matching}
+    par mots clés plus efficace. leur approche consiste à construire
+    une matrice contenant des informations sur tous les services Web
+    qui ont des mots communs dans leur description. Ensuite, une
+    décomposition en valeurs singulières est appliquée à cette matrice
+    pour obtenir toute description de service Web qui a une relation
+    avec la requête de recherche.
 
-  Sajjanhar \textit{et al.} \cite{sajjanhar2004algorithm} utilisent
-  des méthodes d'algèbre linéaire pour rendre le \textit{Matching} par
-  mots clés plus efficace. leur approche consiste à construire une
-  matrice contenant des informations sur tous les services Web qui ont
-  des mots communs dans leur description. Ensuite, une décomposition
-  en valeurs singulières est appliquée à cette matrice pour obtenir
-  toute description de service Web qui a une relation avec la requête
-  de recherche.
+    Malgré sa simplicité et sa facilité d'implémentation, les
+    approches syntaxiques présentent plusieurs limitations:\\
 
-  Malgré sa simplicité et sa facilité d'implémentation, les approches
-  syntaxiques présentent plusieurs limitations:
+    \begin{itemize}
+    \item un faible taux de rappel et de précision à cause de
+      l'ambiguïté du langage naturel.
+    \item La nécessité de l'intervention de l'utilisateur.
+    \end{itemize}
+    % TODO: introduire le matching sémantique.
 
-  % TODO: enhance
-  \begin{itemize}
-  \item un faible taux de rappel et de précision à cause de
-    l'ambiguïté du langage naturel.
-  \item La nécessité de l'intervention de l'utilisateur.
-  \end{itemize}
-  % TODO: introduire le matching sémantique.
+    \subsubsection{Matching sémantique}
+    \label{sec:matching-semanique}
+    Des travaux récents \cite{paolucci2002semantic, keller2004wsmo,
+      benatallah2005automating, benatallah2003request, martin2004owl}
+    se sont focalisés sur la description sémantique de services Web
+    dans le but d'adresser les insuffisances des approches purement
+    syntaxiques (dans la section\ref{sec:ws-description}). Les
+    ontologies sont les modèles les plus utilisés pour la
+    représentation sémantique de services Web. Dans ce type de
+    découverte, le prestataire de service doit fournir des annotations
+    sémantiques pour ses services publiés. La description sémantique
+    se rapporte à la définition abstraite de services comprenant les
+    types d'\textit{entrées/sorties}.
 
-  \subsection{Matching sémantique}
-  \label{sec:matching-semanique}
-  De récents travaux se sont focalisés sur la description sémantique
-  de services Web dans le but d'adresser les insuffisances des
-  approches purement syntaxiques (voir \ref{sec:ws-description}). Les
-  ontologies sont les modèles les plus utilisés pour la représentation
-  sémantique de services Web. Dans ce type de découverte, le
-  prestataire de service doit fournir des annotations sémantiques pour
-  ses services publiés. La description sémantique se rapporte à la
-  définition abstraite de services comprenant les types
-  d'\textit{entrées/sorties}.
+    Un \textit{Matching} sémantique consiste à identifier un certain
+    degré de similitude entre les différents concepts sémantiques qui
+    décrivent le service requis (la requête) et celles de services
+    publiés.
 
-  Un \textit{Matching} sémantique consiste à identifier un certain
-  degré de similitude entre les différents concepts sémantiques qui
-  décrivent le service requis (la requête) et celles de services
-  publiés.
-
-  Les approches de calcul de similarités sémantique reposent sur des
-  modèles de description sémantique. Par la suite nous résumons deux
-  approches majeures, basées respectivement sur le modèle
-  \textsc{WSMO} et sur le modèle \textsc{OWL-S}.
-
-    \subsubsection{Matching sémantique basé sur WSMO}
-    \label{sec:match-wsmo}
-    \cite{paolucci2002semantic, keller2004wsmo}
-
-    \subsubsection{Matching sémantique basé sur OWL-S}
-    \label{sec:match-owls}
-    \cite{paolucci2002semantic,benatallah2003request,
-        benatallah2005automating, martin2004owl}
+    % Les approches de calcul de similarités sémantique reposent sur des
+    % modèles de description sémantique. Par la suite nous résumons deux
+    % approches majeures, basées respectivement sur le modèle
+    % \textsc{WSMO} et sur le modèle \textsc{OWL-S}.
 
 \section{Conclusion}
 % faire un petit récapitulatif sur les technologies de services web
