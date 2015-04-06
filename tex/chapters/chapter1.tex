@@ -14,20 +14,34 @@ services Web.
 \newpage
 \section{Définitions}
 \label{sec:ws-definitions}
-% TODO: write an section introduction
-  \subsection{Architecture orienté services}
+L'objectif de cette section est de présenter les notions de base
+autour du paradigme \textit{service web}, en présentent quelques
+définitions rencontrées dans la littérature.
+
+  \subsection{Architecture orientée services}
   \label{sec:soa}
-  Cette architecture a été proposée afin de promouvoir
-  l'interopérabilité et l'extensibilité de services Web dans
-  l'ensemble, une architecture de base de services Web est constitué
-  d'un fournisseur du service \textit{(Provider)}, un annuaire des
-  services \textit{(Service Registry)}, et un client du service
-  \textit{(Service Requester)}. La figure \ref{fig:ws_roles} montre
-  comment ces trois rôles interagissent.
+  % TODO: find another intro !
+  Avec l'augmentation des défis de l'entreprise qui doit aujourd'hui
+  pallier aussi les problèmes majeurs d'adaptation de ses systèmes
+  dans des environnements flexibles et évolutifs, l'architecture
+  orientée services (\acrshort{soa}) plus spécifiquement les services
+  Web qui sont une implémentation particulière de cette architecture,
+  a été proposée afin de promouvoir l'interopérabilité et
+  l'extensibilité de services dans l'ensemble. Les services Web sont
+  des composants logiciels interopérables permettant la communication
+  et l'échange de données entre applications et systèmes hétérogènes
+  dans des environnements distribuées.
 
   \input{figs/ws_roles.tex}
+  \newpage
+  une architecture de base de services Web selon
+  \cite{gottschalk2002introduction} est constitué d'un fournisseur du
+  service \textit{(Provider)}, un annuaire des services
+  \textit{(Service Registry)}, et un client du service
+  \textit{(Service Requester)}. La figure \ref{fig:ws_roles} montre
+  comment ces trois rôles interagissent:
 
-  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+  \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
   \begin{description}
   \item[Le fournisseur]: Un prestataire de services fournit
     l'interface pour le service Web et l'implémentation de
@@ -50,7 +64,7 @@ services Web.
   service, \textit{la découverte} de ces descriptions et enfin
   \textit{l'invocation} de services.
 
-  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+  \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
   \begin{description}
   \item[Publier]: Pour être accessible, une description de service
     doit être publiée afin que le client puisse la trouver.
@@ -65,6 +79,7 @@ services Web.
     détails de liaison dans la description du service pour le
     localiser, contacter et l'appeler.
   \end{description}
+  \enddescription
   % TODO
 
   % SOA is not tied to a specific implementation technology. Indeed it
@@ -73,8 +88,12 @@ services Web.
   % [149]. In our work, we focus on Web Services-based SOA [157],
   % which is described in the following section
 
+  Afin de mettre en œuvre une \acrshort{soa}, il est essentiel d'avoir
+  une compréhension claire de ce qu’est un service web.
+
 \newpage
 \subsection{Services Web}
+ \label{sec:ws-definition}
   Les services Web est l'approche la plus populaire pour mettre en
   œuvre une architecture \acrshort{soa}. Le terme service Web qualifie
   tout service disponible par Internet, qui utilise un format standard
@@ -121,7 +140,7 @@ services Web.
   \begin{description}
   \item[Basés sur des protocoles Internet]: L'utilisation de
     \acrshort{http} pour le transport des informations permet de
-    traverser les contrôles d'accès dans un environnement hétérogène.
+    traverser les contrôles d'accès dans un environnement hétérogène.\\
 
   \item[Interopérables]: Le standard \acrshort{soap}
     \cite{box2000simple} définit comme étant un protocole destiné à
@@ -593,30 +612,37 @@ La notion du Web sémantique est abordée brièvement dans l'annexe
 La découverte de services Web présente un axe de recherche
 important. Divers mécanismes de découverte ont été proposés dans la
 littérature et plusieurs définitions sont attribuées à ce
-concept. Booth \textit{el al.}  décrivent le processus de découverte
-comme étant l'acte de \textit{``localisation d'une description
-  compréhensible par la machine d'un service éventuellement inconnu au
-  préalable écrivant certains critères fonctionnels ''}
-\cite{booth2004web}.
+concept. Booth \textit{el al.} \cite{booth2004web} décrivent le
+processus de découverte comme étant l'acte de \textit{``localisation
+  d'une description compréhensible par la machine d'un service
+  éventuellement inconnu au préalable écrivant certains critères
+  fonctionnels.''}
 
 \input{figs/ws-discovery-with-matching.tex}
 
-Un processus de découverte de service web s'effectue en deux phases
-principales (illustrés dans la figure
-\ref{fig:ws-discovery-with-matching}). Premièrement, un module de mis
-en correspondance (\textit{Matching}) renvoie tous les services Web
-candidats selon le degré de similitude entre les services disponibles
-et les exigences spécifiés par la requête (aspect fonctionnel). La
-deuxième étape consiste à sélectionner et invoquer le service le plus
-satisfaisant (aspect non fonctionnel). Plusieurs critères peuvent être
-utilisés pour catégoriser les approches de découverte \cite{elie2010}:
+Essentiellement, un processus de découverte de service web s'effectue
+en deux phases principales (illustrés dans la figure
+\ref{fig:ws-discovery-with-matching}):
 
-\begin{enumerate}
-\item la localisation de services (centralisation/décentralisation
-  des annuaires).
-\item Le degré d'automatisation du processus de la découverte.
-\item le principe de l'algorithme de \textit{Matching}.
+\SpecialItem
+\begin{itemize}
+\item Premièrement, un module de mis en correspondance
+  (\textit{Matching}) renvoie tous les services Web candidats selon le
+  degré de similitude entre les services disponibles et les exigences
+  spécifiés par la requête (aspect fonctionnel).
+
+\item La deuxième étape consiste à sélectionner et invoquer le service
+  le plus satisfaisant (aspect non fonctionnel). Plusieurs critères
+  peuvent être utilisés pour catégoriser les approches de découverte
+  \cite{elie2010}:
+\enddescription
+  \begin{enumerate}
+  \item la localisation de services (centralisation/décentralisation
+    des annuaires).
+  \item Le degré d'automatisation du processus de la découverte.
+  \item le principe de l'algorithme de \textit{Matching}.
 \end{enumerate}
+\end{itemize}
 
 Dans cette section nous présentons les différentes approches de
 localisation de services basées sur des modèles centralisés ou des
