@@ -19,18 +19,53 @@ services Web.
 L'objectif de cette section est d'introduire les concepts et
 terminologies associés au paradigme d'\textit{orientation
   service}. Dans la première section \ref{sec:soc}, nous allons
-définir le concept \textit{``Service oriented computing''}
-(\acrshort{soc}) comme une solution émergente de développement rapide
-des applications distribuées dans les environnements hétérogènes. Nous
-présentons ensuite l'architecture orientée services pour réaliser le
+définir le \textit{``Service oriented computing''} (\acrshort{soc})
+comme un modèle émergent de développement rapide des applications
+distribuées dans les environnements hétérogènes. Nous présentons
+ensuite l'architecture orientée services pour réaliser le
 \acrshort{soc} (section \ref{sec:soa}). Dans la section
 \ref{sec:ws-def}, nous nous focalisons sur les services Web en
 présentant quelques définitions et caractéristiques rencontrées dans
 la littérature.
 
-
-  \subsection{Service oriented computing}
+\subsection{Service oriented computing}
   \label{sec:soc}
+  L'approche orientée service, en anglais \textit{``Service oriented
+    computing''} (\acrshort{soc}) est un paradigme de programmation
+  qui permet de la construction d'applications à partir d'entités
+  logicielles particulières, que sont les \emph{services}.
+
+  \bigskip
+
+  Selon Papazoglou \cite{papazoglou2003service}: \textit{``Les
+    services des éléments logiciel auto-descriptives, définis
+    indépendamment d'une toute plateforme ou technologie''}
+
+  \bigskip
+
+  Le fonctionnalités offertes par un service peuvent allant de
+  répondre aux requêtes simples à l'encapsulation des processus
+  métiers aussi complexes.
+
+  \medskip
+
+  Selon le modèle architectural \acrshort{soc}, les applications sont
+  construites à partir de services autonomes, auto-descriptives et
+  faiblement couplés, exposant leurs fonctionnalités sous forme des
+  interfaces bien définies en s'abstrayant complètement de leur
+  implémentation. Grâce à ses descriptions publiées, ces services
+  peuvent être recherchés et ensuite invoquées par des utilisateurs ou
+  d'autres services clients, permettant d'une meilleure collaboration
+  entres plusieurs entreprises de différents domaines.
+
+  \medskip
+
+  Une architecture clés pour réaliser l'approche \acrshort{soc} est
+  l'architecture orientée services (\acrshort{soa}).  Dans le même
+  sens que la \acrshort{soc}, la \acrshort{soa} introduit un paradigme
+  pour la construction des applications distribuées où les services
+  élémentaires peuvent être publiés, découverts et composés afin de
+  créer des services plus complexes.
 
   \subsection{Architecture orientée services}
   \label{sec:soa}
