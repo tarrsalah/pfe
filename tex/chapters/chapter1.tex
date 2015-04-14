@@ -4,14 +4,21 @@
 
 % TODO: write a better chapter intro
 Ce chapitre établit une étude du fondement théorique de notre travail
-à savoir les concepts de base du paradigme service Web.  Nous
+à savoir le  concepts de base du paradigme service Web.  Nous
 commençons d'abord par présenter un tour d'horizon définissant
-l'architecture de référence de ce paradigme ainsi que quelque
+l'architectre de référence de ce paradigme ainsi que quelque
 définitions proposées dans la littérature. Ensuite nous nous
 intéressons à montrer les limitations de l'approche syntaxique de la
 description de services web et l'apport de l'enrichissement sémantique
 de cette dernière aux processus de la découverte et la composition de
 services Web.
+
+% Un service Web consiste à la définition d'une entité logiciel
+% modulaire, \textit{auto-descriptive}, \textit{autonome} et
+% \textit{accessible} via Internet \cite{curbera2001web}. Dans la
+% section précédente, nous avons vu l'architecture de base de services
+% Web et la pile protocolaire pour la mise en place d'une telle
+% architecture.
 
 \newpage
 \section{Définitions}
@@ -435,71 +442,52 @@ spécifications, leurs origines, structures et fonctionnalités de base.
       invocation.
   \end{description}
 
-  % TODO: talk about OWL-S and why UDDI approach is semantically poor
-  % TODO : Conclure cette subsection par la mention du problème de la
-  % découverte automatique de services Web et l'insuffisance de la
-  % description syntaxique.
-  % \newpage
-
-  % critiquer la découvert manual de services dans UDDI
-  % référencer \ref{sec:ws-localisation}
-
 \section{Description sémantique de services Web}
 \label{sec:ws-description}
 
-Un service Web consiste à la définition d'une entité logiciel
-modulaire, \textit{auto-descriptive} et \textit{autonome}
-\textit{accessible} via Internet \cite{curbera2001web}. Dans la
-section précédente, nous avons vu l'architecture de base de services
-Web et la pile protocolaire pour la mise en place d'une telle
-architecture.
+La description de services Web consiste à une étape primordiale dans
+le cycle du vie d'une application à base de services, Elle permet
+d'une manière claire et structurée pour qu'un fournisseur de services
+communique au client les spécifications pour invoquer un service
+Web. Le \acrshort{w3c} propose de décrire syntaxiquement les services
+Web en utilisant le standard \acrshort{wsdl} \cite{christensen2001web,
+  chinnici2007web} et de les publier dans l'annuaire \acrshort{uddi}
+\cite{clement2004uddi}.
 
 \input{figs/3w_to_sws.tex}
 
-Une description du service Web est un document par lequel le
-fournisseur de services communique au client les spécifications pour
-invoquer le service Web \cite{lopez2008selection}. Malgré les
-améliorations apportées au standard \acrshort{wsdl} dans son deuxième
-version \cite{chinnici2007web}, la description du service reste
-uniquement au niveau fonctionnel, c'est-à-dire qu'elle contient la
-manière dont on peut utiliser le service et non ce que fait le
-service, le standard \acrshort{wsdl} est limité à l'énumération des
-opérations et à la description des types des paramètres d'entrée et de
-sortie associés, elle ne caractérise pas la sémantique de la
-fonctionnalité accomplie par le service.
-
-Par conséquent, la description \acrshort{wsdl} reste insuffisante lors
-des processus de sélection, découvert et de la composition. Pour
-pallier cette Difficulté, plusieurs approches
+Malgré les améliorations apportées au standard \acrshort{wsdl} dans
+son deuxième version \cite{chinnici2007web}, la description du service
+reste insuffisante lors des processus de sélection, découvert et de la
+composition. Pour pallier cette difficulté, plusieurs approches
 \cite{sivashanmugam2003adding,mcilraith2001semantic,
-  mcilraith2003bringing, fensel2002web} proposent de rajouter une
-couche sémantique au dessus de \acrshort{wsdl} complétant la description
-syntaxique par des précisions sémantiques.
-
-
-Les services Web enrichis par des métadonnées supplémentaires
-exprimant leur la sémantique sont appelés \textit{les services Web
-sémantiques} \cite{fensel2002semantic, mcilraith2001semantic}. Les
-services de Web sémantique sont le résultat de l'évolution Web dans
-deux directions \cite{bartalos2011effective} (illustré dans La
+  mcilraith2003bringing, fensel2002web, paolucci2002semantic}
+proposent de rajouter une couche sémantique au dessus de
+\acrshort{wsdl} complétant la description syntaxique par des
+précisions sémantiques. Les services Web enrichis par des métadonnées
+supplémentaires exprimant leur la sémantique sont appelés \textit{les
+  services Web sémantiques}. Les services de Web sémantique sont le
+résultat de l'évolution du Web dans deux directions
+\cite{bartalos2011effective} (illustré dans La
 figure\ref{fig:3w_to_sws}):
 
 \begin{enumerate}
-  \item L'interopérabilité dynamique des éléments sur le Web.
-  \item L'amélioration de la description syntaxique services Web
+\item L'interopérabilité dynamique des éléments sur le Web.
+  
+\item L'amélioration de la description syntaxique services Web.
 \end{enumerate}
+
+%% TODO: les descriptions fonctionnelles et non-fonctionnelles
 
 Dans cette section nous allons présenter les diverses approches
 sémantiques visant à préciser la description d'un service en insistant
-sur les approches d'annotation sémantique et sur les ontologies de
-services.
-
-La notion du Web sémantique est abordée brièvement dans l'annexe
-\ref{annexe:semantic-web}.
+sur les approches d'annotation sémantique
+(\ref{sec:semantic-annotation}) et sur les ontologies de services
+(\ref{sec:ontologies-services}). La notion du Web sémantique est
+abordée brièvement dans l'annexe \ref{annexe:semantic-web}.
 
   \subsection{Annotations sémantiques}
-  \label{sec:semantic-annot}
-
+  \label{sec:semantic-annotation}
   L'annotation sémantique consiste à enrichir et à compléter la
   description d'un service. Elle établit des correspondances entre des
   éléments de la description et des concepts d'un ensemble
@@ -511,56 +499,100 @@ La notion du Web sémantique est abordée brièvement dans l'annexe
 
     \subsubsection{WSDL-S}
     \textsc{WSDL-S} \cite{akkiraju2005web} est le résultat d'un
-    travail collaboratif entre IBM, laboratoire LSDSI et l'université
-    de Geogia \footnote{\url{http://www.uga.edu/}}. La spécification a
-    devenue une recommandation \acrshort{w3c} depuis 2005. Son
+    travail collaboratif entre IBM et le laboratoire LSDSI et
+    l'université de Geogia. La spécification a devenue une
+    recommandation \acrshort{w3c} depuis 2005
+    \footnote{\url{http://www.w3.org/Submission/WSDL-S/}}. Son
     objectif principal est de fournir un processus d'annotation
     sémantique compatible avec les technologies
     existantes. Pratiquement, Le méta-modèle \textsc{WSDL-S} repose
-    sur les capabilités du modèle \acrshort{wsdl} en rajoutant trois
-    éléments majeurs \texttt{<category>}, \texttt{<effect>} et deux
-    attributs \texttt{modelReference} et \texttt{schemaMapping}.
+    sur les éléments extensibles du modèle \acrshort{wsdl} introduits
+    dans son deuxième version en rajoutant trois éléments majeurs
+    \texttt{<category>}, \texttt{<precondition>} et \texttt{<effect>},
+    et deux attributs, \texttt{modelReference} et
+    \texttt{schemaMapping}.\medskip
 
-    Les éléments introduits permettent de rajouter des informations
+    \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\texttt{#1}}
+    \begin{description}
+    \item [<category>:] est un sous-élément de \texttt{<portType>}. Il
+      précise la catégorie d'un service lors de la publication dans un
+      annuaire ou registre.
+
+    \item [<precondition>:] sous-élément de \texttt{<operation>},
+      indique les préconditions à vérifier pour que l'opération
+      s'exécute comme prévu.
+
+    \item [<effects>:] sous-élément de \texttt{<operation>}, indique
+      les effets de ee ee l'ex écution de l'opération.
+
+    \item [modelreference:] Un attribut qui peut être ajouté à
+      élément dams une grammaire \acrshort{xml} et aux élément
+      \texttt{<category>}, \texttt{<precondition>} et
+      \texttt{<effects>}. Il indique une association avec un élément
+      correspondant dans une ontologie donnée.
+
+    \item [schemamapping:] Un attribut peut être ajouté à un élément
+      dans une grammaire \acrshort{xml}. Il permet de décrire les
+      correspondances entre la grammaire annotée et les ontologies de
+      référence.
+    \end{description}
+    \enddescription
+
+    Ces éléments introduits permettent de rajouter des informations
     qui n'étaient pas prises en compte dans \acrshort{wsdl} comme
-    \emph{les préconditions} et \emph{les effets} d'une
-    opération. Tandis que les attributs permettent de référencer des
-    concepts dans des ontologies de référence, ces préconditions et
-    effets ensemble avec les annotations sémantiques des éléments
-    \texttt{<inputs>} et \texttt{<outputs>} permet de l'automatisation
-    du processus de découvert de services.
+    \emph{les préconditions} et \emph{les effets} d'une opération,
+    tandis que les attributs permettent de référencer des concepts
+    dans des ontologies de référence, ces préconditions et effets.
 
     \subsubsection{SAWSDL}
-    La spécification \acrshort{sawsdl} \cite{kopecky2007sawsdl} est la
-    suite de \textsc{WSDL-S} et il partage les mêmes principes de ce
-    dernier. issue d'initiative du groupe de travail d'annotations
-    sémantiques pour \acrshort{wsdl}
+    \acrshort{sawsdl} \cite{kopecky2007sawsdl} est un langage
+    d'annotation sémantique de description de services Web qui hérite
+    de \textsc{WSDL-S}. Issue d'initiative du groupe de travail
+    d'annotations sémantiques pour \acrshort{wsdl}
     \footnote{\url{http://www.w3.org/TR/sawsdl/}} et soumise au
     \acrshort{w3c} en 2007, \textsc{SAWSDL} définit un mécanisme
     d'annoter sémantiquement les interfaces et les opérations
     \acrshort{wsdl}, ainsi que les types \textsc{XML schema} en les
     reliant à des concepts dans une ontologie. Cette annotation repose
-    sur la définition d'attributs étendant le standard de
-    description. Les annotations sémantiques référencent des
-    ontologies préexistantes. Le mécanisme d'annotation de
-    \textsc{SAWSDL} est indépendant de tout langage de représentation
-    \cite{lopez2008selection} d'ontologies.
+    sur la définition d'attributs étendant le standard de description
+    en référençant des ontologies préexistantes. Le mécanisme
+    d'annotation de \textsc{SAWSDL} est indépendant de tout langage de
+    représentation \cite{lopez2008selection} d'ontologies.\medskip
 
-    \textsc{SAWSDL} propose deux sortes d'annotations sémantiques: une
-    pour identifier le concept sémantique (représentée par l'attribut
-    \texttt{modelReference}) et une autre pour faire le lien entre le
-    concept et le document \acrshort{wsdl} (représentée par les
-    attributs \texttt{liftingSchemaMapping} et
-    \texttt{loweringSchemaMapping}).
+    \textsc{SAWSDL} propose trois sortes d'annotations sémantiques
+    pour référencer des concepts de modèles définis à l'extérieur du
+    document \acrshort{wsdl}, une pour identifier le concept
+    sémantique (représentée par l'attribut \texttt{modelReference}) et
+    deux autres (\texttt{liftingSchemaMapping} et
+    \texttt{loweringSchemaMapping}) pour spécifier la correspondance
+    (\emph{Mapping}) entre les données sémantiques et les éléments
+    \acrshort{xml}.
+
+    \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\texttt{#1}}
+    \begin{description}
+    \item [modelReference:] Il permet d'associer un composant
+      \acrshort{wsdl} ou un instance\acrshort{xml} schema à un concept
+      d'une ontologie.
+
+    \item [liftingSchemaMapping:] Il définit comment un élément
+      \acrshort{xml} peut être transformé à une donnée qui se conforme
+      à un certain modèle sémantique.
+
+    \item [loweringSchemaMapping:] Dans le sens inverse que le
+      précédent, ce attribut définit comment les données dans un
+      modèle sémantique sont transformées en instances \acrshort{xml}.
+    \end{description}
+    \enddescription
+    %TODO: add some critiques
 
   \subsection{Ontologies de services}
-  \label{sec:ont-services}
+  \label{sec:ontologies-services}
 
   Une ontologie de services saisit les différents aspects liés à la
-  description de services et leur utilisation à travers un ensemble
-  de concepts, de propriétés et de relations entre eux. Deux modèles
-  d'ontologies de services sont décrits dans cette sous-section
-  \textsc{OWL-S} et \textsc{WSMO} \cite{elie2010}.
+  description de services et leur utilisation à travers un ensemble de
+  concepts, de propriétés et de relations entre eux
+  \cite{elie2010}. Deux modèles d'ontologies de services sont décrits
+  dans cette sous-section \textsc{OWL-S} et \textsc{WSMO}.
 
     \subsubsection{WSMO}
     \label{sec:wsmo}
@@ -674,6 +706,7 @@ La notion du Web sémantique est abordée brièvement dans l'annexe
     possible d'un service (\verb|serviceCategory|), et un paramètre
     générique \verb|serviceParameter|.
 
+\newpage
 \section{Découverte de services web}
 \label{sec:ws-discovery}
 La découverte de services Web présente un axe de recherche
