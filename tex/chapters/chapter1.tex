@@ -257,7 +257,8 @@ la littérature.
   l'utilisation de Web (avec \acrshort{http}) comme infrastructure de
   communication ainsi que de formats de données standardisés basés sur
   \acrshort{xml}.
-\newpage
+
+
 \section{Standards de services Web}
 \label{sec:reference-arch}
 Les services Web sont construits autour de standards qui sont
@@ -444,7 +445,6 @@ spécifications, leurs origines, structures et fonctionnalités de base.
 
 \section{Description sémantique de services Web}
 \label{sec:ws-description}
-
 La description de services Web consiste à une étape primordiale dans
 le cycle du vie d'une application à base de services, Elle permet
 d'une manière claire et structurée pour qu'un fournisseur de services
@@ -452,32 +452,35 @@ communique au client les spécifications pour invoquer un service
 Web. Le \acrshort{w3c} propose de décrire syntaxiquement les services
 Web en utilisant le standard \acrshort{wsdl} \cite{christensen2001web,
   chinnici2007web} et de les publier dans l'annuaire \acrshort{uddi}
-\cite{clement2004uddi}.
-
-\input{figs/3w_to_sws.tex}
-
-Malgré les améliorations apportées au standard \acrshort{wsdl} dans
-son deuxième version \cite{chinnici2007web}, la description du service
-reste insuffisante lors des processus de sélection, découvert et de la
-composition. Pour pallier cette difficulté, plusieurs approches
+\cite{clement2004uddi}. Malgré les améliorations apportées au standard
+\acrshort{wsdl} dans son deuxième version \cite{chinnici2007web}, la
+description des services reste insuffisante lors des processus de
+sélection, découvert et de la composition. Pour pallier cette
+difficulté, plusieurs approches
 \cite{sivashanmugam2003adding,mcilraith2001semantic,
   mcilraith2003bringing, fensel2002web, paolucci2002semantic}
 proposent de rajouter une couche sémantique au dessus de
 \acrshort{wsdl} complétant la description syntaxique par des
 précisions sémantiques. Les services Web enrichis par des métadonnées
 supplémentaires exprimant leur la sémantique sont appelés \textit{les
-  services Web sémantiques}. Les services de Web sémantique sont le
-résultat de l'évolution du Web dans deux directions
-\cite{bartalos2011effective} (illustré dans La
-figure\ref{fig:3w_to_sws}):
+  services Web sémantiques}.\medskip
 
-\begin{enumerate}
-\item L'interopérabilité dynamique des éléments sur le Web.
-  
-\item L'amélioration de la description syntaxique services Web.
-\end{enumerate}
+\input{figs/3w_to_sws.tex}
 
-%% TODO: les descriptions fonctionnelles et non-fonctionnelles
+Les services Web sémantiques sont le résultat de la convergence de la
+technologie de services Web et du Web
+sémantique. \cite{bartalos2011effective}(illustré dans La
+figure\ref{fig:3w_to_sws}). Cette combinaison des technologies
+permettra de:
+
+\begin{itemize}\renewcommand\labelitemi{--}
+\item Automatiser de l'invocation et l'exécution du service Web par un
+  service client ou par un agent.
+
+\item Automatiser la découverte de services.
+
+\item La composition automatique des services Web.
+\end{itemize}
 
 Dans cette section nous allons présenter les diverses approches
 sémantiques visant à préciser la description d'un service en insistant
@@ -583,7 +586,6 @@ abordée brièvement dans l'annexe \ref{annexe:semantic-web}.
       modèle sémantique sont transformées en instances \acrshort{xml}.
     \end{description}
     \enddescription
-    %TODO: add some critiques
 
   \subsection{Ontologies de services}
   \label{sec:ontologies-services}
@@ -604,12 +606,12 @@ abordée brièvement dans l'annexe \ref{annexe:semantic-web}.
     le cycle de vie de services web (publication, sélection,
     découverte, composition, etc.) afin de résoudre le problème de
     l'intégration de services Web en définissant une technologie
-    cohérente pour description de services Web sémantique.
+    cohérente pour description de services Web sémantique.\medskip
 
     Pour formaliser \textsc{WSMO}, le groupe de travail mis au point
     le langage de modélisation \acrshort{wsml} \cite{de2006web} et a
     défini plusieurs variantes de celui-ci, chacun basé sur différents
-    formalismes.
+    formalismes.\medskip
 
     \textsc{WSMO} est constitué de quatre composants: les services
     web, les buts, les ontologies et les médiateurs. Ce modèle permet
@@ -645,7 +647,7 @@ abordée brièvement dans l'annexe \ref{annexe:semantic-web}.
     partagés en utilisant une ontologie standard, constituée d'un
     ensembles de classes de base et des propriétés pour résoudre les
     ambiguïtés et de rendre la description d'un service compréhensible
-    par une machine.
+    par une machine.\newpage
 
     la figure \ref{fig:owl-s} décrit la structure tripartie d'une
     ontologie \textsc{OWL-S}. Elle est composé de trois
@@ -706,7 +708,7 @@ abordée brièvement dans l'annexe \ref{annexe:semantic-web}.
     possible d'un service (\verb|serviceCategory|), et un paramètre
     générique \verb|serviceParameter|.
 
-\newpage
+
 \section{Découverte de services web}
 \label{sec:ws-discovery}
 La découverte de services Web présente un axe de recherche
@@ -842,7 +844,7 @@ macthing de matching.
   recherche de similarités indiquant le degré de rapprochement entre
   les paramètres descriptives \textit{fonctionnels} et \textit{non
     fonctionnels} de services référencés d'une côté, et les paramètres
-  de la requête client d'une autre.  Le calcul de similarité peut être
+  de la requête client d'une autre. Le calcul de similarité peut être
   basé sur des données syntaxiques ou sémantiques plus expressives
   \cite{elie2010}.
 
