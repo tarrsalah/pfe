@@ -724,19 +724,16 @@ processus de découverte comme étant l'acte de \textit{``localisation
 
 Essentiellement, un processus de découverte de service web s'effectue
 en deux phases principales (illustrés dans la figure
-\ref{fig:ws-discovery-with-matching}):
+\ref{fig:ws-discovery-with-matching}). Premièrement, un module de mis
+en correspondance (\textit{Matching}) renvoie tous les services Web
+candidats selon le degré de similitude entre les services disponibles
+et les exigences spécifiés par la requête (aspect fonctionnel). La
+deuxième étape consiste à sélectionner et invoquer le service le plus
+satisfaisant (aspect non fonctionnel).
 
-\SpecialItem
-\begin{itemize}
-\item Premièrement, un module de mis en correspondance
-  (\textit{Matching}) renvoie tous les services Web candidats selon le
-  degré de similitude entre les services disponibles et les exigences
-  spécifiés par la requête (aspect fonctionnel).
-
-\item La deuxième étape consiste à sélectionner et invoquer le service
-  le plus satisfaisant (aspect non fonctionnel). Plusieurs critères
-  peuvent être utilisés pour catégoriser les approches de découverte
-  \cite{elie2010}:
+Plusieurs critères peuvent être utilisés pour catégoriser les
+approches de découverte des services \cite{ mohebbi2010comparative,
+  elie2010, bitar2014cbr4wsd}):
 \enddescription
   \begin{enumerate}
   \item la localisation de services (centralisation/décentralisation
@@ -744,14 +741,14 @@ en deux phases principales (illustrés dans la figure
   \item Le degré d'automatisation du processus de la découverte.
   \item le principe de l'algorithme de \textit{Matching}.
 \end{enumerate}
-\end{itemize}
 
-Dans cette section nous présentons les différentes approches de
-localisation de services basées sur des modèles centralisés ou des
-modèles distribués. Ensuite nous classifions les approches de
-découverte selon le degré d'automatisation du traitement des
-données. Le dernière sous-section sera consacrée au problème de
-macthing de matching.
+Cette section vise à présenter les différentes approches de découverte
+des services Web proposées dans la littérature, Ces modèles ont été
+classés selon les critères déjà mentionnés, à savoir, la localisation
+\ref{sec:ws-localisation} (centralisée, distribuée), le degré
+d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
+(manuel, automatique), et le niveau de matching ~\ref{sec:ws-matching}
+(syntaxique ou sémantique).
 
 \subsection{Localisation de services}
 \label{sec:ws-localisation}
@@ -843,10 +840,14 @@ macthing de matching.
   d'entrée \cite{li2004software}. Cette opération nécessite la
   recherche de similarités indiquant le degré de rapprochement entre
   les paramètres descriptives \textit{fonctionnels} et \textit{non
-    fonctionnels} de services référencés d'une côté, et les paramètres
-  de la requête client d'une autre. Le calcul de similarité peut être
-  basé sur des données syntaxiques ou sémantiques plus expressives
-  \cite{elie2010}.
+    fonctionnels} du service requis et ceux des services
+  offrets.\medskip
+
+  Le degré de matching constitu un critère primaire dans le processus
+  de découverte des service puisque l'efficacité du processus de
+  découverte dépendra essentiellement de la manière dont le matching
+  est effectué. Le calcul de similarité peut être basé sur des données
+  syntaxiques ou sémantiques plus expressives \cite{elie2010}.
 
     \subsubsection{Matching syntaxique}
     \label{sec:matching-syntactique}
