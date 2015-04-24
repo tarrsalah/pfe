@@ -835,19 +835,30 @@ d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
   \label{sec:ws-matching}
   Le \textit{Matching} (ou le \textit{Matchmaking}) de services Web
   est définie comme un processus qui nécessite un annuaire de services
-  de prendre une requête en entrée, et de revenir tous les services
-  qui peuvent satisfaire les exigences spécifiées dans la requête
-  d'entrée \cite{li2004software}. Cette opération nécessite la
+  de prendre une requête en entrée, et de revenir les services les
+  plus pertinents qui peuvent satisfaire les exigences spécifiées dans
+  cette requête \cite{li2004software}. Cette opération nécessite la
   recherche de similarités indiquant le degré de rapprochement entre
-  les paramètres descriptives \textit{fonctionnels} et \textit{non
-    fonctionnels} du service requis et ceux des services
-  offrets.\medskip
+  les paramètres descriptives \textit{fonctionnels} (les
+  entrées/sorties) et \textit{non fonctionnels} (décrivant la qualité
+  de service, coût, etc.) du service requis et ceux des services
+  offrets.
+
+  \input{figs/matching-general.tex}
+
+    % TODO: parle sur l'alignement et le mapping.
+  Dans de le contexte d'un processus de découverte, on parle souvent
+  d'un \textit{Matching} \textbf{vertical} des services (contrairement
+  au \textit{Matching} horizontal lors d'une opération de composition
+  des services Web), La figure \ref{fig:matching-general} illustre une
+  opération de \textit{Matching} horizontal entre deux
+  services.\medskip
 
   Le degré de matching constitu un critère primaire dans le processus
   de découverte des service puisque l'efficacité du processus de
   découverte dépendra essentiellement de la manière dont le matching
-  est effectué. Le calcul de similarité peut être basé sur des données
-  syntaxiques ou sémantiques plus expressives \cite{elie2010}.
+  est effectué. Le calcul de similarité peut être basé sur des
+  données syntaxiques ou sémantiques plus expressives \cite{elie2010}.
 
     \subsubsection{Matching syntaxique}
     \label{sec:matching-syntactique}
@@ -860,14 +871,14 @@ d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
     forme des documents \acrshort{wsdl} (ou un ensemble des
     \textsc{URL} de ces derniers) est ensuite donné comme résultat de
     recherche, le client sélectionne le service Web qui répond au
-    mieux à ses exigences.
+    mieux à ses exigences.\medskip
 
     Liang \textit{et al.} \cite{DBLP:journals/jwsr/LiangCSCL04}
     emploient la base de données lexicale \textit{WordNet}
     \footnote{\url{http://wordnet.princeton.edu/}}
     \cite{miller1990introduction} pour enrichir les mots clés de la
     requête avec des synonymes. Ceci permet d'améliorer la qualité des
-    résultats.
+    résultats.\medskip
 
     Sajjanhar \textit{et al.} \cite{sajjanhar2004algorithm} utilisent
     des méthodes d'algèbre linéaire pour rendre le \textit{Matching}
@@ -879,14 +890,13 @@ d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
     avec la requête de recherche.
 
     Malgré sa simplicité et sa facilité d'implémentation, les
-    approches syntaxiques présentent plusieurs limitations:\\
+    approches syntaxiques présentent plusieurs limitations:
 
-    \begin{itemize}
+    \begin{itemize}\renewcommand\labelitemi{--}
     \item un faible taux de rappel et de précision à cause de
       l'ambiguïté du langage naturel.
     \item La nécessité de l'intervention de l'utilisateur.
     \end{itemize}
-    % TODO: introduire le matching sémantique.
 
     \subsubsection{Matching sémantique}
     \label{sec:matching-semanique}
