@@ -846,7 +846,8 @@ d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
 
   \input{figs/matching-general.tex}
 
-    % TODO: parle sur l'alignement et le mapping.
+  % TODO: parle sur l'alignement et le mapping.
+
   Dans de le contexte d'un processus de découverte, on parle souvent
   d'un \textit{Matching} \textbf{vertical} des services (contrairement
   au \textit{Matching} horizontal lors d'une opération de composition
@@ -861,7 +862,7 @@ d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
   données syntaxiques ou sémantiques plus expressives \cite{elie2010}.
 
     \subsubsection{Matching syntaxique}
-    \label{sec:matching-syntactique}
+    \label{sec:matching-syntaxique}
     Les approches de \textit{Matching} syntaxique sont basées sur la
     description syntaxique de services (\acrshort{wsdl}) référencés
     dans un annuaire \acrshort{uddi} \cite{clement2004uddi}. Le client
@@ -873,12 +874,14 @@ d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
     recherche, le client sélectionne le service Web qui répond au
     mieux à ses exigences.\medskip
 
-    Liang \textit{et al.} \cite{DBLP:journals/jwsr/LiangCSCL04}
-    emploient la base de données lexicale \textit{WordNet}
+    Le système décrit par Liang \textit{et al.}
+    \cite{DBLP:journals/jwsr/LiangCSCL04} est un exemple d'une
+    découverte syntaxique des services Web. Ce système permet d'une
+    découverte et une composition semi-automatique par l'utilisation
+    de la base de données lexicale \textit{WordNet}
     \footnote{\url{http://wordnet.princeton.edu/}}
     \cite{miller1990introduction} pour enrichir les mots clés de la
-    requête avec des synonymes. Ceci permet d'améliorer la qualité des
-    résultats.\medskip
+    requête avec des synonymes.\medskip
 
     Sajjanhar \textit{et al.} \cite{sajjanhar2004algorithm} utilisent
     des méthodes d'algèbre linéaire pour rendre le \textit{Matching}
@@ -887,15 +890,16 @@ d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
     qui ont des mots communs dans leur description. Ensuite, une
     décomposition en valeurs singulières est appliquée à cette matrice
     pour obtenir toute description de service Web qui a une relation
-    avec la requête de recherche.
+    avec la requête de recherche.\medskip
 
     Malgré sa simplicité et sa facilité d'implémentation, les
     approches syntaxiques présentent plusieurs limitations:
 
     \begin{itemize}\renewcommand\labelitemi{--}
-    \item un faible taux de rappel et de précision à cause de
-      l'ambiguïté du langage naturel.
-    \item La nécessité de l'intervention de l'utilisateur.
+    \item Un faible taux de précision à cause de l'ambiguïté du
+      langage naturel.
+    \item La nécessité de l'intervention de l'utilisateur lors de
+      sélection.
     \end{itemize}
 
     \subsubsection{Matching sémantique}
