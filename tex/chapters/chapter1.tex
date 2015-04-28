@@ -6,7 +6,7 @@
 Ce chapitre établit une étude du fondement théorique de notre travail
 à savoir le  concepts de base du paradigme service Web.  Nous
 commençons d'abord par présenter un tour d'horizon définissant
-l'architectre de référence de ce paradigme ainsi que quelque
+l'architecture de référence de ce paradigme ainsi que quelque
 définitions proposées dans la littérature. Ensuite nous nous
 intéressons à montrer les limitations de l'approche syntaxique de la
 description de services web et l'apport de l'enrichissement sémantique
@@ -72,7 +72,7 @@ la littérature.
   Pour réaliser le style architectural présenté précédemment
   (\acrshort{soc}), il faut mettre en place un environnement
   d'intégration et d'exécution des services. L'architecture orientée
-  services (\acrshort{soa}) a été proposée ce environment afin de
+  services (\acrshort{soa}) a été proposée ce environnement afin de
   promouvoir l'interopérabilité et l'extensibilité de services dans
   l'ensemble.\bigskip
 
@@ -81,7 +81,7 @@ la littérature.
     permettant d'organiser et d'utiliser des fonctionnalités
     distribuées pouvant être de domaines variés. Cela fournit un moyen
     uniforme d'offrir, de découvrir, d'interagir et d'utiliser ces
-    fonctionnalitées pour produire le résultat désiré avec des
+    fonctionnalités pour produire le résultat désiré avec des
     pré-conditions et des buts mesurables.''}\bigskip
 
   Une architecture de base de services
@@ -297,7 +297,7 @@ spécifications, leurs origines, structures et fonctionnalités de base.
   \SpecialItem
   \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\texttt{#1}}
   \begin{description}
-  \item[Enveloppe \texttt{<Envelope>}]: L'élément racine du message
+  \item[Enveloppe \texttt{<Enveloppe>}]: L'élément racine du message
     \acrshort{soap}, définissant le contexte du message, son
     destinataire et son contenu, il englobe l'en-tête et le corps.
 
@@ -526,7 +526,7 @@ abordée brièvement dans l'annexe \ref{annexe:semantic-web}.
       s'exécute comme prévu.
 
     \item [<effects>:] sous-élément de \texttt{<operation>}, indique
-      les effets de ee ee l'ex écution de l'opération.
+      les effets de l'exécution de l'opération.
 
     \item [modelreference:] Un attribut qui peut être ajouté à
       élément dams une grammaire \acrshort{xml} et aux élément
@@ -660,10 +660,10 @@ abordée brièvement dans l'annexe \ref{annexe:semantic-web}.
     \item[ServiceProfile.] il offre une description informelle des
       fonctionnalités rendues par le service (\verb|serviceName|,
       \verb|textDescription|) et des informations concernant son
-      fournisseur (\verb|contactInformation|). D'une aure côté, il
+      fournisseur (\verb|contactInformation|). D'une autre côté, il
       spécifie des fonctionnalités offertes par le service (
       comportement fonctionnel) en terme de transformation
-      d'information dénotée par les \textit{Entrés/Sorties}
+      d'information dénotée par les \textit{Entrées/Sorties}
       \textsc{(I/O)} (\verb|hasInput|, \verb|hasOutput|) et de
       changement d'état après l'exécution du service dénoté par les
       \textit{pré-conditions/effets} \textsc{(P/E)}
@@ -677,8 +677,8 @@ abordée brièvement dans l'annexe \ref{annexe:semantic-web}.
       indiquant comment les résultats sont produits étape par étape
       précisant la façon un client peut interagir avec le service afin
       d'atteindre sa fonctionnalité. Ceci est fait en exprimant la
-      transformation de données avec \textit{Entrés/Sorties}
-      \textsc{(I/O)} etla transformation de l'Etat avec
+      transformation de données avec \textit{Entrées/Sorties}
+      \textsc{(I/O)} et la transformation de l'Etat avec
       \textit{pré-conditions/effets} \textsc{(P/E)}.
 
       le \verb|ServiceProfile| est généralement considéré comme un
@@ -708,7 +708,7 @@ abordée brièvement dans l'annexe \ref{annexe:semantic-web}.
     possible d'un service (\verb|serviceCategory|), et un paramètre
     générique \verb|serviceParameter|.
 
-
+\newpage
 \section{Découverte de services web}
 \label{sec:ws-discovery}
 La découverte de services Web présente un axe de recherche
@@ -747,8 +747,8 @@ des services Web proposées dans la littérature, Ces modèles ont été
 classés selon les critères déjà mentionnés, à savoir, la localisation
 \ref{sec:ws-localisation} (centralisée, distribuée), le degré
 d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
-(manuel, automatique), et le niveau de matching ~\ref{sec:ws-matching}
-(syntaxique ou sémantique).
+(manuel, automatique), et le niveau de \textit{Matching}
+~\ref{sec:ws-matching} (syntaxique ou sémantique).
 
 \subsection{Localisation de services}
 \label{sec:ws-localisation}
@@ -839,27 +839,25 @@ d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
   plus pertinents qui peuvent satisfaire les exigences spécifiées dans
   cette requête \cite{li2004software}. Cette opération nécessite la
   recherche de similarités indiquant le degré de rapprochement entre
-  les paramètres descriptives \textit{fonctionnels} (les
-  entrées/sorties) et \textit{non fonctionnels} (décrivant la qualité
-  de service, coût, etc.) du service requis et ceux des services
-  offrets.
+  les paramètres descriptives \textit{fonctionnels} (les paramètres
+  \textit{entrées/sorties}) et \textit{non fonctionnels} (décrivant la
+  qualité de service, coût, etc.) du service requis et ceux des
+  services offrets.
 
   \input{figs/matching-general.tex}
-
-  % TODO: parle sur l'alignement et le mapping.
 
   Dans de le contexte d'un processus de découverte, on parle souvent
   d'un \textit{Matching} \textbf{vertical} des services (contrairement
   au \textit{Matching} horizontal lors d'une opération de composition
   des services Web), La figure \ref{fig:matching-general} illustre une
-  opération de \textit{Matching} horizontal entre deux
-  services.\medskip
+  opération de \textit{Matching} vertical entre deux services.\medskip
 
-  Le degré de matching constitu un critère primaire dans le processus
-  de découverte des service puisque l'efficacité du processus de
-  découverte dépendra essentiellement de la manière dont le matching
-  est effectué. Le calcul de similarité peut être basé sur des
-  données syntaxiques ou sémantiques plus expressives \cite{elie2010}.
+  Le degré de \textit{Matching} constitue un critère primaire dans le
+  processus de découverte des service puisque l'efficacité du
+  processus de découverte dépendra essentiellement de la manière dont
+  le \textit{Matching} est effectué. Le calcul de similarité peut être
+  basé sur des données syntaxiques ou sémantiques plus expressives
+  \cite{elie2010}.
 
     \subsubsection{Matching syntaxique}
     \label{sec:matching-syntaxique}
@@ -904,27 +902,76 @@ d'automatisation du processus ~\ref{sec:ws-desc:manual-vs-auto}
 
     \subsubsection{Matching sémantique}
     \label{sec:matching-semanique}
-    Des travaux récents \cite{paolucci2002semantic, keller2004wsmo,
-      benatallah2005automating, benatallah2003request, martin2004owl}
-    se sont focalisés sur la description sémantique de services Web
-    dans le but d'adresser les insuffisances des approches purement
-    syntaxiques (dans la section\ref{sec:ws-description}). Les
-    ontologies sont les modèles les plus utilisés pour la
-    représentation sémantique de services Web. Dans ce type de
-    découverte, le prestataire de service doit fournir des annotations
-    sémantiques pour ses services publiés. La description sémantique
-    se rapporte à la définition abstraite de services comprenant les
-    types d'\textit{entrées/sorties}.
+    Des travaux récents \cite{paolucci2002semantic,
+      benatallah2005automating, keller2004wsmo, benatallah2003request,
+      jaeger2005ranked} se sont focalisés sur la description
+    sémantique de services Web dans le but d'adresser les
+    insuffisances des approches purement syntaxiques. Les ontologies
+    sont les modèles les plus utilisés pour la représentation
+    sémantique de services Web. Dans ce type de découverte, le
+    prestataire doit fournir des annotations sémantiques pour ses
+    services publiés.\medskip
 
-    Un \textit{Matching} sémantique consiste à identifier un certain
+    La description sémantique se rapporte à la définition abstraite de
+    services comprenant les types d'\textit{entrées/sorties}. Un
+    \textit{Matching} sémantique consiste à identifier un certain
     degré de similitude entre les différents concepts sémantiques qui
     décrivent le service requis (la requête) et celles de services
-    publiés.
+    publiés.\bigskip
 
-    % Les approches de calcul de similarités sémantique reposent sur des
-    % modèles de description sémantique. Par la suite nous résumons deux
-    % approches majeures, basées respectivement sur le modèle
-    % \textsc{WSMO} et sur le modèle \textsc{OWL-S}.
+    Paolucci \emph{el al.} \cite{paolucci2002semantic} présente une
+    approche de \textit{Matching} sémantique entre des services
+    définis avec \textsc{DAML-S} \textsc{DAML-S} (\textsc{OWL-S}). Ils
+    décrivent un algorithme qui assure la correspondance entres les
+    profiles de services publiés, décrit par des \textit{service
+      profile}, et l'objectif du client défini par une structure
+    \textit{service profile}.\medskip
+
+    L'algorithme consiste à comparer les paramètres
+    \textit{entrées/sorties} des profils publiés ($P_S$) avec ceux du
+    profil requis, ou recherché ($R_S$). Le calcul de
+    \textit{Matching} est basé sur la distance minimale entre les
+    concepts dans la taxonomie de l'ontologie. Un service publié est
+    considéré comme un service qui répond bien à une requête lorsque
+    tous les sorties de la requête correspondent à des sorties du
+    service publié, et tous les entrées du service publié
+    correspondent à des entrées de la requête.\medskip
+
+    Le auteurs dénotent quatre niveaux de \textit{Match} (dans ce cas,
+    en applique \textit{Match($R_S, P_S$)}):
+
+    \renewcommand{\descriptionlabel}[1]{\hspace{1cm}--~\textsf{#1}}
+    \begin{description}
+    \item [Exact:] Les paramètres de sorties du profil recherché sont
+      équivalents ou constituent une sous-classe des paramètres du
+      profil publié.
+
+    \item [PlugIn:] Les paramètres de sorties du profil recherché sont
+      subsumés (\textit{englobés}) par les paramètres du profil publié
+      \textbf{($P_S$ subsumes $R_S$)}.
+
+    \item [Subsumes:] Les paramètres de sorties du profil recherché
+      englobent subsument (\textit{englobent}) les paramètres du
+      profil publié \textbf{($R_S$ subsumes $P_S$)}. Dans ce cas le
+      service publié répond partiellement au besoin recherché.
+
+    \item [Fail:] Aucun lien de subsomption entre les deux.
+    \end{description}
+    \enddescription
+
+    les auteurs notent que le processus de \textit{Matching} décrit
+    n'est pas symétrique, En effet, \textit{Match($w_1, w_2$) <>
+      Match($w_2, w_1$)}, parce que l'ordre dans lequel les paramètres
+    d'entrée et de sortie sont comparés est important, dans le cas de
+    \textit{Matching} des paramètres d'entrée, on applique un
+    \textit{Match($P_E, R_E$)}.\bigskip
+
+    Jaeger \emph{el al.} \cite{jaeger2005ranked}\bigskip
+
+    Benatallah \emph{el al.} \cite{benatallah2005automating,
+      benatallah2003request} ...\bigskip
+
+    Keller \emph{el al.} \cite{keller2004wsmo}
 
 \section{Conclusion}
 % faire un petit récapitulatif sur les technologies de services web
