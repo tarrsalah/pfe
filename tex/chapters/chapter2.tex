@@ -1,16 +1,14 @@
 \chapter{La Composition de services web}
-
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
-
 Dans ce chapitre, nous présentons dans un premier temps les %
 définitions et les types de composition de services Web présents dans
 la littérature. Ensuite, nous étudions
 
 Enfin, un ensemble de travaux proposent des approches de la
 composition dynamiques de services web sémantiques.
-
 \newpage
+
 \section{Définition et stratégies de composition}
 \label{sec:defs}
 Cette section a pour but d'exposer, d'une part, quelques définitions
@@ -638,41 +636,38 @@ la littérature.
   \textsc{BPEL} en utilisant un langage d'algèbre des processus
   inspiré par le $\pi$-calcule.\medskip
 
-  \subsection{La composition basée sur les techniques de
+  \subsection{La composition basée sur les techniques de\\
     planification}
-  \label{sec:techn-de-plan}
-  % Selon \cite{baryannis2010}, \cite{bartalos2011effective},
-  % \cite{chan2007survey}, \cite{peer2005web},
-  % \cite{rodriguez2011automatic}
-
+  \label{sec:tech-de-plan}
   Cette catégorie d'approches de composition dynamique de services Web
   comprend tous les efforts de recherche qui utilisent des techniques
-  de planification en \textit{AI} afin de générer un schéma de
-  composition. Les techniques de planification en \textit{AI}
-  impliquent la génération d'un plan contenant une série de actions
-  nécessaires pour atteindre d'objectif désiré par le client de
-  service, à partir de un état initial. Toutes les approches de cette
-  famille reposent sur l'une des nombreuses planification techniques
-  que la communauté \textit{AI} a proposées et les les utilisent dans
-  cadre de la composition dynamiaue des services Web.\medskip
+  de planification en intelligence artificielle \textit{(AI)} afin de
+  générer un schéma de composition. Les techniques de planification en
+  \textit{AI} impliquent la génération d'un plan contenant une suite
+  d'actions qui mènent à un état final à partir d'un état
+  initial. Toutes les approches de cette famille reposent sur l'une
+  des nombreuses techniques de planification que la communauté
+  \textit{AI} a proposée et les les utilisent dans cadre de la
+  composition des services Web.\medskip
 
   Un problème de planification peut être décrit comme un
-  \textit{5-tuples} \textit{$\{S, s_0,G, A, \Gamma\}$}
+  \textit{cinq-uplet} \textit{$\{S, s_0,G, A, \Gamma\}$}
   \cite{carman2003web}, où $S$ est un ensemble fini ou énumérable
-  d'états, $s_0\subset S$ désigne l'état initial du planificateur,
-  $G\subset S$ désigne l'ensemble des états buts du système de
-  planification tente d'atteindre, $A$ est l'ensemble des actions
-  possibles qui peuvent être effectuées afin d'atteindre l'état but.
-  \textit{$\Gamma \subset S \times A \times S$} est une relation de
-  transition qui décrit l'état résultant quand une action particulière
-  est exécutée dans un état donné $S$. Si nous considérons $A$ comme
-  l'ensemble des services disponibles , $G$ soit le service requis par
-  le client, et un modèle d'état liée à $S$ , $s_0$ et $\Gamma$ et
-  appliquée sur les services disponibles, nous pouvons utiliser des
-  solutions existantes pour la planification en \textit{AI} afin de
-  résoudre le problème de composition de service Web. Il est à noter
-  que cette corrélation ne sont pas suivies par toutes les approches
-  dans cette catégorie.\medskip
+  d'états possibles du système considéré, $s_0\subset S$ désigne
+  l'état initial du système, $G\subset S$ désigne l'ensemble des états
+  buts du système de planification tente d'atteindre, $A$ est
+  l'ensemble des actions possibles qui peuvent être effectuées afin
+  d'atteindre l'état but.  \textit{$\Gamma \subset S \times A \times
+    S$} est une relation de transition qui décrit l'état résultant
+  quand une action particulière est exécutée dans un état donné
+  $S$. Si nous considérons $A$ comme l'ensemble des services
+  disponibles , $G$ soit le service requis par le client, et un modèle
+  d'état liée à $S$ , $s_0$ et $\Gamma$ et appliquée sur les services
+  disponibles, nous pouvons utiliser des solutions existantes pour la
+  planification en \textit{AI} afin de résoudre le problème de
+  composition de service Web. Il est à noter que cette corrélation ne
+  sont pas suivies par toutes les approches dans cette
+  catégorie.\medskip
 
   Les approches de composition basées sur les techniques de
   planification peuvent se catégoriser en quatre grands familles
@@ -693,23 +688,21 @@ la littérature.
     planification. Ceux-ci comprennent la planification basée sur les
     graphes \ref{sec:graph-base-composition}, le problème de la
     satisfaction de contraintes \textit{(CSP)}
-    \cite{paik2007automatic} et la planification basée sur les règles
+    \cite{paik2007automatic} et la planification à base de règles
     \textit{(rules-based calculus)} \cite{medjahed2004semantic,
       rao2006mixed}.
 
-  \item [Heuristiques et stratégies de contrôle:] Ces approaches
-    comportent la planification hiérarchique \textit{(HTN)}
-    \cite{mcilraith2002adapting, sohrabi2009optimizing,
-      sohrabi2009web}, planification d'ordre partiel
-    \cite{peer2005pop, klusch2005semantic}, et la planification basée
-    sur le calcul des situations \cite{phan2006automatic}.
+  \item [Heuristiques et stratégies de contrôle:] Ces approches
+    comportent la planification hiérarchique \cite{wu2003automating,
+      sirin2004htn}, planification d'ordre partiel \cite{peer2005pop,
+      klusch2005semantic}, et la planification basée sur le calcul
+    situationnel \cite{mcilraith2002adapting, sohrabi2009web}.
 
-
-  \item [Autre techniques de
-    planification\cite{pistore2004planning,pistore2005automated,
-      pistore2005automated2, aydin2008automated}:] Dans cette famille
-    nous pouvons citer les approches basées sur le calcule des
-    évènements
+  \item [Autre techniques de planification:] Dans cette famille nous
+    pouvons citer les approches basées sur le calcule des évènements
+    \cite{aydin2008automated} et la planification basée sur le
+    \textit{model checking}
+    \cite{pistore2004planning,pistore2005automated}.
   \end{description}
   \enddescription
 
