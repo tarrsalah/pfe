@@ -1,0 +1,427 @@
+\chapter{Les approches de composition dynamique de services Web sémantiques baseés sur le modèle graphe}
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
+%% TODO: move to the previous chapter
+
+%% Dans ce chapitre on va concentrer sur
+%% les approches sémantiques (OWL-S particulièrement) de composition
+%% des services web basées sur le modèle graphe.
+
+\newpage
+\section{Préliminaires}
+
+%% dans cette section on va présenter quelques définitions relatives à
+%% notre problème de recherche: (FIXIME: on va détailler ces
+%% informations dans le premier chapitre)
+
+% Ontologie, annotation sémantique, Matching, raisonneur automatique,
+% Les mésures de similarité
+
+% \section{Le processus de matching et la découverte de services Web sémantiques}
+% positionner l'approche par graphe dans les classification déjà
+% abordées
+
+%   \subsection{Mésures de similarité}
+%   \label{sec:mesure-de-similarire}
+%   objectif des mesures de similarité sémantique est d'évaluer la
+%   proximité sémantique entre les concepts (auxquels les termes des
+%   requêtes et documents sont rattachés). Et comme le matching des
+%   services web revient à trouver les similarités entre les concepts
+%   décrivant les propriétés de services web, nous avons jugé utile
+%   d’explorer les différentes méthodes de recherche de similarité
+%   utilisées dans le domaine de la recherche d’information, en
+%   particulier.
+%   \begin{mydef}[Similarité entre concepts]
+%     Une similarité $\sigma$: C $\times$ C $\rightarrow$ [0,1] est une
+%     fonction de couples de concepts vers un nombre compris entre 0 et
+%     1 exprimant le degré de similarité entre deux concepts, tel que:
+%     \SpecialItemi
+%     \begin{itemize}
+%       \item x $\in$ C, $\sigma$(x,x) = 1
+%       \item x, y $\in$ C, $\sigma$(x,y) = $\sigma$(y,x)
+%     \end{itemize}
+%   \end{mydef}
+%   Les ontologies définissent les propriétés des concepts et les
+%   relations entre concepts. Une de ces relations est utilisée dans
+%   notre application est \textsc{is–a} (est-un). Cette relation est utilisée
+%   pour extraire des taxonomies à partir des ontologies
+
+%   \begin{mydef}[Similarité entre concepts]
+%     Soit C l'ensemble de concepts définis dans une ontologie. On dit
+%     que T est une taxonomie et on écrit T(C, $\leq$) tel que c $\leq$
+%     c' signifie que c \textit{is–a} c' (le concept c est subsumé par
+%     le concept).
+%   \end{mydef}
+%   De nombreuses approches ont été proposées pour évaluer la similarité
+%   sémantique entre deux concepts. Ces approches se divisent en trois
+%   catégories [Sli, 2006]: les approches basées sur les arcs, les
+%   approches basées sur le contenu informationnel et les approches
+%   hybrides. %% see annexe (1)
+% \section{Matching de services Web sémantiques }
+% \label{sec:match-des-serv-1}
+% Le processus de matchmaking repose sur la recherche de similarités
+% entre les paramètres descriptives de ces derniers. Il existe deux
+% catégories de paramètres de description de services web: les
+% paramètres fonctionnels et les paramètres non-fonctionnels que nous
+% décrivons tout de suite.
+%   \subsection{Les paramètres fonctionnels}
+%   \label{sec:params-fonc}
+%   La sémantique fonctionnelle décrit les fonctionnalités qu’offre le
+%   service en terme de transformation d’information dénotée par les
+%   Entrés/Sorties (I/O) et de changement d’état après l’exécution du
+%   service dénoté par les pré-conditions/effets (ou post-conditions)
+%   (P/E).  Ils sont appelés ainsi parce qu’ils sont nécessaires pour le
+%   fonctionnement du service web. Ces paramètres sont utiles dans la
+%   recherche des similarités. En effet, grâce au formalisme de
+%   description de services web (OWL-S), on trouve une description des
+%   données requises pour l’exécution du service (Inputs) et une
+%   description des résultats obtenus après exécution (Outputs). D’un
+%   autre coté, un service web peut altérer l’état du monde après son
+%   exécution.  L’état du monde requis pour que le service s’exécute est
+%   la pré-condition et le nouvel état généré après son exécution est
+%   l’effet du service sur le monde. Par exemple le service de logging à
+%   un site web possède comme information d’entrées le username et le
+%   password et l’information de sortie est un message de
+%   confirmation. Après l’exécution, l’état du monde change de
+%   not\_logged\_in à logged\_in. Prenons un autre exemple, un transfert
+%   d’argent du compte A vers le compte B ne peut se faire que si le
+%   compte A est solvable (les pré-conditions).  Les effets décrivent
+%   les sorties (Output) et l’impact d’une exécution d’un service
+%   web. Tant dis que le terme post-condition focalise souvent sur la
+%   description des conditions concernant les valeurs retournées des
+%   opérations du service web. Dans notre exemple ci-dessus, un impact
+%   de l'exécution serait le transfert réel de l'argent du compte de
+%   carte de crédit pour le compte de destination alors que la
+%   post-condition décrit qu'aucun argent ne s’est perdu lors du
+%   transfert [Car, 2007].  L’opération de matching consiste alors à
+%   relier les paramètres des différents services (faire correspondre)
+%   entre eux et cela suivant des règles de correspondance.
+%   \subsection{Les paramètres non-fonctionnels}
+%   \label{sec:params-non-fonc}
+%   Les paramètres non fonctionnels sont des paramètres qui ne sont pas
+%   reliés directement aux fonctionnalités d’un service web, mais mesure
+%   la qualité avec laquelle le service délivre ses
+%   fonctionnalités. Parmi ces paramètres on trouve:
+%   \SpecialItem
+%   \begin{description}
+%   \item [Le coût]: C’est une propriété non-fonctionnelle qui est
+%     pertinente pour le client qui veut utiliser le service.
+%   \item [La sécurité]: La sécurité est une propriété non-fonctionnelle
+%     qui est pertinente à la plupart de services web. Elle applique
+%     des aspects tels que la communication et le cryptage des données.
+%   \item [La qualité]: La propriété qualité de services est un
+%     ensemble de propriétés différentes qui affecte tous les aspects
+%     spécifiques du service, son utilisation et sa production tel que
+%     le temps de réponse d'un appel à une opération, la capacité du
+%     service...etc
+%   \end{description}
+%   Le matching des paramètres non-fonctionnels de services web est
+%   tout aussi important dans la phase de sélections de services
+%   candidats. Les propriétés non-fonctionnelles sont typiquement
+%   représentés comme des politiques de services web exprimées par le
+%   langage WS- Policy [Car, 2007].
+%   Généralement ces approches de matching des politiques peuvent être
+%   utilisées pour l'optimisation et l’évaluation des plans de
+%   composition.  Les services web correspondent à des entités
+%   dynamiques. Ils peuvent devenir disponibles à tout moment de
+%   l’exécution du système et découverts dynamiquement par leurs
+%   clients. Les fournisseurs et les consommateurs de services doivent
+%   donc disposer d’un moyen commun et fiable pour effectuer la
+%   publication et la recherche de services. On entend par découverte
+%   dynamique la possibilité de localiser automatiquement un ensemble de
+%   services web, sélectionner un service spécifique qui répond à des
+%   besoins particuliers de l’utilisateur.  Plusieurs initiatives ont
+%   traité la problématique de la découverte de services web dont les
+%   deux principales modèles suivants:
+%   \subsection{Le modèle syntaxique de matching de services Web}
+%   \label{sec:le-modele-syntaxique}
+%   \subsection{Le modèle sémantique de matching de services Web}
+%   \label{sec:le-modele-semantique}
+%   \subsection{Graphe de dépendance}
+%   \label{sec:graph-de-depandence}
+%   \cite{Omer2011}
+
+% TODO
+% requirement for good web service composition
+
+\newpage
+\section{Travaux connexes}
+\label{sec:travaux-relatives}
+% TODO: une petite introduction aux travaux connexes
+
+% La découverte d'un service composite à partir d'un graphe de
+% dépendance consiste à trouver le meilleur chemin dans le graphe qui
+% génère les sorties exprimées dans la requête. La recherche peut se
+% baser sur l'optimisation d’une fonction d'utilité qui tient compte du
+% degré de matching entre les services et aussi de la qualité de service
+% qui peut être fournie par les services concrets. A cet effet, les
+% méthodes de recherche du meilleur chemin de la théorie des graphes
+% peuvent être exploitées.  Les méthodes de composition utilisant le
+% modèle de graphe peuvent être classées en deux catégories selon que le
+% graphe de dépendance soit construit à priori (en phase de publication
+% de services) ou pendant le traitement de la requête de composition:
+
+% Nacera (TODO: améliorer cette introduction)
+% Certaines approches ont été proposées récemment pour la découverte
+% dynamique d'un service composite à partir d'un graphe de service. En
+% effet un graphe de service est généralement mis en place pour
+% représenter les dépendances possibles entre les services en terme de
+% flux de données (Entrées/Sorties). Cette dépendance est déterminée
+% grâce à un mécanisme de matching (mise en correspondance) entre les
+% services. Cette représentation permet d'exploiter certaines
+% techniques en théorie de graphe pour la recherche du meilleur plan de
+% composition.
+
+% La découverte d'un service composite à partir d'un graphe de
+% dépendance consiste à trouver le meilleur chemin dans le graphe qui
+% génère les sorties exprimées dans la requête. La recherche peut se
+% baser sur l'optimisation d'une fonction d'utilité qui tient compte du
+% degré de matching entre les services et aussi de la qualité de service
+% qui peut être fournie par les services concrets. A cet effet, les
+% méthodes de recherche du meilleur chemin de la théorie des graphes
+% peuvent être exploitées.  Les méthodes de composition utilisant le
+% modèle de graphe peuvent être classées en deux catégories selon que le
+% graphe de dépendance soit construit à priori (en phase de publication
+% des services) ou pendant le traitement de la requête de composition
+
+  \subsection{Génération Online du graphe de dépendance}
+  \label{sec:generation-online}
+  % intro
+  \begin{text} % TODO: enhance this intro.
+    {\'E}tant donnée une requête de l'utilisateur, les services candidats
+    à la composition sont découverts et interconnectés au moment du
+    traitement de la requête (dynamiquement). Donc le graphe généré
+    contient un nombre restreints de services candidats mais peut
+    inclure plusieurs alternatives de plans possibles. Donc le plan de
+    composition sera dérivé du graphe généré en optimisant la qualité
+    du plan (degré de matching, les valeurs de qualité). Citant
+    quelques travaux se classant sous cette catégorie.
+  \end{text}
+
+  % liang2005and: AND/OR graph and search algorithm for discovering composite web services
+  \begin{text}
+    Dans \cite{liang2005and}, Liang \textit{et al.} présentent une
+    formalisation du problème de composition de services comme un
+    problème de recherche dans un graphe \textit{And/Or}. Suite à une
+    requête dans un domaine spécifique choisie par le client, un
+    graphe de composition est construit dynamiquement reflétant les
+    dépendances fonctionnelles entre les services du domaine.
+
+    Le graphe généré contient des nœuds et des connecteurs de deux
+    types: des connecteurs \textit{And} et des connecteurs
+    \textit{Or}. Un connecteur \textit{And} reliant de services avec
+    un autre service s'il existe une relation de type \textit{And}
+    entre les paramètres de ces services, donc, toutes les entrées
+    fournis par les services doivent être disponibles pour l'exécution
+    du service destinataire. Des services sont connectés par un
+    \textit{Or} avec un autre service s'il existe une relation logique
+    de type \textit{Or} entre les paramètres des ces services, donc,
+    n'importe quel service pourra produire l'entrée requise par le
+    service destinataire.
+
+    L'algorithme de recherche est appliqué itérativement pour trouver
+    le service composite minimal et complet satisfaisant la requête
+    puis soumis à évaluation par le service client jusqu'à ce qu'il
+    valide le résultat.
+
+    {\color{red}  %% TODO: and offline alternative to Liang2005and
+      Gu Zhifeng \textit{et al.} \cite{gu2008automatic}
+    }
+  \end{text}
+
+  % lecue2006formal: A formal model for semantic web service composition
+  \begin{text}
+    Dans \cite{lecue2006formal}, Freddy et Léger considèrent également
+    l'existence d'un mécanisme de découverte des services candidats,
+    puis établir toutes les relations de dépendance entre ces services
+    en utilisant la notion de lien causal et sauvegarde des ces
+    informations dans une matrice d'adjacence.
+
+    {\color{red} %% TODO
+      Optimizing qos-aware semantic web service composition
+      \cite{lecue2009optimizing}
+    }
+  \end{text}
+
+  % omer2009dependency Dependency based automatic service composition using directed graph.
+  % TODO: read omer2009dependency and refactor this paragraph to my own words.
+  \begin{text}
+    Dans \cite{omer2009dependency}, les auteurs supposent que les
+    services candidates avaient été déjà découverts localement par un
+    algorithme de découverte orienté but. L'exécution du plan se
+    déroule en quatre principales étapes.
+    % \cite{Omer2011}
+
+    \SpecialItem
+    \begin{itemize}
+    \item La première est la génération du graphe de dépendance grâce
+      à un algorithme qui utilise une matrice d'adjacence des
+      dépendances \textit{Inputs/Outputs} entre les services. Les
+      dépendances sont identifiés si au moins une paire de paramètre
+      (des \textit{Input($WS_1$)} et \textit{Output($WS_2$)}) sont en
+      relation \textit{exact} ou \textit{plug-in} selon
+      \cite{paolucci2002semantic}.
+
+    \item Extraire du graphe les dépendances cyclique (en boucle) en
+      utilisant l'algorithme \cite{tarjan1973enumeration}.
+
+    \item Régénérer un nouveau graphe de dépendance acyclique en
+      remplaçant chaque sous-graphe cyclique par un nœud composé
+
+    \item l'extraction du plan de composition et la génération du plan
+      final, les nœuds composés seront remplacés par leurs sous-plans
+      respectifs.
+    \end{itemize}
+
+    La principale contribution de ce travail est la manière de traiter
+    les cas de boucle dans un graphe, ce problème particulièrement a été
+    très peu abordé dans ce domaine.
+  \end{text}
+
+  % mahmoud2013towards: Towards a Graph-Based Approach for Web Services Composition
+  \begin{text}
+    Dans \cite{mahmoud2013towards} ... % TODO
+    The work of Mahmoud, Bettahar and Saidi published in 2013 [8] can
+    be considered as significant one. They proposed a model for
+    automatically composing web services with the help of the directed
+    graphs. The graph also describes the Web services, and the
+    ordering of web services execution. In contrast, the user query,
+    defined by a set of inputs and outputs parameters, can be stated
+    as a directed graph composed of web services. They used web
+    service as a function: Web service (Parameters,
+    State-of-the-world), where parameters are input, output and state
+    of the world is pre-condition and effects.
+  \end{text}
+
+  \subsection{Génération Offline du graphe de dépendance}
+  \label{sec:gener-offline}
+   % intro
+  \begin{text}
+    Certains auteurs considèrent qu'il serait plus intéressant
+    d'utiliser des informations complètes sur tous les services
+    publiés pour assurer une recherche plus exhaustive des services
+    candidats à la composition. Pour cela, le graphe de dépendance
+    est pré-généré à partir du registre ou sont publiés les
+    services. Par conséquent, le graphe inclut toutes les dépendances
+    possibles entre les services disponibles, par contre il peut être
+    volumineux et doit être mis à jour au fur et à mesure des
+    changements (l'arrivée ou non disponibilité des services).
+  \end{text}
+
+   % arpinar2005ontology
+   % TODO: text++
+  \begin{text}
+    L'approche proposée par Arpinar \textit{et al.}
+    \cite{arpinar2005ontology} se base sur la programmation dynamique
+    et l'algorithme de \textit{Bellman-Ford} pour la recherche du plus
+    court chemin en optimisant le temps d'exécution et le degré de
+    similarité sémantique entre les services.
+
+    % Arpinar et al. \cite{arpinar2005ontology} used the concept of
+    % graphs for web service composition along with semantic
+    % similarity. They considered the weight associated edges and
+    % applied Bellman-Ford’s algorithm for computing the shortest
+    % path. Weight of an edge is calculated by combining execution time
+    % of a service and input/output similarity. But nowhere have they
+    % mentioned anything about the non-functional parameters of web
+    % services
+  \end{text}
+
+  % hashemian2006graph
+  \begin{text}
+    Hashemian \textit{et al.} \cite{hashemian2006graph} stockent les
+    dépendances entres les \textit{(entrées/sorties)} des services
+    disponibles dans un graphe dont les sommets représentent les
+    paramètres \textit{(entrées/sorties)} et les arcs représentent les
+    services. Les auteurs introduisent aussi une algèbre des processus
+    pour spécifier le comportement des services Web composites basé
+    sur le comportement des plus simples, les structures de
+    composition considérées dans ce travail sont les séquences, les
+    branchements conditionnels, structures parallèles et la
+    synchronisation.
+
+    Suite à une requête, le processus de composition se déroulera en
+    deux étapes:
+
+    \begin{itemize}
+    \item trouver les services potentiels pouvant participer dans la
+      composition en cherchant les sous graphes couvrant tous les
+      $sommets_{entrées}$ et $sommets_{sorties}$ (fournies dans la
+      requête) en utilisant une recherche en largeur d'abords (breadth
+      first search).
+
+    \item La deuxième étape consiste à extraire les plans d'exécution
+      en utilisant à partir des services découverts.
+    \end{itemize}
+  \end{text}
+
+  % talantikite2009semantic
+  \begin{text}
+    % The proposed approach uses an inter-connected network of
+    % semantic Web services describing in OWL-S, using the similarity
+    % measure (outputs–inputs similarity) between concepts based on
+    % ontology, built before any submitted request. In only one
+    % exploration, the composition algorithm can find several
+    % composition plans. But the selected composition plan must be
+    % “the best one” according to the quality criteria (similarity,
+    % time and memory space). This technique takes advantages from a
+    % graph structure, chaining algorithm of expert system and
+    % semantic annotations
+
+    Talantikite \textit{et al.} \cite{talantikite2009semantic}
+    utilisent un \emph{``réseau sémantique des services Web''} décrit
+    en \textsc{OWLS} pour modélise le graphe de dépendance, ce dernier
+    est construit avant toute requête soumise par ...
+
+    Cette technique prend avantages des algorithmes de chaînage du
+    système expert et les annotations sémantiques.
+  \end{text}
+
+  %elmaghraoui2011graph
+  \begin{text}
+    Dans \cite{elmaghraoui2011graph}, les auteurs modélisent à priori
+    toutes les dépendances entre les services dans un graphe de
+    composition et aussi sauvegarde tous les meilleurs chemins entre
+    les nœuds du graphe dans une matrice en appliquant un algorithme
+    basé sur l'algorithme de Floyd-Warshall, en optimisant le degré du
+    matching sémantique, temps d'exécution, coût et la disponibilité
+    du service.
+  \end{text}
+
+  \subsection{Autres travaux basés sur le graphe matching}
+  \label{sec:autres-travaux}
+  \begin{text}
+  Samuel et Sasipraba \textit{et al.} \cite{samuel2011approach}\\
+
+  Alfredo Cuzzocrea, Marco Fisichella: ‘A Flexible Graph-based
+  Approach for Matching Composite Semantic Web Services’, 2011:
+  modélise le service composite décrit dans OWL-S Process-Model sous
+  forme d’un graphe orienté (modélise le flux de données+structure de
+  contrôle) puis il fait le matching à deux niveaux avec la requête de
+  l’utilisateur (suppose aussi que la requête fournit également le
+  schéma de composition):
+
+  - Matching des Inputs/Outputs de la requête à celle du service
+  composite
+
+  - Matching de la structure du service décrit dans la requête avec
+  celle du service composite publié (la requête est aussi décrite sous
+  forme de graphe) matching de pattern
+  \end{text}
+  \newpage
+  \subsection{Discussion et comparaison}
+  \label{sec:discussion-comparaison}
+    % TODO
+  \input{tables/comparison-graph-composition.tex}
+
+\newpage
+
+
+\section*{Conclusion}
+\label{sec:conclusion-2}
+\addcontentsline{toc}{section}{Conclusion} \markboth{CONCLUSION}{}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
