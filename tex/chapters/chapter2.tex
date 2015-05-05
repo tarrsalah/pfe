@@ -517,7 +517,7 @@ la littérature.
   et parallèles. Cette lacune a été comblée en combinant méthodes à
   base de \textit{workflow} avec des techniques de planification
   issues du domaine d'intélégence artificielle. Ces approches serons
-  éxaminer dans la quatrième catégorie \ref{sec:techn-de-plan}.
+  éxaminer dans la quatrième catégorie \ref{sec:tech-de-plan}.
 
   \subsection{La composition dirigée par les modèles}
   \label{sec:model-based-composition}
@@ -567,7 +567,7 @@ la littérature.
   de contrôle et la sémantique des compositions de services en
   assignant une transition à chaque appel de service et une place à
   chaque état entre les appels, chaque service composite est modélisé
-  par un réseau de Petri contenant un état d'entrée et de sortir
+  par un réseau de Petri contenant un état d'entrée et de sortie
   permettant de modéliser respectivement la réception et l'émission
   d'informations par le service composite. Dans
   \cite{ouyang2007formal} les auteurs présentent une traduction
@@ -636,7 +636,7 @@ la littérature.
   \textsc{BPEL} en utilisant un langage d'algèbre des processus
   inspiré par le $\pi$-calcule.\medskip
 
-  \subsection{La composition basée sur les techniques de\\
+  \subsection{La composition basée sur les techniques de
     planification}
   \label{sec:tech-de-plan}
   Cette catégorie d'approches de composition dynamique de services Web
@@ -706,214 +706,193 @@ la littérature.
   \end{description}
   \enddescription
 
-\section{Les approches de composition basées sur le modèle graphe}
-\label{sec:graph-base-composition}
-  % TODO: make an annexe
-  % \subsection{Préliminaires}
-  % \label{prel}
+  \section{Les approches de composition basées sur le modèle graphe}
+  \label{sec:graph-base-composition}
   \newpage
   \subsection{Génération Online du graphe de dépendance}
   \label{sec:generation-online}
-    % intro
   Étant donnée une requête de l'utilisateur, les services candidats à
   la composition sont découverts et interconnectés au moment du
   traitement de la requête (dynamiquement). Donc le graphe généré
   contient un nombre restreints de services candidats mais peut
   inclure plusieurs alternatives de plans possibles. Donc le plan de
   composition sera dérivé du graphe généré en optimisant la qualité du
-  plan (degré de matching, les valeurs de qualité). Citant quelques
-  travaux se classant sous cette catégorie.
+  plan (degré de \textit{Matching}, les paramètres
+  \textit{non-fonctionnels}).\bigskip
 
+  Dans \cite{liang2005and}, Liang \textit{et al.} présentent une
+  formalisation du problème de composition de services comme un
+  problème de recherche dans un graphe \textit{And/Or}. Suite à une
+  requête dans un domaine spécifique choisie par le client, un graphe
+  de composition \textit{SGD} (\textit{Service dependecy graph}) est
+  construit dynamiquement reflétant les dépendances fonctionnelles
+  entre les services du domaine.\medskip
 
-  % liang2005and: AND/OR graph and search algorithm for discovering composite web services
-  \begin{text}
-    Dans \cite{liang2005and}, Liang \textit{et al.} présentent une
-    formalisation du problème de composition de services comme un
-    problème de recherche dans un graphe \textit{And/Or}. Suite à une
-    requête dans un domaine spécifique choisie par le client, un
-    graphe de composition est construit dynamiquement reflétant les
-    dépendances fonctionnelles entre les services du domaine.
+  Le graphe généré contient des nœuds et des connecteurs de deux
+  types: des connecteurs \textit{And} et des connecteurs
+  \textit{Or}. Un connecteur \textit{And} reliant de services avec un
+  autre service s'il existe une relation de type \textit{And} entre
+  les paramètres de ces services. Donc, toutes les entrées fournis par
+  les services doivent être disponibles pour l'exécution du service
+  destinataire. Des services sont connectés par un \textit{Or} avec un
+  autre service s'il existe une relation logique de type \textit{Or}
+  entre les paramètres des ces services, donc, n'importe quel service
+  pourra produire l'entrée requise par le service
+  destinataire.\medskip
 
-    Le graphe généré contient des nœuds et des connecteurs de deux
-    types: des connecteurs \textit{And} et des connecteurs
-    \textit{Or}. Un connecteur \textit{And} reliant de services avec
-    un autre service s'il existe une relation de type \textit{And}
-    entre les paramètres de ces services, donc, toutes les entrées
-    fournis par les services doivent être disponibles pour l'exécution
-    du service destinataire. Des services sont connectés par un
-    \textit{Or} avec un autre service s'il existe une relation logique
-    de type \textit{Or} entre les paramètres des ces services, donc,
-    n'importe quel service pourra produire l'entrée requise par le
-    service destinataire.
+  L'algorithme de recherche est appliqué itérativement pour trouver le
+  service composite minimal et complet satisfaisant la requête puis
+  soumis à évaluation par l'utilisateur jusqu'à ce qu'il valide le
+  résultat.\bigskip
 
-    L'algorithme de recherche est appliqué itérativement pour trouver
-    le service composite minimal et complet satisfaisant la requête
-    puis soumis à évaluation par le service client jusqu'à ce qu'il
-    valide le résultat.
+  Dans \cite{gu2008automatic}, Gu Zhifeng \textit{et al.} reprennent
+  le travail de \cite{liang2005and} et proposent une version améliorée
+  de \textit{SDG} (à savoir \textit{SDG+}), \textit{SDG+} renforce le
+  modèle \textit{SDG} avec une déclaration explicite de dépendances
+  entre les services candidats via des segments \acrshort{xml}. Les
+  auteurs éliminent l'évaluation manuelle requise par l'approche de
+  \cite{liang2005and} et présentent une approche automatique de
+  composition en appliquant l'algorithme de recherche basé sur
+  \textit{SGD} avec quelques modifications.\newpage
 
-    {\color{red}  %% TODO: and offline alternative to Liang2005and
-      Gu Zhifeng \textit{et al.} \cite{gu2008automatic}
-    }
-  \end{text}
+  Dans \cite{lecue2006formal}, Freddy et Léger présente un modèle
+  formel pour effectuer la composition automatique de services Web par
+  le biais de liens causals. Les auteurs introduisent la notion de
+  \textit{``Causal link matrice''}, Cette matrice est nécessaire comme
+  point de départ pour appliquer des approches de recherche basées sur
+  la régression (ou progression), le modèle prend en charge un
+  contexte sémantique afin de trouver des plans correctes et complets
+  comme solutions au problème de composition de service Web.\bigskip
 
-  % lecue2006formal: A formal model for semantic web service composition
-  \begin{text}
-    Dans \cite{lecue2006formal}, Freddy et Léger considèrent également
-    l'existence d'un mécanisme de découverte des services candidats,
-    puis établir toutes les relations de dépendance entre ces services
-    en utilisant la notion de lien causal et sauvegarde des ces
-    informations dans une matrice d'adjacence.
+  Dans \cite{omer2009dependency}, les auteurs supposent que les
+  services candidates avaient été déjà découverts localement par un
+  algorithme de découverte orienté but. L'exécution du plan se déroule
+  en quatre principales étapes:
 
-    {\color{red} %% TODO
-      Optimizing qos-aware semantic web service composition
-      \cite{lecue2009optimizing}
-    }
-  \end{text}
+  \SpecialItem
+  \begin{itemize}
+  \item La première est la génération du graphe de dépendance grâce à
+    un algorithme qui utilise une matrice d'adjacence des dépendances
+    \textit{Inputs/Outputs} entre les services. Les dépendances sont
+    identifiés si au moins une paire de paramètre (des
+    \textit{Input($WS_1$)} et \textit{Output($WS_2$)}) sont en
+    relation \textit{exact} ou \textit{plug-in} selon
+    \cite{paolucci2002semantic}.
 
-  % omer2009dependency Dependency based automatic service composition using directed graph.
-  % TODO: read omer2009dependency and refactor this paragraph to my own words.
-  \begin{text}
-    Dans \cite{omer2009dependency}, les auteurs supposent que les
-    services candidates avaient été déjà découverts localement par un
-    algorithme de découverte orienté but. L'exécution du plan se
-    déroule en quatre principales étapes.
-    % \cite{Omer2011}
+  \item Extraire du graphe les dépendances cyclique (en boucle) en
+    utilisant l'algorithme \cite{tarjan1973enumeration}.
 
-    \SpecialItem
-    \begin{itemize}
-    \item La première est la génération du graphe de dépendance grâce
-      à un algorithme qui utilise une matrice d'adjacence des
-      dépendances \textit{Inputs/Outputs} entre les services. Les
-      dépendances sont identifiés si au moins une paire de paramètre
-      (des \textit{Input($WS_1$)} et \textit{Output($WS_2$)}) sont en
-      relation \textit{exact} ou \textit{plug-in} selon
-      \cite{paolucci2002semantic}.
+  \item Régénérer un nouveau graphe de dépendance acyclique en
+    remplaçant chaque sous-graphe cyclique par un nœud composé
 
-    \item Extraire du graphe les dépendances cyclique (en boucle) en
-      utilisant l'algorithme \cite{tarjan1973enumeration}.
+  \item l'extraction du plan de composition et la génération du plan
+    final, les nœuds composés seront remplacés par leurs sous-plans
+    respectifs.\medskip
+  \end{itemize}
+  \enddescription
 
-    \item Régénérer un nouveau graphe de dépendance acyclique en
-      remplaçant chaque sous-graphe cyclique par un nœud composé
+  La principale contribution est la manière de traiter les cas de
+  boucle dans un graphe, ce problème particulièrement a été très peu
+  abordé dans ce domaine.\bigskip
 
-    \item l'extraction du plan de composition et la génération du plan
-      final, les nœuds composés seront remplacés par leurs sous-plans
-      respectifs.
-    \end{itemize}
-
-    La principale contribution de ce travail est la manière de traiter
-    les cas de boucle dans un graphe, ce problème particulièrement a été
-    très peu abordé dans ce domaine.
-  \end{text}
-
-  % mahmoud2013towards: Towards a Graph-Based Approach for Web Services Composition
-  \begin{text}
-    Dans \cite{mahmoud2013towards} ... % TODO
-    The work of Mahmoud, Bettahar and Saidi published in 2013 [8] can
-    be considered as significant one. They proposed a model for
-    automatically composing web services with the help of the directed
-    graphs. The graph also describes the Web services, and the
-    ordering of web services execution. In contrast, the user query,
-    defined by a set of inputs and outputs parameters, can be stated
-    as a directed graph composed of web services. They used web
-    service as a function: Web service (Parameters,
-    State-of-the-world), where parameters are input, output and state
-    of the world is pre-condition and effects.
-  \end{text}
+  Mahmoud \emph{el al.} \cite{mahmoud2013towards} proposent un
+  approche de composition automatique de services à l'aide de graphes
+  orientés. Le graphe de composition décrit les liens de dépendance
+  entres les services Web, ainsi que leur ordre d'exécution. La requête
+  du client définie par un ensemble des paramètres
+  d'\textit{entrée/sortie} peut être vue comme un graphe orienté
+  composé de services Web. les auteurs modélisent un service Web comme
+  une fonction \textit{WS(Parameters, State-of-the-world)}, ou les
+  paramètres sont les \textit{entrées/sorties}, et le
+  \textit{State-of-the-world} est les conditions préalables et effets
+  conditionnels sur le monde.
 
   \subsection{Génération Offline du graphe de dépendance}
   \label{sec:gener-offline}
-   % intro
-  \begin{text}
-    Certains auteurs considèrent qu'il serait plus intéressant
-    d'utiliser des informations complètes sur tous les services
-    publiés pour assurer une recherche plus exhaustive des services
-    candidats à la composition. Pour cela, le graphe de dépendance
-    est pré-généré à partir du registre ou sont publiés les
-    services. Par conséquent, le graphe inclut toutes les dépendances
-    possibles entre les services disponibles, par contre il peut être
-    volumineux et doit être mis à jour au fur et à mesure des
-    changements (l'arrivée ou non disponibilité des services).
-  \end{text}
+  Certains auteurs considèrent qu'il serait plus intéressant
+  d'utiliser des informations complètes sur tous les services publiés
+  pour assurer une recherche plus exhaustive des services candidats à
+  la composition. Pour cela, le graphe de dépendance est pré-généré à
+  partir du registre ou sont publiés les services. Par conséquent, le
+  graphe inclut toutes les dépendances possibles entre les services
+  disponibles, par contre il peut être volumineux et doit être mis à
+  jour au fur et à mesure des changements (l'arrivée ou non
+  disponibilité des services).\bigskip
 
-   % arpinar2005ontology
-   % TODO: text++
-  \begin{text}
-    L'approche proposée par Arpinar \textit{et al.}
-    \cite{arpinar2005ontology} se base sur la programmation dynamique
-    et l'algorithme de \textit{Bellman-Ford} pour la recherche du plus
-    court chemin en optimisant le temps d'exécution et le degré de
-    similarité sémantique entre les services.
+  L'approche proposée par Arpinar \textit{et al.}
+  \cite{arpinar2005ontology} se base sur la programmation dynamique et
+  l'algorithme de \textit{Bellman-Ford} pour la recherche du plus
+  court chemin en optimisant le temps d'exécution et le degré de
+  similarité sémantique entre les services.\bigskip
 
-    % Arpinar et al. \cite{arpinar2005ontology} used the concept of
-    % graphs for web service composition along with semantic
-    % similarity. They considered the weight associated edges and
-    % applied Bellman-Ford’s algorithm for computing the shortest
-    % path. Weight of an edge is calculated by combining execution time
-    % of a service and input/output similarity. But nowhere have they
-    % mentioned anything about the non-functional parameters of web
-    % services
-  \end{text}
+  % (parmi les premiers travaux abordant la composition de ce point de
+  % vue) utilise l’algorithme de Bellman de la programmation dynamique
+  % pour la recherche du plus court chemin en optimisant le temps
+  % d’exécution et le degré de similarité entre les services.
 
-  % hashemian2006graph
-  \begin{text}
-    Hashemian \textit{et al.} \cite{hashemian2006graph} stockent les
-    dépendances entres les \textit{(entrées/sorties)} des services
-    disponibles dans un graphe dont les sommets représentent les
-    paramètres \textit{(entrées/sorties)} et les arcs représentent les
-    services. Les auteurs introduisent aussi une algèbre des processus
-    pour spécifier le comportement des services Web composites basé
-    sur le comportement des plus simples, les structures de
-    composition considérées dans ce travail sont les séquences, les
-    branchements conditionnels, structures parallèles et la
-    synchronisation.
 
-    Suite à une requête, le processus de composition se déroulera en
-    deux étapes:
+  % Arpinar et al. \cite{arpinar2005ontology} used the concept of
+  % graphs for web service composition along with semantic
+  % similarity. They considered the weight associated edges and
+  % applied Bellman-Ford’s algorithm for computing the shortest
+  % path. Weight of an edge is calculated by combining execution time
+  % of a service and input/output similarity. But nowhere have they
+  % mentioned anything about the non-functional parameters of web
+  % services
 
-    \begin{itemize}
-    \item trouver les services potentiels pouvant participer dans la
-      composition en cherchant les sous graphes couvrant tous les
-      $sommets_{entrées}$ et $sommets_{sorties}$ (fournies dans la
-      requête) en utilisant une recherche en largeur d'abords (breadth
-      first search).
+  Hashemian \textit{et al.} \cite{hashemian2006graph} stockent les
+  dépendances entres les \textit{(entrées/sorties)} des services
+  disponibles dans un graphe dont les sommets représentent les
+  paramètres \textit{(entrées/sorties)} et les arcs représentent les
+  services. Les auteurs introduisent aussi une algèbre des processus
+  pour spécifier le comportement des services Web composites basé sur
+  le comportement des plus simples, les structures de composition
+  considérées dans ce travail sont les séquences, les branchements
+  conditionnels, structures parallèles et la synchronisation.
 
-    \item La deuxième étape consiste à extraire les plans d'exécution
-      en utilisant à partir des services découverts.
-    \end{itemize}
-  \end{text}
+  Suite à une requête, le processus de composition se déroulera en
+  deux étapes:
 
-  % talantikite2009semantic
-  \begin{text}
-    % The proposed approach uses an inter-connected network of
-    % semantic Web services describing in OWL-S, using the similarity
-    % measure (outputs–inputs similarity) between concepts based on
-    % ontology, built before any submitted request. In only one
-    % exploration, the composition algorithm can find several
-    % composition plans. But the selected composition plan must be
-    % “the best one” according to the quality criteria (similarity,
-    % time and memory space). This technique takes advantages from a
-    % graph structure, chaining algorithm of expert system and
-    % semantic annotations
+  \SpecialItem
+  \begin{itemize}
+  \item trouver les services potentiels pouvant participer dans la
+    composition en cherchant les sous graphes couvrant tous les
+    $sommets_{entrées}$ et $sommets_{sorties}$ (fournies dans la
+    requête) en utilisant une recherche en largeur d'abords (breadth
+    first search).
 
-    Talantikite \textit{et al.} \cite{talantikite2009semantic}
-    utilisent un \emph{``réseau sémantique des services Web''} décrit
-    en \textsc{OWLS} pour modélise le graphe de dépendance, ce dernier
-    est construit avant toute requête soumise par ...
+  \item La deuxième étape consiste à extraire les plans d'exécution en
+    utilisant à partir des services découverts.\bigskip
+  \end{itemize}
 
-    Cette technique prend avantages des algorithmes de chaînage du
-    système expert et les annotations sémantiques.
-  \end{text}
 
-  %elmaghraoui2011graph
-  \begin{text}
-    Dans \cite{elmaghraoui2011graph}, les auteurs modélisent à priori
-    toutes les dépendances entre les services dans un graphe de
-    composition et aussi sauvegarde tous les meilleurs chemins entre
-    les nœuds du graphe dans une matrice en appliquant un algorithme
-    basé sur l'algorithme de Floyd-Warshall, en optimisant le degré du
-    matching sémantique, temps d'exécution, coût et la disponibilité
-    du service.
-  \end{text}
+  % The proposed approach uses an inter-connected network of
+  % semantic Web services describing in OWL-S, using the similarity
+  % measure (outputs–inputs similarity) between concepts based on
+  % ontology, built before any submitted request. In only one
+  % exploration, the composition algorithm can find several
+  % composition plans. But the selected composition plan must be
+  % “the best one” according to the quality criteria (similarity,
+  % time and memory space). This technique takes advantages from a
+  % graph structure, chaining algorithm of expert system and
+  % semantic annotations
+
+  Talantikite \textit{et al.} \cite{talantikite2009semantic} utilisent
+  un \emph{``réseau sémantique des services Web''} décrit en
+  \textsc{OWLS} pour modélise le graphe de dépendance, ce dernier est
+  construit avant toute requête soumise par ...
+
+  Cette technique prend avantages des algorithmes de chaînage du
+  système expert et les annotations sémantiques.\bigskip
+
+
+  Dans \cite{elmaghraoui2011graph}, les auteurs modélisent à priori
+  toutes les dépendances entre les services dans un graphe de
+  composition et aussi sauvegarde tous les meilleurs chemins entre les
+  nœuds du graphe dans une matrice en appliquant un algorithme basé
+  sur l'algorithme de Floyd-Warshall, en optimisant le degré du
+  matching sémantique, temps d'exécution, coût et la disponibilité du
+  service.
 
   \subsection{Autres travaux basés sur le graphe matching}
   \label{sec:autres-travaux}
