@@ -1,7 +1,7 @@
 \chapter{La Composition de services web}
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
-Dans ce chapitre, nous présentons dans un premier temps les %
+Dans ce chapitre, nous présentons dans un premier temps les
 définitions et les types de composition de services Web présents dans
 la littérature. Ensuite, nous étudions
 
@@ -889,12 +889,38 @@ la littérature.
 
   \subsection{Autres travaux basés sur le graphe matching}
   \label{sec:autres-travaux}
+  Samuel et Sasipraba \textit{et al.} \cite{samuel2011approach}
+  présentent une technique de composition basée sur un graphe de
+  planification hiérarchique (\textit{layered}) et pondéré reflétant
+  toutes dépendances fonctionnelles possibles entres les services
+  disponibles. Les auteurs ont conçu le problème de la composition
+  comme un problème de génération de \textit{sorties} requis à partir
+  d'un ensemble des \textit{entrées}. Un nœud de graphe représente
+  soit une collection de propositions
+  (\textit{pré-conditions/effets}), ou un ensemble des actions
+  (services Web). Une arête connecte un niveau de graphe à l'autre.
+  Après la construction du graphe de planification, un plan optimale
+  de composition est généré en optimisant le temps de réponse, le
+  coût, le disponibilité et la fiabilité du service composite.\bigskip
 
-  % Samuel et Sasipraba \textit{et al.} \cite{samuel2011approach}
-  % Alfredo Cuzzocrea, Marco Fisichella: ‘A Flexible Graph-based
-  % Approach for Matching Composite Semantic Web Services’, 2011
+  Cuzzocrea \emph{el al.} \cite{cuzzocrea2011flexible} modélise le
+  service composite décrit dans \textit{OWL-S} \textit{Process-Model}
+  sous forme d'un graphe orienté (modélise le flux de données et
+  structure de contrôle) puis il fait le matching à deux niveaux avec
+  la requête de l'utilisateur (suppose aussi que la requête fournit
+  également le schéma de composition):
 
-  \newpage
+  \SpecialItem
+  \begin{itemize}
+  \item \textit{Matching} des \textit{entrées/sorties} de la requête à
+    celle du service composite.
+
+  \item \textit{Matching} de la structure du service décrit dans la
+    requête avec celle du service composite publié (la requête est
+    aussi décrite sous forme de graphe).
+  \end{itemize}
+  \enddescription
+
   \subsection{Discussion et comparaison}
   \label{sec:discussion-comparaison}
   Dans les sections \ref{sec:generation-online},
