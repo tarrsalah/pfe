@@ -147,6 +147,7 @@ dans la littérature \ref{sec:proc-de-coord},
   procédé en même temps \cite{baryannis2010}.\medskip
 
   \newpage
+
   La figure \ref{fig:orchestration-vs-choregraphie} illustre ces deux
   approches en conjonction.
 
@@ -252,10 +253,10 @@ dans la littérature \ref{sec:proc-de-coord},
       inappropriées avec les exigences des clients.
 
     \item[Composition dynamique]: appelée aussi composition
-      \textit{online}, post-compilée ou encore réactive. Elle se réfère
-      à la sélection de services basiques à la volée. Autrement dit,
-      la sélection de services basiques ne peut pas être définie à
-      l'avance mais elle sera faite au moment de l'exécution en
+      \textit{online}, post-compilée ou encore réactive. Elle se
+      réfère à la sélection de services basiques à la volée. Autrement
+      dit, la sélection de services basiques ne peut pas être définie
+      à l'avance mais elle sera faite au moment de l'exécution en
       fonction des contraintes imposées par le client. Ceci permet d'
       élaborer différents scénario de composition qui offrent les
       mêmes fonctionnalités et qui tiennent compte de la dynamique de
@@ -309,7 +310,7 @@ la littérature.
   \textsc{XLANG}, ainsi que les caractéristiques d'un graphe direct de
   \acrshort{wsfl} \cite{driss2011approche}.\medskip
 
-  \textsc{BPEL} \textit{(appelé aussi \acrshort{bpel4ws} ou
+  \acrshort{bpel} \textit{(appelé aussi \acrshort{bpel4ws} ou
     \acrshort{ws-bpel})} est le langage d'\textbf{orchestration} le
   plus utilisé dans l'industrie permettant la coordination des
   interactions entre l'instance du service composite et ses
@@ -320,7 +321,7 @@ la littérature.
   d'exécuter \textbf{le procédé métier} interprétable de
   \textbf{coordination} \cite{chollet2009orchestration}.\medskip
 
-  \textsc{BPEL} repose sur un modèle constitué d'activités de
+  \acrshort{bpel} repose sur un modèle constitué d'activités de
   coordination qui peuvent être de deux types, les activités de base
   ou élémentaires comme l'invocation (invoke) d'un service, l'attente
   d'une réponse et la génération d'une réponse (\verb|reply|), et les
@@ -338,7 +339,7 @@ la littérature.
   \textsc{WS-CDL} est basé sur \textsc{XML}, il complète la
   description \acrshort{wsdl} de services Web afin de décrire les
   points d'interactions entre les services Web engagés dans une
-  composition. Contrairement à la spécification \textsc{BPEL}
+  composition. Contrairement à la spécification \acrshort{bpel}
   \ref{sec:bpel}, Les interactions de services sont décrites d'une
   manière \textit{peer-to-peer}, Il n'y a pas de notion de
   coordination ou d'un service Web principal d'orchestration.\medskip
@@ -410,14 +411,14 @@ la littérature.
 
   \item[Le processus simple]: (\verb|SimpleProcess|) non-invoquable,
     il fournit simplement une vue d'un processus atomique ou une
-    représentation simplifié d’un processus composé.
+    représentation simplifié d'un processus composé.
   \end{description}
   \enddescription
 
   Dans \cite{martin2004owl}, les auteurs discute les avantages de la
   description de service plus riche soutenue par \textsc{OWL-S}. il
   décrit comment \textsc{OWL-S} est utilisé dans le contexte d'autres
-  standards, telles que \textsc{WSDL}, \textsc{UDDI} et \textsc{BPEL}.
+  standards, telles que \textsc{WSDL}, \textsc{UDDI} et \acrshort{bpel}.
 
   \subsection{Comparaison}
   \label{sec:langs-comparaison}
@@ -436,7 +437,7 @@ la littérature.
     participants dans un processus de composition et de modéliser les
     interactions entre eux.
 
-  \item [La representation du rôle] indique La représentation de rôle
+  \item [La représentation du rôle] indique La représentation de rôle
     indique la capacité de refléter la le comportement que le
     participant doit présenter afin d'interagir dans le processus de
     composition.
@@ -462,15 +463,14 @@ la littérature.
   \ref{comparaison-des-standards-et-langages-d-composition} Nous
   pouvons constater que tous les langages sauf \textsc{WSMF}
   supportent la modélisation des structures complexes. seulement
-  \textsc{BPEL} et \textsc{WS-CDL} ont le support complet de la
+  \acrshort{bpel} et \textsc{WS-CDL} ont le support complet de la
   définition des rôles et la compensation. On peut aussi remarquer que
   seules le \textsc{OWL-S} et \textsc{WSMF} permettent de la
   composition sémantique de services Web.
 
   \section{Les approches de composition dynamiques de services web}
   \label{sec:comp-dynam}
-
-  La littérature quit traite la problématique de composition des
+  La littérature qui traite la problématique de composition des
   services comporte une multitude d'approches visant à décrire
   l'interaction entre les services afin construire de nouveaux
   services composites répondant à un objectif donné. Selon l'approche
@@ -483,17 +483,17 @@ la littérature.
   principales de composition proposées par différents auteurs issues
   de plusieurs communautés de recherches. La classification présentée
   par la suite est basée essentiellement sur l'état de l'art fait par
-  Baryannis \emph{et al.}\cite{baryannis2010}.Nous distinguons quatres
+  Baryannis \emph{et al.}\cite{baryannis2010}.Nous distinguons quatre
   catégories de composition dynamique de services Web:
 
   \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
   \begin{description}
   \item[La composition basée sur les workflows]: Ces approches
-    éxploitent les résultats des recherches dans le domaine des
+    exploitent les résultats des recherches dans le domaine des
     \textit{workflows}.
 
   \item[La composition dirigée par les modèles]: Ces approches
-    utilisent les languages de modélisation (les réseux de Petri,
+    utilisent les langages de modélisation (les réseaux de Petri,
     \textsc{UML}) pour décrire la composition de services.
 
   \item[La composition algébrique et mathématique de services web]:
@@ -523,25 +523,25 @@ la littérature.
   populaire.\medskip
 
   Les approches de composition de services Web basées sur les
-  techniques de \textit{workflow} étaient l'une des prmières solutions
+  techniques de \textit{workflow} étaient l'une des premières solutions
   proposées pour la composition automatiques de services
   Web. Initialement, la plupart des travaux ont porté sur la
   composition statique et manuelle. Des travaux plus récents
   \cite{majithia2004framework, ardagna2007paws, fujii2006semantics,
     fujii2009semantics}, cependant, a tenté de réaliser la composition
   dynamiques des services Web. En raison de la popularité de
-  \textsc{BPEL} dans le milieu industriel, la plupart des approches
-  dans cette catégorie emploient \textsc{BPEL} d'une manière ou d'une
+  \acrshort{bpel} dans le milieu industriel, la plupart des approches
+  dans cette catégorie emploient \acrshort{bpel} d'une manière ou d'une
   autre.\medskip
 
-  Il faut noter que nous pouvsons conclure que même si les apprcohes
+  Il faut noter que nous pouvons conclure que même si les approches
   de composition à base de \textit{workflow} ont évolué afin de
   supporter la composition automatique, les résultats sont limitées à
-  des schémas de composition simples tels que l'éxécution séquentielle
+  des schémas de composition simples tels que l'exécution séquentielle
   et parallèles. Cette lacune a été comblée en combinant méthodes à
   base de \textit{workflow} avec des techniques de planification
-  issues du domaine d'intélégence artificielle. Ces approches serons
-  éxaminer dans la quatrième catégorie \ref{sec:tech-de-plan}.
+  issues du domaine d'intelligence artificielle. Ces approches serons
+  examiner dans la quatrième catégorie \ref{sec:tech-de-plan}.
 
   \subsection{La composition dirigée par les modèles}
   \label{sec:model-based-composition}
@@ -572,8 +572,8 @@ la littérature.
   Skogan \textit{et al.}  \cite{skogan2004web} proposent une méthode
   qui utilise les diagrammes d'activités \textsc{UML} pour modéliser
   la composition de services. Ces diagrammes là sont utilisés pour
-  générer un processus exécutable d'orchestration \textsc{BPEL}
-  utilisant des transformations \textsc{XSLT}, ce tarvail se limite à
+  générer un processus exécutable d'orchestration \acrshort{bpel}
+  utilisant des transformations \textsc{XSLT}, ce travail se limite à
   la description syntaxique de service Web utilisant les documents
   \textsc{WSDL} comme des entrées de la transformation
   \textsc{UML}. Dans \cite{gronmo2005model} les auteurs essayent de
@@ -595,8 +595,8 @@ la littérature.
   permettant de modéliser respectivement la réception et l'émission
   d'informations par le service composite. Dans
   \cite{ouyang2007formal} les auteurs présentent une traduction
-  complète de \textsc{BPEL} en réseaux de Petri permettant la
-  vérification automatique des processus \textsc{BPEL}.
+  complète de \acrshort{bpel} en réseaux de Petri permettant la
+  vérification automatique des processus \acrshort{bpel}.
 
   \subsection{La composition algébrique et mathématique}
   \label{sec:les-apprc-math}
@@ -624,7 +624,7 @@ la littérature.
 
   Milanovic \textit{et al.} \cite{milanovic2004current} montre que
   L'utilisation des langages algébriques de processus et langages
-  formels, comme le \textsc{CCS} et le $\pi$-calculusa été préconisée
+  formels, comme le \textsc{CCS} et le $\pi$-calculus été préconisée
   pour la composition de services Web, car les spécifications de
   processus comprises dans les standards des services Web comme
   \acrshort{wsmo} ou \acrshort{wsmf} sont formellement fondées sur le
@@ -632,7 +632,7 @@ la littérature.
 
   La composition algébrique permet modéliser les services comme des
   processus mobiles pour assurer une vérification de certaines
-  propriétés tel que l'éxactitude, la sécurité, la vivacité
+  propriétés tel que l'exactitude, la sécurité, la vivacité
   \textit{(liveness)}, et la gestion des ressources. La théorie des
   processus mobiles est basée sur le $\pi$-calcule, dans laquelle
   l'entité de base est un processus qui peut être un processus vide,
@@ -657,7 +657,7 @@ la littérature.
   linéaire. Ensuite, ils utilisent la démonstration automatique des
   théorèmes pour produire des schémas abstraits de composition, qui
   sont ensuite transformés à des modèles de \textit{workflows}
-  \textsc{BPEL} en utilisant un langage d'algèbre des processus
+  \acrshort{bpel} en utilisant un langage d'algèbre des processus
   inspiré par le $\pi$-calcule.\medskip
 
   \subsection{La composition basée sur les techniques de
@@ -733,11 +733,11 @@ la littérature.
   \section{Les approches de composition basées sur le modèle graphe}
   \label{sec:graph-base-composition}
 
-  La découverte d’un service composite à partir d’un graphe de
+  La découverte d'un service composite à partir d'un graphe de
   dépendance consiste à trouver le meilleur chemin dans le graphe qui
   génère les sorties exprimées dans la requête. La recherche peut se
-  baser sur l’optimisation d’une fonction d’utilité qui tient compte
-  du degré de matching entre les services et aussi de la qualité de
+  baser sur l'optimisation d'une fonction d'utilité qui tient compte
+  du degré de \textit{Matching} entre les services et aussi de la qualité de
   service qui peut être fournie par les services concrets. A cet
   effet, les méthodes de recherche du meilleur chemin de la théorie
   des graphes peuvent être exploitées.  Les méthodes de composition
@@ -886,8 +886,8 @@ la littérature.
   \item trouver les services potentiels pouvant participer dans la
     composition en cherchant les sous graphes couvrant tous les
     $sommets_{entrées}$ et $sommets_{sorties}$ (fournies dans la
-    requête) en utilisant une recherche en largeur d'abords (breath
-    first search).
+    requête) en utilisant une recherche en largeur d'abords
+    (\textit{breath first search}).
 
   \item La deuxième étape consiste à extraire les plans d'exécution en
     utilisant à partir des services découverts.\bigskip
@@ -908,15 +908,15 @@ la littérature.
   composition et aussi sauvegarde tous les meilleurs chemins entre les
   nœuds du graphe dans une matrice en appliquant un algorithme basé
   sur l'algorithme de \textit{Floyd-Warshall}, en optimisant le degré
-  du matching sémantique, temps d'exécution, coût et la disponibilité
-  du service.
+  du \textit{Matching} sémantique, temps d'exécution, coût et la
+  disponibilité du service.
 
-  \subsection{Autres travaux basés sur le graphe matching}
+  \subsection{Autres travaux basés sur le graphe \textit{Matching}}
   \label{sec:autres-travaux}
-  Samuel et Sasipraba \textit{et al.} \cite{samuel2011approach}
-  présentent une technique de composition basée sur un graphe de
-  planification hiérarchique (\textit{layered}) et pondéré reflétant
-  toutes dépendances fonctionnelles possibles entres les services
+  Samuel et \textit{et al.} \cite{samuel2011approach} présentent une
+  technique de composition basée sur un graphe de planification
+  hiérarchique (\textit{layered}) et pondéré reflétant toutes
+  dépendances fonctionnelles possibles entres les services
   disponibles. Les auteurs ont conçu le problème de la composition
   comme un problème de génération de \textit{sorties} requis à partir
   d'un ensemble des \textit{entrées}. Un nœud de graphe représente
@@ -930,9 +930,9 @@ la littérature.
   Cuzzocrea \emph{el al.} \cite{cuzzocrea2011flexible} modélise le
   service composite décrit dans \textit{OWL-S} \textit{Process-Model}
   sous forme d'un graphe orienté (modélise le flux de données et
-  structure de contrôle) puis il fait le matching à deux niveaux avec
-  la requête de l'utilisateur (suppose aussi que la requête fournit
-  également le schéma de composition):
+  structure de contrôle) puis il fait le \textit{matching} à deux
+  niveaux avec la requête de l'utilisateur (suppose aussi que la
+  requête fournit également le schéma de composition):
 
   \SpecialItem
   \begin{itemize}
@@ -1020,10 +1020,6 @@ pour héberger le graphe de dépendance.
 \section*{Conclusion}
 \label{sec:conclusion}
 \addcontentsline{toc}{section}{Conclusion} \markboth{CONCLUSION}{}
-
-% Introduire la composition dynamique basé sur le modèle graphe qui se
-% sera détaillé dans le prochain chapitre.
-% TODO rapeller du problème initiale en contexte de ce chapitre
 
 %%% Local Variables:
 %%% mode: latex
