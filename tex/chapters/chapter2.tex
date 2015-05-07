@@ -24,11 +24,11 @@ et les stratégies de composition de services Web présentes dans la
 littérature \ref{sec:defs}, puis nous étudions quatre langages majeurs
 de composition de services \ref{sec:lang-de-comp}. Ensuite, nous
 allons décrire et classifier les différentes approches de composition
-dynamique proposées par la littérature \ref{sec:comp-dynam}. La
-dernière section \ref{sec:graph-base-composition} sera consacrée à
-analyser le techniques de composition basées sur le modèle
+dynamique proposées par la littérature \ref{sec:comp-dynam}, tandis
+que la dernière section \ref{sec:graph-base-composition} sera
+consacrée à analyser le techniques de composition basées sur le modèle
 \textit{graphe} pour représenter les dépendances fonctionnelles entre
-les services.
+les services Web.
 
 \newpage
 \section{Définition et stratégies de composition}
@@ -1020,6 +1020,36 @@ pour héberger le graphe de dépendance.
 \section*{Conclusion}
 \label{sec:conclusion}
 \addcontentsline{toc}{section}{Conclusion} \markboth{CONCLUSION}{}
+
+La composition de services constitue une étape primordiale pour
+l'automatisation du cycle de vie des services au sein d'une
+architecture \acrshort{soa}. Beaucoup d'efforts académiques et
+standards industriels ont été émergés afin de permettre une
+composition utilisable, correcte et efficace de services Web.\medskip
+
+Dans ce chapitre, nous avons présenté une étude bibliographique des
+différentes approches pour la composition de services Web, tout en
+mettant l'accent sur les approches automatiques qui exploitent
+l'enrichissement sémantique des descriptions de services Web. Dans la
+dernière section \ref{sec:graph-base-composition} nous nous sommes
+concentrés sur les méthodes qui modélisent le problème de composition
+sous forme d'un graphe de planification en distinguant deux approches
+principales, d'une part, nous avons les méthodes qui construisent le
+graphe de dépendance lors du traitement d'une requête cliente
+(\textit{Online}), et d'autre part, on a les méthodes qui stockent au
+préalable toutes le dépendances fonctionnelles possibles entre les
+services dans un graphe à partir d'un annuaire ou un registre
+(\textit{Offline}). Le problème majeur qui se posera dans la deuxième
+approche est le passage à l'échelle ou la \textit{scalabilité} du
+système vu le caractère dynamique de l'environnement des services web
+et le risque d'avoir des services non accessibles dans le schéma de
+composition lors de déploiement et l'exécution du service
+composite.\medskip
+
+Dans le chapitre suivant, nous nous focalisons sur la présentation des
+différents systèmes de gestion de base de données graphes, que nous
+utilisons dans notre approche pour la mise en œuvre d'une composition
+dynamique de services Web.
 
 %%% Local Variables:
 %%% mode: latex
