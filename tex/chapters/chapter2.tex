@@ -1,27 +1,51 @@
 \chapter{La Composition de services web}
+\label{ch:composition}
+
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
-Dans ce chapitre, nous présentons dans un premier temps les
-définitions et les types de composition de services Web présents dans
-la littérature. Ensuite, nous étudions
 
-Enfin, un ensemble de travaux proposent des approches de la
-composition dynamiques de services web sémantiques.
+Dans le chapitre précédent \ref{ch:web-service}, nous avons présenté
+la description, la publication et la découverte de services Web où une
+requête d'un utilisateur peut être satisfaite par l'invocation d'un
+seule service Web référencé dans un annuaire. Si l'objectif du client
+n'est pas atteint par l'invocation d'un simple service Web
+élémentaire, alors il doit combiner les fonctionnalités d'un ensemble
+de services afin d'accomplir l'objectif désiré. Ce processus est
+appelé \textit{``composition de services Web''}. Le problème de la
+composition de services Web se réfère à la construction des nouveaux
+services Web à plus forte valeur ajouté \textit{``services
+  composites''} à partir des services individuels existants
+\textit{``services atomiques''}.\bigskip
+
+Dans ce chapitre, nous allons présenter les travaux liés à la
+composition de services Web, qui constitue le cœur de notre
+problématique. Nous présentons dans un premier temps les définitions
+et les stratégies de composition de services Web présentes dans la
+littérature \ref{sec:defs}, puis nous étudions quatre langages majeurs
+de composition de services \ref{sec:lang-de-comp}. Ensuite, nous
+allons décrire et classifier les différentes approches de composition
+dynamique proposées par la littérature \ref{sec:comp-dynam}. La
+dernière section \ref{sec:graph-base-composition} sera consacrée à
+analyser le techniques de composition basées sur le modèle
+\textit{graphe} pour représenter les dépendances fonctionnelles entre
+les services.
+
 \newpage
-
 \section{Définition et stratégies de composition}
 \label{sec:defs}
 Cette section a pour but d'exposer, d'une part, quelques définitions
 et objectifs de la composition de services Web proposées par la
 communauté\ref{sec:definitions}, et d'autre part, les différents types
 et mécanismes de composition selon différents points de vue rencontrés
-dans la littérature \ref{sec:proc-de-coord}, \ref{sec:types-de-composition}.
+dans la littérature \ref{sec:proc-de-coord},
+\ref{sec:types-de-composition}.
 
   \subsection{Définitions}
   \label{sec:definitions}
   Martin \emph{et al.} \cite{martin2004owl} définissent la composition
   comme étant \emph{``le processus de sélection, de combinaison et
-    d'exécution de services en vue d'accomplir un objectif donné''}.\bigskip
+    d'exécution de services en vue d'accomplir un objectif
+    donné''}.\bigskip
 
   Selon S. Dustdar et W. Schreiner \cite{dustdar2005survey} : \emph{``
     L'infrastructure de base de services Web suffit pour la mise en
