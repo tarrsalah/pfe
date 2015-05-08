@@ -2,23 +2,38 @@
 \chapter{Services Web}
 \label{ch:web-service}
 
-% TODO: write a better chapter intro
-Ce chapitre établit une étude du fondement théorique de notre travail
-à savoir le  concepts de base du paradigme service Web.  Nous
-commençons d'abord par présenter un tour d'horizon définissant
-l'architecture de référence de ce paradigme ainsi que quelque
-définitions proposées dans la littérature. Ensuite nous nous
-intéressons à montrer les limitations de l'approche syntaxique de la
-description de services web et l'apport de l'enrichissement sémantique
-de cette dernière aux processus de la découverte et la composition de
-services Web.
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
 
-% Un service Web consiste à la définition d'une entité logiciel
-% modulaire, \textit{auto-descriptive}, \textit{autonome} et
-% \textit{accessible} via Internet \cite{curbera2001web}. Dans la
-% section précédente, nous avons vu l'architecture de base de services
-% Web et la pile protocolaire pour la mise en place d'une telle
-% architecture.
+Plusieurs paradigmes de développement de logiciel ont été proposés
+pour satisfaire le besoin de la \textit{réutilisation}, le paradigme
+\acrshort{soa} représente aujourd'hui une approche largement adoptée
+pour le développement des systèmes d'information distribués sur
+\textit{Internet}, en effet il adopte les avantages des autres
+paradigmes comme l'orientation objet et l'orientation composant, tels
+que \textit{l'encapsulation}, \textit{la modularité}, \textit{le
+  couplage faible} et \textit{l'interopérabilité}. Le paradigme
+\acrshort{soa} possède plusieurs implémentations tels que
+\textit{DCOM} \cite{frank1997dcom}, \textsc{CORBA}
+\cite{vinoski1997corba},\textsc{RPC} \cite{bloomer1992power} et
+\acrshort{rest} \cite{fielding2000architectural}. Dans ce travail,
+nous intéressons uniquement aux services Web basés sur la
+spécification \acrshort{soap} \textit{SOAP-based Web services}, qui
+représentent la concrétisation la plus répandue dans
+l'industrie.\bigskip
+
+Ce chapitre établit une étude du fondement théorique de notre travail
+à savoir les notions de base du paradigme service Web. Nous commençons
+par introduire le concept de (\acrshort{soc}) et \acrshort{soa}, ainsi
+que les services Web \ref{sec:ws-definitions}, leurs architectures et
+leurs infrastructures, puis nous présentons un socle technologique
+très répondu pour la mise en œuvre d'une telle architecture
+\ref{sec:reference-arch}. Ensuite nous focalisons sur les modèles de
+description des services, nous mettons un accent particulier sur
+l'enrichissement sémantique de représentation des services Web
+\ref{sec:ws-description}. Nous consacrons la dernière partie de ce
+chapitre \ref{sec:ws-discovery} à la présenter quelques approches de
+découverte des services Web rencontrées dans la littérature.
 
 \newpage
 \section{Définitions}
