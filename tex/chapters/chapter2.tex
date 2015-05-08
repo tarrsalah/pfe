@@ -1,3 +1,4 @@
+%% !TEX root = ../main.tex
 \chapter{La Composition de services web}
 \label{ch:composition}
 
@@ -35,9 +36,9 @@ les services Web.
 \label{sec:defs}
 Cette section a pour but d'exposer, d'une part, quelques définitions
 et objectifs de la composition de services Web proposées par la
-communauté\ref{sec:definitions}, et d'autre part, les différents types
-et mécanismes de composition selon différents points de vue rencontrés
-dans la littérature \ref{sec:proc-de-coord},
+communauté \ref{sec:definitions}, et d'autre part, les différents
+types et mécanismes de composition selon différents points de vue
+rencontrés dans la littérature \ref{sec:proc-de-coord},
 \ref{sec:types-de-composition}.
 
   \subsection{Définitions}
@@ -61,10 +62,10 @@ dans la littérature \ref{sec:proc-de-coord},
   l'assemblage ou l'agrégation de services existants nommés
   \textbf{services atomiques} ou élémentaires.\bigskip
 
-  Medjahed \cite{medjahed2004thesis}de ça part a défini un service Web
-  composite comme un \emph{``conglomérat de sous-traitance services
-    Web (services appelés participants) travaillant en tandem pour
-    offrir un service à valeur ajoutée.''}\bigskip
+  Medjahed \cite{medjahed2004thesis} de ça part a défini un service
+  Web composite comme un \emph{``conglomérat de sous-traitance
+    services Web (services appelés participants) travaillant en tandem
+    pour offrir un service à valeur ajoutée.''}\bigskip
 
   La composition de services Web vise essentiellement quatre objectifs
   \cite{driss2011approche}:
@@ -90,18 +91,17 @@ dans la littérature \ref{sec:proc-de-coord},
 
   \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
   \begin{description}
-  \item[La phase de définition] Pendant cette phase, le client de
+  \item[La phase de définition]: Pendant cette phase, le client de
     service spécifie les exigence de composition de services en termes
     des besoins et des préférences pour le service
     composite. l'exigence est ensuite \textit{décomposé}, soit
     semi-automatique ou automatique, dans un modèle de
-    \textbf{processus abstrait}(ce est à dire, le service composite
+    \textbf{processus abstrait}( ce est à dire, le service composite
     abstraite), qui spécifie un ensemble d'activités, le contrôle et
     le flux de données entre eux, la qualité de service \acrshort{qos}
     et la gestion des exceptions.
 
-    %% TODO: REWRITE
-  \item[La phase de sélection.] Dans cette phase, pour chaque activité
+  \item[La phase de sélection]: Dans cette phase, pour chaque activité
     dans le service composite, les services Web appropriés qui
     répondent aux exigences de l'activité sont situés en cherchant sur
     le registre de service, sur la base des informations contenues
@@ -112,12 +112,12 @@ dans la littérature \ref{sec:proc-de-coord},
     identifiés et liés aux activités correspondantes, le service
     composite construit est produite.
 
-  \item[La phase de déploiement.]Dans cette phase, le service
+  \item[La phase de déploiement]: Dans cette phase, le service
     composite construit est déployé pour permettre son instantiation
     et l'invocation par les utilisateurs finaux. Le résultat de cette
     phase est le service composite exécutable.
 
-  \item[La phase d'exécution.] Dans cette phase, l'instance de service
+  \item[La phase d'exécution]: Dans cette phase, l'instance de service
     composite est créé et exécuté par le moteur d'exécution, qui est
     aussi responsable de l'invocation des composants de service
     atomiques. Pendant l'exécution de l'instance de service composite,
@@ -147,7 +147,6 @@ dans la littérature \ref{sec:proc-de-coord},
   procédé en même temps \cite{baryannis2010}.\medskip
 
   \newpage
-
   La figure \ref{fig:orchestration-vs-choregraphie} illustre ces deux
   approches en conjonction.
 
@@ -167,15 +166,15 @@ dans la littérature \ref{sec:proc-de-coord},
     ordre prédéfini afin de répondre à un but
     \cite{lopez2008selection}. Ce type de composition se base sur un
     procédé métier exécutable permettant de décrire d'enchaînement et
-    les interactions des différents services basiques collaborant dans
-    une composition.\medskip
+    les interactions des services basiques collaborant dans une
+    composition.\medskip
 
     L'orchestration offre \textbf{une vision centralisée} de contrôle,
     le procédé est toujours contrôlé par l'un des partenaires
     métiers. Ce dernier joue le rôle d'un chef d'orchestre qui se
     charge d'appeler les services de la composition suivant l'ordre
     d'exécution déjà défini par le processus métier. Le principe de
-    l'orchestration est illustré par La figure
+    l'orchestration est illustré par la figure
     \ref{fig:orchestration}.
 
     \subsubsection{Chorégraphie}
@@ -186,7 +185,7 @@ dans la littérature \ref{sec:proc-de-coord},
       est typiquement liée à la description de conversations
       existantes entre les services tout en impliquant plusieurs
       parties, incluant les clients, les fournisseurs et les
-      partenaires''}.\bigskip
+      partenaires''}.\medskip
 
     D'après Barros \emph{et al.} \cite{barros2006standards}, la
     chorégraphie permet de décrire la composition comme un moyen
@@ -210,7 +209,7 @@ dans la littérature \ref{sec:proc-de-coord},
   l'interaction entre les services et nécessite la gestion de
   plusieurs aspects comme les échanges de données entre les services,
   les pannes ou erreurs éventuelles, le contexte d'interaction, le
-  degré d'automatisation des tâches, etc.\medskip
+  degré d'automatisation des tâches, etc. \medskip
 
   Il existent une variété de spécifications, de langages et
   d'approches formelles développées par la littérature concernant la
@@ -240,20 +239,20 @@ dans la littérature \ref{sec:proc-de-coord},
     \label{sec:comp-stat}
     Selon la disponibilité de services composites, La composition de
     services Web peut être soit une composition statique soit une
-    composition dynamique \cite{driss2011approche}:\bigskip
+    composition dynamique \cite{driss2011approche}:
 
     \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
     \begin{description}
     \item[Composition statique] :est appelé aussi composition
-      \textit{off-line}, pré-compilée ou encore proactive. c'est une
-      composition qui utilise de services basiques qui sont au
-      préalablement définis d'une façon figée et qui ne peuvent pas
-      changer en fonction du contexte du client. Ce type de
-      composition engendre des applications peu flexibles, parfois
-      inappropriées avec les exigences des clients.
+      \textit{Offline} ou pré-compilée. c'est une composition qui
+      utilise de services basiques qui sont au préalablement définis
+      d'une façon figée et qui ne peuvent pas changer en fonction du
+      contexte du client. Ce type de composition engendre des
+      applications peu flexibles, parfois inappropriées avec les
+      exigences des clients.
 
     \item[Composition dynamique]: appelée aussi composition
-      \textit{online}, post-compilée ou encore réactive. Elle se
+      \textit{Online}, post-compilée ou encore réactive. Elle se
       réfère à la sélection de services basiques à la volée. Autrement
       dit, la sélection de services basiques ne peut pas être définie
       à l'avance mais elle sera faite au moment de l'exécution en
@@ -271,8 +270,7 @@ dans la littérature \ref{sec:proc-de-coord},
     \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
     \begin{description}
     \item[Composition manuel]: Suppose que l'utilisateur gère la
-      composition avec sa main, via un éditeur de texte et sans l'aide
-      d'outils dédiés.
+      composition manuellement et sans l'aide d'outils dédiés.
 
     \item[Composition semi-automatique]: C'est un pas en avant en
       comparaison avec la composition manuelle, dans le sens qu'elle
@@ -384,9 +382,9 @@ la littérature.
   \enddescription
 
   Il y a deux principaux projets en WSMF : \textsc{SWWS} et
-  \textsc{WSMO}, le standard \textsc{SWWS} fournit un cadre de
+  \acrshort{wsmo}, le standard \textsc{SWWS} fournit un cadre de
   description, la découverte et la médiation pour les services Web,
-  tandis que l'ontologie de service \textsc{WSMO} inclut des
+  tandis que l'ontologie de service \acrshort{wsmo} inclut des
   définitions pour les objectifs, les médiateurs et les services Web.
 
   \subsection{OWL-S}
@@ -433,28 +431,28 @@ la littérature.
 
   \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
   \begin{description}
-  \item [La composabilité] indique la capacité d'assembler de services
-    participants dans un processus de composition et de modéliser les
-    interactions entre eux.
+  \item [La composabilité]: indique la capacité d'assembler de
+    services participants dans un processus de composition et de
+    modéliser les interactions entre eux.
 
-  \item [La représentation du rôle] indique La représentation de rôle
+  \item [La représentation du rôle]: indique La représentation de rôle
     indique la capacité de refléter la le comportement que le
     participant doit présenter afin d'interagir dans le processus de
     composition.
 
-  \item [Le support des structures complexes] la capacité de modéliser
-    les structures complexes qui reflètent les règles des actions
-    réalisées dans le processus de composition logique d'exécution et
-    de commande.
+  \item [Le support des structures complexes]: la capacité de
+    modéliser les structures complexes qui reflètent les règles des
+    actions réalisées dans le processus de composition logique
+    d'exécution et de commande.
 
-  \item [Compensabilité] est la capacité de gérer les exceptions de
+  \item [Compensabilité]: est la capacité de gérer les exceptions de
     processus lors de l'exécution du processus de composition
 
-  \item [le support du sémantique] est la capacité de représenter la
+  \item [le support du sémantique]: est la capacité de représenter la
     sémantique de services participants pour faciliter la découverte
     de services et la composition dynamique.
 
-  \item [le support industriel] indiqué par la qualité des outils et
+  \item [le support industriel]: indiqué par la qualité des outils et
     le support industriel de la technologie.
   \end{description}
   \enddescription
@@ -579,7 +577,7 @@ la littérature.
   \textsc{UML}. Dans \cite{gronmo2005model} les auteurs essayent de
   soulèver cette limitation en considérant également l'enrichissement
   sémantique de services avec des ontologies \textsc{OWLS} et des
-  annotations \textsc{WSMO}.\medskip
+  annotations \acrshort{wsmo}.\medskip
 
   Les réseaux de Petri \cite{petri1962kommunikation} constituent une
   approche bien établie pour la modélisation de processus. Un réseau
@@ -965,16 +963,15 @@ la littérature.
 
   \SpecialItem
   \begin{itemize}
-    \item  La majorité des approches online effectue d'abord une phase de
-    découverte des services qui peuvent être candidats à la
+  \item La majorité des approches \textit{Online} effectue d'abord une
+    phase de découverte des services qui peuvent être candidats à la
     composition. Cependant le mécanisme de découverte ne tient pas
     compte de la relation de dépendances entre les services. Par
     conséquent, de bons services candidats peuvent être négligés.
 
-  \item Requiert un temps de réponse (TResponse) important qui inclut
-    le temps de découverte des services candidats (TServiceDis), temps
-    de construction du graphe de dépendance (TGenDepGraph) et le temps
-    de recherche du plan dans le graphe (TSearchPlan)
+  \item Requiert un temps de réponse important qui inclut le temps de
+    découverte des services candidats, temps de construction du graphe
+    de dépendance et le temps de recherche du plan dans le graphe.
 
   \item Le passage à l'échelle n'est pas garanti: quand le registre
     devient très important le temps de réponse devient très
@@ -985,17 +982,17 @@ la littérature.
 
   L'approche \textbf{\textit{Offline}}, le graphe est construit une
   fois puis mis à jour à chaque modification dans le registre
-  UDDI. Donc Le temps de réponse dépend uniquement de l'algorithme de
-  recherche du plan. Par contre, ces approches demeurent insuffisantes
-  vis-à-vis de:\medskip
+  \acrshort{uddi}. Donc le temps de réponse dépend uniquement de
+  l'algorithme de recherche du plan. Par contre, ces approches
+  demeurent insuffisantes vis-à-vis de:\medskip
 
   \SpecialItem
   \begin{itemize}
-  \item Du problème de passage à l'échelle, en effet, les graphes
-    générés sont supposés être volumineux ce qui pose un problème de
-    mémoires.
+  \item [Du problème de passage à l'échelle]: En effet les graphes
+    générés sont supposés être volumineux ce qui pose un problème
+    d'espace de stockage.
 
-  \item Dynamicité de l'environnement: des mise à jours fréquents
+  \item [Dynamicité de l'environnement]: des mise à jours fréquents
     doivent avoir lieu sur le graphe de dépendance ce qui implique un
     coût de maintenance important.\bigskip
 
