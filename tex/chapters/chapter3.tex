@@ -155,6 +155,7 @@ données \acrshort{nosql} sont:
   \end{description}
   \enddescription
 
+
   Le théorème de \acrshort{cap} stipule qu'il est impossible d'obtenir
   ces trois propriétés en même temps dans un système distribué et
   qu'il faut donc en choisir deux parmi les trois, Les bases de
@@ -168,50 +169,61 @@ données \acrshort{nosql} sont:
 
 \section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
-% TODO: rewrite the intro
-Un grand nombre de problèmes pratiques dans différentes disciplines
-peuvent être intuitivement représentés sous forme de graphes (des
-nœuds reliés par des arcs ou des arètes). Depuis plusieurs décennies,
-les développeurs ont essayé de stocker des ensembles de données
-connectés, \textit{semi-structurées} à l'intérieur des bases de
-données relationnelles. Mais alors que les bases de données
-relationnelles ont été initialement conçues pour codifier des
-structures tabulaires. Cependant, les données fortement connectées
-sont traitées de manière très pauvre par les bases de données
-relationnelles. Chaque opération sur une relation dans un graphes ou
-réseau résulte en une opération de jointure dans le \acrshort{SGBDR},
-implémentée comme une opération ensembliste entre l'ensemble des clés
-primaires de deux tables - une opération lente et sans capacité à
-monter en charge alors que le nombre de tuples de ces tables augmente
-\cite{robinson2013graph}.\medskip
-
-
-Un système de gestion de base données graphes possèdent deux
-propriétés fondamentales:
-
-\begin{description}
-\item [Le système de stockage sous-jacent]:
-\item [Le moteur de traitement]:
-\end{description}
-\enddescription
-
-\newpage
-Les bases de données orientées graphes sont donc conçues pour
-modéliser des réseaux de données fortement connectées et y naviguer
-facilement en bénéficiant de performances extrêmement élevées\medskip
-
-
-% "Une base de données graphe stocke les données en graphe, structure
-% de " "données la plus générique, capable de représenter avec
-% élégance n'importe " "quel type de données d'une manière ultra
-% accessible.
-
 Cette section a pour but d'introduire les modèles de données utilisés
 pour la persistance la persistance et la gestion d'un graphe de
 données fortement connectées \ref{sec:persistence}, ainsi que les
 techniques du stockage sous-jacent et d'indexation utilisées par les
 différents systèmes de gestion de base de données graphes.
-\ref{sec:graph-internals}.
+\ref{sec:graph-internals}.\medskip
+
+\subsection{Définitions et caractéristiques}
+\label{sec:graphdb-defs}
+
+Un grand nombre de problèmes pratiques dans différentes disciplines
+peuvent être intuitivement représentés sous forme de graphes (des
+nœuds reliés par des arcs ou des arêtes).\medskip
+
+Depuis plusieurs décennies, les développeurs ont essayé de stocker des
+ensembles de données connectés, \textit{semi-structurées} à
+l'intérieur des bases de données relationnelles. Mais alors que les
+bases de données relationnelles ont été initialement conçues pour
+codifier des structures tabulaires. Cependant, les données fortement
+connectées sont traitées de manière très pauvre par les bases de
+données relationnelles. Chaque opération sur une relation dans un
+graphes ou réseau résulte en une opération de jointure dans le
+\acrshort{SGBDR}. Implémentées comme des opérations ensemblistes entre
+l'ensemble des clés primaires de deux tables, les jointures sont des
+opérations lentes et sans capacité à monter en charge alors que le
+nombre de tuples de ces tables augmente
+\cite{robinson2013graph}.\medskip
+
+
+Angles Gutierrez \cite{angles2008survey} proposent une définition:
+
+% \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
+% \begin{description}
+% \item [Data and/or the schema]
+% \item [Data manipulation]
+% \item [Integrity constraints]
+% \end{description}
+% \enddescription
+
+% "Une base de données graphe brille quand elle stocke des données
+% hautement " "connectées.  Les requêtes sont exécutées à l'aide de
+% traversées, qui peuvent " "procéder à plusieurs millions de
+% traversées par seconde.  Une traversée " "ressemble à une _jointure_
+% dans les bases de données relationnelles.
+
+
+% Une base de données graphe stocke les données en graphe, structure de
+% " "données la plus générique, capable de représenter avec élégance
+% n'importe " "quel type de données d'une manière ultra
+% accessible
+
+
+% Les bases de données orientées graphes sont donc conçues pour
+% modéliser des réseaux de données fortement connectées et y naviguer
+% facilement en bénéficiant de performances extrêmement élevées\medskip
 
   \subsection{Techniques de persistance des bases de données graphes}
   \label{sec:persistence}
@@ -223,6 +235,7 @@ différents systèmes de gestion de base de données graphes.
   graphes natives qui fournissent ses propres implémentations du
   stockage en termes des nœuds et des arcs directement.
 
+    \newpage
     \subsubsection{Bases de données graphes au-dessus de d'un stockage  SQL}
     \label{sec:graphdb-over-sql}
     Une base de donnée graphe peut être stockée dans une base de
@@ -234,12 +247,14 @@ différents systèmes de gestion de base de données graphes.
     le langage de requêtes \emph{SQL} qui est un standard bien établi
     avec a cycle d'apprentissage rapide.\medskip
 
+    \input{figs/periscope-gq.tex}
+
     Cette classe comprend \emph{GRIPP} \cite{trissl2007fast}, et
     Periscope/GQ \cite{tian2008periscope} développé par l'université
     de Michigan qui implémente un système de gestion des bases de
     données graphes comme une application au-dessus d'un moteur de
     stockage relationnel \emph{PostgreSQL}.
-    \newpage
+
 
     \subsubsection{Bases de données graphes au-dessus d'un stockage NoSQL}
     \label{sec:graphdb-over-nosql}
@@ -307,16 +322,21 @@ différents systèmes de gestion de base de données graphes.
     et gérer des grandes masses de données structurées en graphe,
     \textit{Neo4j} convient aussi bien pour le deploiement en grande
     entreprise que pour les projets plus légers en utilisant une
-    partie du serveur complet. Parmi ses fonctionnalités:
+    partie du serveur complet. Parmi ses fonctionnalités:\medskip
 
     \begin{itemize}\renewcommand\labelitemi{--}
-    \item Transactions \acrshort{acid} réelle.
-    \item Haute disponibilité.
+    \item Transactions \acrshort{acid} réelle avec unr haute disponibilité.
     \item Supporte jusqu'à des milliards de noeuds et relations.
     \item Requêtes ultra-rapides grâce aux traversées.
     \end{itemize}
     \enddescription
-    \bigskip
+    \medskip
+
+    \textit{Neo4j} est fourni avec une \textit{API} basée sur des
+    \textit{callbacks}, ce qui vous laisse la possibilité de spécifier
+    les règles pour les traversées, Les autres options pour traverser
+    ou interroger un graphe dans \textit{Neo4j} sont \textit{Gremlin}
+    \ref{sec:gremlin} et \textit{Cypher} \ref{sec:cypher}.\bigskip
 
     \textsf{AllegroGraph} \cite{allegrograph} est un système performant
     de persistance des données graphes avec un stockage natif,
@@ -447,6 +467,7 @@ sémantique entre cinq service Web qui forme un plan de composition.
   La plupart des bases de données graphes ont un support de
   \textsc{SPARQL} soit nativement telle que \emph{Allegrograph} soit
   via des extensions comme dans le cas de \emph{Neo4j}.
+  \newpage
 
   \subsection{Gremlin}
   \label{sec:gremlin}
