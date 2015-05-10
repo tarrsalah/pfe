@@ -459,10 +459,32 @@ sémantique entre cinq service Web qui forme un plan de composition.
   comme des triplestores \acrshort{rdf}. Il est capable de rechercher
   des motifs de graphe (\emph{graph patterns}) ainsi que leurs
   conjonctions et leurs disjonctions. Les résultats des interrogations
-  \textsc{SPARQL} peuvent être des ensembles de résultats ou des
+  \acrshort{sparql} peuvent être des ensembles de résultats ou des
   graphes \acrshort{rdf} qui peuvent être retournés via
   \acrshort{http} dans une variété de formats tels que \acrshort{xml},
-  HTML ou \acrshort{json}
+  HTML ou \acrshort{json}\medskip
+
+  % TODO:approve!
+  \acrshort{sparql} propose quatre types de requêtes:\medskip
+
+  \begin{itemize}\renewcommand\labelitemi{--}
+  \item les requêtes \texttt{SELECT} permettent d'extraire des
+    informations d'une base de données ou d'une source de données
+    \acrshort{rdf} interrogée.
+  \item les requêtes \texttt{CONSTRUCT} permettent de créer de
+    nouveaux triplets à partir du résultat d'une requête.
+
+  \item les requêtes \texttt{DESCRIBE} permettent d'obtenir la
+    description d'une ressource donnée. Les spécifications de
+    \acrshort{sparql} ne précisent pas la nature de la description
+    d'une ressource. Elles imposent seulement que cette description
+    soit un sous-ensemble du graphe interrogé.
+
+  \item les \texttt{ASK} retournent un booléen indiquant si la requête
+    à une solution ou n'en a pas.
+  \end{itemize}
+  \enddescription
+  \medskip
 
   La plupart des bases de données graphes ont un support de
   \textsc{SPARQL} soit nativement telle que \emph{Allegrograph} soit
