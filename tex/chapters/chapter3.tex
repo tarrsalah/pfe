@@ -137,38 +137,64 @@ données \acrshort{nosql} sont:
     \textbf{P}artition Tolerance''}, ou \textit{``Cohérence,
     Disponibilité et Résistance au partitionnement''}. Ce théorème
   explique qu'il est impossible qu'un système distribué satisfasse
-  simultanément aux trois contraintes suivantes:\medskip
+  simultanément aux trois contraintes suivantes: \textit{(i)}
+  \textsf{Cohérence}: tous les nœuds du système voient exactement les
+  mêmes données au même moment. \textit{(ii)} \textsf{Disponibilité}:
+  la perte de nœuds n'empêche pas les survivants de continuer à
+  fonctionner correctement. \textit{(iii)} \textsf{Résistance au
+    partitionnement}: aucune panne moins importante qu'une coupure
+  totale du réseau ne doit empêcher le système de répondre
+  correctement.\medskip
 
   \input{figs/cap.tex}
 
-  \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
-  \begin{description}
-  \item [Cohérence]: tous les nœuds du système voient exactement les
-    mêmes données au même moment.
-
-  \item [Disponibilité]: la perte de nœuds n'empêche pas les survivants
-    de continuer à fonctionner correctement.
-
-  \item [Résistance au partitionnement]: aucune panne moins importante
-    qu'une coupure totale du réseau ne doit empêcher le système de
-    répondre correctement.\medskip
-  \end{description}
-  \enddescription
-
-
-  Le théorème de \acrshort{cap} stipule qu'il est impossible d'obtenir
-  ces trois propriétés en même temps dans un système distribué et
-  qu'il faut donc en choisir deux parmi les trois, Les bases de
-  données relationnelles implémentent les propriétés de cohérence et
-  de disponibilité (système \emph{CA}). Les bases de données
-  \emph{NoSQL} sont généralement des systèmes \emph{CP} (cohérent et
-  résistant au partitionnement) ou \emph{AP} (disponible et résistant
-  au partitionnement), la figure \ref{fig:cap} présente le
-  positionnement de quelque systèmes \emph{NoSQL} par rapport au
+  Les bases de données relationnelles implémentent les propriétés de
+  cohérence et de disponibilité (système \emph{CA}). Les bases de
+  données \emph{NoSQL} sont généralement des systèmes \emph{CP}
+  (cohérent et résistant au partitionnement) ou \emph{AP} (disponible
+  et résistant au partitionnement), la figure \ref{fig:cap} présente
+  le positionnement de quelque systèmes \emph{NoSQL} par rapport au
   théorème \acrshort{cap}.
-
+\newpage
 \section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
+
+  % Un grand nombre de problèmes pratiques dans différentes disciplines
+  % peuvent être intuitivement représentés sous forme de graphes (des
+  % nœuds reliés par des arcs ou des arêtes). Depuis plusieurs
+  % décennies, les développeurs ont essayé de stocker des ensembles de
+  % données connectés, \textit{semi-structurées} à l'intérieur des bases
+  % de données relationnelles. Mais alors que les bases de données
+  % relationnelles ont été initialement conçues pour codifier des
+  % structures tabulaires. Cependant, les données fortement connectées
+  % sont traitées de manière très pauvre par les bases de données
+  % relationnelles. Chaque opération sur une relation dans un graphes ou
+  % réseau résulte en une opération de jointure dans le
+  % \acrshort{SGBDR}. Implémentées comme des opérations ensemblistes
+  % entre l'ensemble des clés primaires de deux tables, les jointures
+  % sont des opérations lentes et sans capacité à monter en charge alors
+  % que le nombre de tuples de ces tables augmente
+  % \cite{robinson2013graph}.\medskip
+
+  % des pointeurs physiques ce qui n'est pas le cas des clefs étrangères
+  % (bases relationnelles) qui offrent uniquement des pointeurs
+  % logiques.
+
+En raison du volume exponentiellement croissant de données ouvertes
+disponibles, l'intérêt pour les systèmes de gestion de bases de
+données graphe est grandissant. Ces systèmes, dans la mouvance des
+systèmes \acrshort{nosql}, permettent de manipuler des données
+structurées sous forme de graphe, auxquelles aucun schéma n'est a
+priori associée. Ainsi, les systèmes de gestion de bases de données
+graphe permettent entre autres la gestion de données de réseaux
+sociaux, d'images, de vidéos, de données \textit{bio-informatiques},
+et de données issues du Web sémantique telles que des données au
+format \acrshort{rdf} éventuellement issues de l'exploitation de
+données ouvertes. De nombreux systèmes permettant la gestion de bases
+de données graphe sont apparus.  Il s'agit par exemple de
+\textit{AllegroGraph} \textit{InfiniteGraph}, \textit{Neo4j} ou
+\textit{Sparksee}.\medskip
+
 Cette section a pour but d'introduire les modèles de données utilisés
 pour la persistance la persistance et la gestion d'un graphe de
 données fortement connectées \ref{sec:persistence}, ainsi que les
@@ -176,37 +202,29 @@ techniques du stockage sous-jacent et d'indexation utilisées par les
 différents systèmes de gestion de base de données graphes.
 \ref{sec:graph-internals}.\medskip
 
-\subsection{Définitions et caractéristiques}
-\label{sec:graphdb-defs}
+  \subsection{Définitions et caractéristiques}
+  \label{sec:graphdb-defs}
 
-Un grand nombre de problèmes pratiques dans différentes disciplines
-peuvent être intuitivement représentés sous forme de graphes (des
-nœuds reliés par des arcs ou des arêtes).\medskip
+   Angles et Gutierrez \cite{angles2008survey} conceptualise
+  la notion d'une base de données graphe (\textit{``graph db-model''})
+  par rapport à trois éléments fondamentaux:\medskip
 
-Depuis plusieurs décennies, les développeurs ont essayé de stocker des
-ensembles de données connectés, \textit{semi-structurées} à
-l'intérieur des bases de données relationnelles. Mais alors que les
-bases de données relationnelles ont été initialement conçues pour
-codifier des structures tabulaires. Cependant, les données fortement
-connectées sont traitées de manière très pauvre par les bases de
-données relationnelles. Chaque opération sur une relation dans un
-graphes ou réseau résulte en une opération de jointure dans le
-\acrshort{SGBDR}. Implémentées comme des opérations ensemblistes entre
-l'ensemble des clés primaires de deux tables, les jointures sont des
-opérations lentes et sans capacité à monter en charge alors que le
-nombre de tuples de ces tables augmente
-\cite{robinson2013graph}.\medskip
+  \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
+  \begin{description}
+  \item [Modèle de données]: Une base de données graphe stocke les
+    données en graphe ou une structure de données plus générique
+    (\textit{hypergraphs} ou \textit{hypernodes} ) capable de
+    représenter avec élégance n'importe quel type de données d'une
+    manière ultra accessible. Un graphe contient des \textit{nœuds} et
+    des \textit{relations}.\medskip
 
+    Les nœuds représentent généralement les entités
 
-Angles Gutierrez \cite{angles2008survey} proposent une définition:
-
-% \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
-% \begin{description}
-% \item [Data and/or the schema]
-% \item [Data manipulation]
-% \item [Integrity constraints]
-% \end{description}
-% \enddescription
+  \item [Manipulation de données]: Les manipulation de données est
+    exprimée par des transformations de graphe
+  \item [Les contraintes d'intégrité]:
+  \end{description}
+\enddescription
 
 % "Une base de données graphe brille quand elle stocke des données
 % hautement " "connectées.  Les requêtes sont exécutées à l'aide de
@@ -215,16 +233,10 @@ Angles Gutierrez \cite{angles2008survey} proposent une définition:
 % dans les bases de données relationnelles.
 
 
-% Une base de données graphe stocke les données en graphe, structure de
-% " "données la plus générique, capable de représenter avec élégance
-% n'importe " "quel type de données d'une manière ultra
-% accessible
-
-
 % Les bases de données orientées graphes sont donc conçues pour
 % modéliser des réseaux de données fortement connectées et y naviguer
 % facilement en bénéficiant de performances extrêmement élevées\medskip
-
+\newpage
   \subsection{Techniques de persistance des bases de données graphes}
   \label{sec:persistence}
   Généralement, nous pouvons distinguer trois techniques majeures du
@@ -233,10 +245,10 @@ Angles Gutierrez \cite{angles2008survey} proposent une définition:
   \acrshort{SGBDR} comme un \emph{backend}, celles qui utilisent des
   systèmes \acrshort{nosql}, et enfin, nous avons les bases de données
   graphes natives qui fournissent ses propres implémentations du
-  stockage en termes des nœuds et des arcs directement.
+  stockage.
 
-    \newpage
-    \subsubsection{Bases de données graphes au-dessus de d'un stockage  SQL}
+    \subsubsection{Bases de données graphes au-dessus de d'un stockage
+      SQL}
     \label{sec:graphdb-over-sql}
     Une base de donnée graphe peut être stockée dans une base de
     données relationnelle. Les étiquettes et les attributs de nœuds et
@@ -250,13 +262,13 @@ Angles Gutierrez \cite{angles2008survey} proposent une définition:
     \input{figs/periscope-gq.tex}
 
     Cette classe comprend \emph{GRIPP} \cite{trissl2007fast}, et
-    Periscope/GQ \cite{tian2008periscope} développé par l'université
-    de Michigan qui implémente un système de gestion des bases de
-    données graphes comme une application au-dessus d'un moteur de
-    stockage relationnel \emph{PostgreSQL}.
+    Periscope/GQ \cite{tian2008periscope} qui implémente un système de
+    gestion des bases de données graphes comme une application
+    au-dessus d'un moteur de stockage relationnel \emph{PostgreSQL}.
 
 
-    \subsubsection{Bases de données graphes au-dessus d'un stockage NoSQL}
+    \subsubsection{Bases de données graphes au-dessus d'un stockage
+      NoSQL}
     \label{sec:graphdb-over-nosql}
     Plusieurs systèmes de base de données graphes emploient des
     systèmes \acrshort{nosql} comme un moteur de stockage interne
@@ -442,27 +454,22 @@ illustrer le syntaxe et la sémantiques de ces trois langages. Le
 graphe représente le résultat d'un processus de \emph{matching}
 sémantique entre cinq service Web qui forme un plan de composition.
 
-
-  % definition
-  % example
-  % syntax
-  % graph-db support
-\newpage
   \subsection{SPARQL}
   \label{sec:sparql}
-
   \acrshort{sparql} \cite{prud2008sparql} est un langage populaire de
   requêtes pour les données \acrshort{rdf}, il est reconnu comme l'une
   des technologies clés du Web sémantique. Le standard
   \acrshort{sparql} est largement utilisé pour exprimer des
   interrogations à travers diverses sources de données graphes vues
-  comme des triplestores \acrshort{rdf}. Il est capable de rechercher
-  des motifs de graphe (\emph{graph patterns}) ainsi que leurs
-  conjonctions et leurs disjonctions. Les résultats des interrogations
-  \acrshort{sparql} peuvent être des ensembles de résultats ou des
-  graphes \acrshort{rdf} qui peuvent être retournés via
-  \acrshort{http} dans une variété de formats tels que \acrshort{xml},
-  HTML ou \acrshort{json}\medskip
+  comme des triplestores \acrshort{rdf}.\medskip
+
+  \acrshort{sparql} est capable de rechercher des motifs de graphe
+  (\emph{graph patterns}) ainsi que leurs conjonctions et leurs
+  disjonctions. Les résultats des interrogations \acrshort{sparql}
+  peuvent être des ensembles de résultats ou des graphes
+  \acrshort{rdf} qui peuvent être retournés via \acrshort{http} dans
+  une variété de formats tels que \acrshort{xml} et
+  \textsc{HTML}\medskip
 
   % TODO:approve!
   \acrshort{sparql} propose quatre types de requêtes:\medskip
@@ -488,8 +495,7 @@ sémantique entre cinq service Web qui forme un plan de composition.
 
   La plupart des bases de données graphes ont un support de
   \textsc{SPARQL} soit nativement telle que \emph{Allegrograph} soit
-  via des extensions comme dans le cas de \emph{Neo4j}.
-  \newpage
+  via des extensions comme \emph{Neo4j}.
 
   \subsection{Gremlin}
   \label{sec:gremlin}
@@ -512,7 +518,6 @@ sémantique entre cinq service Web qui forme un plan de composition.
   \emph{Scala}, parmi ces \acrshort{SGBD} graphes nous trouvons
   \emph{Neo4j}, \emph{Titan} et \emph{OrientDB}.
 
-  \newpage
   \subsection{Cypher}
   \label{sec:cypher}
   \emph{Cypher} \cite{cypher-docs} est un langage des requêtes
