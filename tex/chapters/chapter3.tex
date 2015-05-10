@@ -62,6 +62,7 @@ données \acrshort{nosql} sont:
 \item \emph{Schemaless} (il n'existe plus d'intégrité référentielle ou
   schéma prédéfini).
 \end{itemize}
+
   \subsection{Catégories des bases de données NoSQL}
   \label{sec:cat-nosql}
   Il existe dans la mouvance \acrshort{nosql} une diversité importante
@@ -137,16 +138,26 @@ données \acrshort{nosql} sont:
     \textbf{P}artition Tolerance''}, ou \textit{``Cohérence,
     Disponibilité et Résistance au partitionnement''}. Ce théorème
   explique qu'il est impossible qu'un système distribué satisfasse
-  simultanément aux trois contraintes suivantes: \textit{(i)}
-  \textsf{Cohérence}: tous les nœuds du système voient exactement les
-  mêmes données au même moment. \textit{(ii)} \textsf{Disponibilité}:
-  la perte de nœuds n'empêche pas les survivants de continuer à
-  fonctionner correctement. \textit{(iii)} \textsf{Résistance au
-    partitionnement}: aucune panne moins importante qu'une coupure
-  totale du réseau ne doit empêcher le système de répondre
-  correctement.\medskip
+  simultanément aux trois contraintes suivantes:\medskip
+
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+  \begin{description}
+  \item [Cohérence]: tous les nœuds du système voient exactement les
+    mêmes données au même moment.
+
+  \item [Disponibilité]: la perte de nœuds n'empêche pas les
+    survivants de continuer à fonctionner correctement.
+
+  \item [Résistance au partitionnement]: aucune panne moins importante
+    qu'une coupure totale du réseau ne doit empêcher le système de
+    répondre correctement.
+  \end{description}
+  \enddescription
+  \bigskip
 
   \input{figs/cap.tex}
+
+  \newpage
 
   Les bases de données relationnelles implémentent les propriétés de
   cohérence et de disponibilité (système \emph{CA}). Les bases de
@@ -155,88 +166,77 @@ données \acrshort{nosql} sont:
   et résistant au partitionnement), la figure \ref{fig:cap} présente
   le positionnement de quelque systèmes \emph{NoSQL} par rapport au
   théorème \acrshort{cap}.
-\newpage
+
 \section{Bases de données orientées graphes}
 \label{sec:graph-database-overview}
-
-  % Un grand nombre de problèmes pratiques dans différentes disciplines
-  % peuvent être intuitivement représentés sous forme de graphes (des
-  % nœuds reliés par des arcs ou des arêtes). Depuis plusieurs
-  % décennies, les développeurs ont essayé de stocker des ensembles de
-  % données connectés, \textit{semi-structurées} à l'intérieur des bases
-  % de données relationnelles. Mais alors que les bases de données
-  % relationnelles ont été initialement conçues pour codifier des
-  % structures tabulaires. Cependant, les données fortement connectées
-  % sont traitées de manière très pauvre par les bases de données
-  % relationnelles. Chaque opération sur une relation dans un graphes ou
-  % réseau résulte en une opération de jointure dans le
-  % \acrshort{SGBDR}. Implémentées comme des opérations ensemblistes
-  % entre l'ensemble des clés primaires de deux tables, les jointures
-  % sont des opérations lentes et sans capacité à monter en charge alors
-  % que le nombre de tuples de ces tables augmente
-  % \cite{robinson2013graph}.\medskip
-
-  % des pointeurs physiques ce qui n'est pas le cas des clefs étrangères
-  % (bases relationnelles) qui offrent uniquement des pointeurs
-  % logiques.
-
 En raison du volume exponentiellement croissant de données ouvertes
 disponibles, l'intérêt pour les systèmes de gestion de bases de
-données graphe est grandissant. Ces systèmes, dans la mouvance des
-systèmes \acrshort{nosql}, permettent de manipuler des données
-structurées sous forme de graphe, auxquelles aucun schéma n'est a
-priori associée. Ainsi, les systèmes de gestion de bases de données
-graphe permettent entre autres la gestion de données de réseaux
-sociaux, d'images, de vidéos, de données \textit{bio-informatiques},
-et de données issues du Web sémantique telles que des données au
-format \acrshort{rdf} éventuellement issues de l'exploitation de
-données ouvertes. De nombreux systèmes permettant la gestion de bases
-de données graphe sont apparus.  Il s'agit par exemple de
-\textit{AllegroGraph} \textit{InfiniteGraph}, \textit{Neo4j} ou
-\textit{Sparksee}.\medskip
+données graphe est grandissant. Ces systèmes permettent de manipuler
+des données structurées sous forme de graphe, auxquelles aucun schéma
+n'est a priori associée. Ainsi, les systèmes de gestion de bases de
+données graphe permettent entre autres la gestion de données de
+réseaux sociaux, de données \textit{bio-informatiques}, et de données
+issues du Web sémantique telles que des documents \acrshort{rdf}
+éventuellement issues de l'exploitation de données ouvertes. De
+nombreux systèmes permettant la gestion de bases de données graphe
+sont apparus. Il s'agit par exemple de \textit{AllegroGraph}
+\textit{InfiniteGraph}, \textit{Neo4j} ou \textit{Sparksee}.\medskip
 
 Cette section a pour but d'introduire les modèles de données utilisés
-pour la persistance la persistance et la gestion d'un graphe de
-données fortement connectées \ref{sec:persistence}, ainsi que les
-techniques du stockage sous-jacent et d'indexation utilisées par les
-différents systèmes de gestion de base de données graphes.
+pour la persistance de données hautement connectées
+\ref{sec:persistence}, ainsi que les techniques du stockage
+sous-jacent et d'indexation utilisées par les différents systèmes de
+gestion de bases de données graphes.
 \ref{sec:graph-internals}.\medskip
 
   \subsection{Définitions et caractéristiques}
   \label{sec:graphdb-defs}
+  Les bases de données orientées graphes sont conçues pour modéliser
+  des réseaux de données fortement connectées et y naviguer facilement
+  en bénéficiant de performances extrêmement élevées.\medskip
 
-   Angles et Gutierrez \cite{angles2008survey} conceptualise
-  la notion d'une base de données graphe (\textit{``graph db-model''})
-  par rapport à trois éléments fondamentaux:\medskip
+  Selon Robinson \emph{el al.} \textit{``Un système de gestion de
+    bases de données orienté graphe (ou simplement, une base de
+    données graphe) est un système de gestion de bases de données en
+    ligne avec les options les quatre opérations de base pour la
+    persistance des données (\acrshort{crud}) exposant une structure
+    de donnée graphe.''}\bigskip
 
-  \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
+  Angles et Gutierrez \cite{angles2008survey} conceptualise la notion
+  d'une base de données graphe (\textit{``graph db-model''}) par
+  rapport à trois éléments fondamentaux:\medskip
+
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
   \begin{description}
   \item [Modèle de données]: Une base de données graphe stocke les
     données en graphe ou une structure de données plus générique
-    (\textit{hypergraphs} ou \textit{hypernodes} ) capable de
+    (\textit{hypergraphs} ou \textit{hypernodes}) capable de
     représenter avec élégance n'importe quel type de données d'une
     manière ultra accessible. Un graphe contient des \textit{nœuds} et
-    des \textit{relations}.\medskip
+    des \textit{relations}. Les nœuds représentent généralement les
+    entités. Les relations entre les nœuds sont un élément clé d'une
+    base de données graphe, elles permettent de trouvent les données
+    reliées, tout comme les noeuds, les relations peuvent avoir des
+    \textit{propriétés}.
 
-    Les nœuds représentent généralement les entités
+  \item [Manipulation de données]: Les manipulations de données sont
+    exprimées par des transformations de graphe ou des traversées, ces
+    opérations utilisent les primitives fondamentaux d'une structure
+    de données graphe, comme les relations d'adjacence entre les
+    nœuds, les chemins de parcours, les sous-graphes, la notion de
+    connectivité, etc. Ces opérations sont utilisées pour la création,
+    l'interrogation et la mise à jour d'une base de données
+    graphes.\medskip
 
-  \item [Manipulation de données]: Les manipulation de données est
-    exprimée par des transformations de graphe
+    Une \textit{traversée} consiste à la manière dont les données sont
+    interrogées dans un graphe, naviguant depuis les nœuds de départ
+    vers les noeuds reliés en accordance avec un algorithme.\bigskip
+
   \item [Les contraintes d'intégrité]:
   \end{description}
 \enddescription
-
-% "Une base de données graphe brille quand elle stocke des données
-% hautement " "connectées.  Les requêtes sont exécutées à l'aide de
-% traversées, qui peuvent " "procéder à plusieurs millions de
-% traversées par seconde.  Une traversée " "ressemble à une _jointure_
-% dans les bases de données relationnelles.
-
-
-% Les bases de données orientées graphes sont donc conçues pour
-% modéliser des réseaux de données fortement connectées et y naviguer
-% facilement en bénéficiant de performances extrêmement élevées\medskip
 \newpage
+
   \subsection{Techniques de persistance des bases de données graphes}
   \label{sec:persistence}
   Généralement, nous pouvons distinguer trois techniques majeures du
@@ -415,11 +415,11 @@ différents systèmes de gestion de base de données graphes.
     d'un noeud (et donc les noeud adjacents) selon les propriétés de
     ces arcs. Ces indexes éliminent la nécessité de balayage linéaire
     des arcs incidents lors d'un requête de parcours
-    ($\mathcal{O}(n)$) en faveur d'un parcours plus rapide (
-    $\mathcal{O}(n)$ ou $\mathcal{O}(\log{}n)$). Cette méthode est
-    utilisée surtout pour confronter le problème de \emph{Supernode}
-    dans les graphes fortement connectés, un \emph{Supernode} est un
-    noeud avec un très grand nombre des arcs incidents.
+    ($\mathcal{O}(n)$) en faveur d'un parcours plus rapide
+    ($\mathcal{O}(\log{}n)$). Cette méthode est utilisée surtout pour
+    confronter le problème de \emph{Supernode} dans les graphes
+    fortement connectés, un \emph{Supernode} est un noeud avec un très
+    grand nombre des arcs incidents.
 
   % \newpage
   % \subsection{Comparaison}
@@ -461,6 +461,7 @@ sémantique entre cinq service Web qui forme un plan de composition.
   des technologies clés du Web sémantique. Le standard
   \acrshort{sparql} est largement utilisé pour exprimer des
   interrogations à travers diverses sources de données graphes vues
+<<<<<<< HEAD
   comme des triplestores \acrshort{rdf}.\medskip
 
   \acrshort{sparql} est capable de rechercher des motifs de graphe
@@ -470,6 +471,15 @@ sémantique entre cinq service Web qui forme un plan de composition.
   \acrshort{rdf} qui peuvent être retournés via \acrshort{http} dans
   une variété de formats tels que \acrshort{xml} et
   \textsc{HTML}\medskip
+=======
+  comme des triplestores \acrshort{rdf}. Il est capable de rechercher
+  des motifs de graphe (\emph{graph patterns}) ainsi que leurs
+  conjonctions et leurs disjonctions. Les résultats des interrogations
+  \acrshort{sparql} peuvent être des ensembles de résultats ou des
+  graphes \acrshort{rdf} qui peuvent être retournés via
+  \acrshort{http} dans une variété de formats tels que \acrshort{xml},
+  HTML ou \acrshort{json}\medskip
+>>>>>>> 092b670... update \label{sec:sparql}.
 
   % TODO:approve!
   \acrshort{sparql} propose quatre types de requêtes:\medskip
