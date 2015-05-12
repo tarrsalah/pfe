@@ -44,7 +44,7 @@ que les langages de requêtes les plus adoptés pour les interroger.
 \label{sec:nosql}
 \acrshort{nosql} désigne une nouvelle génération de technologies de
 gestion de base de données conçu pour répondre à l'augmentation du
-volume de données stockées, traitées at analysées par les entreprises
+volume de données stockées, traitées et analysées par les entreprises
 et organisations ayant une large étendue d'utilisateurs tels que
 Google Amazon, Facebook et Twitter, \acrshort{nosql} comprend une
 multitude de systèmes de gestion de données qui ne sont plus fondés
@@ -191,51 +191,56 @@ gestion de bases de données graphes.
 
   \subsection{Définitions et caractéristiques}
   \label{sec:graphdb-defs}
-  Les bases de données orientées graphes sont conçues pour modéliser
-  des réseaux de données fortement connectées et y naviguer facilement
-  en bénéficiant de performances extrêmement élevées.\medskip
+  % Les bases de données orientées graphes sont conçues pour modéliser
+  % des réseaux de données fortement connectées et y naviguer facilement
+  % en bénéficiant de performances extrêmement élevées.\medskip
 
-  Selon Robinson \emph{el al.} \textit{``Un système de gestion de
-    bases de données orienté graphe (ou simplement, une base de
-    données graphe) est un système de gestion de bases de données en
-    ligne avec les options les quatre opérations de base pour la
-    persistance des données (\acrshort{crud}) exposant une structure
-    de donnée graphe.''}\bigskip
+  Selon Robinson \emph{el al.} \cite{robinson2013graph} \textit{``Un
+    système de gestion de bases de données orienté graphe (ou
+    simplement, une base de données graphe) est un système de gestion
+    de bases de données en ligne avec les options les quatre
+    opérations de base pour la persistance des données
+    (\acrshort{crud}) exposant une structure de donnée
+    graphe.''}\bigskip
 
   Angles et Gutierrez \cite{angles2008survey} conceptualise la notion
-  d'une base de données graphe (\textit{``graph db-model''}) par
-  rapport à trois éléments fondamentaux:\medskip
-
+  d'une base de données graphe (\textit{``graph db-model''}) des trois
+  éléments fondamentaux:\medskip
+  \newpage
   \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
   \begin{description}
-  \item [Modèle de données]: Une base de données graphe stocke les
-    données en graphe ou une structure de données plus générique
+  \item [Modèle de données]: une base de donnée graphe permet la
+    modélisation, le stockage et la manipulation de données complexes
+    liées par des relations non-triviales ou variables. Elle stocke
+    les données en graphe ou une structure de données plus générique
     (\textit{hypergraphs} ou \textit{hypernodes}) capable de
     représenter avec élégance n'importe quel type de données d'une
-    manière ultra accessible. Un graphe contient des \textit{nœuds} et
-    des \textit{relations}. Les nœuds représentent généralement les
-    entités. Les relations entre les nœuds sont un élément clé d'une
-    base de données graphe, elles permettent de trouvent les données
-    reliées, tout comme les noeuds, les relations peuvent avoir des
-    \textit{propriétés}.
+    manière ultra accessible. Un graphe contient des \textit{nœuds} ,
+    reliées par \textit{relations}, dans le modèle de graphe à
+    propriétés, chaque nœud et relation peut être libellée et contenir
+    plusieurs \textit{propriétés} les décrivant. Les relations entre
+    les nœuds sont un élément clé d'une base de données graphe, elles
+    permettent de trouvent les données reliées, tout comme les
+    noeuds.\medskip
 
   \item [Manipulation de données]: Les manipulations de données sont
-    exprimées par des transformations de graphe ou des traversées, ces
-    opérations utilisent les primitives fondamentaux d'une structure
-    de données graphe, comme les relations d'adjacence entre les
-    nœuds, les chemins de parcours, les sous-graphes, la notion de
-    connectivité, etc. Ces opérations sont utilisées pour la création,
-    l'interrogation et la mise à jour d'une base de données
-    graphes.\medskip
+    exprimées par des transformations de graphe ou des
+    \textit{traversées}, ces opérations utilisent les primitives
+    fondamentales d'une structure de données graphe, comme les
+    relations d'adjacence entre les nœuds, les chemins de parcours,
+    les sous-graphes et  la notion de connectivité, etc. Ces opérations
+    sont utilisées pour la création, l'interrogation et la mise à jour
+    d'une base de données graphes. Une \textit{traversée} consiste à
+    la manière dont les données sont interrogées dans un graphe,
+    naviguant depuis les nœuds de départ vers les noeuds reliés en
+    accordance avec un algorithme.\medskip
 
-    Une \textit{traversée} consiste à la manière dont les données sont
-    interrogées dans un graphe, naviguant depuis les nœuds de départ
-    vers les noeuds reliés en accordance avec un algorithme.\bigskip
-
-  \item [Les contraintes d'intégrité]:
+  \item [Les contraintes d'intégrité]: une contrainte d'intégrité
+    permet de garantir la cohérence des données lors des mises à jour,
+    ces contraintes nous permettent, par exemple, de typer des nœuds,
+    définir des contraintes d'unicité sur certains champs, etc.
   \end{description}
 \enddescription
-\newpage
 
   \subsection{Techniques de persistance des bases de données graphes}
   \label{sec:persistence}
@@ -266,7 +271,7 @@ gestion de bases de données graphes.
     gestion des bases de données graphes comme une application
     au-dessus d'un moteur de stockage relationnel \emph{PostgreSQL}.
 
-
+    \newpage
     \subsubsection{Bases de données graphes au-dessus d'un stockage
       NoSQL}
     \label{sec:graphdb-over-nosql}
@@ -332,12 +337,12 @@ gestion de bases de données graphes.
     conceptualisé et construit depuis le début afin d'être un système
     fiable, robuste, évolutif et très performant optimisé pour stocker
     et gérer des grandes masses de données structurées en graphe,
-    \textit{Neo4j} convient aussi bien pour le deploiement en grande
+    \textit{Neo4j} convient aussi bien pour le déploiement en grande
     entreprise que pour les projets plus légers en utilisant une
     partie du serveur complet. Parmi ses fonctionnalités:\medskip
 
     \begin{itemize}\renewcommand\labelitemi{--}
-    \item Transactions \acrshort{acid} réelle avec unr haute disponibilité.
+    \item Transactions \acrshort{acid} réelle avec une haute disponibilité.
     \item Supporte jusqu'à des milliards de noeuds et relations.
     \item Requêtes ultra-rapides grâce aux traversées.
     \end{itemize}
@@ -408,18 +413,18 @@ gestion de bases de données graphes.
     \input{figs/vertex-centric-indices.tex}
 
     \subsubsection{Vertex Centric Indices}
-    \label{sec:vertex}        % TODO: enhance the vertex stuff ...
+    \label{sec:vertex}
 
-    Vertex Centric Indices (\emph{Titan} \cite{vertexci}): L'objectif
-    de cette technique est de trier et indexer tous arcs incidents
-    d'un noeud (et donc les noeud adjacents) selon les propriétés de
-    ces arcs. Ces indexes éliminent la nécessité de balayage linéaire
-    des arcs incidents lors d'un requête de parcours
+    L'objectif de cette technique est de trier et indexer tous arcs
+    incidents d'un noeud (et donc les noeud adjacents) selon les
+    propriétés de ces arcs. Ces indexes éliminent la nécessité de
+    balayage linéaire des arcs incidents lors d'un requête de parcours
     ($\mathcal{O}(n)$) en faveur d'un parcours plus rapide
-    ($\mathcal{O}(\log{}n)$). Cette méthode est utilisée surtout pour
-    confronter le problème de \emph{Supernode} dans les graphes
-    fortement connectés, un \emph{Supernode} est un noeud avec un très
-    grand nombre des arcs incidents.
+    ($\mathcal{O}(\log{}n)$). Cette méthode est utilisée (\emph{Titan}
+    \cite{vertexci}) surtout pour confronter le problème de
+    \emph{Supernode} dans les graphes fortement connectés, un
+    \emph{Supernode} est un noeud avec un très grand nombre des arcs
+    incidents.
 
   % \newpage
   % \subsection{Comparaison}
@@ -443,16 +448,17 @@ requêtes vis-à-vis plusieurs dépôts de données, par exemple,
 \cite{clark1999xml} pour les bases de données \emph{\acrshort{xml}},
 \emph{QQL} \cite{alashqur1989oql} pour les bases de données orientées
 objets et \acrshort{sparql} \cite{prud2008sparql} pour les
-triplestores (les bases de données \emph{RDF}).
+triplestores (les bases de données \emph{RDF}). Cette section présente
+trois langages de requêtes largement supportés par les systèmes de
+gestion des bases de données graphes.
 
-\input{figs/query-graph-example.tex}
+% \input{figs/query-graph-example.tex}
 
-Cette section présente trois langages de requêtes largement supportés
-par les systèmes de gestion des bases de données graphes. Le graphe
-présenté par la figure \ref{fig:query-graph-example} sera utilisé pour
-illustrer le syntaxe et la sémantiques de ces trois langages. Le
-graphe représente le résultat d'un processus de \emph{matching}
-sémantique entre cinq service Web qui forme un plan de composition.
+% Le graphe présenté par la figure \ref{fig:query-graph-example} sera
+% utilisé pour illustrer le syntaxe et la sémantiques de ces trois
+% langages. Le graphe représente le résultat d'un processus de
+% \emph{matching} sémantique entre cinq service Web qui forme un plan de
+% composition.
 
   \subsection{SPARQL}
   \label{sec:sparql}
@@ -475,17 +481,16 @@ sémantique entre cinq service Web qui forme un plan de composition.
   \item les requêtes \texttt{SELECT} permettent d'extraire des
     informations d'une base de données ou d'une source de données
     \acrshort{rdf} interrogée.
+
   \item les requêtes \texttt{CONSTRUCT} permettent de créer de
     nouveaux triplets à partir du résultat d'une requête.
 
   \item les requêtes \texttt{DESCRIBE} permettent d'obtenir la
-    description d'une ressource donnée. Les spécifications de
-    \acrshort{sparql} ne précisent pas la nature de la description
-    d'une ressource. Elles imposent seulement que cette description
-    soit un sous-ensemble du graphe interrogé.
+    description d'une ressource donnée sous forme d'un
+    sous-ensemble du graphe interrogé.
 
-  \item les \texttt{ASK} retournent un booléen indiquant si la requête
-    à une solution ou n'en a pas.
+  \item \texttt{ASK} indique si la requêete retourne un réesultat non
+    vide
   \end{itemize}
   \enddescription
   \medskip
@@ -529,14 +534,15 @@ sémantique entre cinq service Web qui forme un plan de composition.
     comment le faire}. Ceci est en contraste aux langages impératifs
   comme Java et aux langages script comme \emph{Gremlin}
   \ref{sec:gremlin}, ce qui rend le fait d'optimisation de requêtes un
-  détail d'implémentation non exposé aux utilisateurs. \emph{Cypher}
-  est inspiré de plusieurs approches et construit sur des pratiques
-  établies pour l'interrogation expressif des bases de données. La
-  plupart des mots clés comme \verb|WHERE| et \verb|ORDER BY|, et La
-  concordance de patterns sont hérités directement des langages
-  déclaratifs comme \emph{SQL} et \emph{SPARQL} \ref{sec:sparql} avec
-  quelque propriétés inspirés des langages fonctionnels comme
-  \emph{Haskell} et \emph{ML}.\medskip
+  détail d'implémentation non exposé aux utilisateurs.\medskip
+
+  \emph{Cypher} est inspiré de plusieurs approches et construit sur
+  des pratiques établies pour l'interrogation expressif des bases de
+  données. La plupart des mots clés comme \verb|WHERE| et
+  \verb|ORDER BY|, et La concordance de patterns sont hérités
+  directement des langages déclaratifs comme \emph{SQL} et
+  \emph{SPARQL} \ref{sec:sparql} avec quelque propriétés inspirés des
+  langages fonctionnels comme \emph{Haskell} et \emph{ML}.\medskip
 
   Le langage \emph{Cypher} comporte un nombre de clauses distinctes,
   des clauses pour l'interrogation du graphe comme:
@@ -559,11 +565,18 @@ sémantique entre cinq service Web qui forme un plan de composition.
   \item [\texttt{DELETE}]: supprime des noeuds, relations ou propriétés.
   \end{itemize}
 
-  \newpage
-
 \section*{Conclusion}
-\label{sec:conclusion}
 \addcontentsline{toc}{section}{Conclusion} \markboth{CONCLUSION}{}
+
+Dans ce chapitre nous avons fait un tour d'horizon des systèmes de
+gestion des bases de données graphes conçues pour modéliser des
+réseaux de données fortement connectées, tout en mettant l'accent sur
+les techniques natives de stockage et d'indexation adoptées par des
+solutions très répondus dans l'industrie comme \textit{Neo4j} et
+\textit{AllegroGraph}.
+
+% TODO
+% Nous avons pu constater que ...
 
 %%% Local Variables:
 %%% mode: latex
