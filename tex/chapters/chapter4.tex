@@ -1,26 +1,128 @@
-\chapter{Une méthode de composition dynamique des services Web sémantiques utilisant neo4j}
+\chapter{Une méthode de composition dynamique des services Web sémantiques utilisant Neo4J}
+\label{ch:approche}
 
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
 
-\section{Reformulation mathématique du problème}
-\label{sec:reform-du-probl}
-% \cite{lecue2006formal}
-  \subsection{Définitions de base}
-  \label{sec:un-formalisme-pour}
-  \subsection{Hypothèses du travail}
-  \label{sec:hypotese-de-travail}
-  \subsection{Objectifs}
-  \label{objectifs}
+\newpage
+\section{Définitions préliminaires}
+\label{sec:basic-defs}
+Cette section à comme but d'introduire les notions de base ainsi que
+les notations et terminologies \ref{sec:basic:ws} employées dans la
+suite de ce chapitre, Ensuite nous présentons une formulation
+mathématique de notre problème principal, à savoir, \textit{la
+  composition des servies Web} sous forme d'un problème de recherche
+du plus court chemin dans un graphe orienté
+\ref{sec:basic:composition}.\medskip
 
-\section{Example d'illustration}
-\label{sec:example-dill}
+  \subsection{Services Web}
+  \label{sec:basic:ws}
+  Chaque web service peut contenir les définitions de différentes
+  opérations, identifiables par leur nom, leurs paramètres, Pour des
+  raisons de simplicité, nous supposons que chaque service Web
+  représente une seule opération.
 
-\section{Annotation sémantiques des services web}
-\label{sec:annot-semant-des}
+  \begin{mydef}[\textbf{Service Web}]
+   \label{def:ws}
+    Un Service Web $S$ est un tuple $S = <I,O>$. $I/O$ désigne la
+    liste des paramètres ``entrées/sorties'' où chaque paramètre est
+    lié à un concepte dans l'ontologie du domaine.
+   \end{mydef}
 
-\section{Architecture du système}
-\label{sec:larch-du-syst}
+  \input{figs/ch4/web-service.tex}
+
+  Nous pouvons donc définir un service comme une application $S$
+  définie par:
+
+   \[ S =
+     \begin{cases}
+       Inputs^n  \to Outputs^m \\
+       (i_0, ..., i_n ) \mapsto (o_0, ..., o_m)\\
+     \end{cases}
+   \]\medskip
+
+   $S$ possède $n$ paramètres d'entrée notés $i_0...i_n$ et $m$
+   paramètres de sortie notés $o_0,...o_m$. Dans notre approche
+   proposée, nous supposons que chaque service est décrit par un
+   document \textit{OWL-S} où chaque paramètre (d'entrée ou de sortie)
+   est lié à un concepte dans une ontologie \textit{(OWL)} du domaine
+   locale.\medskip
+
+   %% TODO: plagiat!
+   Les ontologies de domaines locales sont les éléments essentiels des
+   services web sémantique, créés par les fournisseurs
+   (développeurs). Un fournisseur a besoin de cette classe lorsqu’il
+   crée un service web sémantique ainsi que leur ontologie de
+   description (OWL-S) pour pointer les paramètres Input et Output de
+   ce service vers des entités de cette classe.
+
+   \begin{mydef}[\textbf{Annuaire des services Web}] un annuaire des
+     services $R$ (ou référentiel des services) est un ensemble $R
+     =\{s_0, s_1, ...s_n\}$ des services Web disponibles qui peuvent
+     être composés suite à une requête cliente de composition.
+  \end{mydef}
+
+  Dans notre l'architecture proposé, l'annuaire des services consiste
+  à un service Web remplaçant un serveur \acrshort{uddi}. Ce service
+  fourni l'ensemble des descriptions \textit{OWL-S} des services
+  disponibles, chaque document référence un document \acrshort{wsdl}
+  qui à son tour pointe vers l'\acrshort{url} de service décrit
+  (\textit{Endpoint}), les descriptions sémantiques des services Web
+  disponibles seront stockées dans une base de données relationnelle
+  et exposées via un simple interface \acrshort{rest}.\medskip
+
+  \subsection{Composition de services Web}
+  \label{sec:basic:composition}
+  \begin{mydef}[\textbf{Graphe de dépendance}] Un graphe de dépendance
+    $GD$ est un ``graphe orienté et acyclique'' $GD=<R, E_r>$ qui
+    modélise toutes les relations de dépendance fonctionnelle
+    possibles entre les services Web disponibles dans un annuaire
+    $R$. Il existe une relation $e=(s_0, s_1) \in E_r$ si et seulement
+    si il existe une relation de dépendance entre $s_0$ et $s_1$.
+  \end{mydef}
+
+  L'approche proposée dans ce chapitre consiste à la mise en œvre
+
+  \newpage
+  \begin{mydef}[\textbf{Requête}] Une requête $Q$ est un tuple $Q =
+    <I', O'>$. $I'$ désigne la liste des paramètres d'entrée fournis
+    par le client et $O'$ représente la listes paramètres requis.
+  \end{mydef}
+
+  \begin{mydef}[\textbf{Plan de composition}] Un plan de composition
+    $P$ est un sous-graphe $G$``\textbf{connexe''} d'un graphe de
+    dépendance $GD$, $G=(V,E)$ tel que $G \subset GD$ décrivant le
+    flux de données/contrôles d'exécution d'un ensemble de services
+    Web atomiques $V \subset R$ engagés dans un processus de
+    composition. Si l'exécution d'un service $s_j$ dépend d'une ou
+    plusieurs paramètres de sorties de $s_i$, on dit qu'il existe une
+    arête $e \in E$ tel que $e = (s_i, s_j)$.
+  \end{mydef}
+
+  \input{figs/ch4/composition-plan.tex}
+
+  \begin{mydef}[\textbf{Service Web composite}] Un service Web
+    composite $S_c$ est un service Web exécutable composé de ``$n$''
+    services atomique $s \in \{s_0,..., s_n\}$ tel que $n \succeq 1$,
+    l'exécution d'un service Web composite correspond à l'éxecution
+    d'un plan de composition $P$ décrit par $G=<V,E>$ où $V = \{s_0,
+    ..., s_n\}$ et $E$ décrivant les relations de dépendance entre les
+    services $V$.
+  \end{mydef}
+
+  La figure \ref{fig:ch4/composition-plan} représente un service Web
+  composite $S_c = <\{i_0, i_1\}, \{o_0, o_1\}>$ correspondant a un
+  plan de composition $P$ représenté par un graphe acyclique orienté
+  $G =(\{s_0, s_1, s_2, s_4\}, \{(s_0, s_1), (s_1, s_2), (s_2,
+  s_4)\})$.
+
+\section{Architecture proposée}
+\label{sec:proposition}
+
+\section{Matching des services  atomiques}
+\section{Construction et persistance du graphe de dépendance dans une
+  base de donnée NeoJ}
+\section{Découverte et exécution des service composites}
 
 \section*{Conclusion}
 \label{sec:conclusion}
