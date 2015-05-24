@@ -1,6 +1,7 @@
 *
 !*/
 !.gitignore
+!.projectile
 !tex/makefile
 !*.tex
 !*.md
