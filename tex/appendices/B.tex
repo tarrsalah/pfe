@@ -116,7 +116,7 @@ particulier.
 \end{mydef}
 
 Les ontologies définissent les propriétés des concepts et les
-relations entre concepts. Une de ces relations est utilisée dans notre
+relations entre eux. Une de ces relations est utilisée dans notre
 application est \textsc{is–a} (est-un). Cette relation est utilisée
 pour extraire des taxonomies à partir des ontologies
 
@@ -124,7 +124,7 @@ pour extraire des taxonomies à partir des ontologies
   Soit C l'ensemble de concepts définis dans une ontologie. On dit que
   T est une taxonomie et on écrit T(C, $\leq$) tel que c $\leq$ c'
   signifie que c \textit{is–a} c' (le concept c est subsumé par le
-  concept).
+  concept c').
 \end{mydef}
 
 De nombreuses approches ont été proposées pour évaluer la similarité
@@ -198,9 +198,9 @@ hybrides.
   \item [La mesure de Zargayouna]
     Cette mesure de similarité est inspirée de celle de Wu-Palmer
     favorisant les concepts se trouvant dans la même hiérarchie par
-    rapport au voisinage. Le lien père-fils est ainsi privilégié xpar
+    rapport au voisinage. Le lien père-fils est ainsi privilégié par
     rapport aux autres liens de voisinage en adaptant la mesure de
-    Wu-Palmer. L'adaptation de la mesure est faite au travers de la
+    Wu-Palmer. L'adaptation de la mesure est faite à travers la
     fonction de calcul du degré de spécialisation d'un concept appelé
     spectre (spec) qui mesure sa distance par rapport à l'anti-racine.
 
