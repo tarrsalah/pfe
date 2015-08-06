@@ -1,4 +1,4 @@
-\chapter{Une méthode de composition dynamique de services Web
+\chapter{Une méthode de composition dynamique des services Web
   sémantiques utilisant Neo4j}
 \label{ch:approche}
 
@@ -8,30 +8,30 @@
 \newpage
 \section{Définitions préliminaires}
 \label{sec:basic-defs}
-Cette section à comme but d'introduire les notions de base ainsi que
+Cette section a comme but d'introduire les notions de base ainsi que
 les notations et terminologies \ref{sec:basic:ws} employées dans la
-suite de ce chapitre, Ensuite nous présentons une formulation
-mathématique de notre problème principale, à savoir, \textit{la
+suite de ce chapitre. Nous présentons une formulation
+mathématique de notre problème principal, à savoir \textit{la
   composition des servies Web} sous forme d'un problème de recherche
 du plus court chemin dans un graphe orienté
 \ref{sec:basic:composition}.\medskip
 
   \subsection{Services Web}
   \label{sec:basic:ws}
-  Chaque web service peut contenir les définitions de différentes
-  opérations, identifiables par leur nom, leurs paramètres, Pour des
-  raisons de simplicité, nous supposons que chaque service Web
+  Chaque service web peut contenir les définitions de différentes
+  opérations identifiables par leurs noms et leurs paramètres. 
+  Pour des raisons de simplicité, nous supposons que chaque service Web
   représente une seule opération.
 
   \begin{mydef}[\textbf{Service Web}]
-    Un Service Web $S$ est un tuple $S = <I,O>$. $I/O$ désigne la
+    Un Service Web $S$ est un tuple $S = <I,O>$. $I/O$ qui désigne la
     liste des paramètres ``entrées/sorties'' où chaque paramètre est
     lié à un concept dans l'ontologie du domaine.
    \end{mydef}
 
   \input{figs/ch4/web-service.tex}
 
-  Nous pouvons donc définir un service comme une application $S$
+  Nous pouvons donc déterminer un service comme une application $S$
   définie par:
 
    \[ S =
@@ -46,12 +46,12 @@ du plus court chemin dans un graphe orienté
    proposée, nous supposons que chaque service est décrit par un
    document \textit{OWL-S} où chaque paramètre (d'entrée ou de sortie)
    est lié à un concept dans une ontologie \textit{(OWL)} du domaine
-   locale.\medskip
+   local.\medskip
 
 
-   Les ontologies de domaines locales sont les éléments essentiels des
-   services web sémantique, créés par les prestataires de services. Un
-   fournisseur a besoin de cette classe lorsqu'il crée un service web
+   Les ontologies de domaine locale sont les éléments essentiels des
+   services web sémantique, et sont créées par les prestataires des services.
+   Un fournisseur a besoin de cette classe lorsqu'il crée un service web
    sémantique ainsi que leur ontologie de description (\textit{OWL-S})
    pour pointer les paramètres de ce service vers des entités de cette
    classe.
@@ -59,15 +59,15 @@ du plus court chemin dans un graphe orienté
    \begin{mydef}[\textbf{Annuaire des services Web}]
      un annuaire des services $R$ (ou référentiel des services) est un
      ensemble $R =\{s_0, s_1, ...s_n\}$ des services Web disponibles
-     qui peuvent être composés suite à une requête cliente de
+     qui peuvent être composés suite à une requête du client de
      composition.
   \end{mydef}
 
-  Dans notre l'architecture proposé, l'annuaire des services consiste
-  à un service Web remplaçant un serveur \acrshort{uddi}. Ce service
-  fourni l'ensemble des descriptions \textit{OWL-S} des services
-  disponibles, chaque document référence un document \acrshort{wsdl}
-  qui à son tour pointe vers l'\acrshort{url} de service décrit
+  Dans notre architecture proposée, l'annuaire des services consiste
+  en un service Web remplaçant un serveur \acrshort{uddi}. Ce service
+  fournit l'ensemble des descriptions \textit{OWL-S} des services
+  disponibles. Chaque document référence un document \acrshort{wsdl}
+  qui à son tour pointe vers l'\acrshort{url} du service décrit
   (\textit{Endpoint}), les descriptions sémantiques des services Web
   disponibles seront stockées dans une base de données relationnelle
   et exposées via un simple interface \acrshort{rest}.\medskip
@@ -77,12 +77,11 @@ du plus court chemin dans un graphe orienté
   \subsection{Composition de services Web}
   \label{sec:basic:composition}
   Afin de découvrir et sélectionner un service Web composite suite à
-  une requête cliente de composition, les services référencés dans un
+  une requête du client de composition, les services référencés dans un
   annuaire doivent être structurés dans un graphe orienté modélisant
-  toutes les relations de dépendance fonctionnelle possibles réalisant
-  un \textit{Matching} horizontal \ref{sec:ch4/matching} (la figure
-  \ref{fig:ch4/gd}) entre les services disponibles deux par
-  deux.\medskip
+  toutes les relations de dépendance fonctionnelle possibles pour permettre 
+  de réaliser un \textit{Matching} horizontal \ref{sec:ch4/matching}
+  (la figure \ref{fig:ch4/gd}) entre les services disponibles deux à deux.\medskip
 
   \begin{mydef}[\textbf{Graphe de dépendance}]
     Un graphe de dépendance $GD$ est un ``graphe orienté et
@@ -94,7 +93,7 @@ du plus court chemin dans un graphe orienté
   \end{mydef}
 
   L'approche proposée consiste à construire le graphe de dépendance à
-  priori (\textit{Offline}) et le sauvegarder dans une base de donnés
+  priori (\textit{Offline}) et le sauvegarder dans une base de données
   graphe (\textit{Neo4j}). Suite à une requête $Q$, un sous-graphe $G$
   est extrait reflétant un plan de composition exécutable $P$ d'un
   service Web composite satisfaisant.
@@ -102,7 +101,7 @@ du plus court chemin dans un graphe orienté
   \begin{mydef}[\textbf{Requête}]
     Une requête $Q$ est un tuple $Q = <I', O'>$. $I'$ désigne la liste
     des paramètres d'entrée fournis par le client et $O'$ représente
-    la listes paramètres requis (sorties).
+    la listes des paramètres requis (sorties).
   \end{mydef}
 
   \input{figs/ch4/composition-plan.tex}
@@ -110,24 +109,24 @@ du plus court chemin dans un graphe orienté
   \begin{mydef}[\textbf{Plan de composition}]
     Un plan de composition $P$ est un sous-graphe
     $G$``\textbf{connexe''} d'un graphe de dépendance $GD$, $G=(V,E)$
-    tel que $G \subset GD$ décrivant le flux de données/contrôles
+    tel que $G \subset GD$ décrit le flux de données/contrôles
     d'exécution d'un ensemble de services Web atomiques $V \subset R$
     engagés dans un processus de composition. Il existe une arête $e
     \in E$ tel que $e = (s_i, s_j)$ si l'exécution d'un service $s_j$
-    dépend d'une ou plusieurs paramètres de sorties de $s_i$.
+    dépend d'un ou plusieurs paramètres de sortie de $s_i$.
   \end{mydef}
 
   \begin{mydef}[\textbf{Service Web composite}]
     Un service Web composite $S_c$ est un service Web exécutable
-    composé de ``$n$'' services atomique $s \in \{s_0,..., s_n\}$ tel
+    composé de ``$n$'' services atomiques $s \in \{s_0,..., s_n\}$ tel
     que $n \succeq 1$, l'exécution d'un service Web composite
     correspond à l'exécution d'un plan de composition $P$ décrit par
-    $G=<V,E>$ où $V = \{s_0, ..., s_n\}$ et $E$ décrivant les
+    $G=<V,E>$ où $V = \{s_0, ..., s_n\}$ et $E$ décrivent les
     relations de dépendance entre les services $V$.
   \end{mydef}
 
-  La figure \ref{fig:ch4/composition-plan} représente un service Web
-  composite $S_c = <\{i_0, i_1\}, \{o_0, o_1\}>$ correspondant a un
+  La figure \ref{fig:ch4/composition-plan} montre un service Web
+  composite $S_c = <\{i_0, i_1\}, \{o_0, o_1\}>$ correspondant à un
   plan de composition $P$ représenté par un graphe\\ $G =<\{s_0, s_1,
   s_2, s_4\}, \{(s_0, s_1), (s_1, s_2), (s_2, s_4)\}>$.
 
@@ -138,8 +137,8 @@ du plus court chemin dans un graphe orienté
 \label{sec:proposition}
 
 \section{Construction et persistance du graphe de dépendance dans une
-  base de donnée NeoJ}
-\section{Découverte et exécution de services composites}
+  base de données NeoJ}
+\section{Découverte et exécution des services composites}
 
 \section*{Conclusion}
 \label{sec:conclusion}
