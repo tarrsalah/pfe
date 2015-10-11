@@ -1,6 +1,6 @@
 all: clean compile pdf
 
-compile:	
+compile:
 	latexmk main.tex
 	makeglossaries main
 	latexmk -bibtex -view=pdf  -pdf -pdflatex="pdflatex --shell-escape %O %S" main.tex
@@ -9,5 +9,5 @@ clean:
 	latexmk -C
 	rm -rf main.gl*
 
-pdf: 
+pdf:
 	evince main.pdf
