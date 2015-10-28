@@ -7,18 +7,18 @@
 
 Plusieurs paradigmes de développement de logiciels ont été proposés
 pour satisfaire le besoin de la \textit{réutilisation}, le paradigme
-\acrshort{soa} représente aujourd'hui une approche largement adoptée
-pour le développement des systèmes d'information distribués sur
-\textit{Internet}. En effet, il adopte les avantages des autres
-paradigmes comme l'orientation objet et l'orientation composant, tels
-que \textit{l'encapsulation}, \textit{la modularité}, \textit{le
+orienté service (\acrshort{soa}) représente aujourd'hui une approche
+largement adoptée pour le développement des systèmes d'information
+distribués sur \textit{Internet}. En effet, il adopte les avantages
+des autres paradigmes comme l'orientaté objet et l'orienté composant,
+tels que \textit{l'encapsulation}, \textit{la modularité}, \textit{le
   couplage faible} et \textit{l'interopérabilité}. Le paradigme
 \acrshort{soa} possède plusieurs implémentations telles que
 \textit{DCOM}~\cite{frank1997dcom}, \textsc{CORBA}
 \cite{vinoski1997corba},\textsc{RPC}~\cite{bloomer1992power} et
 \acrshort{rest}~\cite{fielding2000architectural}. Dans ce travail,
 nous nous intéressons uniquement aux services Web basés sur la
-spécification \acrshort{soap} \textit{SOAP-based Web services}, qui
+spécification \acrshort{soap} (\textit{SOAP-based Web services}), qui
 représentent la concrétisation la plus répandue dans
 l'industrie.\bigskip
 
@@ -27,11 +27,11 @@ Ce chapitre établit une étude du fondement théorique de notre travail
 par introduire le concept de (\acrshort{soc}) et \acrshort{soa}, ainsi
 que les services Web~\ref{sec:ws-definitions}, leurs architectures et
 leurs infrastructures, puis nous présentons un socle technologique
-très répandu pour la mise en œuvre d'une telle architecture
-\ref{sec:ws-standards}. Ensuite nous nous focalisons sur les modèles
-de description des services; nous mettons un accent particulier sur
-l'enrichissement sémantique de la représentation des services Web
-\ref{sec:ws-description}. La dernière partie de ce
+très répandu pour la mise en œuvre d'une telle
+architecture~\ref{sec:ws-standards}. Ensuite nous nous focalisons sur
+les modèles de description des services tout en mettant l'accent sur
+l'enrichissement sémantique de la représentation des services
+Web~\ref{sec:ws-description}. La dernière partie de ce
 chapitre~\ref{sec:ws-discovery} est consacrée à la présentation de
 quelques approches de découverte des services Web rencontrées dans la
 littérature.
@@ -40,16 +40,16 @@ littérature.
 \section{Définitions}
 \label{sec:ws-definitions}
 L'objectif de cette section est d'introduire les concepts et
-terminologies associés au paradigme d'\textit{orientation
-  service}. Dans la première section~\ref{sec:soc}, nous allons
-définir le \textit{``Service oriented computing''} (\acrshort{soc})
-comme un modèle émergent de développement rapide des applications
-distribuées dans les environnements hétérogènes. Nous présentons
-ensuite l'architecture orientée service pour réaliser le
-\acrshort{soc} (section~\ref{sec:soa}). Dans la section
-\ref{sec:ws-def}, nous nous focalisons sur les services Web en
-présentant quelques définitions et caractéristiques rencontrées dans
-la littérature.
+terminologies associés au paradigme \textit{orientaté service}. Dans
+la première section~\ref{sec:soc}, nous allons définir le
+\textit{``Service oriented computing''} (\acrshort{soc}) comme un
+modèle émergent de développement rapide des applications distribuées
+dans les environnements hétérogènes. Nous présentons ensuite
+l'architecture orientée service pour réaliser le \acrshort{soc}
+(section~\ref{sec:soa}). Dans la section \ref{sec:ws-def}, nous nous
+focalisons sur les services Web en présentant quelques définitions et
+caractéristiques rencontrées dans la littérature.
+
   \subsection{Service oriented computing}
   \label{sec:soc}
   L'approche orientée service, en anglais \textit{``Service oriented
@@ -57,7 +57,7 @@ la littérature.
   qui permet la construction d'applications à partir d'entités
   logicielles particulières, que sont les \emph{services}.\bigskip
 
-  Selon Papazoglou \cite{papazoglou2003service}: \textit{``Les
+  Selon Papazoglou~\cite{papazoglou2003service}: \textit{``Les
     services des éléments logiciels auto-descriptifs, définis
     indépendamment d'une toute plate-forme ou technologie''}\bigskip
 
@@ -98,10 +98,10 @@ la littérature.
     fonctionnalités pour produire le résultat désiré avec des
     préconditions et des buts mesurables.''}\bigskip
 
-  Une architecture à base de services
-  \cite{gottschalk2002introduction} est constitué d'un fournisseur de
-  service \textit{(service provider)}, un annuaire des services
-  \textit{(service registry)}, et un client de service
+  Une architecture à base de
+  services~\cite{gottschalk2002introduction} est constitué d'un
+  fournisseur de service \textit{(service provider)}, un annuaire des
+  services \textit{(service registry)}, et un client de service
   \textit{(service requester)}.
 
   \input{figs/ws-basic-arch.tex}
@@ -128,17 +128,17 @@ la littérature.
   \end{description}
   \enddescription
 
-  Pour qu'une application profite des services Web, trois comportements
-  doivent avoir lieu : \textit{la publication} des descriptions des
-  service, \textit{la découverte} de ces descriptions et enfin
-  \textit{l'invocation} des services.
+  Pour qu'une application profite des services Web, trois
+  comportements doivent avoir lieu: \textit{la publication} de
+  descriptions des services, \textit{la découverte} de ces
+  descriptions et enfin \textit{l'invocation} des services:
 
   \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
   \begin{description}
   \item[Publier]: Pour être accessible, une description de service
     doit être publiée afin que le client puisse la trouver.
 
-  \item[Découvrir]: Lors de la découverte d'un service , le client
+  \item[Découvrir]: Lors de la découverte d'un service, le client
     interroge un annuaire (ou un registre) de services pour une
     catégorie requise de services et récupère une description
     détaillée.
@@ -152,10 +152,10 @@ la littérature.
 
   La \acrshort{soa} n'est pas liée à une technologie particulière. En
   effet, il existe une multitude d'implémentations techniques de cette
-  architecture, y compris les services Web \cite{WSA}, \acrshort{rest}
-  \cite{fielding2000architectural}, \textsc{CORBA}
-  \cite{vinoski1997corba}, etc. Dans notre travail nous nous
-  limitons aux services Web (ou plus clairement
+  architecture, y compris les services Web~\cite{WSA},
+  \acrshort{rest}~\cite{fielding2000architectural},
+  \textsc{CORBA}~\cite{vinoski1997corba}, etc. Dans notre travail nous
+  nous limitons aux services Web (ou plus clairement
   \textit{SOAP-based web services}).
 
   \subsection{Services Web}
@@ -167,28 +167,30 @@ la littérature.
   messages, et qui n'est pas lié à un système d'exploitation ou un
   langage de programmation particulier.\\
 
-  À l'origine, la technologie des services Web a été initiée par IBM
-  \cite{kreger2001web} et Microsoft, puis en partie standardisée par
-  le consortium du \acrshort{w3c} \footnote{\url{http://www.w3.org/}},
-  l'organisme chargé de standardiser les spécifications techniques du
-  Web.\medskip
+  À l'origine, la technologie des services Web a été initiée par
+  IBM~\cite{kreger2001web} et Microsoft, puis en partie standardisée
+  par le consortium du
+  \acrshort{w3c}~\footnote{\url{http://www.w3.org/}}, l'organisme
+  chargé de standardiser les spécifications techniques du Web.\medskip
 
-  D'après Curbera \emph{et al.} \cite{curbera2001web}:\bigskip
+  D'après Curbera \emph{et al.}~\cite{curbera2001web}:\bigskip
 
-  \textit{``Un service Web est une application réseau capable d'interagir
-    par le moyen des standards et des protocoles via des interfaces
-    bien spécifiées, dans lesquelles il est décrit utilisant un langage de
-    description fonctionnel standardisé.''}\bigskip
+  \textit{``Un service Web est une application réseau capable
+    d'interagir par le moyen des standards et des protocoles via des
+    interfaces bien spécifiées, dans lesquelles il est décrit
+    utilisant un langage de description fonctionnel
+    standardisé.''}\bigskip
 
   Selon Cubera \emph{el al.}, un service Web est vu principalement
-  comme une application réseau accessible par d'autres
+  comme une application réseau accessible à partir d'autres
   applications. Cette définition est très ouverte dans le sens ou elle
-  permet de considérer toute application identifiée par une \acrshort{url}
-  comme un service Web, ce qui est pas le cas pour les scripts \acrshort{cgi} ou les applications
-  \textsc{CORBA} par exemple.\medskip
+  permet de considérer toute application identifiée par une
+  \acrshort{url} comme un service Web, ce qui est pas le cas pour les
+  scripts \acrshort{cgi} ou les applications \textsc{CORBA} par
+  exemple.\medskip
 
   \acrshort{w3c} fournit une définition plus spécifique aux services
-  Web \cite{WSA}:\bigskip
+  Web~\cite{WSA}:\bigskip
 
   \textit{``Un service Web est un système conçu pour permettre
     l'interopérabilité des applications à travers un réseau.  Il est
@@ -199,8 +201,8 @@ la littérature.
     SOAP, généralement transmis via le protocole HTTP et sérialisés en
     XML ou en d'autres standards du Web.''} \bigskip
 
-  Cette définition souligne les caractéristiques suivantes des services
-  Web \cite{fremantle2002enterprise}:
+  Cette définition souligne les caractéristiques suivantes des
+  services Web~\cite{fremantle2002enterprise}:
 
   \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
   \begin{description}
@@ -208,26 +210,26 @@ la littérature.
     \acrshort{http} pour le transport des informations permet de
     traverser les contrôles d'accès dans un environnement hétérogène.
 
-  \item[Interopérables]: Le standard \acrshort{soap}
-    \cite{box2000simple} définit comme étant un protocole destiné à
-    l'échange de messages structurés véhiculés généralement sur
-    \acrshort{http} et sérialisé en \acrshort{w3c}, permettant ainsi le
-    support pour l'interopérabilité.
+  \item[Interopérables]: Le standard
+    \acrshort{soap}~\cite{box2000simple} définit comme étant un
+    protocole destiné à l'échange de messages structurés véhiculés
+    généralement sur \acrshort{http} et sérialisé en \acrshort{w3c},
+    permettant ainsi le support pour l'interopérabilité.
 
-  \item[Basés sur XML] : Le métalangage de balises \acrshort{w3c}
+  \item[Basés sur XML]: Le métalangage de balises \acrshort{w3c}
     \textit{eXtensible Markup Language} est un standard Web ouvert par
-    \textsc{W3C} \cite{bray1998extensible} qui offre un cadre standard
+    \textsc{W3C}~\cite{bray1998extensible} qui offre un cadre standard
     pour la définition de documents interprétables par des machines.
   \end{description}
   \enddescription
 
-  M. P. Papazoglou \cite{papazoglou2003service} apporte une autre
+  M. P. Papazoglou~\cite{papazoglou2003service} apporte une autre
   définition détaillée de services Web (traduction par
   \cite{driss2011approche}):\bigskip
 
   \textit{``Les services Web sont des éléments auto-descriptifs et
-    indépendants des plates-formes permettent la composition faible coût
-    d’applications distribuées. Les services Web effectuent des
+    indépendants des plates-formes permettent la composition faible
+    coût d’applications distribuées. Les services Web effectuent des
     fonctions allant de simples requêtes aux processus métiers
     complexes. Les services Web permettent aux organisations d'exposer
     leurs programmes résultats sur Internet (ou sur un intranet) en
@@ -278,7 +280,7 @@ la littérature.
 Les services Web sont construits autour de standards qui sont
 \acrshort{soap}, \acrshort{wsdl} et \acrshort{uddi}, assurant
 respectivement leur \emph{communication}, leur \emph{description} et
-leur \emph{découverte}. La figure \ref{fig:ws-standards-relationships}
+leur \emph{découverte}. La figure~\ref{fig:ws-standards-relationships}
 illustre les relations sous-jacentes entre ces spécifications et la
 contribution de chacune d'entre elles dans le processus de mise en oeuvre
 d'une architecture à base de services Web.\bigskip

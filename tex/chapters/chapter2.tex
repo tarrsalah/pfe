@@ -1,12 +1,12 @@
 %% !TEX root = ../main.tex
-\chapter{La Composition de services web}
+\chapter{La Composition de services set}
 \label{ch:composition}
 
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
 
 Dans le chapitre précédent \ref{ch:web-service}, nous avons présenté
-la description, la publication et la découverte des services Web où une
+la description, la publication et la découverte des services où une
 requête d'un utilisateur peut être satisfaite par l'invocation d'un
 seul service Web référencé dans un annuaire. Si l'objectif du client
 n'est pas atteint par l'invocation d'un simple service Web
@@ -58,13 +58,13 @@ rencontrés dans la littérature \ref{sec:proc-de-coord},
 
   En d'autre terme, La composition de services Web désigne une
   opération qui consiste à construire de nouvelles applications ou
-  services appelés \textbf{services composites} ou agrégats par
-  l'assemblage ou l'agrégation de services existants nommés
-  \textbf{services atomiques} ou élémentaires.\bigskip
+  services appelés \textbf{services composites} par l'assemblage ou
+  l'agrégation de services existants nommés \textbf{services
+    atomiques} ou élémentaires.\bigskip
 
   Medjahed \cite{medjahed2004thesis} de ça part a défini un service
-  Web composite comme un \emph{``conglomérat de sous-traitance
-    services Web (services appelés participants) travaillant en tandem
+  Web composite comme un \emph{``conglomérat de services Web
+    externalisés (services appelés participants) travaillant en tandem
     pour offrir un service à valeur ajoutée.''}\bigskip
 
   La composition des services Web vise essentiellement quatre objectifs
@@ -92,14 +92,14 @@ rencontrés dans la littérature \ref{sec:proc-de-coord},
   \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
   \begin{description}
   \item[La phase de définition]: Pendant cette phase, le client de
-    service spécifie les exigences de composition de services en termes
-    des besoins et des préférences pour le service
-    composite. l'exigence est ensuite \textit{décomposé}, soit
+    service spécifie les exigences de composition de services en
+    termes des besoins et des préférences pour le service
+    composite. L'exigence est ensuite \textit{décomposé}, soit
     semi-automatiquement ou automatiquement dans un modèle de
-    \textbf{processus abstrait}(càd le service composite
-    abstrait), qui spécifie l'ensemble d'activités, le contrôle,
-    le flux de données entre eux, la qualité de service \acrshort{qos}
-    , et la gestion des exceptions.
+    \textbf{processus abstrait} (càd le service composite abstrait),
+    qui spécifie l'ensemble d'activités, le contrôle, le flux de
+    données entre eux, la qualité de service \acrshort{qos} et la
+    gestion des exceptions.
 
   \item[La phase de sélection]: Dans cette phase, pour chaque activité
     dans le service composite, les services Web appropriés qui
@@ -221,8 +221,9 @@ rencontrés dans la littérature \ref{sec:proc-de-coord},
   Barros \emph{et al.} \cite{barros2006standards} classent la
   composition des services Web en trois catégories : la composition
   comportementale, l'orchestration et la chorégraphie, à l'instar de
-  Barros \emph{et al.}, Peltz \cite{peltz2003web} considère que les
-  deux dernières \textit{(orchestration, chorégraphie)}.\medskip
+  Barros \emph{et al.}, Peltz \cite{peltz2003web} a pris en compte
+  seulement les deux dernières \textit{(orchestration,
+    chorégraphie)}.\medskip
 
   \input{figs/static-vs-dynamic-composition.tex}
 
@@ -944,18 +945,19 @@ standards et langages.
   \label{sec:discussion-comparaison}
   Dans les sections \ref{sec:generation-online},
   \ref{sec:generation-offline} et \ref{sec:autres-travaux}, nous avons
-  identifiés les différantes approches pour la composition des services
-  Web qui utilisent un modèle graphe pour gérer les dépendances
-  fonctionnelles entres les services Web référencés dans un
-  annuaire. Ces méthodes sont classées en deux catégories selon que le
-  graphe de dépendance soit construit à priori (en phase de
+  identifiés les différantes approches pour la composition des
+  services Web qui utilisent un modèle graphe pour gérer les
+  dépendances fonctionnelles entres les services Web référencés dans
+  un annuaire. Ces méthodes sont classées en deux catégories selon que
+  le graphe de dépendance soit construit à priori (en phase de
   publication des services) ou pendant le traitement de la requête de
   composition. Le tableau \ref{tab:comparaison-graph-composition}
   récapitule les approches présentées dans ces sections . \bigskip
 
   Dans une approche \textbf{\textit{Online}}, le graphe est généré de
   manière entièrement dynamique après chaque requête et dont la taille
-  ne pose aucun problème. Cependant, cette approche révèle certaine limites:
+  ne pose aucun problème. Cependant, cette approche révèle certaine
+  limites:
 
   \SpecialItem
   \begin{itemize}
