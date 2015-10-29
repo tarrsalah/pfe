@@ -277,25 +277,22 @@ d'une architecture à base de services Web.\bigskip
 Dans la suite de cette section, nous présentons brièvement ces trois
 spécifications, leurs origines, structures et fonctionnalités de base.
 
-\newpage
   \subsection{Communication: SOAP}
   \label{sec:soap}
   Développé par IBM et Microsoft \cite{box2000simple}, le langage
   \acrshort{soap} est une recommandation \acrshort{w3c}
   \cite{mitra2003soap} qui le définit comme étant un protocole destiné
-  à l'échange de messages structurés, permettant d'invoquer des
+  à l'échange de messages structurés. Il permet d'invoquer des
   applications sur des réseaux distribués. \acrshort{soap} est basé
   sur \acrshort{xml} pour mettre en place un mécanisme valable
   d'échange de données indépendant du modèle de programmation de
-  l'application et du système d'exploitation.\medskip
+  l'application et du système d'exploitation. Un message
+  \acrshort{soap} est un document \acrshort{xml} constitué d'une
+  enveloppe \acrshort{soap} obligatoire, d'une en-tête \acrshort{soap}
+  facultative et d'un corps \acrshort{soap} obligatoire (voir la
+  figure~\ref{fig:soap-message-structure}):
 
-  Un message \acrshort{soap} est un document \acrshort{xml} constitué
-  d'une enveloppe \acrshort{soap} obligatoire, d'une en-tête
-  \acrshort{soap} facultative et d'un corps \acrshort{soap}
-  obligatoire (voir la
-  figure~\ref{fig:soap-message-structure}):\bigskip
-
-  \input{figs/soap-message-structure}\bigskip
+  \input{figs/soap-message-structure}
 
   \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
   \begin{description}
@@ -392,7 +389,6 @@ spécifications, leurs origines, structures et fonctionnalités de base.
     \texttt{<address>}).
   \end{description}
 
-  \newpage
   \subsection{Découverte: UDDI}
   \label{sec:uddi}
   \acrshort{uddi} \cite{clement2004uddi} est une standardisation pour
@@ -619,7 +615,6 @@ abordée brièvement dans l'annexe~\ref{annexe:semantic-web}.
     d'intégration d'ontologies, de découverte de services, de
     composition, etc.
 
-    \newpage
     \subsubsection{OWL-S}
     \label{sec:owl-s-1}
     \textsc{OWL-S} \cite{martin2004owl} désigné par \textsc{DAML-S}
@@ -702,7 +697,6 @@ abordée brièvement dans l'annexe~\ref{annexe:semantic-web}.
     possible d'un service (\verb|serviceCategory|), et un paramètre
     générique \verb|serviceParameter|.
 
-\newpage
 \section{Découverte de services web}
 \label{sec:ws-discovery}
 La découverte de services Web présente un axe de recherche très
@@ -713,9 +707,9 @@ processus de découverte comme étant l'acte de \textit{``localisation
   d'une description compréhensible par la machine d'un service
   éventuellement inconnu au préalable écrivant certains critères
   fonctionnels.''}
-
+\bigskip
 \input{figs/ws-discovery-with-matching.tex}
-
+\bigskip
 Essentiellement, un processus de découverte de service web s'effectue
 en deux phases principales (illustrés dans la
 figure~\ref{fig:ws-discovery-with-matching}). Premièrement, un module
@@ -727,7 +721,7 @@ service le plus satisfaisant (aspect \textit{non-fonctionnel}).
 
 Plusieurs critères peuvent être utilisés pour catégoriser les
 approches de découverte des services \cite{mohebbi2010comparative,
-  elie2010, bitar2014cbr4wsd}):
+  elie2010, bitar2014cbr4wsd}):\newpage
 
   \begin{enumerate}
   \item la localisation de services
@@ -773,7 +767,7 @@ approches décentralisées ou distribuées \cite{garofalakis2004web}.
     couche d'abstraction reliant plusieurs instances d'annuaires. La
     plupart des approches distribuées sont basées sur des systèmes
     pair-à-pair (\textit{peer to peer}) incluant
-    \cite{schmidt2004peer, verma2005meteor, sahin2005spider}.
+    \cite{schmidt2004peer, verma2005meteor, sahin2005spider}.\medskip
 
     La dernière version d'\acrshort{uddi}
     \cite{oasis2005specification} (\textit{3.0.2}) reprend le principe
@@ -837,7 +831,7 @@ approches décentralisées ou distribuées \cite{garofalakis2004web}.
   les paramètres descriptifs \textit{fonctionnels} (les paramètres
   \textit{entrées/sorties}) et \textit{non fonctionnels} (décrivant la
   qualité de service, coût, etc.) du service requis et ceux des
-  services offrets.
+  services offrets.\medskip
 
   \input{figs/matching-general.tex}
 
@@ -930,8 +924,9 @@ approches décentralisées ou distribuées \cite{garofalakis2004web}.
     considéré comme un service qui répond bien à une requête lorsque
     toutes les sorties de la requête correspondent à des sorties du
     service publié, et toutes les entrées du service publié
-    correspondent à des entrées de la requête.\medskip
+    correspondent à des entrées de la requête.
 
+    \newpage
     Les auteurs dénotent quatre niveaux de \textit{Match} (dans ce
     cas, on applique \textit{Match($R_S, P_S$)}):
 
@@ -973,17 +968,23 @@ approches décentralisées ou distribuées \cite{garofalakis2004web}.
     ce processus par ``la meilleure couverture de \textit{R} en
     utilisant \textit{O}'' \cite{elie2010}.\bigskip
 
+    À l'instart de \cite{paolucci2002semantic}, Jaeger \emph{el al.}
+    \cite{jaeger2005ranked} proposent une approache basée sur un
+    \textit{Matching} sémantique d'\textit{entrées/sorties}, Partant
+    d'un appariement entre deux profils de service spécifiés en
+    \textit{OWL-S}, le processus de \textit{Matching} prend en compte
+    les \textit{entrées/sorties}, la catégorie de service et des
+    éléments prédéfinis par l'utilisateur.\bigskip
+
     Keller \emph{el al.} \cite{keller2004wsmo, keller2005automatic}
     présentent une approche similaire à celle de
     \cite{paolucci2002semantic} pour la découverte de services Web,
     Leurs travaux sont basés sur le \textit{Matching} sémantique entre
-    les descriptions \acrshort{wsmo} des services.
-
+    les descriptions \acrshort{wsmo} des services.\bigskip
 
 \section*{Conclusion}
 \label{sec:conclusion}
 \addcontentsline{toc}{section}{Conclusion} \markboth{CONCLUSION}{}
-
 Les services Web sont l'une des technologies les plus répandues pour
 la mise en œuvre d'une architecture orientée services
 (\acrshort{soa}). Ils ont des composants logiciels
