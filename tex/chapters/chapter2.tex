@@ -1,11 +1,11 @@
 %% !TEX root = ../main.tex
-\chapter{La Composition de services set}
+\chapter{La Composition de services Web}
 \label{ch:composition}
 
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
 
-Dans le chapitre précédent \ref{ch:web-service}, nous avons présenté
+Dans le chapitre précédent~\ref{ch:web-service}, nous avons présenté
 la description, la publication et la découverte des services où une
 requête d'un utilisateur peut être satisfaite par l'invocation d'un
 seul service Web référencé dans un annuaire. Si l'objectif du client
@@ -13,7 +13,7 @@ n'est pas atteint par l'invocation d'un simple service Web
 élémentaire, alors il doit combiner les fonctionnalités d'un ensemble
 de services afin d'accomplir l'objectif désiré. Ce processus est
 appelé \textit{``composition des services Web''}. Le problème de la
-composition des services Web se réfère à la construction des nouveaux
+composition des services Web se réfère à la création des nouveaux
 services Web à plus forte valeur ajoutée \textit{``services
   composites''} à partir des services individuels existants
 \textit{``services atomiques''}.\bigskip
@@ -25,11 +25,10 @@ et les stratégies de composition des services Web présentes dans la
 littérature \ref{sec:defs}, puis nous étudions quatre langages majeurs
 de composition des services \ref{sec:lang-de-comp}. Ensuite, nous
 allons décrire et classifier les différentes approches de composition
-dynamique proposées par la littérature \ref{sec:comp-dynam}. La dernière
-section \ref{sec:graph-base-composition} sera
-consacrée à analyser les techniques de composition basées sur le modèle
-\textit{graphe} pour représenter les dépendances fonctionnelles entre
-les services Web.
+dynamique étudiées \ref{sec:comp-dynam}. La dernière section
+\ref{sec:graph-base-composition} sera consacrée à analyser les
+techniques de composition basées sur le modèle \textit{graphe} pour
+représenter les dépendances fonctionnelles entre les services Web.
 
 \newpage
 \section{Définitions et stratégies de composition}
@@ -38,8 +37,8 @@ Cette section a pour but d'exposer, d'une part, quelques définitions
 et objectifs de la composition de services Web proposées par la
 communauté \ref{sec:definitions}, et d'autre part, les différents
 types et mécanismes de composition selon différents points de vue
-rencontrés dans la littérature \ref{sec:proc-de-coord},
-\ref{sec:types-de-composition}.
+rencontrés dans la littérature~(\ref{sec:proc-de-coord},
+\ref{sec:types-de-composition}).
 
   \subsection{Définitions}
   \label{sec:definitions}
@@ -73,8 +72,8 @@ rencontrés dans la littérature \ref{sec:proc-de-coord},
   \begin{enumerate}
   \item Créer de nouvelles fonctionnalités en combinant des services
     déjà existants.
-  \item Résoudre des problèmes complexes auxquels aucune solution\\
-    n'a été trouvée.
+  \item Résoudre des problèmes complexes auxquels aucune solution n'a
+    été trouvée en réutilisant des solutions existantes.
   \item collaborer plusieurs entreprises ensemble.
   \item Optimiser et améliorer une fonctionnalité existante.
   \end{enumerate}
@@ -98,19 +97,11 @@ rencontrés dans la littérature \ref{sec:proc-de-coord},
     semi-automatiquement ou automatiquement dans un modèle de
     \textbf{processus abstrait} (càd le service composite abstrait),
     qui spécifie l'ensemble d'activités, le contrôle, le flux de
-    données entre eux, la qualité de service \acrshort{qos} et la
-    gestion des exceptions.
+    données entre eux.\\
 
-  \item[La phase de sélection]: Dans cette phase, pour chaque activité
-    dans le service composite, les services Web appropriés qui
-    répondent aux exigences de l'activité sont situés en cherchant dans
-    le registre des services, sur la base des informations contenue
-    dans les documents de description de service publiées. Il est
-    probable que plus d'un service candidat peut répondre aux
-    exigences. Par conséquent, le meilleur service identifié doit
-    être sélectionné. Après tous, les services Web requis sont
-    identifiés et liés aux activités correspondantes, le service
-    composite construit est produit.
+  \item[La phase de sélection]: La sélection tient compte de la
+    qualité de service \acrshort{qos} pour sélectionner un service
+    concret par service abstrait (ou activité ) du processus abstrait.
 
   \item[La phase de déploiement]: Dans cette phase, le service
     composite construit est déployé pour permettre son instantiation
@@ -146,7 +137,6 @@ rencontrés dans la littérature \ref{sec:proc-de-coord},
   exclusivement. En effet, une approche peut mettre en œuvre plus d'un
   procédé en même temps \cite{baryannis2010}.\medskip
 
-  \newpage
   La figure \ref{fig:orchestration-vs-choregraphie} illustre ces deux
   approches en conjonction.
 
@@ -227,30 +217,30 @@ rencontrés dans la littérature \ref{sec:proc-de-coord},
 
   \input{figs/static-vs-dynamic-composition.tex}
 
-  Dans leur analyse de l'état de l'art,
-  Fluegge \emph{et al.}\cite{fluegge2006challenges} considèrent l'orchestration et
-  la chorégraphie comme des modèles d'exécution appliqués dans le
+  Dans leur analyse de l'état de l'art, Fluegge \emph{et
+    al.}\cite{fluegge2006challenges} considèrent l'orchestration et la
+  chorégraphie comme des modèles d'exécution appliqués dans le
   contexte d'une composition. Il distingue trois stratégies de
   composition selon la disponibilité des services Web composites lors
   de composition et du degré d'automatisation: composition
   \textbf{statique}, \textbf{semi-dynamique} et \textbf{dynamique}
-   comme le montre la figure \ref{fig:static-vs-dynamic-composition}).
+  comme le montre la figure \ref{fig:static-vs-dynamic-composition}).
 
     \subsubsection{Composition statique/dynamique}
     \label{sec:comp-stat}
     Selon la disponibilité des services composites, La composition des
     services Web peut être soit une composition statique soit une
-    composition dynamique \cite{driss2011approche}:
+    composition dynamique \cite{driss2011approche}:\medskip
 
     \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
     \begin{description}
     \item[Composition statique] :est appelée aussi composition
       \textit{Offline} ou pré-compilée. c'est une composition qui
-      utilise des services basiques qui sont préalablement définis
+      utilise des services composites qui sont préalablement définis
       d'une façon figée et qui ne peuvent pas changer en fonction du
       contexte du client. Ce type de composition engendre des
       applications peu flexibles, parfois inappropriées avec les
-      exigences des clients.
+      exigences des clients.\medskip
 
     \item[Composition dynamique]: appelée aussi composition
       \textit{Online}, post-compilée ou encore réactive. Elle se
@@ -271,12 +261,12 @@ rencontrés dans la littérature \ref{sec:proc-de-coord},
     \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
     \begin{description}
     \item[Composition manuelle]: Suppose que l'utilisateur gère la
-      composition manuellement et sans l'aide d'outils dédiés.
+      composition manuellement et sans l'aide d'outils dédiés.\medskip
 
     \item[Composition semi-automatique]: C'est un pas en avant en
       comparaison avec la composition manuelle, dans le sens qu'elle
       fait des suggestions sémantiques pour aider à la sélection des
-      services Web dans le processus de composition.
+      services Web dans le processus de composition.\medskip
 
     \item[Composition automatique]: La composition automatique (ou
       encore dynamique selon \cite{fluegge2006challenges}) permet un
@@ -465,7 +455,7 @@ standards et langages.
   seul \textsc{OWL-S} et \textsc{WSMF} permettent la
   composition sémantique des services Web.
 
-  \section{Les approches de composition dynamique des services web}
+  \section{Les approches de composition des services web}
   \label{sec:comp-dynam}
   Il existe une multitude d'approches de composition des
   services visant à décrire l'interaction entre les services Web afin de
@@ -544,16 +534,17 @@ standards et langages.
   L'ingénierie dirigée par les modèles \acrshort{mdo} est une
   méthodologie de développement logiciel où l'accent est mis sur la
   création des modèles abstraits, indépendants de la plateforme et de
-  la technologie.
-  Un paradigme de modélisation doit fournir des
-  modèles logiques du point de vue de l'utilisateur tout en restant
-  suffisamment précis pour servir de base à l'implémentation
-  \cite{dumez2010approche}. Les approches dans cette catégorie
-  utilisent des méthodes déjà explorées et des modèles bien établis
-  pour représenter un système de composition afin de pâlir la
-  complexité croissante de cette dernière utilisant une description
-  plus abstraite au dessus de la description traditionnelle de
-  services dans \textsc{WSDL}, \textsc{OWL-S} ou similaire.\medskip
+  la technologie.\medskip
+
+  Un paradigme de modélisation doit fournir des modèles logiques du
+  point de vue de l'utilisateur tout en restant suffisamment précis
+  pour servir de base à l'implémentation \cite{dumez2010approche}. Les
+  approches dans cette catégorie utilisent des méthodes déjà explorées
+  et des modèles bien établis pour représenter un système de
+  composition afin de pallier la complexité croissante de cette
+  dernière utilisant une description plus abstraite au dessus de la
+  description traditionnelle de services dans \textsc{WSDL},
+  \textsc{OWL-S} ou similaire.\medskip
 
   \textsc{UML} \cite{rumbaugh2004unified} est un langage de
   modélisation maintenu par
@@ -729,20 +720,31 @@ standards et langages.
   \section{Les approches de composition basée sur le modèle graphe}
   \label{sec:graph-base-composition}
 
+  Certaines approches ont été proposées récemment pour la découverte
+  dynamique d'un service composite à partir d'un graphe de service. En
+  effet un graphe de service est généralement mis en place pour
+  représenter les dépendances possibles entre les services en terme de
+  flux de données (Entrées/Sorties). Cette dépendance est déterminée
+  grâce à un mécanisme de \textit{Matching} (mise en correspondance)
+  entre les services. Selon le modèle des graphes, cette relation est
+  schématisée par un arc orienté et étiqueté entre les deux services
+  concernés. Cette dépendance est quantifiée par une valeur qui mesure
+  le taux de dépendance appelé aussi le degré de
+  \textit{Matching}.\medskip
+
   La découverte d'un service composite à partir d'un graphe de
   dépendance consiste à trouver le meilleur chemin dans le graphe qui
   génère les sorties exprimées dans la requête. La recherche peut se
   baser sur l'optimisation d'une fonction d'utilité qui tient compte
-  du degré de \textit{Matching} entre les services et aussi de la qualité de
-  service qui peut être fournie par les services concrets. A cet
-  effet, les méthodes de recherche du meilleur chemin de la théorie
-  des graphes peuvent être exploitées.  Les méthodes de composition
-  utilisant le modèle de graphe peuvent être classées en deux
-  catégories selon que le graphe de dépendance soit construit à priori
-  (en phase de publication des services) ou pendant le traitement de
-  la requête de composition.
+  du degré de \textit{Matching} entre les services et aussi de la
+  qualité de service qui peut être fournie par les services
+  concrets. A cet effet, les méthodes de recherche du meilleur chemin
+  de la théorie des graphes peuvent être exploitées.  Les méthodes de
+  composition utilisant le modèle de graphe peuvent être classées en
+  deux catégories selon que le graphe de dépendance soit construit à
+  priori (en phase de publication des services) ou pendant le
+  traitement de la requête de composition.
 
-  \newpage
   \subsection{Génération Online du graphe de dépendance}
   \label{sec:generation-online}
   Étant donnée une requête d'utilisateur, les services candidats à
@@ -997,10 +999,7 @@ standards et langages.
   \end{itemize}
   \enddescription
 
-\newpage
 \input{tables/comparison-graph-composition.tex}
-\newpage
-
 
 Selon notre étude comparative, nous avons pu constater que la deuxième
 approche semble plus intéressante car le temps de réponse est beaucoup
