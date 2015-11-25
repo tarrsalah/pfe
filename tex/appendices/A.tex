@@ -1,65 +1,99 @@
-%!TEX root = ../main.tex;
+% !TEX root = ../main.tex;
 \chapter{Le Web sémantique}
 \label{annexe:semantic-web}
-% TODO appendix parts
 
+L'expression \emph{Web sémantique}, due à Tim Berners-Lee
+\cite{berners2001semantic} au sein du \acrshort{w3c}, fait d'abord
+référence à la vision du Web de demain comme un vaste espace d'échange
+de ressources et de collaboration entre les êtres humains et les
+machines permettant une exploitation, qualitativement supérieure, de
+grands volumes d'informations et de services variés.\medskip
+
+Le Web actuel est essentiellement \emph{syntaxique}, dans le sens que
+la structure des documents (ou ressources au sens large) est bien
+définie mais que son contenu reste quasi inaccessible aux traitements
+machines. Il s'agit d'un Web de documents, les resources sont
+structurées en \acrshort{html}, identifiés de manière unique par des
+\acrshort{uri} reliés entre eux par des liens
+hypertextes. L'information est essentiellement textuelle et la
+strucure riche qui est généralement conçus dans des schémas
+relationnelles de bases de données est presque complètement perdu dans
+le processus de publication de telles données sous formes des
+documents \acrshort{html}. La nouvelle génération de Web nommée
+\emph{``Le Web sémantique''} a pour ambition de lever cette
+difficulté. Les ressources du Web seront plus aisément accessibles
+aussi bien par l'homme que par la machine, grâce à la représentation
+\emph{sémantique} de leurs contenus.
+
+\newpage
+\section{La vision du Web sémantique}
+\label{sec:semantic-web-vision}
+
+\section{La description des ressources Web: RDF}
+\label{sec:semantic-web-rdf}
+%% Dans cette section on va parler de RDF/RDFS
+
+\section{Langage de définition des ontologies: OWL}
+\label{sec:semantic-web-owl}
 % What is semantic web?
 
-% Le Web tel que nous le connaissons aujourd'hui est encore conforme
-% à la vision initiale.
+% Le Web tel que nous le connaissons aujourd'hui est encore conforme à
+% la vision initiale.
 
 % Le Web a été conçu principalement pour une utilisation par les
 % humains. Néanmoins, il existe un effort visant à automatiser son
 % utilisation et d'être plus accessible pour les machines.
 
 % \cite{bartalos2011effective} The Web was primarily designed for use
-% by humans. Nevertheless, there is an effort to automate its use
-% and bring the Web more accessible for machines. This has brought
-% forward the need for machine processable representations of
-% semantically rich information. This has brought forward the need for
-% machine processable representations of semantically rich
-% information: a vision at the heart of the Semantic Web
+% by humans. Nevertheless, there is an effort to automate its use and
+% bring the Web more accessible for machines. This has brought forward
+% the need for machine processable representations of semantically
+% rich information. This has brought forward the need for machine
+% processable representations of semantically rich information: a
+% vision at the heart of the Semantic Web
 
-Dans un premier temps, on va essayer de clarifier la notion d'un
-service Web sémantique, puis étudier les langages émergeants qui
-permettent de décrire ce type de service Web.
+% Dans un premier temps, on va essayer de clarifier la notion d'un
+% service Web sémantique, puis étudier les langages émergeants qui
+% permettent de décrire ce type de service Web.
 
-L'objectif premier du Web sémantique est de définir et lier les
-ressources du Web afin de simplifier leur utilisation, leur
-découverte, leur intégration et leur réutilisation dans le plus grand
-nombre d'applications \cite{berners2001semantic}. Le Web sémantique
-doit fournir l'accès à ces ressources par l'intermédiaire de
-descriptions sémantiques exploitables et compréhensibles par des
-machines. En effet, Les technologies du Web sémantique complètent le
-Web actuel avec des outils sémantiques. Il ne s'agit donc pas de créer
-un nouveau Web ou un Web séparé de l'existant : ce Web de données
-repose entièrement sur les technologies et concepts qui ont fait le
-succès du Web tel que nous le connaissons aujourd'hui
-\cite{bertails2010web}.
+% L'objectif premier du Web sémantique est de définir et lier les
+% ressources du Web afin de simplifier leur utilisation, leur
+% découverte, leur intégration et leur réutilisation dans le plus
+% grand nombre d'applications \cite{berners2001semantic}. Le Web
+% sémantique doit fournir l'accès à ces ressources par l'intermédiaire
+% de descriptions sémantiques exploitables et compréhensibles par des
+% machines. En effet, Les technologies du Web sémantique complètent le
+% Web actuel avec des outils sémantiques. Il ne s'agit donc pas de
+% créer un nouveau Web ou un Web séparé de l'existant : ce Web de
+% données repose entièrement sur les technologies et concepts qui ont
+% fait le succès du Web tel que nous le connaissons aujourd'hui
+% \cite{bertails2010web}.
 
-La réalisation du Web sémantique trouve ces racines dans le
-développement des langages de balises inspiré par des travaux issus
-de la communauté AI \cite{mcilraith2001semantic}, tels que \textsc{OIL}
-\cite{fensel2001oil}, \textsc{DAML+OIL} \cite{horrocks2002daml+oil} et
-\textsc{DAML+OTN} \cite{mcguinness2003daml} (ces deux derniers
-langages font partie de la famille \acrshort{daml}).
+% La réalisation du Web sémantique trouve ces racines dans le
+% développement des langages de balises inspiré par des travaux issus
+% de la communauté AI \cite{mcilraith2001semantic}, tels que
+% \textsc{OIL} \cite{fensel2001oil}, \textsc{DAML+OIL}
+% \cite{horrocks2002daml+oil} et \textsc{DAML+OTN}
+% \cite{mcguinness2003daml} (ces deux derniers langages font partie de
+% la famille \acrshort{daml}).
 
-  % TODO refactor
-Ces langages ont une sémantique bien définies et permettent le balisage
-et la manipulation des taxonomies complexe et des relations logiques
-entre les entités sur le Web. \cite{fensel2000creating}
+% TODO refactor Ces langages ont une sémantique bien définies et
+% permettent le balisage et la manipulation des taxonomies complexe et
+% des relations logiques entre les entités sur le
+% Web. \cite{fensel2000creating}
 
 % \input{figs/3w_to_sws.tex}
 
-Cette description repose sur des ontologies. Selon Gruber
-\cite{gruber1993translation}, une ontologie est une spécification
-explicite d'une conceptualisation. Une conceptualisation est un modèle
-abstrait qui représente la manière dont les personnes conçoivent les
-choses réelles dans le monde     et une spécification explicite signifie
-que les concepts et les relations d'un modèle abstrait reçoivent des
-noms et des définitions explicites. Le Web sémantique est devenu un
-domaine à part entière, preuve en est la création en 2001 du groupe de
-travail sur ce sujet par le \textsc{W3C}.
+% Cette description repose sur des ontologies. Selon Gruber
+% \cite{gruber1993translation}, une ontologie est une spécification
+% explicite d'une conceptualisation. Une conceptualisation est un
+% modèle abstrait qui représente la manière dont les personnes
+% conçoivent les choses réelles dans le monde et une spécification
+% explicite signifie que les concepts et les relations d'un modèle
+% abstrait reçoivent des noms et des définitions explicites. Le Web
+% sémantique est devenu un domaine à part entière, preuve en est la
+% création en 2001 du groupe de travail sur ce sujet par le
+% \textsc{W3C}.
 
 %%% Local Variables:
 %%% mode: latex
