@@ -73,9 +73,63 @@ idées~\ref{sec:semantic-web-stack}.\medskip
 \subsection{Principes fondamentaux du Web sémantique}
 \label{sec:semantic-web-design-decisions}
 
-\subsection{Pyramide du Web sémantique}
+Le Web sémantique, ou le Web de données (dans son vision
+futuriste~\cite{bizer2008linked}) suit différents principes de
+conception, qui peuvent être résumés comme
+suit~\cite{antoniou2012semantic}:\medskip
+
+\begin{enumerate}
+\item Rendre les données structurées et semi-structurées disponibles
+  dans formats normalisés et standardisés sur le Web;\medskip
+
+\item Rendre non seulement les ensembles de données, mais aussi les
+  éléments individuels de données et leurs relations implicites
+  accessibles sur le Web;\medskip
+
+\item Décrire la sémantique de ces données dans un formalisme bien
+  définie, afin que cette sémantique peuvent être accessibles et
+  traitables par des machines.
+\end{enumerate}\bigskip
+
+Ces décisions conceptuelles sont la résultat directe d'un aperçu
+principal qui nous amène à un grand progrès vers la vision du Web
+sémantique. En effet, l'idée générale est de publier et interconnecter
+l'structure sous-jacente de l'ensemble de données au lieu de
+simplement publier et interconnecter des pages
+\acrshort{html}.\medskip
+% respect the AAA slogan!!!
+
+\begin{enumerate}
+\item Use labeled graph as the data mode; for objects and their
+  relastions;\medskip
+
+\item Use \acrshort{uri} to identify the individual data-items and
+  their relastions that appear in the datasets;\medskip
+
+\item Use ontologies as the data-model to fotmally represent the
+  intended semantics of the data.
+\end{enumerate}\bigskip
+
+
+% from data to knowledge
+
+\newpage
+\subsection{Technologies du Web sémantique}
 \label{sec:semantic-web-stack}
 
+The requirements steps to create the semantic Web:\medskip
+
+\begin{enumerate}
+\item Standard syntax to represent data and meta-data; \medskip
+
+\item Standard metadata vocabularies in order to share the intended
+  semantics of the data;\medskip
+
+\item Publish large volumes of data in the formats of the step 1 using
+  the vocabularies if step (2).
+\end{enumerate}\bigskip
+
+% semantic web stack schema here !!
 
 \newpage
 \section{La description des ressources Web: RDF(S)}
