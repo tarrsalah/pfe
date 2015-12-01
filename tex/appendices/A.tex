@@ -160,15 +160,46 @@ que le développement rapide du \emph{Linked
 nombreux milliards d'objets et leurs relations deviennent disponibles
 sur le Web s'appuyant sur une syntaxe et des vocabulaires communes.
 
+Deux types de bénéfices sont motivés par cette organisation en couches
+des langages du Web sémantique illustrée dans
+figure~\ref{fig:semantic-web-stack}:\medskip
 
-\subsubsection{Des méta-données explicites}
-\label{sec:semantic-web-stack-explicit-metadata}
+  \SpecialItem
+  \begin{itemize}
+  \item Elle doit permettre de choisir le langage d’expressivité et de
+    complexité adapté aux besoins d'une modélisation à réaliser;\medskip
 
-\subsubsection{Des ontologies}
-\label{sec:semantic-web-stack-ontologies}
+  \item Elle permet une approche graduelle dans les processus de
+    standardisation de ces langages naissants (\acrshort{owl} n'a vu
+    le jour qu'en \date{2001}~\cite{fensel2001oil} et est une
+    recommendation du \acrshort{w3c} depuis seulement
+    \date{2004}~\cite{mcguinness2004owl}).\medskip
+  \end{itemize}
+  \enddescription
 
-\subsubsection{Un logique formelle et des mécanismes d'inférence}
-\label{sec:semantic-web-stack-logic}
+
+  Dans la construction d'une couche du Web sémantique sur le dessus de
+  l'autre, deux principes doivent suivie~\cite{antoniou2012semantic}:
+
+  \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
+  \begin{description}
+  \item[Compatibilité descendante]: Les agents logiciels spécialisés
+    d'une couche devraient également être en mesure d'utiliser et
+    interpréter l'information écrite à des niveaux inférieurs de
+    pyramide. Par exemple, les agents qui peuvent accéder à la
+    sémantique de \acrshort{owl} peuvent profiter pleinement des
+    informations exprimées en \acrshort{rdf} et \acrshort{rdfs};
+
+  \item[Compatibilité ascendante partielle ]: Agents logiciels
+    spécialisés d'une couche devrait être en mesure de profiter au
+    moins \textsf{partiellement} de l'information aux niveaux plus
+    élevés. Par exemple, un agent spécialisé seulement à l'analyse
+    syntaxique des documents \acrshort{rdf} et \acrshort{rdfs}
+    pourraient interpréter une connaissance exprimée en \acrshort{owl}
+    partiellement.
+  \end{description}
+  \enddescription
+
 
 \newpage
 \section{La description des ressources Web: RDF(S)}
