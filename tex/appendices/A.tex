@@ -136,8 +136,8 @@ Pour la mise en place d'un Web sémantique, un ensemble des étapes
 doivent être considérées pour l'implémentation des principes
 ci-dessus~\ref{sec:semantic-web-design-decisions}. Premièrement, il
 faut un \textbf{syntaxe standard} pour représenter les données et les
-\emph{mèta-données}. Deuxièmement, Avoir un accord suffisant sur un
-\textbf{vocabulaire} pour les \emph{mèta-données} afin de partager la
+\emph{méta-données}. Deuxièmement, Avoir un accord suffisant sur un
+\textbf{vocabulaire} pour les \emph{méta-données} afin de partager la
 sémantique prévues des données. Enfin, publier un grand volume de
 données dans les formats de la première étape en utilisant les
 vocabulaires de la deuxième étape~\cite{antoniou2012semantic}.\medskip
@@ -207,35 +207,32 @@ Le bas de la pyramide correspond aux technologies rassemblées sous le
 nom du web de documents et qui permettre de fournir les bases du Web
 sémantique. Nous trouvons à dans ce niveau là, l'dentificateur de
 ressource internationalisé~\acrshort{uri}~\footnote{Il faut bien noter
-  la différence entre les spécifications URL, URL et URN expliqué dans
-  ce lien \url{http://www.w3.org/TR/uri-clarification/}.} qui permet
-d'attribuer un \emph{identifiant unique} à un ensemble de ressources
-sur le Web (documents, numéros téléphone, numéros ISBN, etc), ainsi
-que le standard \textsf{Unicode}~\footnote{\url{http://unicode.org/}.}
-pour le codage de textes dans différentes langues.\medskip
+  la différence entre les spécifications URL, URL et URN expliquée
+  dans ce lien \url{http://www.w3.org/TR/uri-clarification/}.} qui
+permet d'attribuer un \emph{identifiant unique} à un ensemble de
+ressources sur le Web (documents, numéros téléphone, numéros ISBN,
+etc), ainsi que le standard
+\textsf{Unicode}~\footnote{\url{http://unicode.org/}.}  pour le codage
+de textes dans différentes langues.\medskip
 
-\acrshort{xml}~\cite{bray1998extensible}
+\acrshort{xml}~\cite{bray1998extensible} est un composant fondamental
+qui assure \emph{l'interopérabilité
+  syntaxique}~\cite{decker2000semantic} de cette infrastructure, il
+fournit un mécanisme simple et puissant pour l'encodage et le
+transport des données. Le langage
+\acrshort{xmls}~\cite{fallside2004xml} permet de construire des
+documents \acrshort{xml} suivant un syntaxe et une structure
+hiérarchique spécifique et les étendre avec des types de
+données.\medskip
 
-% summary for the semantic web stack
-% * URI (Uniform Resource Identifiers) est un composant fondamental du
-% Web actuel, qui fournit une identification unique des ressources ainsi
-% que les relations entre ces ressources;
-
-% * XML (eXtensible Markup Language) est un composant fondamental pour
-% l'interopérabilité syntaxique;
-
-% * RDF (Resource Description Framework) est un moyen d'encoder,
-% d’échanger et de réutiliser des métadonnées structurées. C'est un
-% idiome XML développé par le W3C et ayant fait l'objet d'une
-% Recommandation en 1999. RDF ne précise pas la sémantique des
-% ressources décrites par les différentes communautés d'utilisateurs de
-% métadonnées. À l'instar de XML, RDF est un langage extensible, un
-% métalangage; c'est un cadre « framework » de description des
-% ressources applicable à n'importe quel domaine d'application;
-
-% * RDFS est une prolongation de RDF. Un schéma RDF permet de décrire un
-% vocabulaire et une sémantique des types de propriétés utilisées par
-% une communauté d'utilisateurs
+\acrshort{rdf}~\cite{lassila1999resource} est le modèle de données
+fondamental pour le Web sémantique, il permet d'une meilleure
+représentation et exploitation des \emph{méta-données} structurées et
+fournit un support pour \emph{l'interopérabilité
+  sémantique}~\cite{decker2000semantic}. \acrshort{rdfs}~\cite{brickley2000resource}
+est un langage qui sert á définir un vocabulaire pour décrire les
+propriétés et les classes des ressources \acrshort{rdf} et fixer une
+\emph{sémantique} partagée des ressources Web.
 
 % * La couche ontologie fournit plus de méta-information telles que la
 % cardinalité des relations, leurs transitivité, etc.;
@@ -252,6 +249,8 @@ pour le codage de textes dans différentes langues.\medskip
 
 \section{La description des ressources Web: RDF(S)}
 \label{sec:semantic-web-rdf}
+
+\newpage
 
 \subsection{RDF~: Le modèle de données}
 \label{sec:semantic-web-rdf-rdf}
