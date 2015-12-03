@@ -234,18 +234,18 @@ est un langage qui sert á définir un vocabulaire pour décrire les
 propriétés et les classes des ressources \acrshort{rdf} et fixer une
 \emph{sémantique} partagée des ressources Web.\medskip
 
-% * La couche ontologie fournit plus de méta-information telles que la
-% cardinalité des relations, leurs transitivité, etc.;
+\acrshort{rdfs} peut être considéré comme un langage primitive pour la
+représentation des
+ontologies~\cite{antoniou2012semantic}. \acrshort{owl}~\cite{martin2004owl}
+ajoute plus de vocabulaire pour décrire les propriétés et les classes
+entre autres, les relations entre les classes, cardinalité, égalité,
+typage de propriétés plus riche, caractéristiques des propriétés et
+les hiérarchies des propriétés et des classes.\medskip
 
-% * La couche logique permet l'écriture des règles;
-
-% * La couche de la preuve exécute et évalue les règles utilisées;
-
-% * La couche confiance fournit des mécanismes pour que les applications
-% décident s'il faut faire confiance à la preuve indiquée ou pas;
-
-% * Des signatures digitales sont employées pour détecter les éventuels
-% changements de documents.
+Les couches supérieures de l'architecture de Web sémantique
+contiennent la couche logique qui permet de l'écriture des règles
+logiques de raisonnement et d'inférence et la couche de preuve qui
+exécute et évalue ces règles utilisées.
 
 \section{La description des ressources Web: RDF(S)}
 \label{sec:semantic-web-rdf}
