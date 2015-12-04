@@ -42,23 +42,39 @@
 %% working with code
 \usepackage{xcolor}
 \usepackage{listings}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
 \lstset{
-  language=Xml,
-  columns=fixed,
-  fontadjust=true,
-  basewidth=0.5em,
-  numbers=left,
-  numberstyle=\footnotesize,
-  stepnumber=1,
   basicstyle=\ttfamily\footnotesize,
   breaklines=true,
   tabsize=2,
-  rulesepcolor=\color{gray},
-  rulecolor=\color{black},
+  frame=none,
+  caption=t,
+  columns=fixed,
+  fontadjust=true,
+  basewidth=0.5em,
+  stepnumber=1,
+  numbers=left,
+  numberstyle=\footnotesize\color{codegray},
   backgroundcolor=\color{backcolour},
   captionpos=b,
 }
+
+\lstdefinelanguage{XML} {
+   morestring=[b]",
+   moredelim=[s][\bfseries\color{darkblue}]{<}{\ },
+   moredelim=[s][\bfseries\color{darkblue}]{</}{>},
+   moredelim=[l][\bfseries\color{darkblue}]{/>},
+   moredelim=[l][\bfseries\color{darkblue}]{>},
+   morecomment=[s]{<?}{?>},
+   morecomment=[s]{<!--}{-->},
+   stringstyle=\color{black},
+   identifierstyle=\color{darkblue},
+   keywordstyle=\color{cyan},
+   morekeywords={xmlns,version,type}% list your attributes here
+}
+
 \renewcommand{\appendixpagename}{Annexes}
 \renewcommand{\appendixtocname}{Annexes}
 
