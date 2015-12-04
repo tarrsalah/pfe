@@ -249,19 +249,50 @@ exécute et évalue ces règles utilisées.
 
 \section{La description des ressources Web: RDF(S)}
 \label{sec:semantic-web-rdf}
-\newpage
+
+%TODO: vérifier surtout la dernière phrase entres les parenthèses.
+\acrshort{rdf} fournit un modèle de données flexible et indépendant de
+tout domaine pour représenter les données et \emph{méta-données}
+sous-jacentes du Web~\cite{decker2000semantic}, son composant de base
+est le triplet \emph{``entité-attribut-valeur''}, appelé une assertion
+ou encore une déclaration (\emph{``Statement''} en Anglais), c'est
+pourquoi il est mentionné parfois comme un langage assertionnel. Il
+faut bien noter la standard \acrshort{rdf} n'exige aucun format
+particulier pour la sérialisation (et que \acrshort{xml} est juste un
+autre).\medskip
+
+Puisque le \acrshort{rdf} est pas lié à un domaine particulier, il est
+nécessaire pour un utilisateur de définir \emph{une terminologie}
+qu'ils utilisent au sein de ces déclarations. Le langage
+\acrshort{rdfs} permet aux utilisateurs de définir précisément comment
+leur vocabulaire (leur terminologie) doit être interprétée, c'est
+l'habileté de attribuer une \emph{\textbf{sémantique explicite}} à un
+ensemble de données (ressources Web).\medskip
+
+Pour résumer, \acrshort{xml} peut être vu comme la couche de
+sérialisation syntaxique, \acrshort{rdf} comme un modèle de
+base. \acrshort{rdfs} offre des primitives de représentation de
+connaissances structurées en \acrshort{rdf} et l'ajoute une sémantique
+prévue.\medskip
+
+Dans cette section, nous présentons le standard \acrshort{rdf}
+~\ref{sec:semantic-web-rdf-rdf}, ainsi que ses syntaxes courantes pour
+le sérialiser. Ensuite, Les bases de langage \acrshort{rdfs} et ses
+composantes principales sont introduites en
+section~\ref{sec:semantic-web-rdf-rdf}.\medskip
 
 \subsection{RDF~: Le modèle de données}
 \label{sec:semantic-web-rdf-rdf}
 
-Le document~\ref{doc:rdf/xml} montre \dots 
+% Le document~\ref{doc:rdf/xml} montre \dots
 
-\renewcommand{\lstlistingname}{Document}
-\lstinputlisting[language={XML},caption={Example d'un RDF/XML
-  document}]{appendices/example.rdf}~\label{doc:rdf/xml}
+% \renewcommand{\lstlistingname}{Document}
+% \lstinputlisting[language={XML},caption={Example d'un RDF/XML
+%   document}]{appendices/example.rdf}~\label{doc:rdf/xml}
 
 \subsection{RDFS~: L'ajout de sémantique}
 \label{sec:semantic-web-rdfs}
+\newpage
 
 \section{Langage de définition des ontologies~: OWL}
 \label{sec:semantic-web-owl}
