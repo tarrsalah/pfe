@@ -38,6 +38,27 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[toc,page]{appendix}
+
+%% working with code
+\usepackage{xcolor}
+\usepackage{listings}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstset{
+  language=Xml,
+  columns=fixed,
+  fontadjust=true,
+  basewidth=0.5em,
+  numbers=left,
+  numberstyle=\footnotesize,
+  stepnumber=1,
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  tabsize=2,
+  rulesepcolor=\color{gray},
+  rulecolor=\color{black},
+  backgroundcolor=\color{backcolour},
+  captionpos=b,
+}
 \renewcommand{\appendixpagename}{Annexes}
 \renewcommand{\appendixtocname}{Annexes}
 
