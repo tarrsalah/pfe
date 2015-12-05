@@ -210,8 +210,8 @@ ressource internationalisé~\acrshort{uri}~\footnote{Il faut bien noter
   la différence entre les spécifications URL, URL et URN expliquée
   dans ce lien \url{http://www.w3.org/TR/uri-clarification/}.} qui
 permet d'attribuer un \emph{identifiant unique} à un ensemble de
-ressources sur le Web (documents, numéros téléphone, numéros ISBN,
-etc), ainsi que le standard
+ressources sur le Web (documents, numéros téléphone, numéros
+\acrshort{isbn}, etc), ainsi que le standard
 \textsf{Unicode}~\footnote{\url{http://unicode.org/}.}  pour le codage
 de textes dans différentes langues.\medskip
 
@@ -278,20 +278,34 @@ prévue.\medskip
 Dans cette section, nous présentons le standard \acrshort{rdf}
 ~\ref{sec:semantic-web-rdf-rdf}, ainsi que ses syntaxes courantes pour
 le sérialiser. Ensuite, Les bases de langage \acrshort{rdfs} et ses
-composantes principales sont introduites en
-section~\ref{sec:semantic-web-rdf-rdf}.\medskip
+composantes principales sont introduites
+en~\ref{sec:semantic-web-rdf-rdf}.\medskip
 
 \subsection{RDF~: Le modèle de données}
 \label{sec:semantic-web-rdf-rdf}
 
-Les concepts fondamentals de \acrshort{rdf} sont les ressources, les
+les concepts fondamentaux de \acrshort{rdf} sont les ressources, les
 propriétés, les assertions (déclaration) et les graphes.
 
 \subsubsection{Ressources}
 \label{sec:semantic-web-rdf-rdf-resources}
 
+Une ressource est un élément constitutif de base de l'architecture du
+Web, elle désigne un entité qui peut être référencé par une
+\acrshort{uri}. Cela veut dire qu'une ressource peut être une page Web
+mais pas nécessairement, il peut désigne également un élément nom
+présent physiquement sur le Web comme un livre imprimé, qui sera alors
+référencé par exemple par son numéro \acrshort{isbn}.
+
 \subsubsection{Propriétés}
 \label{sec:semantic-web-rdf-rdf-properties}
+
+Les propriétés sont de ressources qui décrivent les relations entres
+des autres resources, par exemple \emph{``écrit par''} et \emph{``est
+  de type de''}. Commes toutes les resources, les propriétés sont
+identifiées par des \acrshort{uri}, une propriété peut être aussi
+déréférencée pour trouver une description textuelle de cette
+propriété.
 
 \subsubsection{Assertions}
 \label{sec:semantic-web-rdf-rdf-statements}
@@ -309,7 +323,6 @@ suit: \emph{``le sujet a pour propriété l'objet''}.
 
 \subsection{RDFS~: L'ajout de sémantique}
 \label{sec:semantic-web-rdfs}
-\newpage
 
 \section{Langage de définition des ontologies~: OWL}
 \label{sec:semantic-web-owl}
