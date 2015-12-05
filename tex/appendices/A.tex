@@ -254,7 +254,7 @@ exécute et évalue ces règles utilisées.
 \acrshort{rdf} fournit un modèle de données flexible et indépendant de
 tout domaine pour représenter les données et \emph{méta-données}
 sous-jacentes du Web~\cite{decker2000semantic}, son composant de base
-est le triplet \emph{``entité-attribut-valeur''}, appelé une assertion
+est le triplet \emph{``suject-propriété-object''}, appelé une assertion
 ou encore une déclaration (\emph{``Statement''} en Anglais), c'est
 pourquoi il est mentionné parfois comme un langage assertionnel. Il
 faut bien noter la standard \acrshort{rdf} n'exige aucun format
@@ -284,7 +284,24 @@ section~\ref{sec:semantic-web-rdf-rdf}.\medskip
 \subsection{RDF~: Le modèle de données}
 \label{sec:semantic-web-rdf-rdf}
 
-% Le document~\ref{doc:rdf/xml} montre \dots
+Les concepts fondamentals de \acrshort{rdf} sont les ressources, les
+propriétés, les assertions (déclaration) et les graphes.
+
+\subsubsection{Ressources}
+\label{sec:semantic-web-rdf-rdf-resources}
+
+\subsubsection{Propriétés}
+\label{sec:semantic-web-rdf-rdf-properties}
+
+\subsubsection{Assertions}
+\label{sec:semantic-web-rdf-rdf-statements}
+La structure fondamentale en \acrshort{rdf} est un triplet, composé
+d'un sujet, une propriété et un objet. Un triplet s'interprète comme
+suit: \emph{``le sujet a pour propriété l'objet''}.
+%% TODO: citer un exemple
+
+\subsubsection{Graphes}
+\label{sec:sec:semantic-web-rdf-rdf-graphs}
 
 % \renewcommand{\lstlistingname}{Document}
 % \lstinputlisting[language={XML},caption={Example d'un RDF/XML
