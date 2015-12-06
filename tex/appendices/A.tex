@@ -296,25 +296,30 @@ propriétés, les assertions (déclaration) et les graphes.
 Une ressource est un élément constitutif de base de l'architecture du
 Web, elle désigne un entité qui peut être référencé par une
 \acrshort{uri}. Cela veut dire qu'une ressource peut être une page Web
-mais pas nécessairement, il peut désigne également un élément nom
+mais pas nécessairement, il peut désigne également un élément non
 présent physiquement sur le Web comme un livre imprimé, qui sera alors
 référencé par exemple par son numéro \acrshort{isbn}.
 
 \subsubsection{Propriétés}
 \label{sec:semantic-web-rdf-rdf-properties}
 
-Les propriétés sont des ressources qui décrivent les relations entres
-des autres ressources, par exemple \emph{``écrit par''} et \emph{``est
-  de type de''}. Comme toutes les ressources, les propriétés sont
-identifiées par des \acrshort{uri}, une propriété peut être aussi
-\emph{déréférencée} pour trouver une description textuelle de cette
-propriété.
+Une propriété (ou une prédicat) est une ressource qui décrit une
+relation binaire entres deux autres ressources, par exemple
+\emph{``écrit par''} et \emph{``est de type de''}. Comme toutes les
+ressources, les propriétés sont identifiées par des
+\acrshort{uri}. Une propriété peut être aussi \emph{déréférencée} pour
+accéder à sa description textuelle.
 
 \subsubsection{Assertions}
 \label{sec:semantic-web-rdf-rdf-statements}
-La structure fondamentale en \acrshort{rdf} est un triplet, composé
-d'un sujet, une propriété et un objet. Un triplet s'interprète comme
-suit: \emph{``le sujet a pour propriété l'objet''}.
+
+La structure fondamentale en \acrshort{rdf} est un triplet $<S,P,O>$
+composé d'un sujet $S$, une propriété $P$ et un objet $O$. Un triplet
+s'interprète comme suit: \emph{``le sujet $S$ a pour propriété $P$
+  l'objet $O$''}, Chaque composant du triplet est aussi appelé sous le
+terme générique de ressource, mais est généralement utilisé pour
+parler du sujet ou de l'objet~\cite{raimbault2008transition}.
+
 %% TODO: citer un exemple
 
 \subsubsection{Graphes}
