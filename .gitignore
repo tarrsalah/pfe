@@ -8,6 +8,7 @@
 !*.bib
 !*.eps
 !*.odg
+!*.rdf
 !*.org
 !Makefile
 !*.js
