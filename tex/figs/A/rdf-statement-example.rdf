@@ -4,6 +4,6 @@
     xmlns:dc="http://purl.org/dc/elements/1.1/">
   <rdf:Description rdf:about="urn:isbn:006251587X">
     <dc:title>Weaving the Web</dc:title>
-    <dc:creator rdf:resource="http://www.w3.org/People/Berners-Lee/"/>
+    <dc:creator rdf:resource="http://www.w3.org/People/Berners-Lee"/>
   </rdf:Description>
 </rdf:RDF>
