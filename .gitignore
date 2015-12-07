@@ -7,6 +7,7 @@
 !*.md
 !*.bib
 !*.eps
+!*.odg
 !*.org
 !Makefile
 !*.js
@@ -24,14 +25,4 @@
 /todo.org
 /tex/main.pdf
 /org/
-/prototype/go-vis/**/bower_components/**
 /pdf/
-
-/prototype/wsdl-to-owls/target/
-/prototype/wsdl-to-owls/nb-configuration.xml
-/prototype/wsdl-to-owls/nbactions.xml
-/prototype/wsdl-to-owls/target/**
-/prototype/soap-services/target/
-/prototype/soap-services/src/main/resources/public/bower_components/*
-/prototype/soap-services/nb-configuration.xml
-/prototype/soap-services/nbactions.xml
