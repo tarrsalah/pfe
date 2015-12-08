@@ -321,6 +321,7 @@ La figure~\ref{fig:rdf-statement-example-graph} représente un exemple
 d'une une assertion \acrshort{rdf} qui dénote que l'auteur Tim
 Berners-Lee est l'auteur du livre \emph{``Weaving the Web''}.\medskip
 
+%% TODO: redondance, des mots répétés !!
 le modéle \acrshort{rdf} décrit dans cette section est considéré comme
 une syntaxe abstraite pour la représentation des données et
 \emph{méta-données}. En effet, ce modèle est indépendant d'une toute
@@ -332,9 +333,26 @@ abstraite.\medskip
 
 \subsubsection{Graphes}
 \label{sec:semantic-web-rdf-rdf-graphs}
-%% représenter la syntaxe rdf/xml dans une graph
+
+La figure~\ref{fig:rdf-statement-example-graph} représente une
+assertion \acrshort{rdf} sous forme d'un graphe orienté et
+étiqueté. Les nœuds d'un tel graphe représentent les ressources qui
+sont soit en position d'un sujet ou bien un objet. Ces nœuds sont
+connectés par des arcs orienté à partir de l'objet de l'assertion à
+son object, avec une étiquete sur l'arc représentant la propriété de
+cette assertion.\medskip
+
+La figure~\ref{fig:rdf-statement-example-xml} est supposé d'être la
+concrétisation syntaxique du modèle abstrait dénoté par
+l'assertion. Cependant, et pour des raisons de clarté et de
+lisibilité, la figure~\ref{fig:rdf-statement-example-graph} n'illustre
+qu'une seule assertion contenant dans le fichier \acrshort{rdf/xml} et
+sans tenant compte des valeurs réelles identifiées par des
+\acrshort{uri}.\medskip
+
 \input{figs/A/rdf-graph.tex}
 
+\newpage
 \subsection{RDFS~: L'ajout de sémantique}
 \label{sec:semantic-web-rdfs}
 
