@@ -351,7 +351,30 @@ sans tenant compte des valeurs réelles identifiées par des
 
 \input{figs/A/rdf-graph.tex}
 
-\newpage
+Le graphe illustré dans la figure~\ref{fig:rdf-graph} reflète
+exactement la structure exprimée en \acrshort{rdf/xml} dans l'exemple
+précédant~\ref{fig:rdf-statement-example-xml}, il représente un modéle
+constitué de deux assertions \acrshort{rdf} qui partage une ressource
+commune (le même sujet).\medskip
+
+Cette représentation graphique souligne l'idée que le standard
+\acrshort{rdf} est essentiellement un modèle de graphe orienté et
+étiqueté. Il est important aussi de noter que ce graphe est souvent
+créé dans un environnement distribué (Le Web) où plusieurs
+participants peuvent partager et relier différentes ressources basant
+sur la réutilisation des \acrshort{uri}. Cela nous amène au Web de
+données qui nous permet de publier, exploiter et réutiliser de données
+fortement connectées (\emph{``Smart
+  Data~\cite{allemang2011semantic}''} ) au lieu de publier des
+documents soutenu par des structures de données globalement isolées
+(\emph{``Dumb Data~\cite{allemang2011semantic}''}).\medskip
+
+
+% Importantly, this graph can be created in a distributed fashion by
+% multiple different participants just by using the same URLs. This
+% allows us to create a Web of Data allowing for knowledge to be
+% reused.\medskip
+
 \subsection{RDFS~: L'ajout de sémantique}
 \label{sec:semantic-web-rdfs}
 
