@@ -385,9 +385,18 @@ entres ces ressources.\medskip
 
 % * rdfs as primitive ontologies definition language and its
 % primitives.
+\acrshort{rdfs} est une première étape pour modéliser des ontologies
+sur le Web Sémantique. Ce langage introduit les notions de classe (
+\texttt{rdfs:Class}) et de propriété (\texttt{rdfs:Property})
+associées à des relations de subsomption permettant de définir des
+hiérarchies de classes et de propriétés, respectivement
+\texttt{rdfs:subClassOf} et
+\texttt{rdfs:subPropertyOf}. \acrshort{rdfs} permet également pour
+chaque propriété de définir son domaine (\texttt{rdfs:domain}) et son
+codomaine (\texttt{rdfs:range}).
 
 % * rdfs vs rdf layers
-
+\input{figs/A/rdfs-vs-rdf-layers.tex}
 % * why rdfs is built upon rdf?
 
 % * some examples of rdfs inferance rules
