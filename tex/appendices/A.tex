@@ -371,35 +371,43 @@ documents soutenu par des structures de données globalement isolées
 
 \subsection{RDFS~: L'ajout de sémantique}
 \label{sec:semantic-web-rdfs}
-% make a short summary of what rdfs is.
 
 \acrshort{rdfs}~\cite{brickley2000resource} est un langage destiné à
 la représentation des connaissances, il a pour but d'étendre
 \acrshort{rdf} en fournissant une structuration aux ressources
 utilisées. \acrshort{rdfs} ajoute à \acrshort{rdf} des éléments de
 bases dotés d'une sémantique fixée pour la définition de vocabulaires
-d'un certain domaine applicatif, ce domaine est décrit en
-\acrshort{rdf} sous forme d'un ensemble des ressources (les entités du
-domaine) reliées par des assertions qui modélisent les relations
-entres ces ressources.\medskip
+d'un certain domaine applicatif.\medskip
 
-% * rdfs as primitive ontologies definition language and its
-% primitives.
-\acrshort{rdfs} est une première étape pour modéliser des ontologies
-sur le Web Sémantique. Ce langage introduit les notions de classe (
-\texttt{rdfs:Class}) et de propriété (\texttt{rdfs:Property})
-associées à des relations de subsomption permettant de définir des
-hiérarchies de classes et de propriétés, respectivement
-\texttt{rdfs:subClassOf} et
-\texttt{rdfs:subPropertyOf}. \acrshort{rdfs} permet également pour
+Ce langage est une première étape pour modéliser des ontologies sur le
+Web Sémantique~\cite{passant2009technologies}. Il introduit les
+notions de classe ( \texttt{rdfs:Class}) et de propriété
+(\texttt{rdfs:Property}) associées à des relations de sous-classe
+(\texttt{rdfs:subClassOf}) et de sous-propriétée
+(\texttt{rdfs:subPropertyOf}). \acrshort{rdfs} permet également pour
 chaque propriété de définir son domaine (\texttt{rdfs:domain}) et son
-codomaine (\texttt{rdfs:range}).
+co-domaine (\texttt{rdfs:range}). La
+figure~\ref{fig:rdfs-vs-rdf-layers} (la partie colorée en orange)
+illustre graphiquement les relations qui existent entre les différents
+composants de base du langage \acrshort{rdfs}.
 
-% * rdfs vs rdf layers
+% * rdfs vs rdf layers and why rdfs is built upon rdf?
 \input{figs/A/rdfs-vs-rdf-layers.tex}
-% * why rdfs is built upon rdf?
 
-% * some examples of rdfs inferance rules
+% Une ontologie \acrshort{rdfs} s'écrit sous forme de triplets
+% \acrshort{rdf} qui vont ainsi définir des identfiants pour ses
+% différentes classes et propriétés, ceux-ci étant uniques puisque basés
+% sur des \acrshort{uri}'s. représente une ontologie modélisant une
+% partie des classes et propriétés que nous avons présentées dans
+% l'exemple précédent. Il introduit également la possibilité dans une
+% ontologie d’utiliser et d’étendre des classes et propriétés définies
+% dans d'autres modèles.
+
+% * rdfs examples (foaf, schema.org)
+
+% * rdfs inference
+
+% * why rdfs is not enough, and introducing owl
 
 \section{Langage de définition des ontologies~: OWL}
 \label{sec:semantic-web-owl}
