@@ -394,18 +394,25 @@ composants de base du langage \acrshort{rdfs}.
 % * rdfs vs rdf layers and why rdfs is built upon rdf?
 \input{figs/A/rdfs-vs-rdf-layers.tex}
 
-% Une ontologie \acrshort{rdfs} s'écrit sous forme de triplets
-% \acrshort{rdf} qui vont ainsi définir des identfiants pour ses
-% différentes classes et propriétés, ceux-ci étant uniques puisque basés
-% sur des \acrshort{uri}'s. représente une ontologie modélisant une
-% partie des classes et propriétés que nous avons présentées dans
-% l'exemple précédent. Il introduit également la possibilité dans une
-% ontologie d’utiliser et d’étendre des classes et propriétés définies
-% dans d'autres modèles.
-
 % * rdfs examples (foaf, schema.org)
 
 % * rdfs inference
+\acrshort{rdfs} permet d'inférer de nouveaux triplets à partir des
+triplets existants via les règles explicitement définies par ses
+sémantiques \cite{hayes2004rdf}.Ces règles incluent notamment la
+transitivité des propriétés \texttt{subClassOf} et
+\texttt{subPropertyOf}, et les contraintes sur les domaines et
+co-domaines (respectivement \texttt{domain} et \texttt{range}). Dans
+l'exemple illustré à la figure ~\ref{fig:rdfs-vs-rdf-layers},
+l'assertion \texttt{(Weaving the Web, rdf:type, Document)} peut être
+inférée à partir de l'assertion \texttt{(Créateur, rdfs:domain ,
+  Document)} et \texttt{(Weaving the Web, Créateur , Tim Berners-Lee)}
+par l'application de la règle suivante:\smallskip
+
+`` si $p$ propriété de domaine $C$ et $p(x, y)$ alors $x$ est de type
+$C$''.\medskip
+
+% * is rdfs to rdf as xmls to xml?
 
 % * why rdfs is not enough, and introducing owl
 
