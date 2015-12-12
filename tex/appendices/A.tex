@@ -388,11 +388,35 @@ notions de classe ( \texttt{rdfs:Class}) et de propriété
 chaque propriété de définir son domaine (\texttt{rdfs:domain}) et son
 co-domaine (\texttt{rdfs:range}). La
 figure~\ref{fig:rdfs-vs-rdf-layers} (la partie colorée en orange)
-illustre graphiquement les relations qui existent entre les différents
-composants de base du langage \acrshort{rdfs}.
+illustre graphiquement les relations qui existent entre les
+différentes primitives du langage \acrshort{rdfs}.
 
-% * rdfs vs rdf layers and why rdfs is built upon rdf?
 \input{figs/A/rdfs-vs-rdf-layers.tex}
+
+L'exemple illustré dans la figure~\ref{fig:rdfs-vs-rdf-layers} met
+l'accent les différents niveaux d'abstraction qui interviennent dans
+la définition de l'assertion \texttt{(Weaving the Web, Créateur , Tim
+  Berners-Lee)}:\medskip
+
+\begin{enumerate}
+\item La couche \acrshort{rdf} montre la structure de données des
+  ressources (\emph{instances}) en forme d'une triplet \acrshort{rdf};
+
+\item La couche \acrshort{rdfs} illustre le vocabulaire utilisé pour
+  la définitions des ressources structurées à la partie précédente;
+
+% TODO:I'm not sure about this "méta-vocabulaire"!
+\item La troisième couche représente un extrait du
+  \emph{méta-vocabulaire} \acrshort{rdfs} (la langage définie et
+  standardisé par \acrshort{w3c}) utilisé pour la définitions des
+  classes et propriétés pour la deuxième couche.\medskip
+\end{enumerate}
+
+Il est primordial de noter qu'une ontologie \acrshort{rdfs} est
+représentée elle-même en \acrshort{rdf} sous la forme de triplets. En
+effet un document \acrshort{rdfs} n'est qu'un document \acrshort{rdf}
+qui peut être encoder dans l'une des syntaxes de sérialisation de
+\acrshort{rdf}.\medskip
 
 % * rdfs examples (foaf, schema.org)
 
