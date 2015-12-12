@@ -365,7 +365,7 @@ participants peuvent partager et relier différentes ressources basant
 sur la réutilisation des \acrshort{uri}. Cela nous amène au Web de
 données qui nous permet de publier, exploiter et réutiliser des
 données fortement connectées (\emph{``Smart
-  Data~\cite{allemang2011semantic}''} ) au lieu de publier des
+  Data~\cite{allemang2011semantic}''}) au lieu de publier des
 documents soutenu par des structures de données globalement isolées
 (\emph{``Dumb Data~\cite{allemang2011semantic}''}).\medskip
 
@@ -381,7 +381,7 @@ d'un certain domaine applicatif.\medskip
 
 Ce langage est une première étape pour modéliser des ontologies sur le
 Web Sémantique~\cite{passant2009technologies}. Il introduit les
-notions de classe ( \texttt{rdfs:Class}) et de propriété
+notions de classe (\texttt{rdfs:Class}) et de propriété
 (\texttt{rdfs:Property}) associées à des relations de sous-classe
 (\texttt{rdfs:subClassOf}) et de sous-propriétée
 (\texttt{rdfs:subPropertyOf}). \acrshort{rdfs} permet également pour
@@ -395,7 +395,7 @@ différentes primitives du langage \acrshort{rdfs}.
 
 L'exemple illustré dans la figure~\ref{fig:rdfs-vs-rdf-layers} met
 l'accent les différents niveaux d'abstraction qui interviennent dans
-la définition de l'assertion \texttt{(Weaving the Web, Créateur , Tim
+la définition de l'assertion \texttt{(Weaving the Web, Créateur, Tim
   Berners-Lee)}:\medskip
 
 \begin{enumerate}
@@ -414,31 +414,37 @@ la définition de l'assertion \texttt{(Weaving the Web, Créateur , Tim
 
 Il est primordial de noter qu'une ontologie \acrshort{rdfs} est
 représentée elle-même en \acrshort{rdf} sous la forme de triplets. En
-effet un document \acrshort{rdfs} n'est qu'un document \acrshort{rdf}
+effet, un document \acrshort{rdfs} n'est qu'un document \acrshort{rdf}
 qui peut être encoder dans l'une des syntaxes de sérialisation de
 \acrshort{rdf}.\medskip
 
-% * rdfs examples (foaf, schema.org)
-
-% * rdfs inference
 \acrshort{rdfs} permet d'inférer de nouveaux triplets à partir des
 triplets existants via les règles explicitement définies par ses
-sémantiques \cite{hayes2004rdf}.Ces règles incluent notamment la
+sémantiques~\cite{hayes2004rdf}.Ces règles incluent notamment la
 transitivité des propriétés \texttt{subClassOf} et
 \texttt{subPropertyOf}, et les contraintes sur les domaines et
 co-domaines (respectivement \texttt{domain} et \texttt{range}). Dans
-l'exemple illustré à la figure ~\ref{fig:rdfs-vs-rdf-layers},
+l'exemple illustré à la figure~\ref{fig:rdfs-vs-rdf-layers},
 l'assertion \texttt{(Weaving the Web, rdf:type, Document)} peut être
-inférée à partir de l'assertion \texttt{(Créateur, rdfs:domain ,
-  Document)} et \texttt{(Weaving the Web, Créateur , Tim Berners-Lee)}
+inférée à partir de l'assertion \texttt{(Créateur, rdfs:domain,
+  Document)} et \texttt{(Weaving the Web, Créateur, Tim Berners-Lee)}
 par l'application de la règle suivante:\smallskip
 
 `` si $p$ propriété de domaine $C$ et $p(x, y)$ alors $x$ est de type
 $C$''.\medskip
 
-% * is rdfs to rdf as xmls to xml?
+L'exemple précédant montre que la définition des propriétés comme
+\texttt{rdfs:domain} ne servent pas à vérifier qu'un graphe
+\acrshort{rdf} serait valide (contraintes d'intégrité), mais bien à
+inférer l'appartenance de domaine d'une propriété.\medskip
 
-% * why rdfs is not enough, and introducing owl
+l'expressivité de \acrshort{rdfs} est malgré tout assez restreinte. Ce
+langage ne permet pas de définir des contraintes sémantiques plus
+riches comme la symétrie d'une propriété. Ainsi, pour aller plus loin
+dans la définition d'ontologies pour le Web sémantique, le
+\acrshort{w3c} a mis en place dès \date{2001} un groupe de travail
+autour d'\acrshort{owl}, un langage de définition d'ontologies sur le
+Web.\medskip
 
 \section{Langage de définition des ontologies~: OWL}
 \label{sec:semantic-web-owl}
