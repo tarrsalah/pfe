@@ -1,0 +1,235 @@
+%!TEX root = ../main.tex;
+\chapter{Les mesures de similarité}
+\label{annexe:similarity-measurement}
+
+L'objectif des mesures de similarité sémantique est d'évaluer la
+proximité sémantique entre les concepts (auxquels les termes des
+requêtes et documents sont rattachés). Et comme le matching des
+services web revient à trouver les similarités entre les concepts
+décrivant les propriétés de services web, nous avons jugé utile
+d'explorer les différentes méthodes de recherche de similarité
+utilisées dans le domaine de la recherche d’information, en
+particulier.
+
+  % Soit $\Phi$ est l'ensemble de toutes les services référencés dans un
+  % annuaire de services donné. Pour une requête \verb|R|.
+
+  % \begin{mydef}[Alignement]
+  %   on parle souvent de l'alignement des ontologies. C'est un ensemble
+  %   de correspondances entre deux ou plusieurs
+  %   ontologies. L'alignement est la sortie d’un processus de matching
+  % \end{mydef}
+
+  % \begin{mydef}[Mapping]
+  %   chercher des correspondances pour établir des transformations
+  %   entre deux objets de même nature mais pas de même forme. Par
+  %   conséquent, le mapping utilise les résultats du matching pour
+  %   effectuer les transformations des objets.
+  % \end{mydef}
+
+  % Comme on le voit, tous ces termes prennent bien en compte la notion
+  % de recherche de correspondance entre des concepts, dans certains
+  % contextes ils sont utilisés indifféremment.  Pour les services web,
+  % on parlera du matchnig ou matchmaking pour exprimer la mise en
+  % correspondance entre deux entités, et du mapping pour exprimer la
+  % transformation ou conversion des types de données.
+
+  % Nous distinguons deux techniques de matching : matching syntaxique
+  % et matching sémantique . Ils diffèrent dans la façon dont sont
+  % calculés les éléments correspondants et sur le type de relation de
+  % similitude \verb|M| utilisée:
+
+  %   \subsubsection{Matching syntaxique}
+  %   \label{sec:matching-syntactique}
+  %   Utilisé pour l'extraction automatique de motifs textuels écrits en
+  %   langage naturel en utilisant la méthode d'étiquetage, différentes
+  %   techniques sont utilisées :
+  %   \renewcommand{\descriptionlabel}[1]{\hspace{0.1cm}\textbullet~\textsf{#1}}
+  %   \begin{description}
+  %   \item [Techniques basées string (à mots)]: s méthodes prennent
+  %     l’avantage de la structure des mots qui est considérée comme
+  %     étant une séquence de lettres. Elles devraient, par exemple,
+  %     reconnaitre une similarité entre Book et textBook. Certaines
+  %     fonctions de calcul de distance convertissent une paire de
+  %     chaine de caractères en un nombre réel. Si le nombre est petit
+  %     (par rapport à un seuil) cela indique une grande similarité
+  %     entre ces deux chaines de caractères (ex : distance de Hamming).
+
+  %   \item [Techniques basées langage]: Ces méthodes considère les noms
+  %     ou bien un terme comme une séquence de mots dans un langage
+  %     naturel (peer-review, reviewed-paper).  Ces méthodes utilisent
+  %     les techniques de traitement du langage naturel pour reconnaitre
+  %     les similarités entre les mots d’un terme par exemple : les
+  %     techniques de tokenization (segmentation), lemmatisation...etc.
+  %     Techniques utilisant des ressources linguistiques: comme les
+  %     thesaurus sont utilisées pour faire correspondre des mots en se
+  %     basant sur les relations linguistiques entre eux (synonymes,
+  %     hyponyme). Par exemple dans le cas du matching entre les
+  %     services web on fait correspondre les noms d’opérations et les
+  %     noms des paramètres qui sont considérés comme des mots de
+  %     langage naturel.
+  %   \end{description}
+
+  %   \subsubsection{Matching sémantique}
+  %   \label{sec:matching-semanique}
+  %   Consiste à chercher des correspondances sémantiques à partir des
+  %   concepts, et non pas des étiquettes. Il ne suffit pas d'examiner
+  %   la syntaxe des mots, mais leurs significations ou leurs
+  %   interprétations dans le domaine d’application. Les ontologies de
+  %   domaine et les techniques basées modèle sont utilisées dans ce
+  %   type de matching.
+
+  %   \begin{description}
+  %   \item [Ontologie de domaine spécifique]: spécifique peut être
+  %     utilisée comme source externe. Elles se focalisent sur un
+  %     domaine particulier et utilisent des termes qui sont propres à
+  %     ce domaine et qui ne sont pas liés aux concepts similaires dans
+  %     d’autres domaines. Par exemple dans le domaine de transport, on
+  %     trouve : bus, avion, taxi...etc. On peut trouver des termes qui
+  %     sont syntaxiquement identiques mais possédant des
+  %     interprétations différentes dans des domaines différents.
+
+  %   \item [Techniques basées modèle]: Appelées aussi les méthodes de
+  %     déduction, les algorithmes manipulent les entrées basées sur
+  %     leurs interprétations sémantiques. Si deux entités sont
+  %     similaires alors ils partagent les mêmes interprétations. Parmi
+  %     ces méthodes on trouve les techniques de satisfiabilité
+  %     propositionnelle [Giu, 2003A] Dans le cas du matching des
+  %     services web, ces derniers sont décrits à l’aide de supports
+  %   \end{description}
+
+  %   Dans le cas du matching de services web, ces derniers sont décrits
+  %   à l'aide de supports de description sémantique (OWL-S par
+  %   exemple). Ces descriptions contiennent des informations clés pour
+  %   leur mise en correspondance (les paramètres fonctionnels et non
+  %   fonctionnels).
+
+\begin{mydef}[Similarité entre concepts]
+  Une similarité $\sigma$: C $\times$ C $\rightarrow$ [0,1] est une
+  fonction de couples de concepts vers un nombre compris entre 0 et 1
+  exprimant le degré de similarité entre deux concepts, tel que:
+  \SpecialItem
+  \begin{itemize}
+  \item x $\in$ C, $\sigma$(x,x) = 1
+  \item x, y $\in$ C, $\sigma$(x,y) = $\sigma$(y,x)
+  \end{itemize}
+\end{mydef}
+
+Les ontologies définissent les propriétés des concepts et les
+relations entre eux. Une de ces relations est utilisée dans notre
+application est \textsc{is–a} (est-un). Cette relation est utilisée
+pour extraire des taxonomies à partir des ontologies
+
+\begin{mydef}[Similarité basée sur la taxonomie]
+  Soit C l'ensemble de concepts définis dans une ontologie. On dit que
+  T est une taxonomie et on écrit T(C, $\leq$) tel que c $\leq$ c'
+  signifie que c \textit{is–a} c' (le concept c est subsumé par le
+  concept c').
+\end{mydef}
+
+De nombreuses approches ont été proposées pour évaluer la similarité
+sémantique entre deux concepts. Ces approches se divisent en trois
+catégories [Sli, 2006]: les approches basées sur les arcs, les
+approches basées sur le contenu informationnel et les approches
+hybrides.
+
+\section{Mesures de similarité syntaxique}
+\label{sec:syntactic-sim}
+
+  \subsection{Approches basées sur les chaînes de caractères}
+  \label{sec:syntactic-sim:string}
+
+  La similarité de Jaccard
+
+  Distance de Jaro
+
+  Distance Jaro Winkler
+
+  Distance de Bigram
+
+  \subsection{Les approches basées sur les tokens}
+  \label{sec:syntactic-sim:tokens}
+
+  \subsection{Approches hybrides}
+  \label{sec:syntactic-sim:hybrides}
+
+\section{Mesures de similarité sémantique}
+\label{sec:semantic-sim}
+
+De nombreuses approches ont été proposées pour évaluer la similarité
+sémantique entre deux concepts. Ces approches se divisent en trois
+catégories [Sli, 2006]: les approches basées sur les arcs, les
+approches basées sur le contenu informationnel et les approches
+hybrides.
+
+  \subsection{Approches basées sur les arcs}
+  \label{sec:semantic-sim:arcs}
+
+  Le calcul des distances dans l’ontologie est basé sur un graphe de
+  spécialisation des objets.  Dans chaque graphe, la distance de
+  l’ontologie doit être caractérisée par le plus court chemin qui fait
+  intervenir un ancêtre commun ou le plus petit généralisant,
+  connectant potentiellement deux objets à travers des descendants
+  communs. Parmi les travaux classifiés sous cette bannière on trouve:\\
+
+  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
+  \begin{itemize}
+  \item [la Mesure de Wu \& Palmer] Basée sur le principe suivant :
+    Etant donnée une ontologie $\Pi$ formée par un ensemble de nœuds
+    (Figure 28). R est la racine, X et Y les deux éléments de
+    l’ontologie dont nous allons calculer la similarité. Le principe
+    de calcul de similarité est basé sur les distances (N1 et N2) qui
+    séparent les nœuds X et Y du nœud racine et la distance qui sépare
+    le concept subsumant (CS) de X et de Y du nœud R.
+
+    La mesure de Wu et Palmer est définie par la CS formule suivante:
+
+    \begin{equation}
+      \label{wu_palmer}
+      Sim(x,y) = 2 *  \frac{N}{N_{1} + N_{2} + N_{3}}
+    \end{equation}\\
+
+    La mesure de [WuP, 1994] est intéressante mais présente une
+    limite, cependant, avec cette mesure on peut obtenir une
+    similarité plus élevée entre un concept et son voisinage par
+    rapport à ce même concept et un concept fils, ce qui est inadéquat
+    dans le cadre de la recherche de l’information.\\
+
+  \item [La mesure de Zargayouna]
+    Cette mesure de similarité est inspirée de celle de Wu-Palmer
+    favorisant les concepts se trouvant dans la même hiérarchie par
+    rapport au voisinage. Le lien père-fils est ainsi privilégié par
+    rapport aux autres liens de voisinage en adaptant la mesure de
+    Wu-Palmer. L'adaptation de la mesure est faite à travers la
+    fonction de calcul du degré de spécialisation d'un concept appelé
+    spectre (spec) qui mesure sa distance par rapport à l'anti-racine.
+
+    \begin{equation}
+      \label{zargayouna}
+      Sim(x,y)= 2 * \frac{N}{N_{1} + N_{2} + 2 * N + 2 * Spec(x,y)}
+    \end{equation}\\
+
+    Où $Spec(x,y)=N_{1}*N_{2} *N_{3}$, tel que $N_{3}$ correspond au
+    nombre maximum d'arcs qui séparent le plus petit ancêtre commun du
+    concept \textit{virtuel} représentant l'anti-racine, $N_{1}$ et
+    $N_{2}$ séparent les nœuds $x$ et $y$ du nœud racine.\\
+  \end{itemize}
+
+  La mesure de Resnik
+
+  \subsection{Approches basées sur le contenu informationnel}
+  \label{sec:semantic-sim:ci}
+
+  La mesure de Resnik
+
+  La mesure de Lin
+
+  \subsection{Approches hybrides}
+  \label{sec:semantic-sim:hybrides}
+
+  Mesure de Jiang et Conrath
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

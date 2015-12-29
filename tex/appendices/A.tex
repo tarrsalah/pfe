@@ -241,6 +241,7 @@ contiennent la couche logique qui permet de l'écriture des règles
 logiques de raisonnement et d'inférence et la couche de preuve qui
 exécute et évalue ces règles utilisées.
 
+
 \section{La description des ressources Web: RDF(S)}
 \label{sec:semantic-web-rdf}
 
@@ -442,14 +443,31 @@ l'expressivité de \acrshort{rdfs} est malgré tout assez restreinte. Ce
 langage ne permet pas de définir des contraintes sémantiques plus
 riches comme la symétrie d'une propriété. Ainsi, pour aller plus loin
 dans la définition d'ontologies pour le Web sémantique, le
-\acrshort{w3c} a mis en place dès \date{2001} un groupe de travail
-autour d'\acrshort{owl}, un langage de définition d'ontologies sur le
-Web.\medskip
+\acrshort{w3c} a mis en place dès \date{2001} \cite{fensel2001oil} un
+groupe de travail autour d'\acrshort{owl}, un langage de définition
+d'ontologies sur le Web.\medskip
 
 \section{Langage de définition des ontologies~: OWL2}
 \label{sec:semantic-web-owl2}
 
-\subsection{Les Ontologie dans le Web sémantique}
+Le langage \acrshort{owl}, basé sur la recherche effectuée dans le
+domaine de la logique de description, est une recommandation
+\acrshort{w3c} depuis \date{2004} pour la définition des ontologies
+pour le Web Sémantique \cite{mcguinness2004owl}. Il est le fruit des
+efforts effectués aux États Unis et à l'Union Européenne et a été créé
+à partir de son prédécesseur, le langage \acrshort{daml} +
+\acrshort{oil} \cite{ horrocks2002daml+oil} (qui est considéré comme
+un alternatif de \acrshort{rdfs}).\medskip
+
+Le but de \acrshort{owl} est exactement le même que \acrshort{rdfs}:
+\emph{`` définir des ontologies qui incluent les classes, les
+  propriétés et leurs relations pour un domaine applicatif
+  spécifique''}. Cependant, comparé à \acrshort{rdfs}, \acrshort{owl}
+nous fournit la capacité d'exprimer des relations plus complexes et
+riches. Par conséquent, nous peuvent construire des applications avec
+une capacité de raisonnement plus forte.\medskip
+
+\subsection{Les Ontologies dans le Web sémantique}
 \label{sec:semantic-web-owl2-ontolgies}
 
 Selon Gruber~\cite{gruber1993translation}, une ontologie est une
@@ -457,21 +475,24 @@ spécification explicite d'une conceptualisation. Une conceptualisation
 est un modèle abstrait qui représente la manière dont les personnes
 conçoivent les choses réelles dans le monde et une spécification
 explicite signifie que les concepts et les relations d'un modèle
-abstrait reçoivent des noms et des définitions explicites. Le Web
-sémantique est devenu un domaine à part entière, preuve en est la
-création en 2001 du groupe de travail sur ce sujet par le
-\acrshort{w3c}.
+abstrait reçoivent des noms et des définitions explicites.
 
-\subsection{Le langage OWL2~: syntaxes et sémantiques}
+% Le Web sémantique est devenu un domaine à part entière, preuve en est
+% lacréation en 2001 du groupe de travail sur ce sujet par le
+% \acrshort{w3c}.
+
+% Requirements for Web Ontology Description Languages
+
+\subsection{Le langage OWL2}
 \label{sec:semantic-web-owl2-syntax-semantics}
 
 \subsubsection{Compatibilité avec RDF/RDFS}
 \label{sec:semantic-web-owl2-rdf-rdfs}
 
-\subsubsection{Sémantiques de base}
+\subsubsection{Sémantique}
 \label{sec:semantic-web-owl2-semantics}
 
-\subsubsection{Syntaxes}
+\subsubsection{Syntaxe}
 \label{sec:semantic-web-owl2-syntax}
 
 \subsection{Les profiles OWL2}

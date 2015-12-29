@@ -1,582 +1,149 @@
-\chapter{Vers les bases de données graphe}
-\label{ch:graph-db}
+\chapter{Une méthode de composition dynamique des services Web
+  sémantiques utilisant Neo4j}
+\label{ch:approche}
 
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
 
-Avec le développement rapide et continu de l'\textit{Internet} et du
-\textit{cloud computing}, divers types d'applications ont émergés, ce
-qui augmente l'importance accrue de la technologie de base de données,
-notamment dans les aspects suivants \cite{han2011survey}:
-
-\begin{itemize}\renewcommand\labelitemi{--}
-\item Haute concurrence de lecture et d'écriture avec une faible
-  latence.
-
-\item Stockage et la gestion d'une grande masse de données \emph{(Big
-    Data)}.
-
-\item Haute scalabilité (évolutivité) et disponibilité.\medskip
-\end{itemize}
-\enddescription
-
-Bien que les bases de données relationnelles ont occupé une grande
-position dans le domaine de stockage de données, le modèle relationnel
-commence à montrer ses limites en faisant face aux plusieurs
-exigences: \cite{han2011survey}: lente lecture et l'écriture, capacité
-limitée, difficulté d'expansion et scalabilité, etc. Afin de faire
-face aux limitations ci-dessus, une variété de nouveaux types de bases
-de données ont apparus qui s'affranchissent du modèle relationnel
-pour miser sur le partitionnement horizontal et le relâchement des
-contraintes d'intégrité, ce modèle émergent est appelé le modèle
-\acrshort{nosql}.\medskip
-
-Dans ce chapitre, nous exposons les différentes approches et
-plateformes du stockage \acrshort{nosql} les plus connues dans
-l'industrie tout en mettant l'accent sur les bases de données graphe
-(et \emph{Neo4j} particulièrement). Nous commençons d'abord par
-présenter les quatre catégories majeures des systèmes
-\acrshort{nosql}. Ensuite, nous nous focalisons sur les \acrshort{SGBD}
-orientés graphes, leurs différents modèles et implémentations ainsi
-que les langages de requêtes les plus adoptés pour les interroger.
-
-\section{L'environnement NoSQL}
-\label{sec:nosql}
-\acrshort{nosql} désigne une nouvelle génération de technologies de
-gestion des bases de données conçu pour répondre à l'augmentation du
-volume des données stockées, traitées et analysées par les entreprises
-et organisations ayant une large étendue d'utilisateurs tels que
-Google, Amazon, Facebook et Twitter, \acrshort{nosql} comprend une
-multitude de systèmes de gestion de données qui ne sont plus fondés
-sur l'architecture classique des bases relationnelles. L'unité logique
-n'y est plus la table, et les données ne sont en général pas
-manipulées avec \textsc{SQL}.  D'après Fowler \textit{et al.}
-\cite{sadalage2012nosql}, Les caractéristiques communes des bases de
-données \acrshort{nosql} sont:
-
-\begin{itemize}\renewcommand\labelitemi{--}
-\item Ne sont pas fondées sur de le modèle relationnel classique.
-\item Optimisées pour les environnements distribués.
-\item Construites pour les applications Web modernes avec une grande
-  masse de données.
-\item \emph{Schemaless} (il n'existe plus d'intégrité référentielle ou
-  schéma prédéfini).
-\end{itemize}
-
-  \subsection{Les catégories des bases de données NoSQL}
-  \label{sec:cat-nosql}
-  Il existe dans la mouvance \acrshort{nosql} une diversité importante
-  d'approches que nous classons en quatre grandes catégories
-  \cite{sadalage2012nosql}: dépôts \textit {clés/valeurs}, bases
-  orientées documents, orientées colonnes, et bases orientées
-  graphe.\bigskip
-
-  \textsf{Dépôts clés/valeurs}: Le principe des bases
-  \textit{clé/valeur} est de stocker les données sous une forme
-  simple: une \emph{clé } (chaîne de caractères) associée à une
-  \emph{valeur} d'une forme libre (chaîne de caractère, ou bien un
-  objet sérialisé), cette clé est utilisée pour toutes les opérations
-  à effectuer sur les données telles que l'insertion, la mise à jour
-  et la suppression. Bien que la structure est plus simple, la vitesse
-  d'interrogation est extrêmement supérieur à la base de données
-  relationnelles favorisant la scalabilité (\emph{scalability}) plus
-  que la cohérence, on les retrouve très souvent comme système de
-  stockage de cache ou de sessions distribuées, notamment là où
-  l'intégrité relationnelle des données est non significative. Les
-  solutions les plus connues, telles que \emph{Redis}, \emph{Riak} et
-  \emph{Voldemort} sont principalement influencées par le projet
-  \emph{Dynamo} d'Amazon \cite{decandia2007dynamo}.\bigskip
-
-  \textsf{Orientées documents}: Cette famille de base de données est
-  une évolution de la base de données \textit{clé/valeur} destinée aux
-  applications qui gèrent des documents (généralement du format
-  \textsc{JSON} ou \textsc{XML}) où chaque clé n'est plus associée à
-  une valeur sous forme de bloc binaire mais à un document dont la
-  structure reste libre (\textit{scheme-less}). L'avantage est de
-  pouvoir récupérer, via une seule clé, un ensemble d’informations
-  structurées de manière hiérarchique, ainsi le stockage de
-  volumes très importants de données pour lesquelles la modélisation
-  relationnelle aurait entraînée une limitation des possibilités de
-  partitionnement et de réplication. Les deux implémentations les plus
-  populaires dans cette catégorie sont \emph{CouchDB} d'Apache et
-  \emph{MongoDB}.\bigskip
-
-  \textsf{Orientées colonnes}: La famille des stockages orientés
-  colonnes sont une évolution du modèle \textit{clé/valeur} utilisant
-  des \textit{``familles''} afin de grouper certaines lignes. Ces
-  familles peuvent devenir hiérarchiques et les relations entre les
-  données deviennent explicites. Une base de données orientées
-  colonnes permet de plus une compression par colonne, efficace
-  lorsque les données de la colonne se ressemblent. Comme solutions,
-  on retrouve principalement \emph{HBase}, \emph{HyperTable}
-  (implémentations Open Source du modèle \emph{BigTable}
-  \cite{chang2008bigtable} publié par Google) ainsi que
-  \emph{Cassandra} (projet Apache qui respecte l'architecture
-  distribuée de \emph{Dynamo} \cite{decandia2007dynamo} d'Amazon et le
-  modèle BigTable de Google).\bigskip
-
-  \textsf{Orientées graphes}: Ce paradigme est le moins connu de ceux
-  de la mouvance \acrshort{nosql}. Ce modèle s'appuie principalement
-  sur deux concepts: d'une part l'utilisation d'un moteur de stockage
-  pour les objets (qui se présentent sous la forme d'une base
-  documentaire, chaque entité de cette base étant nommée
-  \emph{nœud}). D'autre part, à ce modèle, vient s'ajouter un
-  mécanisme permettant de décrire les relations entre les objets
-  (\emph{arcs}). Principalement, ces bases de données sont nettement
-  plus efficaces que leur précedente relationnelle pour traiter les
-  problématiques liées aux réseaux.  En effet, lorsqu'on utilise le
-  modèle relationnel, cela nécessite un grand nombre d'opérations
-  complexes (souvent, des jointures trop lentes) pour obtenir des
-  résultats. Dans cette catégorie on peut citer \emph{Neo4j},
-  \emph{OrientDB}, \emph{Titan} et \emph{AllegroGraph} comme les
-  implémentations les plus répondues de ce modèle.
-
-  \subsection{Le théorème de CAP }
-  \label{sec:cap}
-  \acrshort{cap} \cite{brewer2000towards} est l'acronyme de
-  \textit{``\textbf{C}onsistency, \textbf{A}vailability and
-    \textbf{P}artition Tolerance''}, ou \textit{``Cohérence,
-    Disponibilité et Résistance au partitionnement''}. Ce théorème
-  explique qu'il est impossible qu'un système distribué satisfasse
-  simultanément aux trois contraintes suivantes:\medskip
-
-  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
-  \begin{description}
-  \item [Cohérence]: tous les nœuds du système voient exactement les
-    mêmes données au même moment.
-
-  \item [Disponibilité]: la perte de nœuds n'empêche pas les
-    survivants de continuer à fonctionner correctement.
-
-  \item [Résistance au partitionnement]: aucune panne moins importante
-    qu'une coupure totale du réseau ne doit empêcher le système de
-    répondre correctement.
-  \end{description}
-  \enddescription
-  \bigskip
-
-  \input{figs/cap.tex}
-
-  \newpage
-
-  Les bases de données relationnelles implémentent les propriétés de
-  cohérence et de disponibilité (système \emph{CA}). Les bases de
-  données \emph{NoSQL} sont généralement des systèmes \emph{CP}
-  (cohérent et résistant au partitionnement) ou \emph{AP} (disponible
-  et résistant au partitionnement), la figure \ref{fig:cap} montre
-  le positionnement de quelque systèmes \emph{NoSQL} par rapport au
-  théorème \acrshort{cap}.
-
-\section{Bases de données orientées graphes}
-\label{sec:graph-database-overview}
-En raison du volume exponentiellement croissant de données ouvertes
-disponibles, l'intérêt pour les systèmes de gestion de bases de
-données graphe est grandissant. Ces systèmes permettent de manipuler
-des données structurées sous forme de graphe, auxquelles aucun schéma
-n'est a priori associé. Ainsi, les systèmes de gestion de bases de
-données graphe permettent entre autres la gestion de données des
-réseaux sociaux, de données \textit{bio-informatiques}, et de données
-issues du Web sémantique tels que des documents \acrshort{rdf}
-éventuellement issus de l'exploitation des données ouvertes. De
-nombreux systèmes permettant la gestion des bases de données graphe
-sont apparus. Il s'agit par exemple de \textit{AllegroGraph}
-\textit{InfiniteGraph}, \textit{Neo4j} ou \textit{Sparksee}.\medskip
-
-Cette section a pour but d'introduire les modèles de données utilisés
-pour la persistance des données hautement connectées
-\ref{sec:persistence}, ainsi que les techniques du stockage
-sous-jacent et d'indexation utilisées par les différents systèmes de
-gestion des bases de données graphe.
-\ref{sec:graph-internals}.\medskip
-
-  \subsection{Définitions et caractéristiques}
-  \label{sec:graphdb-defs}
-  % Les bases de données orientées graphes sont conçues pour modéliser
-  % des réseaux de données fortement connectées et y naviguer facilement
-  % en bénéficiant de performances extrêmement élevées.\medskip
-
-  Selon Robinson \emph{el al.} \cite{robinson2013graph} \textit{``Un
-    système de gestion de base de données orienté graphe (ou
-    simplement, une base de données graphe) est un système de gestion
-    de base de données en ligne avec les quatre
-    opérations de base pour la persistance des données
-    (\acrshort{crud}) exposant une structure de donnée
-    graphe.''}\bigskip
-
-  Angles et Gutierrez \cite{angles2008survey} conceptualise les
-  bases de données graphe (\textit{``graph db-model''}) en trois
-  éléments fondamentaux:\medskip
-  \newpage
-  \renewcommand{\descriptionlabel}[1]{\hspace{1cm}\textbullet~\textsf{#1}}
-  \begin{description}
-  \item [Modèle de données]: une base de donnée graphe permet la
-    modélisation, le stockage et la manipulation des données complexes
-    liées par des relations non-triviales ou variables. Elle stocke
-    les données en graphe ou en une structure de données plus générique
-    (\textit{hypergraphs} ou \textit{hypernodes}) capable de
-    représenter avec élégance n'importe quel type de données d'une
-    manière ultra accessible. Un graphe contient des \textit{nœuds} ,
-    reliés par des \textit{relations}. Dans le modèle de graphe à
-    propriétés, chaque nœud et relation peut être libellée et contenir
-    plusieurs \textit{propriétés} les décrivant. Les relations entre
-    les nœuds sont un élément clé d'une base de données graphe, elles
-    permettent de trouvent les données reliées, tout comme les
-    noeuds.\medskip
-
-  \item [Manipulation de données]: Les manipulations de données sont
-    exprimées par des transformations de graphe ou des
-    \textit{traversées}, ces opérations utilisent les primitives
-    fondamentales d'une structure de données graphe, comme les
-    relations d'adjacence entre les nœuds, les chemins de parcours,
-    les sous-graphes et  la notion de connectivité, etc. Ces opérations
-    sont utilisées pour la création, l'interrogation et la mise à jour
-    d'une base de données graphe. Une \textit{traversée} consiste à
-    la manière dont les données sont interrogées dans un graphe,
-    naviguant depuis les nœuds de départ vers les noeuds reliés en
-    accordance avec un algorithme.\medskip
-
-  \item [Les contraintes d'intégrité]: une contrainte d'intégrité
-    permet de garantir la cohérence des données lors des mises à jour,
-    ces contraintes nous permettent, par exemple, de typer des nœuds,
-    définir des contraintes d'unicité sur certains champs, etc.
-  \end{description}
-\enddescription
-
-  \subsection{Techniques de persistance des bases de données graphes}
-  \label{sec:persistence}
-  Généralement, nous pouvons distinguer trois techniques majeures de
-  stockage adoptés par les systèmes de gestion des bases de données
-  graphe: les bases de données graphe qui utilisent des
-  \acrshort{SGBDR} comme un \emph{backend}, celles qui utilisent des
-  systèmes \acrshort{nosql}, et enfin, nous avons les bases de données
-  graphe natives qui fournissent ses propres implémentations de
-  stockage.
-
-    \subsubsection{Bases de données graphe au-dessus d'un stockage
-      SQL}
-    \label{sec:graphdb-over-sql}
-    Une base de donnée graphe peut être stockée dans une base de
-    données relationnelle. Les étiquettes et les attributs de nœuds et
-    arcs peuvent être gérés séparément dans d'autres tables et renvoyés
-    par des clés étrangères. l'utilisation des \acrshort{SGBDR} comme
-    un moteur de stockage a quelques avantages : des systèmes
-    d'indexation évolués, un support des transactions sophistiqué, et
-    le langage de requêtes \emph{SQL} qui est un standard bien établi
-    avec un cycle d'apprentissage rapide.\medskip
-
-    \input{figs/periscope-gq.tex}
-
-    Cette classe comprend \emph{GRIPP} \cite{trissl2007fast}, et
-    Periscope/GQ \cite{tian2008periscope} qui implémente un système de
-    gestion des bases de données graphe comme une application
-    au-dessus d'un moteur de stockage relationnel \emph{PostgreSQL}.
-
-    \newpage
-    \subsubsection{Bases de données graphes au-dessus d'un stockage
-      NoSQL}
-    \label{sec:graphdb-over-nosql}
-    Plusieurs systèmes de base de données graphe utilisent des
-    systèmes \acrshort{nosql} comme un moteur de stockage interne
-    offrant une meilleure scalabilité et un support fiable pour le
-    partitionnement des données.\bigskip
-
-    \textsf{HypergraphDB} \cite{hypergraphdb,
-      iordanov2010hypergraphdb} est une base de donnée qui implémente
-    le modèle de données \emph{``hypergraph''} où la notion d'un arc
-    est étendue pour pouvoir connecter plus de deux nœuds, ce qui est
-    particulièrement utile pour la modélisation des données telles que
-    la représentation des connaissances, l'intelligence artificielle
-    et la bio-informatique. \emph{HypergraphDB} utilise le modèle
-    \textit{clé/valeur} de \emph{BerkeleyDB} \cite{berkeleydb} pour
-    stocker toutes les informations relatives au graphe sous forme de
-    pairs \textit{clé/valeur}, chaque objet du graphe (nœud ou arc)
-    est identifié par une clé unique (appelée atome). Chaque atome est
-    lié à un ensemble d'atomes par une relation de type \emph{0:N}
-    (zéro ou plusieurs atomes), ces relations forment également la
-    structure typologique ``hypergraph''.\bigskip
-
-    \textsf{OrientDB} \cite{orientdb} est un système hybride de
-    gestion de base de données graphes qui combine les fonctionnalités
-    d'une base orientée document et une base orientée graphe avec
-    une capacité de stockage des données structurées ou
-    semi-structurées (\emph{schema-less}). il supporte aussi la
-    répartition de charge à travers plusieurs machines et la
-    réplication multi-maîtres tout en assurant les propriétés
-    \acrshort{acid} des données. Pour les requêtes simples,
-    \emph{OrientDB} s'appuie sur \emph{SQL} et utilise des langages de
-    parcours des graphes comme \emph{Gremlin} afin d'éviter les
-    jointures \emph{SQL} coûteuses pour les requêtes
-    complexes.\bigskip
-
-    \textsf{Titan} \cite{titan} est une base de données orientée
-    graphe évolutive (\emph{scalable}) et transactionnelle. Elle est optimisée
-    pour le stockage et l'interrogation des données graphes contenant
-    des centaines de milliards de sommets et d'arcs à travers un
-    \emph{cluster} multi-machine avec des schémas complexes du
-    parcours et requêtage et une exécution en temps réel. \emph{Titan}
-    utilise une multitude de systèmes \emph{NoSQL} comme un moteur de
-    stockage (\emph{backend}), par exemple, \emph{Hbase},
-    \emph{Cassandra}, \emph{BerkeleyDB}, cette diversité offre une
-    flexibilité en terme des caractéristiques \emph{CAP} \ref{sec:cap}
-    assurées par le système.
-
-    \subsubsection{Les bases de données graphe natives}
-    \label{sec:graphdb-native}
-    Les bases de données graphe natives possèdent leur propre
-    système de fichiers pour stocker les données au lieu de compter
-    sur des moteurs de stockage tiers. Ces bases de données sont
-    optimisées pour stocker et gérer les données \textbf{fortement}
-    connectées où la performance et la disponibilité sont
-    primordiales.\bigskip
-
-    % TODO: enhance
-    \textsf{Neo4j} \cite{neo4j} est un système de gestion de base de
-    données graphe \textit{open-source} populaire implémenté en
-    \textit{java} et supporté commercialement par \textit{Neo
-      Technology}\footnote{\url{http://neo4j.com/}}. il a été
-    conceptualisé et construit depuis le début afin d'être un système
-    fiable, robuste, évolutif et très performant optimisé pour stocker
-    et gérer des grandes masses de données structurées en graphe,
-    \textit{Neo4j} convient aussi bien pour le déploiement en grande
-    entreprise pour des projets plus légers en utilisant une
-    partie du serveur. Parmi ses fonctionnalités:\medskip
-
-    \begin{itemize}\renewcommand\labelitemi{--}
-    \item Transactions \acrshort{acid} réelle avec une haute disponibilité.
-    \item Supporte jusqu'à des milliards de noeuds et relations.
-    \item Requêtes ultra-rapides grâce aux traversées.
-    \end{itemize}
-    \enddescription
-    \medskip
-
-    \textit{Neo4j} est fourni avec une \textit{API} basée sur des
-    \textit{callbacks}, ce qui laisse la possibilité de spécifier
-    les règles pour les traversées, Les autres options pour traverser
-    ou interroger un graphe dans \textit{Neo4j} sont \textit{Gremlin}
-    \ref{sec:gremlin} et \textit{Cypher} \ref{sec:cypher}.\bigskip
-
-    \textsf{AllegroGraph} \cite{allegrograph} est un système performant
-    de persistance des données graphes avec un stockage natif,
-    implémenté initialement comme un système de persistance et
-    gestion de documents \acrshort{rdf} doté d'une interface
-    \acrshort{rest} \cite{fielding2000architectural}. Similaire à
-    \emph{Neo4j}, \emph{Allegrograph} garantit la satisfaction des
-    propriétés \acrshort{acid},  d'atomicité, cohérence, isolation et
-    durabilité. \emph{AllegroGraph} supporte \acrshort{sparql}, RDFS++
-    et \textit{Prolog} pour des applications clientes
-    multiples.\bigskip
-
-    \textsf{Sparsity} \cite{sparksee} (auparavant connu sous le nom
-    \emph{DEX}) est un système natif de stockage de données graphe
-    persistantes et temporaires. \emph{Sparsity} focalise sur la
-    gestion et l'interrogation à haute performance des bases de 
-    données graphes de grande taille. En encodant les matrices d'adjacences en
-    \emph{bitmap}, le système a une gestion d'espace disque compacte et
-    efficace et assure une très bonne performance.\medskip
-    \newpage
-
-    \textsf{InfiniteGraph} \cite{infinitegraph} est un système
-    distribué de gestion des bases de données graphe qui supporte des
-    grandes masses évolutives de données (\emph{large-scale}) avec une
-    capacité d'analyse efficace des graphes et une bonne prise en
-    charge des algorithmes distribués du
-    parcours. \emph{InfiniteGraph} fournit une variété
-    d'implémentations pour des différents systèmes (serveurs
-    d'application, les plateformes de \emph{cloud computing} et les
-    systèmes embarqués).
-
-  \subsection{Techniques de stockage et d'indexation}
-  \label{sec:graph-internals}
-  Il ya plusieurs façons pour représenter un graphe dans une mémoire
-  principale d'un système de stockage. On dit qu'un système de gestion
-  des bases de données graphe dispose des capacités \emph{natives} de
-  parcours des graphes s'il possède une propriété fondamentale
-  appelée \emph{index-free adjacency}.
-
-  \input{figs/gpi.tex}
-  \newpage
-
-    \subsubsection{Index-free adjacency}
-    \label{sec:index-free}
-    Dans un système de stockage de base de données graphe qui utilise
-    la technique \emph{index-free adjacency}, chaque noeud maintient
-    des références directes à ses noeuds adjacents agissant comme un
-    micro index d'autres noeuds voisins. Cette méthode améliore la
-    fiabilité du système de stockage d'une façon considérable
-    comparant à celles qui utilisent un index global. En effet, le temps
-    de réponse des requêtes est indépendant de la taille globale du
-    graphe. Pour traverser un graphe d'une taille donnée $n$ à $m$
-    pas, le coût est d'ordre $\mathcal{O}(m\log{}n)$ dans un système
-    avec un index global, et d'ordre $\mathcal{O}(m)$ pour un système
-    natif qui utilise un \emph{index-free adjacency}.
-
-    \input{figs/vertex-centric-indices.tex}
-
-    \subsubsection{Vertex Centric Indices}
-    \label{sec:vertex}
-
-    L'objectif de cette technique est de trier et indexer tous les arcs
-    incidents d'un noeud (et donc les noeud adjacents) selon les
-    propriétés de ces arcs. Ces indexes éliminent la nécessité de
-    balayage linéaire des arcs incidents lors d'une requête de parcours
-    ($\mathcal{O}(n)$) en faveur d'un parcours plus rapide
-    ($\mathcal{O}(\log{}n)$). Cette méthode est utilisée par (\emph{Titan}
-    \cite{vertexci}) surtout pour confronter le problème de
-    \emph{Supernode} dans les graphes fortement connectés, un
-    \emph{Supernode} est un noeud avec un très grand nombre d'arcs
-    incidents.
-
-  % \newpage
-  % \subsection{Comparaison}
-  % \label{sec:graphdb-comp}
-  % \input{tables/graphdb-comp.tex}
-  % \newpage
-
-  % {\color{red}
-  %   to be continued
-  % }
-  % \newpage
-
-\section{Langages des requêtes}
-\label{sec:query-languages}
-Les langages des requêtes ont toujours été la clé du succès des
-\acrshort{SGBD}. La prévalence des \emph{\acrshort{SGBDR}} dans les
-dernières décennies est étroitement couplée avec le succès du
-\emph{SQL}. Des divers langages ont été définis pour exprimer des
-requêtes vis-à-vis plusieurs dépôts de données, par exemple,
-\emph{XQuery} \cite{boag2002xquery} et \emph{XPath}
-\cite{clark1999xml} pour les bases de données \emph{\acrshort{xml}},
-\emph{QQL} \cite{alashqur1989oql} pour les bases de données orientées
-objet et \acrshort{sparql} \cite{prud2008sparql} pour les
-triplestores (les bases de données \emph{RDF}). Cette section présente
-trois langages des requêtes largement supportés par les systèmes de
-gestion des bases de données graphe.
-
-% \input{figs/query-graph-example.tex}
-
-% Le graphe présenté par la figure \ref{fig:query-graph-example} sera
-% utilisé pour illustrer la syntaxe et la sémantique de ces trois
-% langages. Le graphe représente le résultat d'un processus de
-% \emph{matching} sémantique entre cinq services Web qui forment un plan de
-% composition.
-
-  \subsection{SPARQL}
-  \label{sec:sparql}
-  \acrshort{sparql} \cite{prud2008sparql} est un langage populaire de
-  requête pour les données \acrshort{rdf}, il est reconnu comme l'une
-  des technologies clés du Web sémantique. Le standard
-  \acrshort{sparql} est largement utilisé pour exprimer des
-  interrogations à travers diverses sources de données graphe comme
-  des triplestores \acrshort{rdf}. Il est capable de rechercher des
-  motifs de graphe (\emph{graph patterns}) ainsi que leurs
-  conjonctions et leurs disjonctions. Les résultats des interrogations
-  \acrshort{sparql} peuvent être des ensembles de résultats ou des
-  graphes \acrshort{rdf} qui peuvent être retournés via
-  \acrshort{http} dans une variété de formats tels que \acrshort{xml},
-  HTML ou \acrshort{json}\medskip
-
-  \acrshort{sparql} propose quatre types de requête:\medskip
-
-  \begin{itemize}\renewcommand\labelitemi{--}
-  \item les requêtes \texttt{SELECT} permettent d'extraire des
-    informations d'une base de données ou d'une source de données
-    \acrshort{rdf} interrogée.
-
-  \item les requêtes \texttt{CONSTRUCT} permettent de créer de
-    nouveaux triplets à partir du résultat d'une requête.
-
-  \item les requêtes \texttt{DESCRIBE} permettent d'obtenir la
-    description d'une ressource donnée sous forme d'un
-    sous-ensemble de graphes interrogés.
-
-  \item \texttt{ASK} indique si la requête retourne un résultat non
-    vide
-  \end{itemize}
-  \enddescription
-  \medskip
-
-  La plupart des bases de données graphes ont un support de
-  \textsc{SPARQL} soit nativement telle que \emph{Allegrograph} soit
-  via des extensions comme \emph{Neo4j}.
-
-  \subsection{Gremlin}
-  \label{sec:gremlin}
-  \emph{Gremlin} \cite{gremlin-wiki} est un langage de domaine
-  spécifique (\acrshort{DSL}) de bas niveau pour le parcours des
-  graphes attribués. Il trouve ses applications dans les domaines de
-  la recherche, l'analyse et la manipulation des bases de données
-  orientées graphe qui implémentent le modèle \emph{Blueprints}
-  \cite{blueprints} de données. \emph{Gremlin} \cite{gremlin-wiki} est
-  un projet open source développé et maintenu par
-  \emph{TinkerPop}.\medskip
-
-  La syntaxe \emph{Gremlin} est basée sur \emph{XPath} de manière à
-  être capable d'exprimer des descriptions de parcours même profonds
-  avec des expressions simples et compactes.\medskip
-
-  La distribution \emph{Gremlin} (maintenu par \emph{TinkerPop}) est
-  supportée par la plupart des bases de données graphe via des
-  langages \emph{JVM} comme \emph{Java}, \emph{Groovy} et
-  \emph{Scala}, parmi ces \acrshort{SGBD} graphe on trouve
-  \emph{Neo4j}, \emph{Titan} et \emph{OrientDB}.
-
-  \subsection{Cypher}
-  \label{sec:cypher}
-  \emph{Cypher} \cite{cypher-docs} est un langage de requête
-  déclaratif pour interagir avec les bases des données graphes
-  \emph{Neo4j}, développé et maintenu par \emph{Neo Technology}. Il
-  permet d'effectuer des requêtes et mises à jour efficaces du graphe 
-  sans avoir à écrire des traversées (parcours) d'une manière
-  procédurale.\medskip
-
-  En étant un langage déclaratif, \emph{Cypher} se concentre sur la
-  clarté d'exprimer \textit{quoi retrouver dans un graphe et non
-  comment le faire}. Ceci est en contraste aux langages impératifs
-  comme Java et aux langages script comme \emph{Gremlin}
-  \ref{sec:gremlin}, ce qui rend le fait d'optimisation des requêtes un
-  détail d'implémentation non exposé aux utilisateurs.\medskip
-
-  \emph{Cypher} est inspiré de plusieurs approches et construit sur
-  des pratiques établies pour l'interrogation expressive des bases de
-  données. La plupart des mots clés comme \verb|WHERE| et
-  \verb|ORDER BY| et La concordance des patterns sont hérités
-  directement des langages déclaratifs comme \emph{SQL} et
-  \emph{SPARQL} \ref{sec:sparql} avec quelque propriétés inspirées des
-  langages fonctionnels comme \emph{Haskell} et \emph{ML}.\medskip
-
-  Le langage \emph{Cypher} comporte un nombre de clauses distinctes,
-  des clauses pour l'interrogation du graphe comme:
-  \begin{itemize}
-  \item [\texttt{MATCH}]: Utilisé pour décrire Le pattern du graphe
-    à correspondre, principalement sur la base des relations entre les
-    nœuds du graphe.
-  \item [\texttt{WHERE}]: Sert à un critère de filtrage.
-  \item [\texttt{RETURN}]: Spécifie ce qu'il faut retourner comme
-    résultat finale à la requête.
-  \end{itemize}
-  \medskip
-
-  \emph{Cypher} contient en outre des clauses pour l'écriture, la mise
-  à jour et la suppression des données, par exemple:
-
-  \begin{itemize}
-  \item [\texttt{CREATE}]: Crée des nœuds ou des relations.
-  \item [\texttt{SET}]: Affecte des valeurs aux propriétés..
-  \item [\texttt{DELETE}]: supprime des noeuds, relations ou propriétés.
-  \end{itemize}
+\newpage
+\section{Définitions préliminaires}
+\label{sec:basic-defs}
+Cette section a comme but d'introduire les notions de base ainsi que
+les notations et terminologies \ref{sec:basic:ws} employées dans la
+suite de ce chapitre. Nous présentons une formulation
+mathématique de notre problème principal, à savoir \textit{la
+  composition des servies Web} sous forme d'un problème de recherche
+du plus court chemin dans un graphe orienté
+\ref{sec:basic:composition}.\medskip
+
+  \subsection{Services Web}
+  \label{sec:basic:ws}
+  Chaque service web peut contenir les définitions de différentes
+  opérations identifiables par leurs noms et leurs paramètres. 
+  Pour des raisons de simplicité, nous supposons que chaque service Web
+  représente une seule opération.
+
+  \begin{mydef}[\textbf{Service Web}]
+    Un Service Web $S$ est un tuple $S = <I,O>$. $I/O$ qui désigne la
+    liste des paramètres ``entrées/sorties'' où chaque paramètre est
+    lié à un concept dans l'ontologie du domaine.
+   \end{mydef}
+
+  \input{figs/ch4/web-service.tex}
+
+  Nous pouvons donc déterminer un service comme une application $S$
+  définie par:
+
+   \[ S =
+     \begin{cases}
+       Inputs^n  \to Outputs^m \\
+       (i_0, ..., i_n ) \mapsto (o_0, ..., o_m)\\
+     \end{cases}
+   \]\medskip
+
+   $S$ possède $n$ paramètres d'entrée notés $i_0...i_n$ et $m$
+   paramètres de sortie notés $o_0,...o_m$. Dans notre approche
+   proposée, nous supposons que chaque service est décrit par un
+   document \textit{OWL-S} où chaque paramètre (d'entrée ou de sortie)
+   est lié à un concept dans une ontologie \textit{(OWL)} du domaine
+   local.\medskip
+
+
+   Les ontologies de domaine locale sont les éléments essentiels des
+   services web sémantique, et sont créées par les prestataires des services.
+   Un fournisseur a besoin de cette classe lorsqu'il crée un service web
+   sémantique ainsi que leur ontologie de description (\textit{OWL-S})
+   pour pointer les paramètres de ce service vers des entités de cette
+   classe.
+
+   \begin{mydef}[\textbf{Annuaire des services Web}]
+     un annuaire des services $R$ (ou référentiel des services) est un
+     ensemble $R =\{s_0, s_1, ...s_n\}$ des services Web disponibles
+     qui peuvent être composés suite à une requête du client de
+     composition.
+  \end{mydef}
+
+  Dans notre architecture proposée, l'annuaire des services consiste
+  en un service Web remplaçant un serveur \acrshort{uddi}. Ce service
+  fournit l'ensemble des descriptions \textit{OWL-S} des services
+  disponibles. Chaque document référence un document \acrshort{wsdl}
+  qui à son tour pointe vers l'\acrshort{url} du service décrit
+  (\textit{Endpoint}), les descriptions sémantiques des services Web
+  disponibles seront stockées dans une base de données relationnelle
+  et exposées via un simple interface \acrshort{rest}.\medskip
+
+  \input{figs/ch4/gd.tex}
+
+  \subsection{Composition de services Web}
+  \label{sec:basic:composition}
+  Afin de découvrir et sélectionner un service Web composite suite à
+  une requête du client de composition, les services référencés dans un
+  annuaire doivent être structurés dans un graphe orienté modélisant
+  toutes les relations de dépendance fonctionnelle possibles pour permettre 
+  de réaliser un \textit{Matching} horizontal \ref{sec:ch4/matching}
+  (la figure \ref{fig:ch4/gd}) entre les services disponibles deux à deux.\medskip
+
+  \begin{mydef}[\textbf{Graphe de dépendance}]
+    Un graphe de dépendance $GD$ est un ``graphe orienté et
+    acyclique'' $GD=<R, E_r>$ qui modélise toutes les relations de
+    dépendance fonctionnelle possibles entre les services Web
+    disponibles dans un annuaire $R$. Il existe une relation $e=(s_0,
+    s_1) \in E_r$ si et seulement si il existe une relation de
+    dépendance entre $s_0$ et $s_1$.
+  \end{mydef}
+
+  L'approche proposée consiste à construire le graphe de dépendance à
+  priori (\textit{Offline}) et le sauvegarder dans une base de données
+  graphe (\textit{Neo4j}). Suite à une requête $Q$, un sous-graphe $G$
+  est extrait reflétant un plan de composition exécutable $P$ d'un
+  service Web composite satisfaisant.
+
+  \begin{mydef}[\textbf{Requête}]
+    Une requête $Q$ est un tuple $Q = <I', O'>$. $I'$ désigne la liste
+    des paramètres d'entrée fournis par le client et $O'$ représente
+    la listes des paramètres requis (sorties).
+  \end{mydef}
+
+  \input{figs/ch4/composition-plan.tex}
+
+  \begin{mydef}[\textbf{Plan de composition}]
+    Un plan de composition $P$ est un sous-graphe
+    $G$``\textbf{connexe''} d'un graphe de dépendance $GD$, $G=(V,E)$
+    tel que $G \subset GD$ décrit le flux de données/contrôles
+    d'exécution d'un ensemble de services Web atomiques $V \subset R$
+    engagés dans un processus de composition. Il existe une arête $e
+    \in E$ tel que $e = (s_i, s_j)$ si l'exécution d'un service $s_j$
+    dépend d'un ou plusieurs paramètres de sortie de $s_i$.
+  \end{mydef}
+
+  \begin{mydef}[\textbf{Service Web composite}]
+    Un service Web composite $S_c$ est un service Web exécutable
+    composé de ``$n$'' services atomiques $s \in \{s_0,..., s_n\}$ tel
+    que $n \succeq 1$, l'exécution d'un service Web composite
+    correspond à l'exécution d'un plan de composition $P$ décrit par
+    $G=<V,E>$ où $V = \{s_0, ..., s_n\}$ et $E$ décrivent les
+    relations de dépendance entre les services $V$.
+  \end{mydef}
+
+  La figure \ref{fig:ch4/composition-plan} montre un service Web
+  composite $S_c = <\{i_0, i_1\}, \{o_0, o_1\}>$ correspondant à un
+  plan de composition $P$ représenté par un graphe\\ $G =<\{s_0, s_1,
+  s_2, s_4\}, \{(s_0, s_1), (s_1, s_2), (s_2, s_4)\}>$.
+
+\section{Architecture proposée}
+\label{sec:proposition}
+
+\section{Matching des services  atomiques}
+\label{sec:ch4/matching}
+
+\section{Construction et persistance du graphe de dépendance dans une
+  base de données Neo4J}
+\section{Découverte et exécution des services composites}
 
 \section*{Conclusion}
+\label{sec:conclusion}
 \addcontentsline{toc}{section}{Conclusion} \markboth{CONCLUSION}{}
 
-Dans ce chapitre nous avons fait un tour d'horizon des systèmes de
-gestion des bases de données graphe conçues pour modéliser des
-réseaux de données fortement connectées, tout en mettant l'accent sur
-les techniques natives de stockage et d'indexation adoptées par des
-solutions très répondus dans l'industrie comme \textit{Neo4j} et
-\textit{AllegroGraph}.
-
-% TODO
-% Nous avons pu constater que ...
 
 %%% Local Variables:
 %%% mode: latex
