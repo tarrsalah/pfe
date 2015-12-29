@@ -33,7 +33,7 @@ leur objectifs et principes
 fondamentaux~\ref{sec:semantic-web-vision}. Ensuite Nous allons
 présenter les principaux standards et langages développés par la
 communauté pour la réalisation et la concrétisation du web
-sémantique~(\ref{sec:semantic-web-rdf}~\ref{sec:semantic-web-owl}).
+sémantique~(\ref{sec:semantic-web-rdf}~\ref{sec:semantic-web-owl2}).
 
 \newpage
 \section{La vision du Web sémantique}
@@ -409,7 +409,7 @@ la définition de l'assertion \texttt{(Weaving the Web, Créateur, Tim
 \item La troisième couche représente un extrait du
   \emph{méta-vocabulaire} \acrshort{rdfs} (la langage définie et
   standardisé par \acrshort{w3c}) utilisé pour la définitions des
-  classes et propriétés pour la deuxième couche.\medskip
+  classes et propriétés dans la deuxième couche.\medskip
 \end{enumerate}
 
 Il est primordial de noter qu'une ontologie \acrshort{rdfs} est
@@ -420,7 +420,7 @@ qui peut être encoder dans l'une des syntaxes de sérialisation de
 
 \acrshort{rdfs} permet d'inférer de nouveaux triplets à partir des
 triplets existants via les règles explicitement définies par ses
-sémantiques~\cite{hayes2004rdf}.Ces règles incluent notamment la
+sémantiques~\cite{hayes2004rdf}. Ces règles incluent notamment la
 transitivité des propriétés \texttt{subClassOf} et
 \texttt{subPropertyOf}, et les contraintes sur les domaines et
 co-domaines (respectivement \texttt{domain} et \texttt{range}). Dans
@@ -446,10 +446,13 @@ dans la définition d'ontologies pour le Web sémantique, le
 autour d'\acrshort{owl}, un langage de définition d'ontologies sur le
 Web.\medskip
 
-\section{Langage de définition des ontologies~: OWL}
-\label{sec:semantic-web-owl}
+\section{Langage de définition des ontologies~: OWL2}
+\label{sec:semantic-web-owl2}
 
-Selon Gruber \cite{gruber1993translation}, une ontologie est une
+\subsection{Les Ontologie dans le Web sémantique}
+\label{sec:semantic-web-owl2-ontolgies}
+
+Selon Gruber~\cite{gruber1993translation}, une ontologie est une
 spécification explicite d'une conceptualisation. Une conceptualisation
 est un modèle abstrait qui représente la manière dont les personnes
 conçoivent les choses réelles dans le monde et une spécification
@@ -458,6 +461,31 @@ abstrait reçoivent des noms et des définitions explicites. Le Web
 sémantique est devenu un domaine à part entière, preuve en est la
 création en 2001 du groupe de travail sur ce sujet par le
 \acrshort{w3c}.
+
+\subsection{Le langage OWL2~: syntaxes et sémantiques}
+\label{sec:semantic-web-owl2-syntax-semantics}
+
+\subsubsection{Compatibilité avec RDF/RDFS}
+\label{sec:semantic-web-owl2-rdf-rdfs}
+
+\subsubsection{Sémantiques de base}
+\label{sec:semantic-web-owl2-semantics}
+
+\subsubsection{Syntaxes}
+\label{sec:semantic-web-owl2-syntax}
+
+\subsection{Les profiles OWL2}
+\label{sec:semantic-web-owl2-profiles}
+\cite{motik2009owl}
+
+\subsubsection{OWL2 EL}
+\label{sec:semantic-web-owl2-el}
+
+\subsubsection{OWL2 QL}
+\label{sec:semantic-web-owl2-ql}
+
+\subsubsection{OWL2 RL}
+\label{sec:semantic-web-owl2-rl}
 
 %%% Local Variables:
 %%% mode: latex
