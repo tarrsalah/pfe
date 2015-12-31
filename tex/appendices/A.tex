@@ -470,18 +470,49 @@ une capacité de raisonnement plus forte.\medskip
 \subsection{Les Ontologies dans le Web sémantique}
 \label{sec:semantic-web-owl2-ontolgies}
 
-Selon Gruber~\cite{gruber1993translation}, une ontologie est une
-spécification explicite d'une conceptualisation. Une conceptualisation
-est un modèle abstrait qui représente la manière dont les personnes
-conçoivent les choses réelles dans le monde et une spécification
-explicite signifie que les concepts et les relations d'un modèle
-abstrait reçoivent des noms et des définitions explicites.
+Le terme \emph{``Ontologie''} est emprunté à la philosophie qui
+implique une branche de la métaphysique traitant la nature et
+l’organisation de l'être. Cependant, il est maintenant largement
+utilisé dans des domaines tels que la représentation des
+connaissances, la recherche d'informations et notament dans le Web
+sémantique.
 
-% Le Web sémantique est devenu un domaine à part entière, preuve en est
-% lacréation en 2001 du groupe de travail sur ce sujet par le
-% \acrshort{w3c}.
+\subsubsection{Définitions}
+\label{sec:semantic-web-owl2-defs}
 
-% Requirements for Web Ontology Description Languages
+Selon Gruber~\cite{gruber1993translation}: \emph{``Une ontologie est
+  une spécification formelle et explicite d'une conceptualisation
+  partagé''}. Une \emph{``Conceptualisation''} est un modèle abstrait
+qui représente la manière dont les personnes conçoivent les choses
+réelles dans le monde, Une spécification \emph{``explicite''} signifie
+que les concepts et les relations d'un modèle abstrait reçoivent des
+noms et des définitions explicites. \emph{``Formelle''} réfère au fait
+qu'une ontologie doit être compréhensible par la
+machine. \emph{``Partagée''} indique que l'ontologie supporte la
+connaissance consensuelle, et elle n'est pas restreinte à certains
+individus mais acceptée par un groupe.\medskip
+
+Une ontologie sert donc à représenter les connaissances d'un domaine
+particulier par la spécification des différents concepts de ce domaine
+ainsi que leurs relations les propriété
+\cite{mcguinness2004owl}.\medskip
+
+Maedche \cite{maedche2002ontology} apporte une définition plus
+formelle, il propose qu'une ontologie peut être décrite un
+\emph{5-uple}
+$\mathpzc{O} = \{\mathpzc{C}, \mathpzc{R}, \mathpzc{CH}, \mathpzc{rel}
+, \mathpzc{OA}\}$:
+
+\SpecialItem
+\begin{itemize}
+\item $\mathpzc{C}$ and $\mathpzc{R}$ sont deux ensembles disjoints,
+  appelé l'ensemble des concepts et l'ensemble des relations,
+  respectivement.
+\item $\mathpzc{CH} \subseteq \mathpzc{C} \times \mathpzc{C}$
+\item $\mathpzc{rel}: \mathpzc{R} \to \mathpzc{C} \times \mathpzc{C}$
+\item $\mathpzc{OA}$
+\end{itemize}
+\enddescription
 
 \subsection{Le langage OWL2}
 \label{sec:semantic-web-owl2-syntax-semantics}
