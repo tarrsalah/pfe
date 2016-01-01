@@ -467,6 +467,15 @@ nous fournit la capacité d'exprimer des relations plus complexes et
 riches. Par conséquent, nous peuvent construire des applications avec
 une capacité de raisonnement plus forte.\medskip
 
+Dans la section \ref{sec:semantic-web-owl2-ontolgies} nous présentons
+quelques définitions du concept d'\emph{ontologie}, ainsi que leur
+rôle important joué à l'initiative du Web sémantique. Ensuite, dans
+\ref{sec:semantic-web-owl2-syntax-semantics} et
+\ref{sec:semantic-web-owl2-tools} respectivement, nous abordons le
+language \acrshort{owl}\footnote{Dans sa deuxième version
+  \cite{w3c2009owl}} suivi par un exposé d'un ensemble d'outils
+utilisés pour la manipulation les documents \acrshort{owl}.
+
 \subsection{Les Ontologies dans le Web sémantique}
 \label{sec:semantic-web-owl2-ontolgies}
 
@@ -480,6 +489,11 @@ sémantique.
 \subsubsection{Définitions}
 \label{sec:semantic-web-owl2-defs}
 
+Une ontologie sert à représenter les connaissances d'un domaine
+particulier par la spécification des différents concepts de ce domaine
+ainsi que leurs relations et propriétés (ou attributs) que les
+concepts devrait posséder~\cite{mcguinness2004owl}.\medskip
+
 Selon Gruber~\cite{gruber1993translation}: \emph{``Une ontologie est
   une spécification formelle et explicite d'une conceptualisation
   partagé''}. Une \emph{``Conceptualisation''} est un modèle abstrait
@@ -492,11 +506,6 @@ machine. \emph{``Partagée''} indique que l'ontologie supporte la
 connaissance consensuelle, et elle n'est pas restreinte à certains
 individus mais acceptée par un groupe.\medskip
 
-Une ontologie sert donc à représenter les connaissances d'un domaine
-particulier par la spécification des différents concepts de ce domaine
-ainsi que leurs relations les propriété
-\cite{mcguinness2004owl}.\medskip
-
 Maedche \cite{maedche2002ontology} apporte une définition plus
 formelle, il propose qu'une ontologie peut être décrite un
 \emph{5-uple}
@@ -508,14 +517,52 @@ $\mathpzc{O} = \{\mathpzc{C}, \mathpzc{R}, \mathpzc{CH}, \mathpzc{rel}
 \item $\mathpzc{C}$ and $\mathpzc{R}$ sont deux ensembles disjoints,
   appelé l'ensemble des concepts et l'ensemble des relations,
   respectivement.
-\item $\mathpzc{CH} \subseteq \mathpzc{C} \times \mathpzc{C}$
+
+\item $\mathpzc{CH} \subseteq \mathpzc{C} \times \mathpzc{C}$ désigne
+  le concept de hiérarchie, où
+  $\mathpzc{CH} (\mathit{C}_1, \mathit{C}_2)$ indique que $C_1$ est un
+  sous-concept de $C_2$.
+
 \item $\mathpzc{rel}: \mathpzc{R} \to \mathpzc{C} \times \mathpzc{C}$
-\item $\mathpzc{OA}$
+  est une fonction qui représente les relations non hiérarchiques qui
+  existent entres les concepts dans $\mathpzc{C}$ .
+
+\item $\mathpzc{OA}$ est un ensemble d'axiomes de l'ontologie exprimé
+  dans un langage logique appropriée.\medskip
+\end{itemize}
+\enddescription
+
+Selon l'auteur, la plupart des langages de représentation d'ontologies
+existantes sont conformes à cette définition, comprenant
+\acrshort{rdfs} et \acrshort{owl}.
+
+\subsubsection{Les avantages d'utilisation des ontologies}
+\label{sec:semantic-web-owl2-benefits}
+
+Nous ne pouvons brièvement résumer les avantages d'utilisation des
+ontologies dans le Web comme suit:
+
+\SpecialItem
+\begin{itemize}
+\item Elle fournit une \emph{définition/compréhension} commune et
+  partagée de certains concepts clés dans le domaine.
+
+\item Elle offre une terminologie que l'on peut utiliser lors de la
+  création des documents \acrshort{rdf}.
+
+\item Elle fournit une manière de réutiliser les connaissances
+  (exprimées formellement et explicitement) de domaine.
+
+\item Ensemble avec un langage de description des ontologies (tels que
+  \acrshort{rdfs} et \acrshort{owl} ), il fournit un moyen d'encoder
+  les connaissances et ses sémantiques tels que les machines peuvent
+  manipuler.
 \end{itemize}
 \enddescription
 
 \subsection{Le langage OWL2}
 \label{sec:semantic-web-owl2-syntax-semantics}
+\cite{motik2009owl}
 
 \subsubsection{Compatibilité avec RDF/RDFS}
 \label{sec:semantic-web-owl2-rdf-rdfs}
@@ -526,18 +573,8 @@ $\mathpzc{O} = \{\mathpzc{C}, \mathpzc{R}, \mathpzc{CH}, \mathpzc{rel}
 \subsubsection{Syntaxe}
 \label{sec:semantic-web-owl2-syntax}
 
-\subsection{Les profiles OWL2}
-\label{sec:semantic-web-owl2-profiles}
-\cite{motik2009owl}
-
-\subsubsection{OWL2 EL}
-\label{sec:semantic-web-owl2-el}
-
-\subsubsection{OWL2 QL}
-\label{sec:semantic-web-owl2-ql}
-
-\subsubsection{OWL2 RL}
-\label{sec:semantic-web-owl2-rl}
+\subsection{ OWL2 tools}
+\label{sec:semantic-web-owl2-tools}
 
 %%% Local Variables:
 %%% mode: latex
