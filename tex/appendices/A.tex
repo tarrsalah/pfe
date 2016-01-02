@@ -159,14 +159,12 @@ figure~\ref{fig:semantic-web-stack}:\medskip
 
 \SpecialItem
 \begin{itemize}
-\item Elle doit permettre de choisir le langage d’expressivité et de
+\item Elle doit permettre de choisir le langage d'expressivité et de
   complexité adapté aux besoins d'une modélisation à réaliser;\medskip
 
 \item Elle permet une approche graduelle dans les processus de
-  standardisation de ces langages naissants (\acrshort{owl} n'a vu
-  le jour qu'en \date{2001}~\cite{fensel2001oil} et est une
-  recommendation du \acrshort{w3c} depuis seulement
-  \date{2004}~\cite{mcguinness2004owl}).\medskip
+  standardisation de ces langages naissants (commme
+  \acrshort{owl}~\cite{mcguinness2004owl}).\medskip
 \end{itemize}
 \enddescription
 
@@ -443,21 +441,24 @@ l'expressivité de \acrshort{rdfs} est malgré tout assez restreinte. Ce
 langage ne permet pas de définir des contraintes sémantiques plus
 riches comme la symétrie d'une propriété. Ainsi, pour aller plus loin
 dans la définition d'ontologies pour le Web sémantique, le
-\acrshort{w3c} a mis en place dès \date{2001} \cite{fensel2001oil} un
-groupe de travail autour d'\acrshort{owl}, un langage de définition
-d'ontologies sur le Web.\medskip
+\acrshort{w3c} a mis en place un groupe de travail autour
+d'\acrshort{owl}, un langage de définition d'ontologies sur le
+Web.\medskip
 
-\section{Langage de définition des ontologies~: OWL2}
+\section{Langage de définition des ontologies~: OWL}
 \label{sec:semantic-web-owl2}
 
-Le langage \acrshort{owl}, basé sur la recherche effectuée dans le
-domaine de la logique de description, est une recommandation
-\acrshort{w3c} depuis \date{2004} pour la définition des ontologies
-pour le Web Sémantique \cite{mcguinness2004owl}. Il est le fruit des
-efforts effectués aux États Unis et à l'Union Européenne et a été créé
-à partir de son prédécesseur, le langage \acrshort{daml} +
-\acrshort{oil} \cite{ horrocks2002daml+oil} (qui est considéré comme
-un alternatif de \acrshort{rdfs}).\medskip
+Le langage \acrshort{owl}~\cite{mcguinness2004owl}, basé sur la
+recherche effectuée dans le domaine de la logique de description, est
+une recommandation \acrshort{w3c} depuis \date{2004} pour la
+définition des ontologies pour le Web Sémantique. Il a été créé à
+partir de son prédécesseur, le langage \acrshort{daml} +
+\acrshort{oil}~\cite{
+  horrocks2002daml+oil}~\footnote{\url{http://www.daml.org/2000/12/daml+oil-index.html}},
+issu lui-même des projets et langages
+\acrshort{oil}\cite{horrocks2000ontology} en Europe et
+\acrshort{daml-ont}~\cite{mcguinness2003daml}~\footnote{\url{http://www.daml.org/2000/10/daml-ont.html}}
+aux Etats-Unis.\medskip
 
 Le but de \acrshort{owl} est exactement le même que \acrshort{rdfs}:
 \emph{`` définir des ontologies qui incluent les classes, les
@@ -471,7 +472,7 @@ Dans la section~\ref{sec:semantic-web-owl2-ontolgies} nous présentons
 quelques définitions du concept d'\emph{ontologie}, ainsi que leur
 rôle important joué à l'initiative du Web sémantique. Ensuite, nous
 abordons brièvement le language \acrshort{owl}~\cite{w3c2009owl}Dans
-sa deuxième version~\ref{sec:semantic-web-owl2-syntax-semantics} .
+sa deuxième version(en ~\ref{sec:semantic-web-owl2-syntax-semantics}).
 
 \subsection{Les Ontologies dans le Web sémantique}
 \label{sec:semantic-web-owl2-ontolgies}
@@ -561,14 +562,18 @@ ontologies dans le Web comme suit:
 \label{sec:semantic-web-owl2-syntax-semantics}
 \cite{motik2009owl}
 
+\subsubsection{Requirements for ontology languages}
+\label{sec:semantic-web-owl2-requirements}
+
+\subsubsection{Limitations of the expressive power of RDF Schema}
+\label{sec:semantic-web-owl2-rdfs-limitaions}
+
+
 \subsubsection{Compatibilité avec RDF/RDFS}
-\label{sec:semantic-web-owl2-rdf-rdfs}
+\label{sec:semantic-web-owl2-rdfs-compatibility}
 
-\subsubsection{Sémantique}
+\subsubsection{Profiles OWL2}
 \label{sec:semantic-web-owl2-semantics}
-
-\subsubsection{Syntaxe}
-\label{sec:semantic-web-owl2-syntax}
 
 %%% Local Variables:
 %%% mode: latex
