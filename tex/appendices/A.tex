@@ -470,9 +470,10 @@ une capacité de raisonnement plus forte.\medskip
 
 Dans la section~\ref{sec:semantic-web-owl-ontolgies} nous présentons
 quelques définitions du concept d'\emph{ontologie}, ainsi que leur
-rôle important joué à l'initiative du Web sémantique. Ensuite, nous
-abordons brièvement le language \acrshort{owl}~\cite{w3c2009owl} Dans
-sa deuxième version(en ~\ref{sec:semantic-web-owl-owl2}).
+rôle important joué à l'initiative du Web sémantique. Ensuite (Dans
+~\ref{sec:semantic-web-owl-owl2}), Nous nous intéresserons plus
+particulièrement à la nouvelle version du langage \acrshort{owl},
+nommé \acrshort{owl2}~\cite{w3c2009owl} .
 
 \subsection{Les Ontologies dans le Web sémantique}
 \label{sec:semantic-web-owl-ontolgies}
@@ -560,35 +561,56 @@ ontologies dans le Web comme suit:
 
 \subsubsection{Les exigences pour la définition des langages
   d'ontologies}
-\label{sec:sec:semantic-web-owl-ontolgies-requirements}
+\label{sec:semantic-web-owl-ontolgies-requirements}
 
-\subsubsection{Les limitations d'expressivité du langageRDFS}
-\label{sec:sec:semantic-web-owl-ontolgies-rdfs-limitaions}
+les langages qui nous permettent de définir des ontologies sont
+appelés langages d'ontologies (comprenant le langage \acrshort{rdfs}).
+les critères essentiels qui doivent être satisfaits par ces langagees
+sont~\cite{antoniou2012semantic}:
+
+\begin{enumerate}
+\item Une syntaxe bien définie.
+\item Une sémantique bien définie.
+\item Un degré d'expressivité suffisant.
+\item Un support efficace de raisonnement.
+\end{enumerate}
+
+Une sémantique formelle et bien définie est un prérequis pour le
+support de raisonnement automatique d'un langage d'ontologies, ce
+dernier nous permet de vérifier la consistance d'une ontologie, et
+d'inférer les relations imprévues entres les classes (les concepts) et
+les classifications des individus (instances).\medskip
 
 \subsection{Le langage OWL2}
 \label{sec:semantic-web-owl-owl2}
-\acrshort{owl2}~\cite{w3c2009owl} est une révision du langage
-\acrshort{owl}~\cite{mcguinness2004owl} de définition des ontolgies,
-il ajoute de nouvelles fonctionnalités par rapport à \acrshort{owl},
-incluant:
+\acrshort{owl2}~\cite{w3c2009owl} est un langage de représentation des
+connaissances qui a atteint le statut de recommandation du
+\acrshort{w3c} en \date{2009}, il étend l'expressivité du
+\acrshort{owl}~\cite{mcguinness2004owl} avec des nouvelles
+fonctionnalités, incluant:
 
 \SpecialItem
 \begin{itemize}
 \item Des types de donnés plus riches.
-\item La définition dee restrictions de cardinalité qualifiés.
-\item Les propriétés asymétriques, réflexives et disjoints.
+\item Les restrictions de cardinalités qualifiées.
+\item Les propriétés disjointes, asymétriques, réfléxives.
 \end{itemize}
 \enddescription
 
-\subsubsection{Compatibilité avec RDF/RDFS}
+\subsubsection{Compatibilité avec RDFS et les profiles OWL2}
 \label{sec:semantic-web-owl-owl2-rdfs-compatibility}
 
-\subsubsection{Les éléments de base}
-\label{sec:semantic-web-owl-owl2-elements}
-
-\subsubsection{Profiles OWL2}
-\label{sec:semantic-web-owl-owl2-profiles}
-
+Idéalement, \acrshort{owl2} sera une extension de \acrshort{rdfs},
+dans le sens que \acrshort{owl2} hérite la sémantique de
+\acrshort{rdfs} des classes et des propriétés (\texttt{rdfs:Class},
+\texttt{rdfs:Property}, etc.), et il ajoute des primitives plus
+expressives. Cependant, cette approche est inapplicable, car bien que
+le résultat aura une forte expressivité, il risque d'avoir une
+calculabilité du raisonnement incontrôlable. Des primitives comme
+\texttt{rdfs:Class} (la classe des classes) sont trés experssives, et
+la rançon de cette expressivité est l'indécidabilité du langage
+obtenu~\cite{antoniou2012semantic}.\medskip
+\newpage
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
