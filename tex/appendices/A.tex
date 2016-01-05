@@ -439,10 +439,10 @@ inférer l'appartenance de domaine d'une propriété.\medskip
 
 l'expressivité de \acrshort{rdfs} est malgré tout assez restreinte. Ce
 langage ne permet pas de définir des contraintes sémantiques plus
-riches comme la symétrie d'une propriété. Ainsi, pour aller plus loin
-dans la définition d'ontologies pour le Web sémantique, le
-\acrshort{w3c} a mis en place un groupe de travail autour
-d'\acrshort{owl}, un langage de définition d'ontologies sur le
+riches comme la symétrie d'une propriété. En effet, pour aller plus
+loin dans la définition d'ontologies pour le Web sémantique, le
+\acrshort{w3c} a mis en place un groupe de travail autour de
+\acrshort{owl}, un langage de définition d'ontologies sur le
 Web.\medskip
 
 \section{Langage de définition des ontologies~: OWL}
@@ -568,15 +568,17 @@ appelés langages d'ontologies (comprenant le langage \acrshort{rdfs}).
 les critères essentiels qui doivent être satisfaits par ces langagees
 sont~\cite{antoniou2012semantic}:
 
-\begin{enumerate}
+\SpecialItem
+\begin{itemize}
 \item Une syntaxe bien définie.
 \item Une sémantique bien définie.
 \item Un degré d'expressivité suffisant.
-\item Un support efficace de raisonnement.
-\end{enumerate}
+\item Un support efficace de raisonnement.\medskip
+\end{itemize}
+\enddescription
 
 Une sémantique formelle et bien définie est un prérequis pour le
-support de raisonnement automatique d'un langage d'ontologies, ce
+support de raisonnement automatique dans un langage d'ontologies, ce
 dernier nous permet de vérifier la consistance d'une ontologie, et
 d'inférer les relations imprévues entres les classes (les concepts) et
 les classifications des individus (instances).\medskip
@@ -597,19 +599,73 @@ fonctionnalités, incluant:
 \end{itemize}
 \enddescription
 
-\subsubsection{Compatibilité avec RDFS et les profiles OWL2}
+\subsubsection{Compatibilité avec RDFS}
 \label{sec:semantic-web-owl-owl2-rdfs-compatibility}
 
 Idéalement, \acrshort{owl2} sera une extension de \acrshort{rdfs},
 dans le sens que \acrshort{owl2} hérite la sémantique de
-\acrshort{rdfs} des classes et des propriétés (\texttt{rdfs:Class},
-\texttt{rdfs:Property}, etc.), et il ajoute des primitives plus
-expressives. Cependant, cette approche est inapplicable, car bien que
-le résultat aura une forte expressivité, il risque d'avoir une
-calculabilité du raisonnement incontrôlable. Des primitives comme
-\texttt{rdfs:Class} (la classe des classes) sont trés experssives, et
-la rançon de cette expressivité est l'indécidabilité du langage
-obtenu~\cite{antoniou2012semantic}.\medskip
+\acrshort{rdfs} des classes et des propriétés (\texttt{rdfs:Resource},
+\texttt{rdfs:Class}, \texttt{rdfs:Property}, etc.), et il l'ajoute des
+primitives plus expressives. Cependant, cette approche est
+inapplicable, car bien que le résultat aura une forte expressivité, il
+risque d'avoir une calculabilité du raisonnement incontrôlable. Des
+primitives comme \texttt{rdfs:Class} (la classe des classes) sont très
+expressives, et la rançon de cette expressivité est l'indécidabilité
+du langage obtenu~\cite{antoniou2012semantic}.\medskip
+
+En conséquence, L'ensemble des exigences relatives à un langage
+d'ontologie paraît impossible à obtenir: le support de raisonnement
+efficace ne existe pas pour un langage aussi expressif que d'une
+combinaison de \acrshort{rdfs} avec une logique complète. C'est pour
+cela que \acrshort{owl2} a été fractionné en deux sous-langages
+principaux, chacun avec une sémantique différente orientée vers
+l'accomplissement de différents aspects de l'ensemble des exigences:
+
+\renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
+\begin{description}
+\item[OWL2 Full]: Qui est la version la plus complète de
+  \acrshort{owl2}, il permet le plus haut niveau d'expressivité avec
+  une compatibilité descendante complète avec les primitives
+  \acrshort{rdfs}, mais sans garantir la complétude et la décidabilité
+  des calculs lié au raisonnement. Donc, le support de raisonnement du
+  langage \textsf{OWL2 Full} n'existe pas actuellement.
+
+\item[OWL2 DL]: Dont le nom est hérité de la logique de description
+  (\acrshort{dl}), qui est un sous-ensemble de la logique des
+  prédicats avec un support de raisonnement décidable. \acrshort{dl}
+  limite la manière dont les primitives de \acrshort{owl2} et
+  \acrshort{rdfs} peuvent être utilisés.\medskip
+\end{description}
+\enddescription
+
+L'avantage de cette expression limitée est qu'elle permet d'un support
+du raisonnement efficace. \textsf{OWL2 DL} peut faire usage d'une
+grande variété des raisonneurs existants tels que
+Pellet~\cite{sirin2004pellet}, Fact~\cite{horrocks1999fact} et
+HermiT~\cite{shearer2008hermit}. L'inconvénient est que nous perdons
+la compatibilité totale avec \acrshort{rdfs}.\medskip
+
+Par ailleurs, il existe encore trois sous-langages dont une partie de
+l'expressivité a été sacrifiée, au profit de l'efficacité pour
+certaines tâches de raisonnement.
+
+\subsubsection{Les profiles OWL2}
+\label{sec:semantic-web-owl-owl2-profiles}
+
+Les profils \acrshort{owl2} \cite{motik2009owl} sont des sous-langages
+de \acrshort{owl2} qui offrent d'importants avantages dans certains
+scénarios d'applications. Trois profils différents sont définis:
+\textsf{OWL2 EL}, \textsf{OWL2 QL}, et \textsf{ OWL2 RL}. Chaque
+profil est défini comme une restriction syntaxique de la spécification
+structurelle de \acrshort{owl2}:
+
+\subsubsection{Les éléments de base}
+\label{sec:semantic-web-owl-owl2-elements}
+
+La plupart des éléments d'une ontologie \acrshort{owl2} concerne des
+classes, des propriétés, des instances de classes et les relations
+entre ces instances:
+
 \newpage
 %%% Local Variables:
 %%% mode: latex
