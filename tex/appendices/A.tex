@@ -614,7 +614,7 @@ expressives, et la rançon de cette expressivité est l'indécidabilité
 du langage obtenu~\cite{antoniou2012semantic}.\medskip
 
 En conséquence, L'ensemble des exigences relatives à un langage
-d'ontologie paraît impossible à obtenir: le support de raisonnement
+d'ontologies paraît impossible à obtenir: le support de raisonnement
 efficace ne existe pas pour un langage aussi expressif que d'une
 combinaison de \acrshort{rdfs} avec une logique complète. C'est pour
 cela que \acrshort{owl2} a été fractionné en deux sous-langages
@@ -657,7 +657,31 @@ de \acrshort{owl2} qui offrent d'importants avantages dans certains
 scénarios d'applications. Trois profils différents sont définis:
 \textsf{OWL2 EL}, \textsf{OWL2 QL}, et \textsf{ OWL2 RL}. Chaque
 profil est défini comme une restriction syntaxique de la spécification
-structurelle de \acrshort{owl2}:
+structurelle de \acrshort{owl2} \cite{w3c2009owl}:
+
+
+\renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
+\begin{description}
+\item[OWL 2 EL]: Il permet d'obtenir des temps d'exécution polynomiaux
+  pour toutes les tâches de raisonnements standards, ce profil est
+  particulièrement approprié lorsque des ontologies très volumineuses
+  sont nécessaires.
+
+\item[OWL 2 QL]: Il permet d'obtenir de bonnes performances pour la
+  résolution de requêtes conjonctives, ce profil est particulièrement
+  approprié pour des applications où des ontologies relativement
+  légères sont utilisées pour organiser un grand nombre d'individus et
+  où il est utile ou nécessaire d'accéder aux données directement via
+  des requêtes relationnelles.
+
+\item[ OWL 2 RL]: Ce langage vise à ne pas sacrifier trop
+  d'expressivité, tout en conservant une complexité polynomiale, ce
+  profil est particulièrement approprié pour des applications où des
+  ontologies relativement légères sont utilisées pour organiser un
+  grand nombre d'individus et où il est utile ou nécessaire d'opérer
+  directement sur les \textit{triplstores} \acrshort{rdf}.
+\end{description}
+\enddescription
 
 \subsubsection{Les éléments de base}
 \label{sec:semantic-web-owl-owl2-elements}
