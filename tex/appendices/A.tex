@@ -692,10 +692,42 @@ relations entre ces instances:
 
 \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
 \begin{description}
-\item[Les classes simples et les individus]:
-\item[Les propriétés simples]:
-\item[Les caractéristiques de propriété]:
-\item[Les restrictions de propriété]:
+\item[Les classes]: Les classes fournissent un mécanisme d'abstraction
+  permettant de regrouper des ressources avec des caractéristiques
+  similaires. Par example:\medskip
+
+\begin{lstlisting}[language={XML}, numbers=none, backgroundcolor=\color{white}]
+<owl:Class rdf:ID="Author">
+  <rdfs:subClassOf>
+    <owl:Class rdf:resource="#Human"
+  </rdfs:subClassOf>
+</owl:Class>
+\end{lstlisting}
+
+  On peut également exprimer des relations plus complexes entres les
+  classes, commes l'intersection \texttt{owl:intersectionOf} , l'union
+  (\texttt{owl:unionOf}) ou l'équivalence
+  (\texttt{owl:equivalentClass}) entre de deux ou plusieurs classes.
+
+\newpage
+
+\item[Les propriétés]: Le langage \acrshort{owl2} distingue deux
+  catégories de propriétés définissables par un concepteur
+  d'ontologies: Les propriétés d'objets
+  (\texttt{owl:ObjectProperty})liant des individus à d'autres
+  individus, et les propriétés de types de données liant des individus
+  à des valeurs de données (\texttt{owl:DatatypeProperty}). Toutes
+  deux sont des sous-classes de la classe \acrshort{rdf}
+  \texttt{rdf:Property}.
+
+\item[Les individus]: Les individus se définissent avec des axiomes
+  d'individu, qui sont généralement des déclarations indiquant
+  l'appartenance de classe des individus et les valeurs de leurs
+  propriétés.\medskip
+
+\begin{lstlisting}[language={XML}, numbers=none, backgroundcolor=\color{white},]
+<author rdf:resource="http://www.w3.org/People/Berners-Lee">
+\end{lstlisting}
 \end{description}
 \enddescription
 
