@@ -686,15 +686,17 @@ structurelle de \acrshort{owl2} \cite{w3c2009owl}:
 \subsubsection{Les éléments de base}
 \label{sec:semantic-web-owl-owl2-elements}
 
-La plupart des éléments d'une ontologie \acrshort{owl2} concerne des
-classes, des propriétés, des instances de classes (individus) et les
-relations entre ces instances:
+La plupart des éléments de base d'une ontologie \acrshort{owl2}
+concerne les classes, les instances de classes (nommées individus) et
+les propriétés:
 
 \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
 \begin{description}
 \item[Les classes]: Les classes fournissent un mécanisme d'abstraction
-  permettant de regrouper des ressources avec des caractéristiques
-  similaires. Par example:\medskip
+  permettant de regrouper des ressources (individus) avec des
+  caractéristiques similaires. L'ensemble des individus d'une classe
+  est désigné par le terme \emph{``extension de classe''}. Une classe
+  ``Auteur'' peut se définir de la manière suivante:\medskip
 
 \begin{lstlisting}[language={XML}, numbers=none, backgroundcolor=\color{white}]
 <owl:Class rdf:ID="Author">
@@ -704,30 +706,78 @@ relations entre ces instances:
 </owl:Class>
 \end{lstlisting}
 
-  On peut également exprimer des relations plus complexes entres les
-  classes, commes l'intersection \texttt{owl:intersectionOf} , l'union
-  (\texttt{owl:unionOf}) ou l'équivalence
-  (\texttt{owl:equivalentClass}) entre de deux ou plusieurs classes.
+  Une classe peut ainsi se définir d'autres manières différentes:
+  incluant l'énumération des individus composant la classe
+  (\texttt{owl:oneOf}), la restriction de propriétés
+  (\texttt{owl:Restriction}). On peut également exprimer des
+  opérations ensemblistes incluant l'intersection
+  (\texttt{owl:intersectionOf}) et l'union (\texttt{owl:unionOf})
+  entre deux ou plusieurs classes, et des relations d'héritage
+  \texttt{rdfs:subClassOf}, d'équivalence
+  (\texttt{owl:equivalentClass}) et la disjonction
+  (\texttt{owl:AllDisjointClasses}).\medskip
 
-\newpage
+  Il faut bien noter que le sous-langage \textsf{OWL2 DL} n'autorisent
+  pas qu'une instance de classe soit elle-même une classe.\medskip
+
 
 \item[Les propriétés]: Le langage \acrshort{owl2} distingue deux
   catégories de propriétés définissables par un concepteur
-  d'ontologies: Les propriétés d'objets
-  (\texttt{owl:ObjectProperty})liant des individus à d'autres
-  individus, et les propriétés de types de données liant des individus
-  à des valeurs de données (\texttt{owl:DatatypeProperty}). Toutes
-  deux sont des sous-classes de la classe \acrshort{rdf}
-  \texttt{rdf:Property}.
+  d'ontologies: Les propriétés d'objets (\texttt{owl:ObjectProperty})
+  liant des individus à d'autres individus, et les propriétés de types
+  de données liant des individus à des valeurs de données
+  (\texttt{owl:DatatypeProperty}). Toutes les deux sont des
+  sous-classes de la classe \acrshort{rdf} \texttt{rdf:Property}. Dans
+  le sous-langage \textsf{OWL2 Full} ces deux classes de propriétés
+  sont nécessairement disjointes.\medskip
+
+  Souvent, les axiomes de propriété définissent d'autres
+  caractéristiques de propriétés. Le langage \acrshort{owl2} reconnaît
+  les structures suivantes dans les axiomes de propriété:
+
+  \SpecialItemI
+  \begin{itemize}
+  \item Les structures du \acrshort{rdfs} \texttt{rdfs:subPropertyOf},
+    \texttt{rdfs:domain} et\\ \texttt{rdfs:range}.
+
+  \item Les relations à d'autres propriétés
+    \texttt{owl:equivalentProperty},\\ \texttt{owl:inverseOf} et
+    \texttt{owl:propertyDisjointWith}.
+
+  \item Les contraintes de cardinalité globales
+    \texttt{owl:FunctionalProperty} et
+    \texttt{owl:InverseFunctionalProperty}.
+
+  \item Les caractéristiques de propriété logiques:
+    \texttt{owl:SymmetricProperty}, \texttt{owl:AsymmetricProperty},
+    \texttt{owl:ReflexiveProperty},\\ \texttt{owl:IrreflexiveProperty}
+    et \texttt{owl:TransitiveProperty}.\medskip
+  \end{itemize}
+  \enddescription
 
 \item[Les individus]: Les individus se définissent avec des axiomes
   d'individu, qui sont généralement des déclarations indiquant
   l'appartenance de classe des individus et les valeurs de leurs
   propriétés.\medskip
 
-\begin{lstlisting}[language={XML}, numbers=none, backgroundcolor=\color{white},]
-<author rdf:resource="http://www.w3.org/People/Berners-Lee">
-\end{lstlisting}
+  Le langage \acrshort{owl2} offre trois structures pour déclarer les
+  axiomes concernant l'identité des individus:
+
+  \SpecialItemI
+  \begin{itemize}
+  \item La relation \texttt{owl:sameAs} sert à déclarer que deux
+    identifiants \acrshort{uri} se rapportent au même individu.
+
+  \item La relation \texttt{owl:differentFrom} sert à déclarer que
+    deux identifiants \acrshort{uri} se rapportent à des individus
+    différents.
+
+  \item La relation \texttt{owl:AllDifferent} fournit un idiome
+    permettant de déclarer tous différents les individus d'une
+    liste.\medskip
+  \end{itemize}
+  \enddescription
+
 \end{description}
 \enddescription
 
