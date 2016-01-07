@@ -6,18 +6,14 @@
 \addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
 
 \newpage
-\section{Définitions préliminaires}
-\label{sec:basic-defs}
-Cette section a comme but d'introduire les notions de base ainsi que
-les notations et terminologies \ref{sec:basic:ws} employées dans la
-suite de ce chapitre. Nous présentons une formulation
-mathématique de notre problème principal, à savoir \textit{la
-  composition des servies Web} sous forme d'un problème de recherche
-du plus court chemin dans un graphe orienté
-\ref{sec:basic:composition}.\medskip
-
-\subsection{Services Web}
-\label{sec:basic:ws}
+\section{Reformulation du problème}
+\label{sec:reformulation}
+Cette section a pur but d'introduire les notions de base ainsi que les
+notations et terminologies employées dans la suite de ce
+chapitre. Nous présentons une formulation mathématique de notre
+problème principal, à savoir \textit{la composition des servies Web}
+sous forme d'un problème de recherche du plus court chemin dans un
+graphe orienté .\bigskip
 
 Chaque service web peut contenir les définitions de différentes
 opérations \acrshort{wsdl} identifiables par leurs noms et leurs
@@ -27,8 +23,8 @@ service Web représente une seule opération.\medskip
 \begin{mydef}[\textbf{Service Web}]
   Un Service Web $S$ est un 2-tuple $\mathpzc{<I,O>}$, où
   $\mathpzc{I}=\{I_0, \dots, I_n\}$ désigne l'ensemble des paramètres
-  d'entrées, $\mathpzc{O}=\{O_0, \dots, O_m\}$ l'ensemble des
-  paramètres de sorties.
+  d'entrée, $\mathpzc{O}=\{O_0, \dots, O_m\}$ l'ensemble des
+  paramètres de sortie.
 \end{mydef}
 
 \input{figs/ch3/ws.tex}
@@ -39,69 +35,84 @@ atomique, et que chaque paramètre est lié à un concept dans
 l'ontologie \acrshort{owl} du domaine.\medskip
 
 \begin{mydef}[\textbf{Annuaire des services Web}]
-  un annuaire des services Web est un ensemble
-  $\mathpzc{R} =\{\mathpzc{S}_0, \mathpzc{S}_1, \dots,\mathpzc{S}_n\}$
+  Un annuaire des services Web est un ensemble
+  $\mathpzc{R} =\{\mathit{S_0}, \mathpzc{S_1}, \dots,\mathit{S_n}\}$
   des services Web disponibles, où chaque
   $\mathpzc{S} \in \mathpzc{R}$ est un service Web.
 \end{mydef}
 
-\input{figs/ch4/gd.tex}
+Afin de trouver un service composite exécutable à partir d'un annuaire
+de services Web, un utilisateur doit fournir une requête de
+composition.\medskip
 
-\subsection{Composition de services Web}
-\label{sec:basic:composition}
-Afin de découvrir et sélectionner un service Web composite suite à
-une requête du client de composition, les services référencés dans un
-annuaire doivent être structurés dans un graphe orienté modélisant
-  toutes les relations de dépendance fonctionnelle possibles pour permettre
-  de réaliser un \textit{Matching} horizontal \ref{sec:ch4/matching}
-  (la figure \ref{fig:ch4/gd}) entre les services disponibles deux à deux.\medskip
+\begin{mydef}[\textbf{Requête}]
+  Une requête $\mathpzc{Q}$ est un 2-tuple $\mathpzc{<I_q, O_q>}$.
+  $\mathpzc{I_q}$ désigne la liste des paramètres d'entrée fournis par
+  l'utilisateur (ou par un service client) et $\mathpzc{O_q}$
+  représente la listes des paramètres requis (sorties).
+\end{mydef}
 
-  \begin{mydef}[\textbf{Graphe de dépendance}]
-    Un graphe de dépendance $GD$ est un ``graphe orienté et
-    acyclique'' $GD=<R, E_r>$ qui modélise toutes les relations de
-    dépendance fonctionnelle possibles entre les services Web
-    disponibles dans un annuaire $R$. Il existe une relation $e=(s_0,
-    s_1) \in E_r$ si et seulement si il existe une relation de
-    dépendance entre $s_0$ et $s_1$.
-  \end{mydef}
+Afin de découvrir et sélectionner un service Web composite suite à une
+requête de composition, les services référencés dans un annuaire
+doivent être structurés dans un graphe orienté modélisant toutes les
+relations de dépendance fonctionnelle possibles pour permettre de
+réaliser un \textit{Matching} horizontal \ref{sec:ch4/matching} (la
+figure \ref{fig:ch4/gd}) entre les services disponibles deux à
+deux.\medskip
 
-  L'approche proposée consiste à construire le graphe de dépendance à
-  priori (\textit{Offline}) et le sauvegarder dans une base de données
-  graphe (\textit{Neo4j}). Suite à une requête $Q$, un sous-graphe $G$
-  est extrait reflétant un plan de composition exécutable $P$ d'un
-  service Web composite satisfaisant.
+\input{figs/ch3/gd.tex}
 
-  \begin{mydef}[\textbf{Requête}]
-    Une requête $Q$ est un tuple $Q = <I', O'>$. $I'$ désigne la liste
-    des paramètres d'entrée fournis par le client et $O'$ représente
-    la listes des paramètres requis (sorties).
-  \end{mydef}
+\begin{mydef}[\textbf{Graphe de dépendance}]
+  Un graphe de dépendance $\mathpzc{DG}$ est un ``graphe orienté et
+  acyclique'' $\mathpzc{DG}=<\mathpzc{R}, \mathpzc{L}>$ qui modélise
+  toutes les relations de dépendance fonctionnelle possibles entre les
+  services Web disponibles dans un annuaire $\mathpzc{R}$. Il existe
+  une relation
+  $\mathit{L_{ij}}=(\mathit{S_i}, \mathit{S_j}) \in \mathpzc{L}$ si et
+  seulement si il existe une relation de dépendance fonctionnelle
+  entre $\mathit{S_i}$ et $\mathit{S_j}$, où
+  $\{\mathit{S_i, S_j}\} \in \mathpzc{R}$.\medskip
+\end{mydef}
 
-  \input{figs/ch4/composition-plan.tex}
+L'approche proposée consiste à construire le graphe de dépendance à
+priori (\textit{Offline}) et le sauvegarder dans une base de données
+graphe (\textit{Neo4j}). Suite à une requête $\mathpzc{Q}$, un
+sous-graphe $\mathpzc{G}$ est extrait, qui correspond à un plan de
+composition exécutable $\mathpzc{P}$ d'un service Web composite
+satisfaisant.\medskip
 
-  \begin{mydef}[\textbf{Plan de composition}]
-    Un plan de composition $P$ est un sous-graphe
-    $G$``\textbf{connexe''} d'un graphe de dépendance $GD$, $G=(V,E)$
-    tel que $G \subset GD$ décrit le flux de données/contrôles
-    d'exécution d'un ensemble de services Web atomiques $V \subset R$
-    engagés dans un processus de composition. Il existe une arête $e
-    \in E$ tel que $e = (s_i, s_j)$ si l'exécution d'un service $s_j$
-    dépend d'un ou plusieurs paramètres de sortie de $s_i$.
-  \end{mydef}
+\input{figs/ch3/composition-plan.tex}
 
-  \begin{mydef}[\textbf{Service Web composite}]
-    Un service Web composite $S_c$ est un service Web exécutable
-    composé de ``$n$'' services atomiques $s \in \{s_0,..., s_n\}$ tel
-    que $n \succeq 1$, l'exécution d'un service Web composite
-    correspond à l'exécution d'un plan de composition $P$ décrit par
-    $G=<V,E>$ où $V = \{s_0, ..., s_n\}$ et $E$ décrivent les
-    relations de dépendance entre les services $V$.
-  \end{mydef}
+\begin{mydef}[\textbf{Plan de composition}]
+  Un plan de composition $\mathpzc{P}$ est un sous-graphe
+  $\mathpzc{G \subset DG}$ \textbf{``connexe''} d'un graphe de
+  dépendance $\mathpzc{DG}$, tel que $\mathpzc{G=(R_Q,L_Q)}$ décrit le
+  flux de données/contrôles d'exécution d'un ensemble de services Web
+  atomiques $\mathpzc{R_Q \subset R}$ engagés dans un processus de
+  composition. Il existe un lien de dépendance (\textit{Link})
+  $\mathit{L_{Q_{ij}}} \in \mathpzc{L_Q}$ tel que
+  $\mathit{L_{Q_{ij}}} = (S_i, S_j)$ si l'exécution d'un service
+  $\mathit{S_j}$ dépend d'un ou plusieurs paramètres de sortie de
+  $\mathit{S_i}$.\medskip
+\end{mydef}
 
-  La figure \ref{fig:ch4/composition-plan} montre un service Web
-  composite $S_c = <\{i_0, i_1\}, \{o_0, o_1\}>$ correspondant à un
-  plan de composition $P$ représenté par un graphe\\ $G =<\{s_0, s_1,
-  s_2, s_4\}, \{(s_0, s_1), (s_1, s_2), (s_2, s_4)\}>$.
+\begin{mydef}[\textbf{Service Web composite}]
+  Un service Web composite $\mathpzc{S_Q}$ est un service Web
+  exécutable composé de $n \geq 1$ services atomiques
+  $\mathit{S_{0 \leq i \leq n}} \in \mathpzc{R_Q}$ tel que l'exécution
+  d'un tel service correspond à l'exécution d'un plan de composition
+  $\mathpzc{P}$ décrit par un graphe de dépendance
+  $\mathpzc{G = <R_Q,L_Q>}$ suite à une requête $\mathpzc{Q}$.\medskip
+\end{mydef}
+
+La figure \ref{fig:ch3/composition-plan} montre un service Web
+composite
+$\mathpzc{S_Q} = <\mathit{\{I_0, \dots, I_n\}}, \mathit{\{O_0, \dots,
+  O_m\}}>$
+correspondant à un plan de composition $P$ représenté par un graphe de
+dépendances connexe $\mathpzc{G =<R_Q,L_Q>}$, tel que
+$\mathpzc{R_Q = \{S_0, S_1, S_2\}}$ et
+$\mathpzc{L_Q = \{(S_0, S_1), (S_1, S_2)\}}$.
 
 \section{Architecture proposée}
 \label{sec:proposition}
