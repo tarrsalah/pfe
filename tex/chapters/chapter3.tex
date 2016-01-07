@@ -1,6 +1,6 @@
 \chapter{Une méthode de composition dynamique des services Web
   sémantiques utilisant Neo4j}
-\label{ch:approche}
+\label{ch:approach}
 
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction} \markboth{INTRODUCTION}{}
@@ -16,70 +16,43 @@ mathématique de notre problème principal, à savoir \textit{la
 du plus court chemin dans un graphe orienté
 \ref{sec:basic:composition}.\medskip
 
-  \subsection{Services Web}
-  \label{sec:basic:ws}
-  Chaque service web peut contenir les définitions de différentes
-  opérations identifiables par leurs noms et leurs paramètres. 
-  Pour des raisons de simplicité, nous supposons que chaque service Web
-  représente une seule opération.
+\subsection{Services Web}
+\label{sec:basic:ws}
 
-  \begin{mydef}[\textbf{Service Web}]
-    Un Service Web $S$ est un tuple $S = <I,O>$. $I/O$ qui désigne la
-    liste des paramètres ``entrées/sorties'' où chaque paramètre est
-    lié à un concept dans l'ontologie du domaine.
-   \end{mydef}
+Chaque service web peut contenir les définitions de différentes
+opérations \acrshort{wsdl} identifiables par leurs noms et leurs
+paramètres. Pour des raisons de simplicité, nous supposons que chaque
+service Web représente une seule opération.\medskip
 
-  \input{figs/ch4/web-service.tex}
+\begin{mydef}[\textbf{Service Web}]
+  Un Service Web $S$ est un 2-tuple $\mathpzc{<I,O>}$, où
+  $\mathpzc{I}=\{I_0, \dots, I_n\}$ désigne l'ensemble des paramètres
+  d'entrées, $\mathpzc{O}=\{O_0, \dots, O_m\}$ l'ensemble des
+  paramètres de sorties.
+\end{mydef}
 
-  Nous pouvons donc déterminer un service comme une application $S$
-  définie par:
+\input{figs/ch3/ws.tex}
 
-   \[ S =
-     \begin{cases}
-       Inputs^n  \to Outputs^m \\
-       (i_0, ..., i_n ) \mapsto (o_0, ..., o_m)\\
-     \end{cases}
-   \]\medskip
+Dans notre approche proposée, nous supposons que chaque service est
+décrit par un document \acrshort{owls} qui possède un seule processus
+atomique, et que chaque paramètre est lié à un concept dans
+l'ontologie \acrshort{owl} du domaine.\medskip
 
-   $S$ possède $n$ paramètres d'entrée notés $i_0...i_n$ et $m$
-   paramètres de sortie notés $o_0,...o_m$. Dans notre approche
-   proposée, nous supposons que chaque service est décrit par un
-   document \textit{OWL-S} où chaque paramètre (d'entrée ou de sortie)
-   est lié à un concept dans une ontologie \textit{(OWL)} du domaine
-   local.\medskip
+\begin{mydef}[\textbf{Annuaire des services Web}]
+  un annuaire des services Web est un ensemble
+  $\mathpzc{R} =\{\mathpzc{S}_0, \mathpzc{S}_1, \dots,\mathpzc{S}_n\}$
+  des services Web disponibles, où chaque
+  $\mathpzc{S} \in \mathpzc{R}$ est un service Web.
+\end{mydef}
 
+\input{figs/ch4/gd.tex}
 
-   Les ontologies de domaine locale sont les éléments essentiels des
-   services web sémantique, et sont créées par les prestataires des services.
-   Un fournisseur a besoin de cette classe lorsqu'il crée un service web
-   sémantique ainsi que leur ontologie de description (\textit{OWL-S})
-   pour pointer les paramètres de ce service vers des entités de cette
-   classe.
-
-   \begin{mydef}[\textbf{Annuaire des services Web}]
-     un annuaire des services $R$ (ou référentiel des services) est un
-     ensemble $R =\{s_0, s_1, ...s_n\}$ des services Web disponibles
-     qui peuvent être composés suite à une requête du client de
-     composition.
-  \end{mydef}
-
-  Dans notre architecture proposée, l'annuaire des services consiste
-  en un service Web remplaçant un serveur \acrshort{uddi}. Ce service
-  fournit l'ensemble des descriptions \textit{OWL-S} des services
-  disponibles. Chaque document référence un document \acrshort{wsdl}
-  qui à son tour pointe vers l'\acrshort{url} du service décrit
-  (\textit{Endpoint}), les descriptions sémantiques des services Web
-  disponibles seront stockées dans une base de données relationnelle
-  et exposées via un simple interface \acrshort{rest}.\medskip
-
-  \input{figs/ch4/gd.tex}
-
-  \subsection{Composition de services Web}
-  \label{sec:basic:composition}
-  Afin de découvrir et sélectionner un service Web composite suite à
-  une requête du client de composition, les services référencés dans un
-  annuaire doivent être structurés dans un graphe orienté modélisant
-  toutes les relations de dépendance fonctionnelle possibles pour permettre 
+\subsection{Composition de services Web}
+\label{sec:basic:composition}
+Afin de découvrir et sélectionner un service Web composite suite à
+une requête du client de composition, les services référencés dans un
+annuaire doivent être structurés dans un graphe orienté modélisant
+  toutes les relations de dépendance fonctionnelle possibles pour permettre
   de réaliser un \textit{Matching} horizontal \ref{sec:ch4/matching}
   (la figure \ref{fig:ch4/gd}) entre les services disponibles deux à deux.\medskip
 
