@@ -57,9 +57,8 @@ Afin de découvrir et sélectionner un service Web composite suite à une
 requête de composition, les services référencés dans un annuaire
 doivent être structurés dans un graphe orienté modélisant toutes les
 relations de dépendance fonctionnelle possibles pour permettre de
-réaliser un \textit{Matching} horizontal \ref{sec:ch4/matching} (la
-figure \ref{fig:ch4/gd}) entre les services disponibles deux à
-deux.\medskip
+réaliser un \textit{Matching} horizontal \ref{sec:matching} (la figure
+\ref{fig:ch4/gd}) entre les services disponibles deux à deux.\medskip
 
 \input{figs/ch3/gd.tex}
 
@@ -90,8 +89,8 @@ satisfaisant.\medskip
   dépendance $\mathpzc{DG}$, tel que $\mathpzc{G=(R_Q,L_Q)}$ décrit le
   flux de données/contrôles d'exécution d'un ensemble de services Web
   atomiques $\mathpzc{R_Q \subset R}$ engagés dans un processus de
-  composition. Il existe un lien de dépendance (\textit{Link})
-  $\mathit{L_{Q_{ij}}} \in \mathpzc{L_Q}$ tel que
+  composition. Il existe un lien de dépendance fonctionnelle
+  (\textit{Link}) $\mathit{L_{Q_{ij}}} \in \mathpzc{L_Q}$ tel que
   $\mathit{L_{Q_{ij}}} = (S_i, S_j)$ si l'exécution d'un service
   $\mathit{S_j}$ dépend d'un ou plusieurs paramètres de sortie de
   $\mathit{S_i}$.\medskip
@@ -115,9 +114,9 @@ graphe de dépendances connexe $\mathpzc{G =<R_Q,L_Q>}$, tel que
 $\mathpzc{R_Q = \{S_0, S_1, S_2\}}$ et
 $\mathpzc{L_Q = \{(S_0, S_1), (S_1, S_2)\}}$.\medskip
 
-Une service Web composite $\mathpzc{S = <I_S, O_S>}$ est créer et
+Une service Web composite $\mathpzc{S_Q = <I_S, O_S>}$ est créer et
 exécuter suite à une requête de composition $\mathpzc{Q=<I_Q, O_Q>}$.
-Deux conditions nécessaires et suffisantes pour que $\mathpzc{S}$
+Deux conditions nécessaires et suffisantes pour que $\mathpzc{S_Q}$
 satisfasse $\mathpzc{Q}$:\medskip
 
 \begin{enumerateRoman}
@@ -125,30 +124,36 @@ satisfasse $\mathpzc{Q}$:\medskip
   $\mathpzc{I_Q}$ ($\mathpzc{I_S \subseteq I_Q}$).
 
 \item L'interface de sortie $\mathpzc{I_Q}$ est subsumé par
-  $\mathpzc{I_S}$ ($\mathpzc{O_q \subseteq O_S}$).\medskip
+  $\mathpzc{I_S}$ ($\mathpzc{O_Q \subseteq O_S}$).\medskip
 \end{enumerateRoman}
 \enddescription
 
-La relation ``$\subseteq$'' désigne la relation de
-\emph{``subsomption`''} entre les interfaces d'\emph{entrée/sortie},
-cette notion sera abordée dans la section~\ref{sec:ch4/matching}.
+La relation ``$\subseteq$'' de \emph{``subsomption`''} entre les
+interfaces d'\emph{entrée/sortie} sera abordée dans la
+section~\ref{sec:matching}.
 
 \begin{mydef}[\textbf{Problème de composition}]
+  Étant donné $\mathpzc{R}$ un annuaire des services Web et
+  $\mathpzc{Q}$ une requête, Le problème de composition
+  $\mathpzc{WCP=<R,Q>}$ consiste à trouver un plan de composition
+  exécutable et optimal $\mathpzc{P}$ associé au service Web composite
+  $\mathpzc{S_Q}$ satisfaisant la requête $\mathpzc{Q}$.
 \end{mydef}
 
+\input{figs/ch3/reformulation.tex}
 
-\section{L'architecture proposée}
+\newpage
+\section{Architecture générale}
 \label{sec:proposition}
 
-\section{Le matching des services Web atomiques}
-\label{sec:ch4/matching}
+\section{Matching de services Web atomiques}
+\label{sec:matching}
 
-\section{La construction et la persistance d'un graphe de dépendance
-  de composition}
+\section{Construction du graphe de dépendance}
+\label{sec:dg}
 
-\section{La découverte, la publication et l'exécution d'un service Web
-  composite}
-
+\section{Découverte de services Web composites}
+\label{sec:composite-discovery}
 \section*{Conclusion}
 \label{sec:conclusion}
 \addcontentsline{toc}{section}{Conclusion} \markboth{CONCLUSION}{}
