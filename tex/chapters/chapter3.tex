@@ -70,9 +70,9 @@ deux.\medskip
   services Web disponibles dans un annuaire $\mathpzc{R}$. Il existe
   une relation
   $\mathit{L_{ij}}=(\mathit{S_i}, \mathit{S_j}) \in \mathpzc{L}$ si et
-  seulement si il existe une relation de dépendance fonctionnelle
-  entre $\mathit{S_i}$ et $\mathit{S_j}$, où
-  $\{\mathit{S_i, S_j}\} \in \mathpzc{R}$.\medskip
+  seulement s'il existe une relation de dépendance fonctionnelle entre
+  $\mathit{S_i}$ et $\mathit{S_j}$, où
+  $\{\mathit{S_i, S_j}\} \subset \mathpzc{R}$.\medskip
 \end{mydef}
 
 L'approche proposée consiste à construire le graphe de dépendance à
@@ -110,20 +110,44 @@ La figure \ref{fig:ch3/composition-plan} montre un service Web
 composite
 $\mathpzc{S_Q} = <\mathit{\{I_0, \dots, I_n\}}, \mathit{\{O_0, \dots,
   O_m\}}>$
-correspondant à un plan de composition $P$ représenté par un graphe de
-dépendances connexe $\mathpzc{G =<R_Q,L_Q>}$, tel que
+correspondant à un plan de composition $\mathpzc{P}$ représenté par un
+graphe de dépendances connexe $\mathpzc{G =<R_Q,L_Q>}$, tel que
 $\mathpzc{R_Q = \{S_0, S_1, S_2\}}$ et
-$\mathpzc{L_Q = \{(S_0, S_1), (S_1, S_2)\}}$.
+$\mathpzc{L_Q = \{(S_0, S_1), (S_1, S_2)\}}$.\medskip
 
-\section{Architecture proposée}
+Une service Web composite $\mathpzc{S = <I_S, O_S>}$ est créer et
+exécuter suite à une requête de composition $\mathpzc{Q=<I_Q, O_Q>}$.
+Deux conditions nécessaires et suffisantes pour que $\mathpzc{S}$
+satisfasse $\mathpzc{Q}$:\medskip
+
+\begin{enumerateRoman}
+\item L'interface d'entrée $\mathpzc{I_S}$ est subsumé par
+  $\mathpzc{I_Q}$ ($\mathpzc{I_S \subseteq I_Q}$).
+
+\item L'interface de sortie $\mathpzc{I_Q}$ est subsumé par
+  $\mathpzc{I_S}$ ($\mathpzc{O_q \subseteq O_S}$).\medskip
+\end{enumerateRoman}
+\enddescription
+
+La relation ``$\subseteq$'' désigne la relation de
+\emph{``subsomption`''} entre les interfaces d'\emph{entrée/sortie},
+cette notion sera abordée dans la section~\ref{sec:ch4/matching}.
+
+\begin{mydef}[\textbf{Problème de composition}]
+\end{mydef}
+
+
+\section{L'architecture proposée}
 \label{sec:proposition}
 
-\section{Matching des services  atomiques}
+\section{Le matching des services Web atomiques}
 \label{sec:ch4/matching}
 
-\section{Construction et persistance du graphe de dépendance dans une
-  base de données Neo4J}
-\section{Découverte et exécution des services composites}
+\section{La construction et la persistance d'un graphe de dépendance
+  de composition}
+
+\section{La découverte, la publication et l'exécution d'un service Web
+  composite}
 
 \section*{Conclusion}
 \label{sec:conclusion}
