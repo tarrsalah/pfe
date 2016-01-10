@@ -14,7 +14,7 @@ notations et terminologies employées dans la suite de ce
 chapitre. Nous présentons une formulation mathématique de notre
 problème principal, à savoir \textit{la composition des servies Web}
 sous forme d'un problème de recherche du plus court chemin dans un
-graphe orienté .\bigskip
+graphe orienté.\bigskip
 
 Chaque service web peut contenir les définitions de différentes
 opérations \acrshort{wsdl} identifiables par leurs noms et leurs
@@ -32,14 +32,15 @@ service Web représente une seule opération.\medskip
 
 Dans notre approche proposée, nous supposons que chaque service est
 décrit par un document \acrshort{owls} qui possède un seule processus
-atomique, et que chaque paramètre est lié à un concept dans
+atomique, et que chaque paramètre est annoté à un concept dans
 l'ontologie \acrshort{owl} du domaine.\medskip
 
 \begin{mydef}[\textbf{Annuaire des services Web}]
   Un annuaire des services Web est un ensemble
   $\mathpzc{R} =\{\mathit{S_0}, \mathpzc{S_1}, \dots,\mathit{S_n}\}$
   des services Web disponibles, où chaque
-  $\mathpzc{S} \in \mathpzc{R}$ est un service Web.
+  $\mathpzc{S} \in \mathpzc{R}$ est un service Web décrit par un
+  document \acrshort{owls}.
 \end{mydef}
 
 Afin de trouver un service composite exécutable à partir d'un annuaire
@@ -57,8 +58,9 @@ Afin de découvrir et sélectionner un service Web composite suite à une
 requête de composition, les services référencés dans un annuaire
 doivent être structurés dans un graphe orienté modélisant toutes les
 relations de dépendance fonctionnelle possibles pour permettre de
-réaliser un \textit{Matching} horizontal \ref{sec:matching} (la figure
-\ref{fig:ch4/gd}) entre les services disponibles deux à deux.\medskip
+réaliser un \textit{Matching} horizontal
+\ref{sec:ch3/semantic-matching} (la figure \ref{fig:ch4/gd}) entre les
+services disponibles deux à deux.\medskip
 
 \input{figs/ch3/gd.tex}
 
@@ -85,10 +87,10 @@ satisfaisant.\medskip
 
 \begin{mydef}[\textbf{Plan de composition}]
   Un plan de composition $\mathpzc{P}$ est un sous-graphe
-  $\mathpzc{G \subset DG}$ \textbf{``connexe''} d'un graphe de
-  dépendance $\mathpzc{DG}$, tel que $\mathpzc{G=(R_Q,L_Q)}$ décrit le
-  flux de données/contrôles d'exécution d'un ensemble de services Web
-  atomiques $\mathpzc{R_Q \subset R}$ engagés dans un processus de
+  $\mathpzc{G \subset DG}$ d'un graphe de dépendance $\mathpzc{DG}$,
+  tel que $\mathpzc{G=(R_Q,L_Q)}$ décrit le flux de données/contrôles
+  d'exécution d'un ensemble de services Web atomiques
+  $\mathpzc{R_Q \subset R}$ engagés dans un processus de
   composition. Il existe un lien de dépendance fonctionnelle
   (\textit{Link}) $\mathit{L_{Q_{ij}}} \in \mathpzc{L_Q}$ tel que
   $\mathit{L_{Q_{ij}}} = (S_i, S_j)$ si l'exécution d'un service
@@ -106,11 +108,10 @@ satisfaisant.\medskip
 \end{mydef}
 
 La figure \ref{fig:ch3/composition-plan} montre un service Web
-composite
 $\mathpzc{S_Q} = <\mathit{\{I_0, \dots, I_n\}}, \mathit{\{O_0, \dots,
   O_m\}}>$
 correspondant à un plan de composition $\mathpzc{P}$ représenté par un
-graphe de dépendances connexe $\mathpzc{G =<R_Q,L_Q>}$, tel que
+graphe de dépendances $\mathpzc{G =<R_Q,L_Q>}$, tel que
 $\mathpzc{R_Q = \{S_0, S_1, S_2\}}$ et
 $\mathpzc{L_Q = \{(S_0, S_1), (S_1, S_2)\}}$.\medskip
 
@@ -120,42 +121,45 @@ Deux conditions nécessaires et suffisantes pour que $\mathpzc{S_Q}$
 satisfasse $\mathpzc{Q}$:\medskip
 
 \begin{enumerateRoman}
-\item L'interface d'entrée $\mathpzc{I_S}$ est subsumé par
-  $\mathpzc{I_Q}$ ($\mathpzc{I_S \subseteq I_Q}$).
+\item L'interface d'entrée $\mathpzc{I_S}$ est équivalent, ou inclus
+  dans $\mathpzc{I_Q}$ ($\mathpzc{I_S \subseteq I_Q}$).
 
-\item L'interface de sortie $\mathpzc{I_Q}$ est subsumé par
-  $\mathpzc{I_S}$ ($\mathpzc{O_Q \subseteq O_S}$).\medskip
+\item L'interface de sortie $\mathpzc{O_Q}$ est équivalent, ou inclus
+  par $\mathpzc{O_S}$ ($\mathpzc{O_Q \subseteq O_S}$).\medskip
 \end{enumerateRoman}
 \enddescription
 
-La relation ``$\subseteq$'' de \emph{``subsomption`''} entre les
-interfaces d'\emph{entrée/sortie} sera abordée dans la
-section~\ref{sec:matching}.
+Cette relation d'\emph{équivalence/inclusion} fonctionnelle entre les
+interfaces d'\emph{entrée/sortie} sera abordée en détaille dans la
+sections~\ref{sec:ch3/semantic-matching}.\medskip
 
 \begin{mydef}[\textbf{Problème de composition}]
   Étant donné $\mathpzc{R}$ un annuaire des services Web et
   $\mathpzc{Q}$ une requête, Le problème de composition
-  $\mathpzc{WCP=<R,Q>}$ consiste à trouver un plan de composition
-  exécutable et optimal $\mathpzc{P}$ associé au service Web composite
-  $\mathpzc{S_Q}$ satisfaisant la requête $\mathpzc{Q}$.
+  $\mathpzc{WCP=<R,Q>}$ consiste à trouver un plan optimal et
+  exécutable de composition $\mathpzc{P}$ associé au service Web
+  composite $\mathpzc{S_Q}$ satisfaisant la requête $\mathpzc{Q}$.
 \end{mydef}
 
 \input{figs/ch3/reformulation.tex}
 
 \newpage
 \section{Architecture générale}
-\label{sec:proposition}
+\label{sec:ch3/proposition}
 
-\section{Matching de services Web atomiques}
-\label{sec:matching}
+\section{Matchmaking sémantique de services Web}
+\label{sec:ch3/semantic-matching}
+
+% Définition: Lien sémantique (ou dépendance fonctionnelle)%
+% Définition: Matching Quality of a Link
 
 \section{Construction du graphe de dépendance}
-\label{sec:dg}
+\label{sec:ch3/dependency-graph}
 
 \section{Découverte de services Web composites}
-\label{sec:composite-discovery}
+\label{sec:ch3/composite-discovery}
 \section*{Conclusion}
-\label{sec:conclusion}
+\label{sec:ch3/conclusion}
 \addcontentsline{toc}{section}{Conclusion} \markboth{CONCLUSION}{}
 
 
