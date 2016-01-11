@@ -142,29 +142,27 @@ sections~\ref{sec:ch3/semantic-matching}.\medskip
 
 \input{figs/ch3/reformulation.tex}
 
-La solution proposée dans ce chapitre s'appuie sur la reformulation du
-notre problème de composition défini précédemment comme
-$\mathpzc{WCS \equiv <R,Q>}$ dans un problème du recherche de plus
-court chemin entre deux nœuds
-$\mathpzc{SPP \equiv <\bar{DG}, \bar{S_I}, \bar{S_G}>}$. Étant donné
-un graphe acyclique et orienté $\mathpzc{\bar{DG}}$, on souhaite de
-trouver le plus court chemin entre $\bar{S_I} \in \bar{DG}$ (nœud
-initial) et $\bar{S_I} \in \bar{DG}$ (nœud terminal).\medskip
+La solution proposée dans ce chapitre s'appuie sur une transformation
+du problème de composition défini précédemment
+$\mathpzc{WCS \equiv <R,Q>}$ vers un problème du \textit{``plus court
+  chemin dans un graphe orienté''}. Étant donné un graphe acyclique et
+orienté $\mathpzc{DG}$, on souhaite de trouver le plus court chemin
+entre un ensemble de nœuds initiales $\mathpzc{\overline{S_I}}$
+(\emph{Initial services}) qui représentent l'ensemble de services du
+départ, et l'ensemble de nœuds terminaux (\emph{Goal services})
+$\mathpzc{\overline{S_G}}$ qui représentent les services d'arrivée,
+tel que $\mathpzc{I_S \subseteq Inputs(\overline{S_I}) \subseteq I_Q}$
+et
+$\mathpzc{O_Q \subseteq Outputs(\overline{S_G}) \subseteq
+  O_S}$.\medskip
 
-Le graphe $\mathpzc{\bar{DG}}$ est égal à
-$\mathpzc{DG \cup \{\bar{S_I}, \bar{S_G}\}}$, où $\mathpzc{DG}$ est le
-graphe de dépendance fonctionnelle constitué (à priori) à partir d'un
-annuaire des services $\mathpzc{R}$. $\mathpzc{\bar{S_I}}$ et
-$\mathpzc{\bar{S_G}}$ sont deux services \emph{abstraits} qui
-représentent respectivement, l'ensemble des services candidats du
-départ et d'arrivée. $\mathpzc{\bar{S_I}}$ et $\mathpzc{\bar{S_G}}$
-sont créés d'après l'ensemble des paramètres $\mathpzc{I_Q}$ et
-$\mathpzc{I_Q}$ du requête $\mathpzc{Q}$. La solution du problème
-$\mathpzc{SPP}$ correspond au sous-graphe $\mathpzc{G \subset DG}$
-associé au plan de composition
-$\mathpzc{P =<\{S_{Q_0}, \dots, S_{Q_n}\}, L_Q>}$, où $\mathpzc{L_Q}$
-représente les dépendances fonctionnelles entre les services
-sélectionnés.\medskip
+La solution du notre problème sera donc le sous-graphe $\mathpzc{G}$
+qui correspond à un plan de composition $\mathpzc{P}$. L'existence
+d'une solution $\mathpzc{G}$ implique l'existence d'un service Web
+composite $\mathpzc{S_Q= <R_Q, L_Q>}$, tel que
+$\mathpzc{R_Q= <S_{Q_1}, \dots, S_{Q_n}>}$ et
+$\mathpzc{\exists (S_{Q_i},S_{Q_g}) \in R_Q^2 \colon (S_{Q_i},S_{Q_g})
+  \in (\overline{S_I} \times \overline{S_G})}$.\medskip
 
 La figure~\ref{fig:ch3/reformulation} illustre graphiquement le
 processus du reformulation. Les techniques et les algorithmes du
