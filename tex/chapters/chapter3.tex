@@ -140,6 +140,8 @@ sections~\ref{sec:ch3/semantic-matching}.\medskip
   $\mathpzc{Q}$.\medskip
 \end{mydef}
 
+\input{figs/ch3/reformulation.tex}
+
 La solution proposée dans ce chapitre s'appuie sur la reformulation du
 notre problème de composition défini précédemment comme
 $\mathpzc{WCS \equiv <R,Q>}$ dans un problème du recherche de plus
@@ -148,8 +150,6 @@ $\mathpzc{SPP \equiv <\bar{DG}, \bar{S_I}, \bar{S_G}>}$. Étant donné
 un graphe acyclique et orienté $\mathpzc{\bar{DG}}$, on souhaite de
 trouver le plus court chemin entre $\bar{S_I} \in \bar{DG}$ (nœud
 initial) et $\bar{S_I} \in \bar{DG}$ (nœud terminal).\medskip
-
-\input{figs/ch3/reformulation.tex}
 
 Le graphe $\mathpzc{\bar{DG}}$ est égal à
 $\mathpzc{DG \cup \{\bar{S_I}, \bar{S_G}\}}$, où $\mathpzc{DG}$ est le
@@ -168,9 +168,9 @@ sélectionnés.\medskip
 
 La figure~\ref{fig:ch3/reformulation} illustre graphiquement le
 processus du reformulation. Les techniques et les algorithmes du
-construction des graphes $\mathpzc{DG}$, $\mathpzc{\bar{DG}}$ et
-$\mathpzc{G}$, ainsi que leurs structures et caractéristiques, seront
-présentés dans les sections~\ref{sec:ch3/dependency-graph}
+construction des graphes $\mathpzc{DG}$ et $\mathpzc{G}$, ainsi que
+leurs structures et caractéristiques, seront présentés dans les
+sections~\ref{sec:ch3/dependency-graph}
 et~\ref{sec:ch3/composite-discovery}.\medskip
 
 \section{Architecture générale}
