@@ -171,21 +171,36 @@ leurs structures et caractéristiques, seront présentés dans les
 sections~\ref{sec:ch3/dependency-graph}
 et~\ref{sec:ch3/composite-discovery}.\medskip
 
-\section{Architecture générale}
-\label{sec:ch3/architecture}
+\section{Présentation  du système de composition}
+\label{sec:ch3/presentation}
 
 \subsection{Objectifs du système}
-\label{sec:ch3/architecture-goals}
+\label{sec:ch3/presentation-goals}
+
+L'objectif principal du système est la composition dynamique de
+services web sémantiques disponibles dans un annuaire, en préservant
+\emph{au préalable} toutes les dépendances fonctionnelles qui existent
+entre eux dans une base de données graphe \emph{Neo4j} (approche
+\emph{Offline}). En effet, notre système va profiter de l'un des
+\acrshort{SGBD} graphe les plus évoluées et robustes aujourd'hui, ses
+principales caractéristiques sont: la haute disponibilité, un système
+transactionnel \acrshort{acid}, un langage de requête graphe
+déclaratif, simple et efficace (\emph{Cypher}).\medskip
+
+Le système assurera les fonctionnalités suivantes: la composition des
+services, la découverte, l'exécution et la publication du service
+composite.
 
 \subsection{Analyse des exigences}
-\label{sec:ch3/architecture-requirements}
+\label{sec:ch3/presentation-requirements}
 
 \newpage
-\subsection{Architecture du système}
-\label{sec:ch3/architecture-system}
+\subsection{Architecture globale du système}
+\label{sec:ch3/presentation-architecture}
 
-L'architecture proposée pour la conception et la mise en œuvre du
-notre système est illustrée dans la figure~\ref{fig:ch3/architecture}.
+L'architecture générale proposée pour la conception et la mise en
+œuvre du notre système est illustrée dans la
+figure~\ref{fig:ch3/architecture}.
 
  \input{figs/ch3/architecture.tex}
 
