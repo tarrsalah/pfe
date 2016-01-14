@@ -7,7 +7,7 @@
 
 \newpage
 \section{Reformulation du problème}
-\label{sec:reformulation}
+\label{sec:ch3/reformulation}
 
 Cette section a pur but d'introduire les formalismes et les
 terminologies nécessaires pour représenter et raisonner sur les
@@ -46,7 +46,7 @@ Afin de trouver un service composite exécutable à partir d'un annuaire
 de services Web, un utilisateur doit fournir une requête de
 composition.\medskip
 
-\begin{mydef}[\textbf{Requête}]
+\begin{mydef}[\textbf{Requête}]\label{def:ch3/request}
   Une requête $\mathpzc{Q}$ est un 2-tuple $\mathpzc{<I_Q, O_Q>}$.
   $\mathpzc{I_Q}$ désigne la liste des paramètres d'entrée disponibles
   (fournit par l'utilisateur ou par un autre service client), et
@@ -173,23 +173,50 @@ sections~\ref{sec:ch3/graph} et~\ref{sec:ch3/composition}.\medskip
 \section{Présentation de la solution proposée}
 \label{sec:ch3/presentation}
 
-\subsection{Objectifs et fonctionnalités principales}
+\subsection{Objectifs et fonctionnalités attendus}
 \label{sec:ch3/presentation-goals}
 
 L'objectif principal du système est la composition dynamique de
-services web sémantiques disponibles dans un annuaire, en préservant
-\emph{au préalable} toutes les dépendances fonctionnelles qui existent
-entre eux dans une base de données graphe \emph{Neo4j} (approche
-\emph{Offline}). En effet, notre système va profiter de l'un des
-\acrshort{SGBD} graphe les plus évoluées et robustes aujourd'hui, ses
-principales caractéristiques sont: la haute disponibilité, un système
-transactionnel \acrshort{acid}, un langage de requête graphe
+services web sémantiques disponibles dans un annuaire donné, en
+préservant \emph{au préalable} toutes les dépendances fonctionnelles
+qui existent entre eux dans une base de données graphe \emph{Neo4j}
+(approche \emph{Offline}). En effet, notre système va profiter de l'un
+des \acrshort{SGBD} graphe les plus évoluées et robustes aujourd'hui,
+ses principales caractéristiques sont: la haute disponibilité, un
+système transactionnel \acrshort{acid}, un langage de requête graphe
 déclaratif, simple et efficace (\emph{Cypher}).\medskip
 
-Le système assurera les fonctionnalités suivantes: la composition des
-services, la découverte, l'exécution et la publication du service
-composite.
+Le système assurera la découverte, l'exécution et la publication d'un
+service Web (atomique ou composite) suite à une requête
+client:\medskip
 
+\renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
+\begin{description}
+\item [Découverte]: Le système reçoit une requête décrite par un
+  ensemble des paramètres d'\emph{entrée/sortie} annotés par des
+  concepts (classes) d'une ontologie du domaine, en plus du l'ensemble
+  des valeurs d'entrée. Le système va répondre par un présentation
+  d'un plan de composition constitué d'un ou plusieurs services Web
+  atomiques. Il convient de rappeler que le processus de composition
+  sera totalement \emph{automatique}, et son déroulement sera
+  \emph{transparent} pour le client du système.
+
+\item [Exécution]: Après la réception du plan proposé par le système
+  dans l'étape de découverte. Le client va analyser la structure du ce
+  plan, les services atomiques engagés (leurs descriptions et
+  fonctionnalités offertes) et le contrôle de flux. Ensuite il va
+  évaluer la correction et la pertinence du résultat. Enfin, le
+  service composite sera exécute (s'il a été approuvé).\medskip
+
+\item [Publication]: La dernière étape sera la construction d'un
+  document \acrshort{owls} de service composite et le publier. Cette
+  étape a pour but d'abstraire la structure de service composite sous
+  la forme d'un simple service Web.\medskip
+\end{description}
+\enddescription
+
+%% caractéristiques dy système à concevoir
+\newpage
 \subsubsection{Acteurs intervenants}
 \label{sec:ch3/presentation-actors}
 
@@ -197,7 +224,7 @@ composite.
 \label{sec:ch3/presentation-use-cases}
 
 \newpage
-\subsection{Architecture globale du système}
+\subsection{Architecture fonctionnelle du système}
 \label{sec:ch3/presentation-architecture}
 
 % Description des Fonctionnalités du Système
