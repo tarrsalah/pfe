@@ -173,6 +173,14 @@ sections~\ref{sec:ch3/graph} et~\ref{sec:ch3/composition}.\medskip
 \section{Présentation de la solution proposée}
 \label{sec:ch3/presentation}
 
+Dans cette section, nous allons présenter notre solution proposé pour
+concevoir un système de composition dynamique de services Web
+sémantiques. La première partie~\ref{sec:ch3/presentation-goals}
+introduire les objectifs et les fonctionnalités attendus du système,
+ainsi que ces caractéristiques fondamentales visées. La deuxième
+partie~\ref{sec:ch3/presentation-architecture} présente l'architecture
+fonctionnelle du système et ses principaux modules.
+
 \subsection{Objectifs et fonctionnalités attendus}
 \label{sec:ch3/presentation-goals}
 
@@ -186,9 +194,8 @@ ses principales caractéristiques sont: la haute disponibilité, un
 système transactionnel \acrshort{acid}, un langage de requête graphe
 déclaratif, simple et efficace (\emph{Cypher}).\medskip
 
-Le système assurera la découverte, l'exécution et la publication d'un
-service Web (atomique ou composite) suite à une requête
-client:\medskip
+Le système assurera la découverte et l'invocation d'un service Web
+composite suite à une requête client:\medskip
 
 \renewcommand{\descriptionlabel}[1]{\hspace{0.5cm}\textbullet~\textsf{#1}}
 \begin{description}
@@ -206,33 +213,33 @@ client:\medskip
   plan, les services atomiques engagés (leurs descriptions et
   fonctionnalités offertes) et le contrôle de flux. Ensuite il va
   évaluer la correction et la pertinence du résultat. Enfin, le
-  service composite sera exécute (s'il a été approuvé).\medskip
-
-\item [Publication]: La dernière étape sera la construction d'un
-  document \acrshort{owls} de service composite et le publier. Cette
-  étape a pour but d'abstraire la structure de service composite sous
-  la forme d'un simple service Web.\medskip
+  service composite sera invoqué (s'il a été approuvé).\medskip
 \end{description}
 \enddescription
 
-%% caractéristiques dy système à concevoir
-\newpage
-\subsubsection{Acteurs intervenants}
-\label{sec:ch3/presentation-actors}
+% \subsubsection{Acteurs intervenants}
+% \label{sec:ch3/presentation-actors}
 
-\subsubsection{Diagramme de cas d’utilisation}
-\label{sec:ch3/presentation-use-cases}
 
-\newpage
-\subsection{Architecture fonctionnelle du système}
+% \subsubsection{Diagramme de cas d’utilisation}
+% \label{sec:ch3/presentation-use-cases}
+
+\subsection{Architecture de composition proposée}
 \label{sec:ch3/presentation-architecture}
 
-% Description des Fonctionnalités du Système
 L'architecture générale proposée pour la conception et la mise en
 œuvre du notre système est illustrée dans la
 figure~\ref{fig:ch3/architecture}.
 
 \input{figs/ch3/architecture.tex}
+
+L'architecture du système est articulé auteur de trois modules
+principaux.
+\subsubsection{Partie \emph{Off-line} du système}
+\label{sec:presentation-architecture-online}
+
+\subsubsection{Partie \emph{On-line} du système}
+\label{sec:presentation-architecture-online}
 
 \newpage
 \section{Matchmaking sémantique de services Web}
