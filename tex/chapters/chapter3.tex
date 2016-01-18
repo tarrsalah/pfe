@@ -248,25 +248,43 @@ principaux.
 % Définition: Lien sémantique (ou dépendance fonctionnelle)%
 % Définition: Matching Quality of a Link
 
-Dans notre approche proposée, nous nous intéressons seulement à
-l'aspcet fonctionnel de services Web publiés où les descriptions
-sémantiques de paramètres d'\emph{entrée/sortie} sont exploitées pour
+Le problème de \emph{Matching} de composants logiciels consiste à
+retrouver un composant logiciel concret {\large $\mathpzc{C}$} étant
+donnée un composant logiciel abstrait {\large $\mathpzc{Q}$} dont le
+degrée de correspondance soit maximal. Dans le contexte de composition
+de services Web sémantiques, le composant concret sera le service
+composite requis, et conposant abstrait est la requête client de
+composition \cite{lecue2008composition}. Le \emph{Matching} sémantique
+de services Web consiste à comparer les descriptions sémantiques des
+services web avec celles des requêtes (services Web abstraits). Ces
+descriptions représentent généralement l'aspect fonctionnel de
+services (les paramètres d'\emph{entrée/sortie}, les pré-conditions et
+les post-conditions).\medskip
+
+Dans le but d'obtenir une composition automatisée et pertinente, il
+est essentiel de composer les services Web a l'aide de bonnes
+propriétés de \emph{Matching}. Dans notre approche proposée, nous nous
+intéressons seulement aux descriptions sémantiques de paramètres
+d'\emph{entrée/sortie}, ces derniers sont exploitées par la suite pour
 calculer le degré de correspondance entre la requête de composition
 {\large $\mathpzc{Q}$} et une solution candidate {\large
-  $\mathpzc{S_Q}$}.\medskip
+  $\mathpzc{S_Q}$} (service Web composite).\medskip
 
-Le but de cettte section est de définir trois fonctions primordiales
-pour le reste du chapitre {\large $\mathpzc{Sim_C}$, $\mathpzc{Sim_S}$
-  et $\mathpzc{Sim_L}$}. ses notations sont utilisées par Freddy Lécué
-dans ses travaux \cite{lecue2006formal, lecue2008composition,
-  lecue2009optimizing} sur la composition de services Web sémantiques.
+%% Expliquer le matching horizontal et vertical
+
+Le reste de cette section est consacré à définir ces fonctions de
+\emph{Matching} ({\large $\mathpzc{Sim_C}$, $\mathpzc{Sim_S}$ et
+$\mathpzc{Sim_L}$}). Ses notations sont utilisées par Freddy Lécué
+dans ses travaux \cite{lecue2006formal, lecue2008composition} sur la
+composition de services Web sémantiques.
+
 
 \newpage
 \subsection{Mesure de similarité sémantique entre deux concepts}
 \label{sec:matching-simc}
 
 Le but de cette section est de calculer {\large
-  $\mathpzc{Sim_C(C_1, C_2)}$}.
+  $\mathpzc{Sim_C(C_i, C_j)}$}.
 
 % Le but d'établir une similarités sémantique de concepts d'une
 % ontologie est de refléter exactement la notion de proximité entre ces
