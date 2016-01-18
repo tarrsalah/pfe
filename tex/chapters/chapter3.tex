@@ -131,13 +131,14 @@ Cette relation d'\emph{équivalence/inclusion} fonctionnelle entre les
 interfaces d'\emph{entrée/sortie} sera abordée en détaille dans la
 sections~\ref{sec:ch3/matching}.\medskip
 
+%% TODO: review the last words of the definitions
 \begin{mydef}[\textbf{Problème de composition}]
   Étant donné $\mathpzc{R}$ un annuaire des services Web et
   $\mathpzc{Q}$ une requête, Le problème de composition
   $\mathpzc{WCP=<R,Q>}$ consiste à trouver un plan optimal et
   exécutable de composition $\mathpzc{P}$ associé au service Web
-  composite $\mathpzc{S_Q}$ satisfaisant la requête
-  $\mathpzc{Q}$.\medskip
+  composite $\mathpzc{S_Q}$ satisfaisant la requête $\mathpzc{Q}$ le
+  mieux possible.\medskip
 \end{mydef}
 
 \input{figs/ch3/reformulation.tex}
@@ -213,6 +214,9 @@ composite suite à une requête client:\medskip
 \end{description}
 \enddescription
 
+\subsection{Principe du fonctionnement}
+\label{sec:ch3/presentation-main}
+
 % \subsubsection{Acteurs intervenants}
 % \label{sec:ch3/presentation-actors}
 
@@ -244,22 +248,51 @@ principaux.
 % Définition: Lien sémantique (ou dépendance fonctionnelle)%
 % Définition: Matching Quality of a Link
 
+Dans notre approche proposée, nous nous intéressons seulement à
+l'aspcet fonctionnel de services Web publiés où les descriptions
+sémantiques de paramètres d'\emph{entrée/sortie} sont exploitées pour
+calculer le degré de correspondance entre la requête de composition
+{\large $\mathpzc{Q}$} et une solution candidate {\large
+  $\mathpzc{S_Q}$}.\medskip
+
 Le but de cettte section est de définir trois fonctions primordiales
 pour le reste du chapitre {\large $\mathpzc{Sim_C}$, $\mathpzc{Sim_S}$
-  et $\mathpzc{Sim_L}$}.
+  et $\mathpzc{Sim_L}$}. ses notations sont utilisées par Freddy Lécué
+dans ses travaux \cite{lecue2006formal, lecue2008composition,
+  lecue2009optimizing} sur la composition de services Web sémantiques.
 
-\subsection{Mesure de similarité sémantique }
+\newpage
+\subsection{Mesure de similarité sémantique entre deux concepts}
 \label{sec:matching-simc}
 
-Le but d'établir une similarités sémantique de concepts d'une
-ontologie est de refléter exactement la notion de proximité entre ces
-concepts.
+Le but de cette section est de calculer {\large
+  $\mathpzc{Sim_C(C_1, C_2)}$}.
 
-\subsection{Calcul du degré de Match entre deux services Web}
+% Le but d'établir une similarités sémantique de concepts d'une
+% ontologie est de refléter exactement la notion de proximité entre ces
+% concepts.
+
+\newpage
+\subsection{Mesure de similarité sémantique entre deux services}
 \label{sec:matching-sims}
 
+Le but de cette section est de définir la formule {\large
+  $\mathpzc{Sim_S(Q,S)}$} qui désigne le \emph{Matching horizontal}
+entre un service abstrait requis (une requête $\mathpzc{Q}$) et un
+service publié ($\mathpzc{S}$). Cette mesure sera utilisée dans la
+section~\ref{sec:ch3/composition} pour sélectionner les services du
+départ et d'arrivée dans le processus de découverte de services Web
+composites. deux fonctions sera définies {\large
+  $\mathpzc{Sim_{S_{inputs}}(Q,S)}$} et {\large
+  $\mathpzc{Sim_{S_{outputs}}(Q,S)}$}.
+
+
+\newpage
 \subsection{Découverte de liens sémantiques de dépendance}
 \label{sec:matching-siml}
+
+Le but de cette section est de calculer {\large
+  $\mathpzc{Sim_L(S_i, S_j)}$}.
 
 \newpage
 \section{Construction du graphe de dépendance}
