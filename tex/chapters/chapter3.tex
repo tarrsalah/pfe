@@ -242,21 +242,20 @@ principaux.
 \section{Matching sémantique de services Web}
 \label{sec:ch3/matching}
 
-% Définition: Lien sémantique (ou dépendance fonctionnelle)%
-% Définition: Matching Quality of a Link
-
 Le problème de \emph{Matching} de composants logiciels consiste à
-retrouver un composant logiciel concret {\large $\mathpzc{C}$} étant
-donnée un composant logiciel abstrait {\large $\mathpzc{Q}$} dont le
-degrée de correspondance soit maximal. Dans le contexte de composition
-de services Web sémantiques, le composant concret sera le service
-composite requis, et conposant abstrait est la requête client de
-composition \cite{lecue2008composition}. Le \emph{Matching} sémantique
-de services Web consiste à comparer les descriptions sémantiques des
-services web avec celles des requêtes (services Web abstraits). Ces
-descriptions représentent généralement l'aspect fonctionnel de
-services (les paramètres d'\emph{entrée/sortie}, les pré-conditions et
-les post-conditions).\medskip
+retrouver un composant logiciel concret étant donnée un composant
+logiciel abstrait dont le dégrée de correspondance soit
+maximal~\cite{lecue2008composition}. Dans le contexte de composition
+de services Web, ces composants (le concret et l'abstrait) sont
+représentés respectivement par le service composite requis {\large
+  $\mathpzc{S_Q}$} et la requête de composition {\large
+  $\mathpzc{Q}$}. Le \emph{Matching} sémantique de services Web
+consiste à comparer les descriptions sémantiques des services Web avec
+celles des requêtes (services
+abstraits)~\cite{paolucci2002semantic}. Ces descriptions représentent
+généralement l'aspect fonctionnel de services (les paramètres
+d'\emph{entrée/sortie}, les \emph{pré-conditions} et les
+\emph{post-conditions}).\medskip
 
 Dans le but d'obtenir une composition automatisée et pertinente, il
 est essentiel de composer les services Web a l'aide de bonnes
@@ -267,20 +266,40 @@ calculer le degré de correspondance entre la requête de composition
 {\large $\mathpzc{Q}$} et une solution candidate {\large
   $\mathpzc{S_Q}$} (service Web composite).\medskip
 
-%% Expliquer le matching horizontal et vertical
+Dans l'approche proposé dans ce chapitre, le principe du
+\emph{Matching} est appliqué dans deux contextes différents:\medskip
 
-% Ses notations sont utilisées par Freddy Lécué dans ses travaux
-% \cite{lecue2006formal, lecue2008composition} sur la composition de
-% services Web sémantiques.
+\begin{description}
+\item [La construction du graphe de dépendance]: Dans cette phase de
+  composition, le \emph{Maching} sémantique est utilisé pour vérifier
+  si deux services donnés peuvent être enchaînés, on parle dans ce cas
+  là du \emph{``Matching vertical''}~\cite{temglit2012graph}. Ce degré
+  de \emph{Matching} qui décrit la \emph{composabilité} entre deux
+  service sert à évaluer la qualité des liens sémantiques impliqués
+  lors de la construction du graphe $\mathpzc{DG}$, cette mesure de
+  similarité sera décrite par la fonction {\large
+    $\mathpzc{Sim_L}$}.\medskip
 
-Le reste de cette section est consacré à décrir et définir
-formellement ces trois fonctions de \emph{Matching} ({\large
+\item [Découverte de services Web composites]: Dans cette étape, Le
+  \emph{Matching} sémantique est utilisé pour vérifier si deux
+  services sont fonctionnellement similaires, dans ce cas on parle
+  \emph{Matching horizontal}~\cite{temglit2012graph}. Pour calculer
+  cette mesure de similarité sémantique, une autre fonction {\large
+    $\mathpzc{Sim_S}$} du \emph{Matching} sera introduite par la
+  suite.\medskip
+\end{description}
+
+Afin de définir les deux fonctions du \emph{Matching}, Nous aurons
+besoin de d'une troisième fonction {\large $\mathpzc{Sim_C}$}, qui
+sert à calculer la mesure de similarité sémantique entre deux concepts
+dans une ontologie du domaine.\medskip
+
+Le reste de cette section est consacré à définir ces trois fonctions
+de \emph{Matching} ({\large
   $\mathpzc{Sim_C}$}~(\ref{sec:matching-simc}) , {\large
   $\mathpzc{Sim_S}$}~(\ref{sec:matching-sims}) et {\large
   $\mathpzc{Sim_L}$}~(\ref{sec:matching-siml})).
 
-
-\newpage
 \subsection{Mesure de similarité sémantique entre deux concepts}
 \label{sec:matching-simc}
 
