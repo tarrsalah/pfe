@@ -275,22 +275,22 @@ Dans l'approche proposé dans ce chapitre, le principe du
   si deux services donnés peuvent être enchaînés, on parle dans ce cas
   là du \emph{``Matching vertical''}~\cite{temglit2012graph}. Ce degré
   de \emph{Matching} qui décrit la \emph{composabilité} entre deux
-  service sert à évaluer la qualité des liens sémantiques impliqués
-  lors de la construction du graphe $\mathpzc{DG}$, cette mesure de
-  similarité sera décrite par la fonction {\large
-    $\mathpzc{Sim_L}$}.\medskip
+  service sert à découvrir et évaluer la qualité des liens sémantiques
+  impliqués lors de la construction du graphe de dépendance
+  $\mathpzc{DG}$. Cette mesure de similarité sera décrite par la
+  fonction {\large $\mathpzc{Sim_L}$}.\
 
-\item [Découverte de services Web composites]: Dans cette étape, Le
-  \emph{Matching} sémantique est utilisé pour vérifier si deux
-  services sont fonctionnellement similaires, dans ce cas on parle
-  \emph{Matching horizontal}~\cite{temglit2012graph}. Pour calculer
-  cette mesure de similarité sémantique, une autre fonction {\large
-    $\mathpzc{Sim_S}$} du \emph{Matching} sera introduite par la
+\item [La sélection de services Web du départ et d'arrivée]: Dans
+  cette étape, Le \emph{Matching} sémantique est utilisé pour vérifier
+  si deux services sont fonctionnellement similaires, dans ce cas on
+  parle \emph{Matching horizontal}~\cite{temglit2012graph}. Pour
+  calculer cette mesure de similarité sémantique, une autre fonction
+  {\large $\mathpzc{Sim_S}$} du \emph{Matching} sera introduite par la
   suite.\medskip
 \end{description}
 
-Afin de définir les deux fonctions du \emph{Matching}, Nous aurons
-besoin de d'une troisième fonction {\large $\mathpzc{Sim_C}$}, qui
+Afin de définir les fonctions du \emph{Matching} ces-dessus, nous
+aurons besoin d'une troisième fonction {\large $\mathpzc{Sim_C}$}, qui
 sert à calculer la mesure de similarité sémantique entre deux concepts
 dans une ontologie du domaine.\medskip
 
@@ -303,12 +303,53 @@ de \emph{Matching} ({\large
 \subsection{Mesure de similarité sémantique entre deux concepts}
 \label{sec:matching-simc}
 
-Le but de cette section est de calculer {\large
-  $\mathpzc{Sim_C(C_i, C_j)}$}.
+Une ontologie permet de décrire sémantiquement les concepts d'un
+domaine donné ainsi que leurs différentes propriétés (Plusieurs
+définitions d'ontologies sont présentées dans
+l'annexe~\ref{sec:semantic-web-owl-ontolgies}). Ces concepts sont
+reliés entre eux à travers des relations sémantiques donnant lieu à
+une structure hiérarchique d'ontologie.\medskip
 
-% Le but d'établir une similarités sémantique de concepts d'une
-% ontologie est de refléter exactement la notion de proximité entre ces
-% concepts.
+Le but d'établir une similarités sémantique de concepts d'une
+ontologie est de refléter exactement la notion de proximité entre ces
+concepts.\medskip
+
+% Définit la fonction Sim_C comme une métrique entre [0, 1]
+
+Les degrés de correspondance sémantique entre deux concepts
+$\mathpzc{C_i}$ et $\mathpzc{C_j}$ sont généralement classés dans la
+littérature en quatre catégories~\cite{paolucci2002semantic}:\medskip
+
+\begin{description}
+\item[Exact]: La similitude entre deux concepts $\mathpzc{C_i}$ et
+  $\mathpzc{C_j}$ est considérée comme une correspondance
+  \emph{``Exact''} si les deux concepts $\mathpzc{C_i}$ et
+  $\mathpzc{C_j}$ sont équivalents. Nous adoptons la notation: {\large
+    $\mathpzc{C_i \equiv C_j}$}.\medskip
+
+\item[Plugin]: La similitude entre deux concepts et $\mathpzc{C_j}$
+  est considérée comme une correspondance de type \emph{``Plugin''} si
+  le concept $\mathpzc{C_i}$ est une sous-classe du concept
+  $\mathpzc{C_j}$. Nous écrivons {\large
+    $\mathpzc{C_i \sqsubseteq C_j}$}.\medskip
+
+\item[Subsume]: La similitude entre deux concepts $\mathpzc{C_i}$ et
+  $\mathpzc{C_j}$ est considérée comme une correspondance de type
+  \emph{``Subsume''} si le concept $\mathpzc{C_i}$ est une
+  super-classe du concept $\mathpzc{C_i}$. Dans ce cas, nous écrivons
+  {\large $\mathpzc{C_i \sqsupseteq C_j}$}.\medskip
+
+\item[Disjoint]: La similitude entre deux concepts $\mathpzc{C_i}$ et
+  $\mathpzc{C_j}$ est considérée comme une correspondance
+  \emph{``Disjoint''} s'ils n'entretiennent aucune relation
+  d'équivalence ou de parenté sémantique. Cette relation de
+  disjonction entre deux concepts et notée par {\large
+    $\mathpzc{C_i \perp C_j}$}.\medskip
+\end{description}
+
+% Le but de cette section est de calculer {\large
+% $\mathpzc{Sim_C(C_i, C_j)}$}.
+
 
 \newpage
 \subsection{Mesure de similarité sémantique entre deux services}
