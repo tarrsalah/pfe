@@ -264,10 +264,12 @@ intéressons seulement aux descriptions sémantiques de paramètres
 d'\emph{entrée/sortie}, ces derniers sont exploitées par la suite pour
 calculer le degré de correspondance entre la requête de composition
 {\large $\mathpzc{Q}$} et une solution candidate {\large
-  $\mathpzc{S_Q}$} (service Web composite).\medskip
+  $\mathpzc{S_Q}$} (service Web composite). Dans l'approche proposé
+dans ce chapitre, le principe du \emph{Matching} est appliqué dans
+deux contextes différents comme il est illustré dans
+figure~\ref{fig:ch3/matchmaker}:
 
-Dans l'approche proposé dans ce chapitre, le principe du
-\emph{Matching} est appliqué dans deux contextes différents:\medskip
+\input{figs/ch3/matchmaker.tex}
 
 \begin{description}
 \item [La construction du graphe de dépendance]: Dans cette phase de
@@ -300,19 +302,16 @@ de \emph{Matching} ({\large
   $\mathpzc{Sim_S}$}~(\ref{sec:matching-sims}) et {\large
   $\mathpzc{Sim_L}$}~(\ref{sec:matching-siml})).
 
+\newpage
 \subsection{Mesure de similarité sémantique entre deux concepts}
 \label{sec:matching-simc}
 
 Une ontologie permet de décrire sémantiquement les concepts d'un
-domaine donné ainsi que leurs différentes propriétés (Plusieurs
-définitions d'ontologies sont présentées dans
-l'annexe~\ref{sec:semantic-web-owl-ontolgies}). Ces concepts sont
-reliés entre eux à travers des relations sémantiques donnant lieu à
-une structure hiérarchique d'ontologie.\medskip
-
-Le but d'établir une similarités sémantique de concepts d'une
-ontologie est de refléter exactement la notion de proximité entre ces
-concepts.\medskip
+domaine donné ainsi que leurs différentes propriétés. Ces concepts
+sont reliés entre eux à travers des relations sémantiques donnant lieu
+à une structure hiérarchique d'ontologie. Le but d'établir une
+similarités sémantique de concepts d'une ontologie est de refléter
+exactement la notion de proximité entre ces concepts.\medskip
 
 % Définit la fonction Sim_C comme une métrique entre [0, 1]
 
@@ -347,11 +346,29 @@ littérature en quatre catégories~\cite{paolucci2002semantic}:\medskip
     $\mathpzc{C_i \perp C_j}$}.\medskip
 \end{description}
 
+
+Li \emph{et al.}~\cite{li2004software} ajoute un cinquième degré de
+\emph{Match} en relaxant les contraintes de parenté sémantique
+introduites par~\cite{paolucci2002semantic}. Cette approche consiste à
+valoriser la \emph{Match} de type \emph{``Intersection''}:
+
+\begin{description}
+\item[Intersection]: La similitude entre deux concepts $\mathpzc{C_i}$
+  et $\mathpzc{C_j}$ est considérée comme une correspondance
+  \emph{``Intersection''} s'ils n'entretiennent aucune relation
+  d'équivalence ou de parenté sémantique, mais ils ont des ascendants
+  communs. Cette relation d'intersection entre deux concepts et notée
+  par {\large $\mathpzc{C_i \sqcap C_j}$}.\medskip
+\end{description}
+
+Même si cette dernière catégorie de \emph{Match} est utilisé souvent
+dans le contexte d'une découverte de services Web, elle peut également
+être adopté afin d'élargir le champ de résultats possibles lors du
+processus de composition.
+
 % Le but de cette section est de calculer {\large
 % $\mathpzc{Sim_C(C_i, C_j)}$}.
 
-
-\newpage
 \subsection{Mesure de similarité sémantique entre deux services}
 \label{sec:matching-sims}
 
