@@ -264,9 +264,10 @@ intéressons seulement aux descriptions sémantiques de paramètres
 d'\emph{entrée/sortie}, ces derniers sont exploitées par la suite pour
 calculer le degré de correspondance entre la requête de composition
 {\large $\mathpzc{Q}$} et une solution candidate {\large
-  $\mathpzc{S_Q}$} (service Web composite). Dans l'approche proposé
-dans ce chapitre, le principe du \emph{Matching} est appliqué dans
-deux contextes différents comme il est illustré dans
+  $\mathpzc{S_Q}$} (service Web composite).\medskip
+
+Dans la suite de ce chapitre, le principe du \emph{Matching} est
+appliqué dans deux contextes différents comme il est illustré dans
 figure~\ref{fig:ch3/matchmaker}:
 
 \input{figs/ch3/matchmaker.tex}
@@ -291,18 +292,49 @@ figure~\ref{fig:ch3/matchmaker}:
   suite.\medskip
 \end{description}
 
-Afin de définir les fonctions du \emph{Matching} ces-dessus, nous
-aurons besoin d'une troisième fonction {\large $\mathpzc{Sim_C}$}, qui
-sert à calculer la mesure de similarité sémantique entre deux concepts
-dans une ontologie du domaine.\medskip
 
-Le reste de cette section est consacré à définir ces trois fonctions
-de \emph{Matching} ({\large
+Paolucci \emph{el al.} \cite{paolucci2002semantic} présentent une
+approche du \emph{Matching} sémantique entre des services décrits par
+\acrshort{daml-s} (\acrshort{owls}). L'approche consiste à comparer
+les paramètres de sortie d'un service requis {\large $\mathpzc{Q}$}
+avec ceux du service publié {\large $\mathpzc{S}$}. Le calcul de
+\emph{Matching} est basé sur la distance minimale entre les concepts
+dans la taxonomie de l'ontologie, les auteurs distinguent quatre
+niveaux du \emph{Match}:
+
+\begin{description}
+\item [Exact:] Les paramètres du service {\large $\mathpzc{S}$} sont
+  équivalents à ceux du {\large $\mathpzc{Q}$}.
+
+\item [Plugin:] Les paramètres {\large $\mathpzc{S}$} sont plus
+  générales que du {\large $\mathpzc{Q}$}.
+
+\item [Subsume:] Les paramètres {\large $\mathpzc{S}$} sont plus
+  spécifiques que du {\large $\mathpzc{Q}$}.
+
+\item [Fail:] Aucun lien de subsomption entre les deux.
+\end{description}
+
+Ces degrés du \emph{Match} sont mesurés selon une échelle discrète. Le
+\emph{Matching} \emph{``Exact''} est le meilleur parmi les autres, il
+indique une correspondance maximale entre ces deux
+services. \emph{``Plugin''} est le prochain meilleur niveau puisque
+les sorties retournée par {\large $\mathpzc{S}$} peut probablement
+être utilisées à la place de ce que du {\large
+  $\mathpzc{Q}$}. \emph{``Subsume''} est le troisième meilleur niveau
+du fait que les exigences du {\large $\mathpzc{Q}$} sont partiellement
+satisfaites par {\large $\mathpzc{S}$}. \emph{``Fail''} est le niveau
+le plus bas et il indique une résultat inacceptable (c'est à dire:
+\textsf{Exact > Plugin > Subsume > Fail}).\medskip
+
+Le reste de cette section est consacré à définir les fonctions
+principales de \emph{Matching} ({\large
   $\mathpzc{Sim_C}$}~(\ref{sec:matching-simc}) , {\large
   $\mathpzc{Sim_S}$}~(\ref{sec:matching-sims}) et {\large
-  $\mathpzc{Sim_L}$}~(\ref{sec:matching-siml})).
+  $\mathpzc{Sim_L}$}~(\ref{sec:matching-siml})) fondées sur les
+travaux de \cite{paolucci2003using, li2004software} autour de
+similarité sémantique utilisant las relations de subsomption.
 
-\newpage
 \subsection{Mesure de similarité sémantique entre deux concepts}
 \label{sec:matching-simc}
 
@@ -383,14 +415,12 @@ composites. deux fonctions sera définies {\large
   $\mathpzc{Sim_{S_{outputs}}(Q,S)}$}.
 
 
-\newpage
 \subsection{Découverte de liens sémantiques de dépendance}
 \label{sec:matching-siml}
 
 Le but de cette section est de calculer {\large
   $\mathpzc{Sim_L(S_i, S_j)}$}.
 
-\newpage
 \section{Construction du graphe de dépendance}
 \label{sec:ch3/graph}
 
