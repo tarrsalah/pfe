@@ -286,9 +286,10 @@ figure~\ref{fig:ch3/matchmaker}:
 \item [La sélection de services Web du départ et d'arrivée]: Dans
   cette étape, Le \emph{Matching} sémantique est utilisé pour vérifier
   si deux services sont fonctionnellement similaires, dans ce cas on
-  parle de \emph{Matching horizontal}~\cite{temglit2012graph}. Pour
-  calculer cette mesure de similarité sémantique, une autre fonction
-  {\large $\mathpzc{Sim_S}$} de \emph{Matching} sera introduite par la
+  parle de \emph{``Matching
+    horizontal''}~\cite{temglit2012graph}. Pour calculer cette mesure
+  de similarité sémantique, une autre fonction {\large
+    $\mathpzc{Sim_S}$} de \emph{Matching} sera introduite par la
   suite.\medskip
 \end{description}
 
@@ -296,35 +297,35 @@ Paolucci \emph{el al.} \cite{paolucci2002semantic} présentent une
 approche de \emph{Matching} sémantique entre des services décrits par
 \acrshort{daml-s} (\acrshort{owls}). L'approche consiste à comparer
 les paramètres de sortie d'un service requis {\large $\mathpzc{Q}$}
-avec ceux du service publié {\large $\mathpzc{S}$}, le calcul de
+avec ceux du service offert {\large $\mathpzc{S}$}, le calcul de
 similarité est basé sur la distance minimale entre les concepts dans
 la taxonomie de l'ontologie, les auteurs distinguent quatre niveaux du
-\emph{Match}:
+\emph{Match}:\medskip
 
 \begin{description}
 \item [Exact:] Les paramètres du service {\large $\mathpzc{S}$} sont
   équivalents à ceux du {\large $\mathpzc{Q}$}.
 
-\item [Plugin:] Les paramètres {\large $\mathpzc{S}$} sont plus
+\item [Plugin:] Les paramètres du {\large $\mathpzc{S}$} sont plus
   générales que du {\large $\mathpzc{Q}$}.
 
-\item [Subsume:] Les paramètres {\large $\mathpzc{S}$} sont plus
+\item [Subsume:] Les paramètres du {\large $\mathpzc{S}$} sont plus
   spécifiques que du {\large $\mathpzc{Q}$}.
 
-\item [Fail:] Aucun lien de subsomption entre les deux.
+\item [Fail:] Aucun lien de subsomption entre les deux.\medskip
 \end{description}
 
-Ces degrés du \emph{Match} sont mesurés selon une échelle discrète. Le
+Ces degrés de \emph{Match} sont mesurés selon une échelle discrète. Le
 \emph{Matching} \emph{``Exact''} est le meilleur parmi les autres, il
-indique une correspondance maximale entre ces deux
-services. \emph{``Plugin''} est le prochain meilleur niveau puisque
-les sorties retournée par {\large $\mathpzc{S}$} peut probablement
-être utilisées à la place de ce que du {\large
-  $\mathpzc{Q}$}. \emph{``Subsume''} est le troisième meilleur niveau
-du fait que les exigences du {\large $\mathpzc{Q}$} sont partiellement
-satisfaites par {\large $\mathpzc{S}$}. \emph{``Fail''} est le niveau
-le plus bas et il indique une résultat inacceptable (c'est à dire:
-\textsf{Exact > Plugin > Subsume > Fail}).\medskip
+indique une correspondance maximale entre ces deux services. Le
+\emph{``Plugin''} \emph{Match} est le second meilleur niveau puisque
+les sorties retournée par {\large $\mathpzc{S}$} englobent ceux de
+{\large $\mathpzc{Q}$}. Le troisième meilleur niveau est le
+\emph{``Subsume''} \emph{Match}, dans ce cas le service offert {\large
+  $\mathpzc{S}$} répond partiellement au besoin recherchée {\large
+  $\mathpzc{Q}$}. \emph{``Fail''} est le niveau le plus bas et il
+indique une résultat inacceptable. En effet, nous aurons \textsf{Exact
+  > Plugin > Subsume > Fail}.\medskip
 
 Le reste de cette section est consacré à définir les fonctions
 principales de \emph{Matching} ({\large
@@ -332,17 +333,17 @@ principales de \emph{Matching} ({\large
   $\mathpzc{Sim_S}$}~(\ref{sec:matching-sims}) et {\large
   $\mathpzc{Sim_L}$}~(\ref{sec:matching-siml})) fondées sur les
 travaux de \cite{paolucci2003using, li2004software} autour de
-similarité sémantique utilisant las relations de subsomption.
+similarité sémantique utilisant las relations de subsomption.\medskip
 
 \subsection{Mesure de similarité sémantique entre deux concepts}
 \label{sec:matching-simc}
 
 Une ontologie permet de décrire sémantiquement les concepts d'un
-domaine donné ainsi que leurs différentes propriétés. Ces concepts
+domaine donné ainsi que leurs différentes propriétés, ces concepts
 sont reliés entre eux à travers des relations sémantiques donnant lieu
-à une structure hiérarchique d'ontologie. Le but d'établir une
-similarités sémantique de concepts d'une ontologie est de refléter
-exactement la notion de proximité entre ces concepts.\medskip
+à une structure hiérarchique. Le but d'établir une similarités
+sémantique de concepts d'une ontologie est de refléter exactement la
+notion de proximité entre ces concepts.\medskip
 
 % Définit la fonction Sim_C comme une métrique entre [0, 1]
 
